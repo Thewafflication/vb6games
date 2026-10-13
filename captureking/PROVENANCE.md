@@ -28,4 +28,14 @@ replacements for those two controls.
 ## Use by WFC
 
 WFC's acceptance tests load `CaptureKing.vbp` and capture screenshots of its
-forms. The program is never modified; gaps found in it are fixed in WFC.
+forms. Gaps found in the program are fixed in WFC, not in the program.
+
+## Modification
+
+One change was made at the maintainer's request, to the layout properties of
+`CaptureKing.frm` only (commit after `c0434f0`; the unmodified source is commit
+`10282de`): the developer buttons and hover-image holders that the author left
+visible on the game form are hidden (the picture buttons call their handlers),
+Surrender joins the row of buttons under the board, and the status line moves
+below it, so the form looks like the screenshots in the user guide. No code
+was changed.

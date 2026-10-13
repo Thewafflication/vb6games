@@ -25,6 +25,7 @@ Begin VB.Form frmGame
       TabIndex        =   81
       Top             =   4965
       Width           =   1800
+      Visible         =   0   'False
    End
    Begin VB.PictureBox picInvalidMoveOut 
       BorderStyle     =   0  'None
@@ -36,6 +37,7 @@ Begin VB.Form frmGame
       TabIndex        =   80
       Top             =   4800
       Width           =   1800
+      Visible         =   0   'False
    End
    Begin VB.PictureBox picInvalidMove 
       BorderStyle     =   0  'None
@@ -58,6 +60,7 @@ Begin VB.Form frmGame
       Top             =   3255
       Visible         =   0   'False
       Width           =   1845
+      Visible         =   0   'False
    End
    Begin VB.PictureBox picCheckMateOut 
       Height          =   660
@@ -69,6 +72,7 @@ Begin VB.Form frmGame
       Top             =   3465
       Visible         =   0   'False
       Width           =   1440
+      Visible         =   0   'False
    End
    Begin VB.PictureBox picCheckMate 
       BorderStyle     =   0  'None
@@ -92,6 +96,7 @@ Begin VB.Form frmGame
       Top             =   6000
       Visible         =   0   'False
       Width           =   1800
+      Visible         =   0   'False
    End
    Begin VB.PictureBox picCmdCheckOVER 
       BorderStyle     =   0  'None
@@ -118,6 +123,7 @@ Begin VB.Form frmGame
       Top             =   5715
       Visible         =   0   'False
       Width           =   1800
+      Visible         =   0   'False
    End
    Begin VB.PictureBox picSendMess 
       Appearance      =   0  'Flat
@@ -144,6 +150,7 @@ Begin VB.Form frmGame
       Top             =   3315
       Visible         =   0   'False
       Width           =   720
+      Visible         =   0   'False
    End
    Begin VB.PictureBox picCMDOUT 
       Appearance      =   0  'Flat
@@ -160,6 +167,7 @@ Begin VB.Form frmGame
       Top             =   3465
       Visible         =   0   'False
       Width           =   1005
+      Visible         =   0   'False
    End
    Begin VB.TextBox txtMessageOut 
       BorderStyle     =   0  'None
@@ -480,6 +488,7 @@ Begin VB.Form frmGame
       TabIndex        =   46
       Top             =   2760
       Width           =   735
+      Visible         =   0   'False
    End
    Begin VB.CommandButton cmdSend 
       Caption         =   "&Send"
@@ -488,6 +497,7 @@ Begin VB.Form frmGame
       TabIndex        =   45
       Top             =   2775
       Width           =   975
+      Visible         =   0   'False
    End
    Begin VB.PictureBox picboard 
       BorderStyle     =   0  'None
@@ -502,11 +512,11 @@ Begin VB.Form frmGame
    End
    Begin VB.CommandButton cmdSurrender 
       Caption         =   "Surrender"
-      Height          =   495
-      Left            =   10080
+      Height          =   615
+      Left            =   6645
       TabIndex        =   40
-      Top             =   2505
-      Width           =   975
+      Top             =   5280
+      Width           =   1800
    End
    Begin VB.CommandButton cmdCallCheat 
       Caption         =   "Call Invalid Move"
@@ -515,6 +525,7 @@ Begin VB.Form frmGame
       TabIndex        =   39
       Top             =   4275
       Width           =   975
+      Visible         =   0   'False
    End
    Begin VB.CommandButton cmdCallCheckMate 
       Caption         =   "Call Check Mate"
@@ -523,6 +534,7 @@ Begin VB.Form frmGame
       TabIndex        =   38
       Top             =   4275
       Width           =   1095
+      Visible         =   0   'False
    End
    Begin VB.CommandButton cmdCallCheck 
       Caption         =   "Call Check"
@@ -531,6 +543,7 @@ Begin VB.Form frmGame
       TabIndex        =   37
       Top             =   4275
       Width           =   735
+      Visible         =   0   'False
    End
    Begin VB.PictureBox picTAKEN 
       BackColor       =   &H00C0C0C0&
@@ -1049,11 +1062,12 @@ Begin VB.Form frmGame
    End
    Begin VB.Label lblInfo 
       BackStyle       =   0  'Transparent
-      Height          =   495
-      Left            =   2415
+      Height          =   255
+      Left            =   120
       TabIndex        =   41
-      Top             =   -360
-      Width           =   3735
+      Top             =   6000
+      Width           =   6000
+      ForeColor       =   &H00FFFFFF&
    End
    Begin VB.Menu mnuFile 
       Caption         =   "&File"
