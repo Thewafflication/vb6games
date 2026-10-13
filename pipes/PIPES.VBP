@@ -1,0 +1,6 @@
+Type=Exe
+Form=FORM1.FRM
+Form=LOGO.FRM
+Module=Module1; MODULE1.BAS
+Startup="Logo"
+Name="Pipes"

@@ -1,0 +1,30 @@
+MODULE1.BAS types for pipes
+PIPES.BMP   opening bitmap
+FORM1.FRM   main form
+FORM1.FRX     "   "
+LOGO.FRM    opening form
+LOGO.FRX       "     "
+LEFT.ICO    arrow for in and out
+PIPE0.ICO   main pipe icon
+PIPE1.ICO   main pipe icon
+PIPE10.ICO  main pipe icon
+PIPE11.ICO  main pipe icon
+PIPE12.ICO  main pipe icon
+PIPE13.ICO  main pipe icon
+PIPE14.ICO  main pipe icon
+PIPE15.ICO  main pipe icon
+PIPE16.ICO  main pipe icon
+PIPE17.ICO  main pipe icon
+PIPE18.ICO  main pipe icon
+PIPE19.ICO  main pipe icon
+PIPE2.ICO   main pipe icon
+PIPE3.ICO   main pipe icon
+PIPE4.ICO   main pipe icon
+PIPE5.ICO   main pipe icon
+PIPE6.ICO   main pipe icon
+PIPE7.ICO   main pipe icon
+PIPE8.ICO   main pipe icon
+PIPE9.ICO   main pipe icon
+WATER.ICO   icon used for game
+PIPES.VBP   project file
+PIPES.VBW   project file
