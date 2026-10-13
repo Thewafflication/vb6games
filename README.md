@@ -14,6 +14,7 @@ author, not by this repository.** Compiled binaries and archive junk
 | Directory | Game | License |
 | --- | --- | --- |
 | `captureking/` | Capture King, a network chess game by Christopher McKirgan | GPL (see its `PROVENANCE.md`) |
+| `connect4/` | Connect 4 with undo and redo by OlimilO1402 | GPL-3.0 |
 | `clix/` | Clix, a Jawbreaker-style puzzle by Mili Hunjic | MIT |
 | `executioner/` | Executioner, a Hangman game (1999) | GPL-3.0 |
 | `pipes/` | Pipes, a pipe-connecting puzzle by Kym and Jonathan Wilson | GPL-3.0 |
