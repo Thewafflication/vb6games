@@ -454,6 +454,9 @@ Private Sub Form_Load()
     ' included, is set from the translation table.
     Caption = Loc("app.title")
     Label1.Caption = Loc("help.text")
+    ThemeApply Me
+    Label1.Font.Size = ThFontSize
+    Label1.Move 240, 4000, 4725, 900
 End Sub
 
 Private Sub imgGoti_DragDrop(Index As Integer, Source As Control, X As Single, Y As Single)

@@ -234,6 +234,7 @@ Begin VB.Form frmMain
       End
    End
    Begin VB.CommandButton Command2 
+      Style           =   1  'Graphical
       Caption         =   "info"
       Height          =   495
       Left            =   240
@@ -248,6 +249,7 @@ Begin VB.Form frmMain
       Top             =   3360
    End
    Begin VB.CommandButton Command1 
+      Style           =   1  'Graphical
       Caption         =   "cheat"
       Height          =   735
       Left            =   240
@@ -256,7 +258,62 @@ Begin VB.Form frmMain
       Top             =   8040
       Width           =   615
    End
+   Begin VB.CommandButton cmdMode 
+      Style           =   1  'Graphical
+      Caption         =   "cmdMode"
+      Height          =   735
+      Left            =   12360
+      TabIndex        =   60
+      Top             =   2900
+      Width           =   2535
+   End
+   Begin VB.CommandButton cmdOrient 
+      Style           =   1  'Graphical
+      Caption         =   "cmdOrient"
+      Height          =   735
+      Left            =   12360
+      TabIndex        =   61
+      Top             =   3800
+      Width           =   2535
+   End
+   Begin VB.CommandButton cmdGrid 
+      Style           =   1  'Graphical
+      Caption         =   "cmdGrid"
+      Height          =   735
+      Left            =   12360
+      TabIndex        =   62
+      Top             =   4700
+      Width           =   2535
+   End
+   Begin VB.CommandButton cmdJockerOpt 
+      Style           =   1  'Graphical
+      Caption         =   "cmdJockerOpt"
+      Height          =   735
+      Left            =   12360
+      TabIndex        =   63
+      Top             =   5600
+      Width           =   2535
+   End
+   Begin VB.CommandButton cmdInfoBall 
+      Style           =   1  'Graphical
+      Caption         =   "cmdInfoBall"
+      Height          =   735
+      Left            =   12360
+      TabIndex        =   64
+      Top             =   6500
+      Width           =   2535
+   End
+   Begin VB.CommandButton cmdJockerBall 
+      Style           =   1  'Graphical
+      Caption         =   "cmdJockerBall"
+      Height          =   735
+      Left            =   12360
+      TabIndex        =   65
+      Top             =   7400
+      Width           =   2535
+   End
    Begin VB.CommandButton cmdUndo 
+      Style           =   1  'Graphical
       Caption         =   "<-- UNDO (zadnji potez)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -274,6 +331,7 @@ Begin VB.Form frmMain
       Width           =   7935
    End
    Begin VB.CommandButton cmdNew 
+      Style           =   1  'Graphical
       Caption         =   "NEW"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -1318,10 +1376,60 @@ Private Sub ApplyLocale()
     mnuInfoBall.Caption = Loc("menu.options.infoBall")
     mnuJocker.Caption = Loc("menu.jocker")
     mnuJockerBall.Caption = Loc("menu.jockerBall")
+    UpdateTouchButtons
+End Sub
+
+' Touch replacements for the menu bar: each button does what its menu item does.
+Private Sub UpdateTouchButtons()
+    cmdMode.Caption = Loc("menu.gameMode") & ": " & Loc("mode." & GAME_MODE_SELECTED_NEW)
+    cmdOrient.Caption = Loc("menu.orientation") & ": " & Loc("orient." & ORIENTATION)
+    cmdGrid.Caption = Replace(Loc("menu.options.grid"), "&1. ", "")
+    cmdJockerOpt.Caption = Replace(Loc("menu.options.jocker"), "&2. ", "")
+    cmdInfoBall.Caption = Replace(Loc("menu.options.infoBall"), "&3. ", "")
+    cmdJockerBall.Caption = Loc("menu.jockerBall")
+    cmdJockerBall.Visible = mnuJocker.Visible
+End Sub
+
+Private Sub cmdMode_Click()
+    mnuGameModeSelect_Click (GAME_MODE_SELECTED_NEW Mod 4) + 1
+    UpdateTouchButtons
+End Sub
+
+Private Sub cmdOrient_Click()
+    mnuOrientationSelect_Click (ORIENTATION Mod 4) + 1
+    UpdateTouchButtons
+End Sub
+
+Private Sub cmdGrid_Click()
+    mnuOptionsGrid_Click
+End Sub
+
+Private Sub cmdJockerOpt_Click()
+    mnuOptionsJocker_Click
+End Sub
+
+Private Sub cmdInfoBall_Click()
+    mnuInfoBall_Click
+End Sub
+
+Private Sub cmdJockerBall_Click()
+    mnuJockerBall_Click
+    UpdateTouchButtons
 End Sub
 
 Private Sub Form_Load()
     ApplyLocale
+    lblKugla(0).Tag = "keep"
+    ThemeApply Me
+    lblJockerHint.Font.Size = 8
+    lblGameMode.Font.Size = 9
+    lblOrientation.Font.Size = 9
+    lblJocker.Font.Size = 9
+    mnuGameMode.Visible = False
+    mnuOrientation.Visible = False
+    mnuOptions.Visible = False
+    mnuJocker.Visible = False
+    UpdateTouchButtons
     Screen.MousePointer = 13
     
     inicBojeForme
@@ -1332,6 +1440,7 @@ Private Sub Form_Load()
     
     ORIENTATION = 3
     mnuOrientationSelect_Click (ORIENTATION)
+    UpdateTouchButtons
     
     GRID = Not (True)
     mnuOptionsGrid_Click
@@ -2722,12 +2831,12 @@ Public Sub inicJocker()
     If JOCKER = True Then
         mnuOptionsJocker.Checked = True
         lblJocker.Caption = Loc("jocker.on")
-        lblJocker.ForeColor = vbBlue
+        lblJocker.ForeColor = ThAccent
         lblJockerHint.Visible = True
     Else
         mnuOptionsJocker.Checked = False
         lblJocker.Caption = Loc("jocker.off")
-        lblJocker.ForeColor = vbRed
+        lblJocker.ForeColor = ThBad
         lblJockerHint.Visible = False
     End If
     lblJocker.Visible = True
