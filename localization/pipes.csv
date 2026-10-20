@@ -1,0 +1,7 @@
+key,en,pl,zh,es
+app.title,Pipes version 1.0,Rury wersja 1.0,管道 版本 1.0,Tuberías versión 1.0
+button.quit,&Quit,&Zakończ,退出(&Q),&Salir
+button.ok,OK,OK,确定,Aceptar
+logo.version,Version 1.0,Wersja 1.0,版本 1.0,Versión 1.0
+msg.win,you win,wygrałeś,你赢了,has ganado
+msg.lose,you loose,przegrałeś,你输了,has perdido

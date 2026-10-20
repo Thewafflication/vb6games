@@ -1597,7 +1597,7 @@ Private Sub Board_MouseDown(index As Integer, button As Integer, Shift As Intege
       End If
       If yy = True And xx = False Then 'is source connected to drain and no loose ends?
       Form1.Hide
-      MsgBox "you win"
+      MsgBox Loc("msg.win")
       End
       End If
      End If
@@ -1659,7 +1659,14 @@ Private Sub current_MouseDown(button As Integer, Shift As Integer, x As Single, 
 
 End Sub
 
+Private Sub ApplyLocale()
+  If LocLanguage = "en" Then Exit Sub
+  Caption = Loc("app.title")
+  btnQuit.Caption = Loc("button.quit")
+End Sub
+
 Private Sub Form_Load()
+  ApplyLocale
   Dim i, j, k, n As Integer    'counters
   Dim t, l As Integer       'top,left
   tb = 50
@@ -1959,7 +1966,7 @@ Private Sub Timer1_Timer()
   Else
     enable = False
     Form1.Hide
-    MsgBox "you loose"
+    MsgBox Loc("msg.lose")
     End
   End If
 End Sub

@@ -8,8 +8,8 @@ Public DefaultPlayer2 As Player
 Sub Main()
     DefaultWidth = 7
     DefaultHeight = 6
-    Set DefaultPlayer1 = MNew.Player("Player1", ColorConstants.vbYellow)
-    Set DefaultPlayer2 = MNew.Player("Player2", ColorConstants.vbRed)
+    Set DefaultPlayer1 = MNew.Player(Loc("player.default1"), ColorConstants.vbYellow)
+    Set DefaultPlayer2 = MNew.Player(Loc("player.default2"), ColorConstants.vbRed)
     FMain.Show
 End Sub
 

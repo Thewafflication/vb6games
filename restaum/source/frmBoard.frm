@@ -449,6 +449,13 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Form_Load()
+    ' The label's designed text is Portuguese; every language, English
+    ' included, is set from the translation table.
+    Caption = Loc("app.title")
+    Label1.Caption = Loc("help.text")
+End Sub
+
 Private Sub imgGoti_DragDrop(Index As Integer, Source As Control, X As Single, Y As Single)
 
     If (imgGoti(Index).Picture <> 0) _

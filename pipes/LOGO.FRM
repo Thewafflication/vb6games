@@ -86,7 +86,15 @@ Private Sub Command1_Click()
   Form_Unload (False)
 End Sub
 
+Private Sub ApplyLocale()
+  If LocLanguage = "en" Then Exit Sub
+  Caption = Loc("app.title")
+  Label1.Caption = Loc("logo.version")
+  Command1.Caption = Loc("button.ok")
+End Sub
+
 Private Sub Form_Load()
+  ApplyLocale
   Dim sw, sh As Integer
   Dim fw, fh As Integer
   sw = Screen.Width

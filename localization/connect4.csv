@@ -1,0 +1,24 @@
+key,en,pl,zh,es
+app.title,Connect4,Cztery w rzędzie,四子棋,Conecta 4
+player.default1,Player1,Gracz1,玩家1,Jugador1
+player.default2,Player2,Gracz2,玩家2,Jugador2
+player.label,Player{0} {1},Gracz{0} {1},玩家{0} {1},Jugador{0} {1}
+main.nextPlayer,Next Player:,Następny:,下一位：,Turno de:
+main.newGame,New Game,Nowa gra,新游戏,Nuevo juego
+main.undo,Undo,Cofnij,撤销,Deshacer
+main.redo,Redo,Ponów,重做,Rehacer
+main.info,Info,Info,信息,Info
+msg.gameOver,Game over! Please click 'New Game'!,Koniec gry! Kliknij „Nowa gra”!,游戏结束！请点击“新游戏”！,¡Fin de la partida! ¡Pulsa «Nuevo juego»!
+msg.won,"{0} won!, Congratulations!","{0} wygrywa! Gratulacje!",{0} 获胜！恭喜！,¡{0} ha ganado! ¡Enhorabuena!
+msg.drawn,Game is drawn! Please click 'New Game'!,Remis! Kliknij „Nowa gra”!,平局！请点击“新游戏”！,¡Empate! ¡Pulsa «Nuevo juego»!
+msg.outOfRange,"Out of range, select column between 1 and {0}","Poza zakresem, wybierz kolumnę od 1 do {0}",超出范围，请选择 1 到 {0} 之间的列,Fuera de rango; selecciona una columna entre 1 y {0}
+msg.columnFull,"Please select another column, the column {0} is full!","Wybierz inną kolumnę, kolumna {0} jest pełna!",请选择其他列，第 {0} 列已满！,Selecciona otra columna: ¡la columna {0} está llena!
+new.title,New Game,Nowa gra,新游戏,Nuevo juego
+new.players,Players 1 && 2,Gracze 1 && 2,玩家 1 && 2,Jugadores 1 && 2
+new.names,Names:,Nazwa,名称：,Nombre
+new.colors,Colors:,Kolor,颜色：,Color
+new.swap,Swap,Zamień,交换,Cambiar
+new.width,Width:,Szer.:,宽度：,Ancho:
+new.height,Height:,Wys.:,高度：,Alto:
+new.ok,OK,OK,确定,Aceptar
+new.cancel,Cancel,Anuluj,取消,Cancelar

@@ -171,7 +171,21 @@ Private m_Player1 As Player
 Private m_Player2 As Player
 Private m_Result  As VbMsgBoxResult
 
+Private Sub ApplyLocale()
+    If LocLanguage = "en" Then Exit Sub
+    Caption = Loc("new.title")
+    Frame1.Caption = Loc("new.players")
+    Label7.Caption = Loc("new.names")
+    Label8.Caption = Loc("new.colors")
+    BtnSwap.Caption = Loc("new.swap")
+    Label1.Caption = Loc("new.width")
+    Label2.Caption = Loc("new.height")
+    BtnOK.Caption = Loc("new.ok")
+    BtnCancel.Caption = Loc("new.cancel")
+End Sub
+
 Private Sub Form_Load()
+    ApplyLocale
     fillCB CbWidth
     fillCB CbHeight
 End Sub

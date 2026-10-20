@@ -4,6 +4,7 @@ Form=Forms\FMain.frm
 Form=Forms\FNewGame.frm
 Module=MNew; Modules\MNew.bas
 Module=MApp; Modules\MApp.bas
+Module=modLocale; Modules\modLocale.bas
 Class=Connect4; Classes\Connect4.cls
 Class=Player; Classes\Player.cls
 Class=ColorDialog; ..\Win_Dialogs\Classes\ColorDialog.cls

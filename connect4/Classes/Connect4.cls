@@ -97,11 +97,11 @@ Private Function PlayerDropChip(ByVal ColumnIndex As Byte, ByVal aChip As Connec
     If m_IsGameOver Then Exit Function
     'return true if successful
     If Not CheckColumnIndex(ColumnIndex) Then
-        MsgBox "Out of range, select column between 1 and " & m_Width
+        MsgBox LocF("msg.outOfRange", m_Width)
         Exit Function
     End If
     If IsColumnFull(ColumnIndex) Then
-        MsgBox "Please select another column, the column " & ColumnIndex & " is full!"
+        MsgBox LocF("msg.columnFull", ColumnIndex)
         Exit Function
     End If
     DropChip ColumnIndex, aChip

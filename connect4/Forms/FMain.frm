@@ -126,7 +126,18 @@ Private Sub BtnInfo_Click()
     MsgBox App.CompanyName & " " & App.EXEName & " v" & App.Major & "." & App.Minor & "." & App.Revision & vbCrLf & App.FileDescription
 End Sub
 
+Private Sub ApplyLocale()
+    If LocLanguage = "en" Then Exit Sub
+    Caption = Loc("app.title")
+    Label1.Caption = Loc("main.nextPlayer")
+    BtnNewGame.Caption = Loc("main.newGame")
+    BtnUndo.Caption = Loc("main.undo")
+    BtnRedo.Caption = Loc("main.redo")
+    BtnInfo.Caption = Loc("main.info")
+End Sub
+
 Private Sub Form_Load()
+    ApplyLocale
     Set m_Player1 = MApp.DefaultPlayer1.Clone
     Set m_Player2 = MApp.DefaultPlayer2.Clone
     Set m_NextPlayer = m_Player1
@@ -195,7 +206,7 @@ End Sub
 Private Sub PictureMouseClick(ByVal Button As Integer, ByVal X As Single, ByVal Y As Single)
     If Button <> MouseButtonConstants.vbLeftButton Then Exit Sub
     If m_Connect4.IsGameOver Then
-        MsgBox "Game over! Please click 'New Game'!"
+        MsgBox Loc("msg.gameOver")
         Exit Sub
     End If
     
@@ -209,11 +220,11 @@ Private Sub PictureMouseClick(ByVal Button As Integer, ByVal X As Single, ByVal 
     Dim p As Connect4Chip: p = m_Connect4.Check4
     If p <> None Then
         Picture1_Paint
-        Dim S As String: S = "Player" & IIf(p = Player1, "1", "2") & " " & IIf(p = Player1, m_Player1.Name, m_Player2.Name)
-        MsgBox S & " won!, Congratulations!"
+        Dim S As String: S = LocF("player.label", IIf(p = Player1, "1", "2"), IIf(p = Player1, m_Player1.Name, m_Player2.Name))
+        MsgBox LocF("msg.won", S)
     End If
     If m_Connect4.CountDown = 0 And m_Connect4.IsGameOver Then
-        MsgBox "Game is drawn! Please click 'New Game'!"
+        MsgBox Loc("msg.drawn")
     End If
     SaveUndo
 End Sub

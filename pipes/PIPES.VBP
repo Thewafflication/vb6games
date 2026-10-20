@@ -2,5 +2,6 @@ Type=Exe
 Form=FORM1.FRM
 Form=LOGO.FRM
 Module=Module1; MODULE1.BAS
+Module=modLocale; modLocale.bas
 Startup="Logo"
 Name="Pipes"
