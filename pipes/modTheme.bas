@@ -34,6 +34,7 @@ Public Sub ThemeApply(frm As Form)
             Case "Label"
                 c.ForeColor = ThText
                 c.BackColor = ThBack
+                c.BackStyle = 1
                 c.Font.Size = ThFontSize
             Case "CommandButton"
                 ' A VB6 push button has no ForeColor, so its text stays dark
@@ -52,6 +53,7 @@ Public Sub ThemeApply(frm As Form)
             Case "Frame", "CheckBox", "OptionButton"
                 c.ForeColor = ThText
                 c.BackColor = ThBack
+                c.BackStyle = 1
                 c.Font.Size = ThFontSize
             End Select
         End If

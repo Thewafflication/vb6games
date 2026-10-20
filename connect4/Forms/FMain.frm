@@ -143,6 +143,7 @@ End Sub
 Private Sub Form_Load()
     ApplyLocale
     ThemeFullScreen Me
+    LbPlayerName.Tag = "keep"
     ThemeApply Me
     PBBackBuffer.ScaleMode = vbTwips
     Picture1.ScaleMode = vbTwips

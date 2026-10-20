@@ -125,14 +125,17 @@ Private Sub Form_Load()
   lblTitle.Left = 0
   lblTitle.Width = ScaleWidth
   lblTitle.Top = 45
+  lblTitle.Height = 60
   Label1.Alignment = 2
   Label1.Left = 0
   Label1.Width = ScaleWidth
   Label1.Top = 115
+  Label1.Height = 24
   Label2.Alignment = 2
   Label2.Left = 0
   Label2.Width = ScaleWidth
   Label2.Top = 145
+  Label2.Height = 24
   Command1.Width = 90
   Command1.Height = 34
   Command1.Left = (ScaleWidth - Command1.Width) / 2
