@@ -46,6 +46,7 @@ Begin VB.Form frmWelcome
       Width           =   1530
    End
    Begin VB.CommandButton cmdChat 
+      Style           =   1  'Graphical
       Appearance      =   0  'Flat
       BackColor       =   &H8000000E&
       Height          =   495
@@ -141,6 +142,7 @@ Private Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA" (By
 
 
 Private Sub Form_Load()
+ThemeApply Me
 If LocLanguage <> "en" Then
     Caption = Loc("welcome.title")
     Label2.Caption = Loc("welcome.chat")

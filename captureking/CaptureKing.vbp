@@ -10,6 +10,7 @@ Form=frmStats.frm
 Form=frmPawnPromotion.frm
 Form=frmWelcome.frm
 Module=modLocale; modLocale.bas
+Module=modTheme; modTheme.bas
 IconForm="frmGame"
 Startup="frmSplash"
 HelpFile=""

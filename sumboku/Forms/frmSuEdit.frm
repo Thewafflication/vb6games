@@ -47,6 +47,7 @@ Public Property Set BLCV(aBLCV As SudokuMissPoss)
   End If
 End Property
 Private Sub Form_Load()
+  ThemeApply Me
   If LocLanguage <> "en" Then Text1.ToolTipText = Loc("edit.tip")
 End Sub
 Private Sub Form_Unload(Cancel As Integer)

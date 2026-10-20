@@ -482,6 +482,7 @@ Begin VB.Form frmGame
       Width           =   855
    End
    Begin VB.CommandButton cmdClearSend 
+      Style           =   1  'Graphical
       Caption         =   "&Clear"
       Height          =   495
       Left            =   11235
@@ -491,6 +492,7 @@ Begin VB.Form frmGame
       Visible         =   0   'False
    End
    Begin VB.CommandButton cmdSend 
+      Style           =   1  'Graphical
       Caption         =   "&Send"
       Height          =   495
       Left            =   12165
@@ -510,7 +512,53 @@ Begin VB.Form frmGame
       Top             =   120
       Width           =   615
    End
+   Begin VB.CommandButton cmdTNew 
+      Style           =   1  'Graphical
+      Caption         =   "cmdTNew"
+      Height          =   615
+      Left            =   8600
+      TabIndex        =   90
+      Top             =   5340
+      Width           =   975
+   End
+   Begin VB.CommandButton cmdTChat 
+      Style           =   1  'Graphical
+      Caption         =   "cmdTChat"
+      Height          =   615
+      Left            =   9630
+      TabIndex        =   91
+      Top             =   5340
+      Width           =   975
+   End
+   Begin VB.CommandButton cmdTStats 
+      Style           =   1  'Graphical
+      Caption         =   "cmdTStats"
+      Height          =   615
+      Left            =   10660
+      TabIndex        =   92
+      Top             =   5340
+      Width           =   975
+   End
+   Begin VB.CommandButton cmdTSave 
+      Style           =   1  'Graphical
+      Caption         =   "cmdTSave"
+      Height          =   615
+      Left            =   11690
+      TabIndex        =   93
+      Top             =   5340
+      Width           =   975
+   End
+   Begin VB.CommandButton cmdTExit 
+      Style           =   1  'Graphical
+      Caption         =   "cmdTExit"
+      Height          =   615
+      Left            =   12720
+      TabIndex        =   94
+      Top             =   5340
+      Width           =   975
+   End
    Begin VB.CommandButton cmdSurrender 
+      Style           =   1  'Graphical
       Caption         =   "Surrender"
       Height          =   615
       Left            =   6645
@@ -519,6 +567,7 @@ Begin VB.Form frmGame
       Width           =   1800
    End
    Begin VB.CommandButton cmdCallCheat 
+      Style           =   1  'Graphical
       Caption         =   "Call Invalid Move"
       Height          =   495
       Left            =   12435
@@ -528,6 +577,7 @@ Begin VB.Form frmGame
       Visible         =   0   'False
    End
    Begin VB.CommandButton cmdCallCheckMate 
+      Style           =   1  'Graphical
       Caption         =   "Call Check Mate"
       Height          =   495
       Left            =   11355
@@ -537,6 +587,7 @@ Begin VB.Form frmGame
       Visible         =   0   'False
    End
    Begin VB.CommandButton cmdCallCheck 
+      Style           =   1  'Graphical
       Caption         =   "Call Check"
       Height          =   495
       Left            =   10635
@@ -1238,7 +1289,37 @@ End If
 End Sub
 
 
+' Touch replacements for the menu bar.
+Private Sub TouchButtons()
+cmdTNew.Caption = Replace(Loc("menu.localGame"), "&", "")
+cmdTChat.Caption = Replace(Loc("menu.chat"), "&", "")
+cmdTStats.Caption = Replace(Loc("menu.stats"), "&", "")
+cmdTSave.Caption = Replace(Loc("menu.save"), "&", "")
+cmdTExit.Caption = Replace(Loc("menu.exit"), "&", "")
+End Sub
+
+Private Sub cmdTNew_Click()
+mnuLocalGame_Click
+End Sub
+
+Private Sub cmdTChat_Click()
+mnuChat_Click
+End Sub
+
+Private Sub cmdTStats_Click()
+mnuStats_Click
+End Sub
+
+Private Sub cmdTSave_Click()
+mnuSavegame_Click
+End Sub
+
+Private Sub cmdTExit_Click()
+mnuExit_Click
+End Sub
+
 Private Sub ApplyLocale()
+TouchButtons
 If LocLanguage = "en" Then Exit Sub
 cmdClearSend.Caption = Loc("game.clear")
 cmdSend.Caption = Loc("game.send")
@@ -1269,6 +1350,19 @@ End Sub
 
 Private Sub Form_Load()
 ApplyLocale
+ThemeApply Me
+Dim pb As Control
+For Each pb In Controls
+    If TypeName(pb) = "PictureBox" Then
+        If pb.BackColor = 8940830 Then pb.BackColor = ThBack
+    End If
+Next pb
+mnuFile.Visible = False
+mnuEdit.Visible = False
+mnuView.Visible = False
+mnuGame.Visible = False
+mnuHelp.Visible = False
+mnuabout.Visible = False
 Dim C As Long
 Dim sBuffer As String
 Dim lSize As Long
@@ -1276,7 +1370,7 @@ Dim moves As Long
 
 On Error GoTo errorhandler
 
-frmGame.BackColor = 8940830
+frmGame.BackColor = ThBack
 picBack2.Top = picBack2.Top + 50
 
 picback3.Top = picback3.Top + 20

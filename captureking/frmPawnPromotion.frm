@@ -24,6 +24,7 @@ Begin VB.Form frmPawnPromotion
       Width           =   135
    End
    Begin VB.CommandButton cmdSelect 
+      Style           =   1  'Graphical
       Caption         =   "&Select this piece"
       Height          =   375
       Left            =   1200
@@ -135,6 +136,7 @@ Unload frmPawnPromotion
 End Sub
 
 Private Sub Form_Load()
+ThemeApply Me
 If LocLanguage <> "en" Then
     Caption = Loc("promo.title")
     cmdSelect.Caption = Loc("promo.select")

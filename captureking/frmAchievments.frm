@@ -50,6 +50,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Form_Load()
+ThemeApply Me
 If LocLanguage <> "en" Then
     Caption = Loc("menu.achievements")
     lblCaption.Caption = Loc("ach.help")

@@ -1119,6 +1119,7 @@ Begin VB.Form frmChat
       Top             =   3975
    End
    Begin VB.CommandButton cmdDecline3 
+      Style           =   1  'Graphical
       Caption         =   "X"
       Height          =   255
       Left            =   14115
@@ -1127,6 +1128,7 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdAccept3 
+      Style           =   1  'Graphical
       Caption         =   "/"
       Height          =   255
       Left            =   13755
@@ -1135,6 +1137,7 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdDecline2 
+      Style           =   1  'Graphical
       Caption         =   "X"
       Height          =   255
       Left            =   14115
@@ -1143,6 +1146,7 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdAccept2 
+      Style           =   1  'Graphical
       Caption         =   "/"
       Height          =   255
       Left            =   13755
@@ -1151,6 +1155,7 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdAccept1 
+      Style           =   1  'Graphical
       Caption         =   "/"
       Height          =   255
       Left            =   13755
@@ -1159,6 +1164,7 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdDecline1 
+      Style           =   1  'Graphical
       Caption         =   "X"
       Height          =   255
       Left            =   14115
@@ -1181,6 +1187,7 @@ Begin VB.Form frmChat
       Protocol        =   1
    End
    Begin VB.CommandButton cmdMyPrivateSend 
+      Style           =   1  'Graphical
       Caption         =   "Private Message"
       Height          =   495
       Left            =   5565
@@ -1190,6 +1197,7 @@ Begin VB.Form frmChat
       Width           =   855
    End
    Begin VB.CommandButton cmdInvite 
+      Style           =   1  'Graphical
       Caption         =   "Invite to game"
       Enabled         =   0   'False
       Height          =   495
@@ -1227,6 +1235,7 @@ Begin VB.Form frmChat
       Width           =   1935
    End
    Begin VB.CommandButton cmdMySend 
+      Style           =   1  'Graphical
       Caption         =   "&Send Message"
       Height          =   615
       Left            =   4635
@@ -1236,6 +1245,7 @@ Begin VB.Form frmChat
       Width           =   855
    End
    Begin VB.CommandButton cmdExit 
+      Style           =   1  'Graphical
       Caption         =   "&Exit"
       Height          =   375
       Left            =   10500
@@ -1715,7 +1725,14 @@ frmChat.Width = 12480
 socket1.RemoteHost = "255.255.255.255"
 socket1.RemotePort = 72
 socket1.LocalPort = 72
-frmChat.BackColor = 8940830
+frmChat.BackColor = ThBack
+ThemeApply Me
+Dim pc As Control
+For Each pc In Controls
+    If TypeName(pc) = "PictureBox" Then
+        If pc.BackColor = 8940830 Then pc.BackColor = ThBack
+    End If
+Next pc
 
 gamesocket.SendData ""
 

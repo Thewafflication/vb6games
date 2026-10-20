@@ -14,6 +14,7 @@ Begin VB.Form frmSudokuOptions
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows-Standard
    Begin VB.CommandButton BtnCancel 
+      Style           =   1  'Graphical
       Caption         =   "Abbrechen"
       Height          =   375
       Left            =   1920
@@ -22,6 +23,7 @@ Begin VB.Form frmSudokuOptions
       Width           =   1095
    End
    Begin VB.CommandButton BtnOK 
+      Style           =   1  'Graphical
       Caption         =   "OK"
       Height          =   375
       Left            =   720
@@ -109,6 +111,7 @@ End Sub
 
 Private Sub Form_Load()
   ApplyLocale
+  ThemeApply Me
   Option1.Value = False
   Option2.Value = False
   Option3.Value = False

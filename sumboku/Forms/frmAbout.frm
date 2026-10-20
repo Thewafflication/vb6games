@@ -45,6 +45,7 @@ Begin VB.Form frmAbout
       End
    End
    Begin VB.CommandButton cmdOK 
+      Style           =   1  'Graphical
       Cancel          =   -1  'True
       Caption         =   "OK"
       Default         =   -1  'True
@@ -138,6 +139,7 @@ End Sub
 
 Private Sub Form_Load()
 Dim m As String
+  ThemeApply Me
   Me.Caption = LocF("about.title", App.Title)
   lblVersion.Caption = LocF("about.version", App.Major & "." & App.Minor & "." & App.Revision)
   If LocLanguage <> "en" Then lblDescription.Caption = Loc("about.description")

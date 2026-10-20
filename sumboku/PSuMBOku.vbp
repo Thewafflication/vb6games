@@ -6,6 +6,7 @@ Form=Forms\frmSuEdit.frm
 Form=Forms\frmAbout.frm
 Module=MMain; Modules\MMain.bas
 Module=modLocale; Modules\modLocale.bas
+Module=modTheme; Modules\modTheme.bas
 Module=ReadMe; Resources\TODO.txt
 Class=OpenFileDialog; ..\Win_Dialogs\Classes\OpenFileDialog.cls
 Class=SaveFileDialog; ..\Win_Dialogs\Classes\SaveFileDialog.cls

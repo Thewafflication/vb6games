@@ -29,7 +29,7 @@ Dim wins, loses, surrenders As Integer
 
 Private Sub Form_Load()
 frmStats.Caption = LocF("stats.for", frmChat.lblUser.Caption)
-frmStats.BackColor = frmGame.CommonDialog1.Color
+ThemeApply Me
 
 Call refreshStat
 End Sub

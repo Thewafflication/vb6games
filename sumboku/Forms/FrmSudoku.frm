@@ -15,6 +15,7 @@ Begin VB.Form FrmSudoku
    ScaleWidth      =   321
    StartUpPosition =   3  'Windows-Standard
    Begin VB.CommandButton BtnOptions 
+      Style           =   1  'Graphical
       Caption         =   "Options"
       Height          =   375
       Left            =   3360
@@ -24,6 +25,7 @@ Begin VB.Form FrmSudoku
       Width           =   855
    End
    Begin VB.CommandButton BtnInfo 
+      Style           =   1  'Graphical
       Caption         =   "Info"
       Height          =   375
       Left            =   2880
@@ -33,6 +35,7 @@ Begin VB.Form FrmSudoku
       Width           =   495
    End
    Begin VB.CommandButton RndExample 
+      Style           =   1  'Graphical
       Caption         =   "Rnd Example"
       Height          =   375
       Left            =   1800
@@ -41,6 +44,7 @@ Begin VB.Form FrmSudoku
       Width           =   1095
    End
    Begin VB.CommandButton BtnSave 
+      Style           =   1  'Graphical
       Caption         =   "S"
       Height          =   375
       Left            =   3600
@@ -50,6 +54,7 @@ Begin VB.Form FrmSudoku
       Width           =   375
    End
    Begin VB.CommandButton BtnOpen 
+      Style           =   1  'Graphical
       Caption         =   "O"
       Height          =   375
       Left            =   3240
@@ -59,6 +64,7 @@ Begin VB.Form FrmSudoku
       Width           =   375
    End
    Begin VB.CommandButton BtnExit 
+      Style           =   1  'Graphical
       Caption         =   "Exit"
       Height          =   375
       Left            =   4080
@@ -68,6 +74,7 @@ Begin VB.Form FrmSudoku
       Width           =   615
    End
    Begin VB.CommandButton BtnRedo 
+      Style           =   1  'Graphical
       Caption         =   "R"
       Height          =   375
       Left            =   1200
@@ -77,6 +84,7 @@ Begin VB.Form FrmSudoku
       Width           =   375
    End
    Begin VB.CommandButton BtnUndo 
+      Style           =   1  'Graphical
       Caption         =   "U"
       Height          =   375
       Left            =   840
@@ -86,6 +94,7 @@ Begin VB.Form FrmSudoku
       Width           =   375
    End
    Begin VB.CommandButton BtnSolve 
+      Style           =   1  'Graphical
       Caption         =   "Solve"
       Height          =   375
       Left            =   1680
@@ -95,6 +104,7 @@ Begin VB.Form FrmSudoku
       Width           =   1455
    End
    Begin VB.CommandButton BtnTestBlocks 
+      Style           =   1  'Graphical
       Caption         =   "Blocks"
       Height          =   375
       Left            =   2520
@@ -103,6 +113,7 @@ Begin VB.Form FrmSudoku
       Width           =   615
    End
    Begin VB.CommandButton BtnTestColms 
+      Style           =   1  'Graphical
       Caption         =   "Colms"
       Height          =   375
       Left            =   2520
@@ -111,6 +122,7 @@ Begin VB.Form FrmSudoku
       Width           =   615
    End
    Begin VB.CommandButton BtnTestLines 
+      Style           =   1  'Graphical
       Caption         =   "Lines"
       Height          =   375
       Left            =   1920
@@ -157,6 +169,7 @@ Begin VB.Form FrmSudoku
       End
    End
    Begin VB.CommandButton BtnClear 
+      Style           =   1  'Graphical
       Caption         =   "Clear"
       Height          =   375
       Left            =   120
@@ -2134,6 +2147,7 @@ End Sub
 
 Private Sub Form_Load()
   ApplyLocale
+  ThemeApply Me
   'App.HelpFile = App.Path & "\" & "SuMBOku.hlp"
   Set mSudoku = New SudokuGame
   Set mUndoRedo = New SGUndoRedo
