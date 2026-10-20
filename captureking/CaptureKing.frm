@@ -1177,20 +1177,20 @@ Private Declare Function ClientToScreen Lib "user32" (ByVal hwnd As Long, lpPoin
 Private Declare Function SetCursorPos Lib "user32" (ByVal X As Long, ByVal Y As Long) As Long
 
 Private Sub cmdCallCheat_Click()
-checkcheck = MsgBox("Call an invalid move?", vbYesNo)
+checkcheck = MsgBox(Loc("msg.callCheat"), vbYesNo)
 
 If checkcheck = vbYes Then
     If MovesTaken = 0 Then
         SocketGame.SendData "Cheat!"
     Else
-        MsgBox ("No moves yet taken!")
+        MsgBox (Loc("msg.noMoves"))
     End If
     
 End If
 End Sub
 
 Private Sub cmdCallCheck_Click()
-checkcheck = MsgBox("Call Check?", vbYesNo)
+checkcheck = MsgBox(Loc("msg.callCheck"), vbYesNo)
 
 If checkcheck = vbYes Then
     SocketGame.SendData "Check!"
@@ -1199,7 +1199,7 @@ End If
 End Sub
 
 Private Sub cmdCallCheckMate_Click()
-checkMatecheck = MsgBox("Call Check Mate?", vbYesNo)
+checkMatecheck = MsgBox(Loc("msg.callMate"), vbYesNo)
 
 If checkMatecheck = vbYes Then
     checkmatecalled = True
@@ -1219,7 +1219,7 @@ txtMessageOut.SetFocus
 End Sub
 
 Private Sub cmdSurrender_Click()
-answer = MsgBox("There is no gain in surrender, are you sure you want to fall before you opponent?", vbYesNo)
+answer = MsgBox(Loc("msg.surrender"), vbYesNo)
 
 On Error GoTo MonkeyErr
 
@@ -1238,7 +1238,37 @@ End If
 End Sub
 
 
+Private Sub ApplyLocale()
+If LocLanguage = "en" Then Exit Sub
+cmdClearSend.Caption = Loc("game.clear")
+cmdSend.Caption = Loc("game.send")
+cmdSurrender.Caption = Loc("game.surrender")
+cmdCallCheat.Caption = Loc("game.callCheat")
+cmdCallCheckMate.Caption = Loc("game.callMate")
+cmdCallCheck.Caption = Loc("game.callCheck")
+mnuFile.Caption = Loc("menu.file")
+mnuExit.Caption = Loc("menu.exit")
+mnuHelp.Caption = Loc("menu.help")
+mnuEdit.Caption = Loc("menu.edit")
+mnuBoardColour.Caption = Loc("menu.boardColour")
+mnuView.Caption = Loc("menu.view")
+mnuChat.Caption = Loc("menu.chat")
+mnuGrave.Caption = Loc("menu.grave")
+mnuStats.Caption = Loc("menu.stats")
+mnuAchievments.Caption = Loc("menu.achievements")
+mnuGame.Caption = Loc("menu.game")
+mnuLocalGame.Caption = Loc("menu.localGame")
+mnuNewgame.Caption = Loc("menu.lanGame")
+mnuSavegame.Caption = Loc("menu.save")
+mnuSaveAs.Caption = Loc("menu.saveAs")
+mnuLoadgame.Caption = Loc("menu.load")
+mnuGameAdvanced.Caption = Loc("menu.advanced")
+mnuSetOpIP.Caption = Loc("menu.setOpIP")
+mnuabout.Caption = Loc("menu.about")
+End Sub
+
 Private Sub Form_Load()
+ApplyLocale
 Dim C As Long
 Dim sBuffer As String
 Dim lSize As Long
@@ -1265,7 +1295,7 @@ Input #2, C
 
 Close #2
 
-frmGame.Caption = MyUserID & " [level " & userlevel & "]     - Capture King"
+frmGame.Caption = LocF("game.title", MyUserID, userlevel)
 
 'Open App.Path & "\user\settings.cpt" For Input As #1
 'Input #1, C
@@ -1366,7 +1396,7 @@ playercolor = lblColor.Caption
 End Sub
 
 Private Sub mnuabout_Click()
-MsgBox ("Capture King © - Created, designed and coded by Christopher McKirgan 2007-2008. Designed for A2 computing coursework at Bridgwater College." & vbNewLine & vbNewLine & "Contact: kirgy9@gmail.com, www.mckirgan.com." & vbNewLine & vbNewLine & "This game is open to the public for sharing and distrubution, this game MUST NOT BE SOLD without owners prior concent.")
+MsgBox (Loc("msg.about"))
 End Sub
 
 Private Sub mnuAchievments_Click()
@@ -1399,12 +1429,12 @@ End Sub
 Private Sub mnuBoardColour_Click()
 On Error GoTo errorhandler
 
-MsgBox ("Please choose the first colour for the board")
+MsgBox (Loc("msg.colour1"))
 CommonDialog1.CancelError = True
 CommonDialog1.ShowColor
 color1 = CommonDialog1.Color
 
-MsgBox ("Please choose the second colour for the board")
+MsgBox (Loc("msg.colour2"))
 CommonDialog1.CancelError = True
 CommonDialog1.ShowColor
 color2 = CommonDialog1.Color
@@ -1431,7 +1461,7 @@ frmChat.Visible = True
 End Sub
 
 Private Sub mnuExit_Click()
-df = MsgBox("Are you sure you want to exit Capture King and leave the current game? Any unsaved progress will be lost.", vbYesNo)
+df = MsgBox(Loc("msg.exit"), vbYesNo)
 If df = vbYes Then
     End
 Else
@@ -1460,7 +1490,7 @@ MoveMouse 200, 200
 End Sub
 
 Private Sub mnuLoadgame_Click()
-cdlgFile.Filter = "Capture King files only|*.cpt*"
+cdlgFile.Filter = Loc("filter.save")
 
 
 End Sub
@@ -1469,7 +1499,7 @@ Private Sub mnuLocalGame_Click()
 playermove = ""
 playername = ""
 
-df = MsgBox("Are you sure you want to start a new Local game and exit this one? All unsaved game data will be deleted.", vbYesNo)
+df = MsgBox(Loc("msg.newLocal"), vbYesNo)
 If df = vbYes Then
     Kill App.Path & "\game.tmp"
     Call SetBoardState
@@ -1519,25 +1549,25 @@ picboard(62) = LoadPicture(App.Path & "\img\w3.ico")
 picboard(63) = LoadPicture(App.Path & "\img\w2.ico")
 
 
-lblInfo.Caption = "A local game is being set up..."
+lblInfo.Caption = Loc("info.localSetup")
 
 PlayernameError:
-playername = InputBox("Please enter name of [Player 2]", "Player 2 name needed")
+playername = InputBox(Loc("input.player2"), Loc("input.player2.title"))
 If playername = "" Then
     GoTo PlayernameError
 End If
 
 PlayerMoveError:
-playermove = MsgBox("Will " & playername & " be taking the first move?", vbYesNo)
+playermove = MsgBox(LocF("msg.firstMove", playername), vbYesNo)
 If playermove = "" Then GoTo PlayerMoveError
 Print playermove
 
 If playermove = 7 Then
-    MsgBox (MyUserID & " will be taking the first move as the white team")
-    lblInfo.Caption = MyUserID & " is taking their move."
+    MsgBox (LocF("msg.firstMoveWhite", MyUserID))
+    lblInfo.Caption = LocF("info.taking", MyUserID)
 Else
-    MsgBox (playername & " will be taking the first move as the white team")
-    lblInfo.Caption = playername & " is taking their move."
+    MsgBox (LocF("msg.firstMoveWhite", playername))
+    lblInfo.Caption = LocF("info.taking", playername)
 End If
 
 
@@ -1551,7 +1581,7 @@ End If
 End Sub
 
 Private Sub mnuNewgame_Click()
-df = MsgBox("Are you sure you want to start a new game and exit this one?", vbYesNo)
+df = MsgBox(Loc("msg.newGame"), vbYesNo)
 If df = vbYes Then
     Kill App.Path & "\game.tmp"
     Call SetBoardState
@@ -1599,7 +1629,7 @@ End Sub
 Private Sub mnuSaveAs_Click()
 
 'filters the files to CPT
-cdlgFile.Filter = "Capture King files only|*.cpt*"
+cdlgFile.Filter = Loc("filter.save")
 'shows the save diologue box
 cdlgFile.ShowSave
 
@@ -1638,7 +1668,7 @@ End Sub
 Private Sub mnuSetOpIP_Click()
 Dim OpIP As String
 
-OpIP = InputBox("Please enter a valid IP address")
+OpIP = InputBox(Loc("input.ip"))
 txtIP = OpIP
 SocketChat.RemoteHost = OpIP
 SocketGame.RemoteHost = OpIP
@@ -1674,15 +1704,15 @@ Private Sub picboard_Click(Index As Integer)
 Dim colorname As String
 
 If playercolor = "white" Then
-    colorname = "Black"
+    colorname = Loc("color.black")
 Else
-    colorname = "White"
+    colorname = Loc("color.white")
 End If
 
 For i = 0 To 63
     If i = 0 Then
         If playerturn = playercolor Then
-            MsgBox ("Please wait your turn." & colorname & " is taking their turn.")
+            MsgBox (LocF("msg.wait", colorname))
         End If
     End If
 Next i
@@ -1740,7 +1770,7 @@ Else
         '==============FOR LAN GAMES============================
         If localOrLAN = False Then
                 If Left(movingpiece, 1) <> playerturn Then
-                    MsgBox ("You cannot move your oppenents pieces fool!!")
+                    MsgBox (Loc("msg.notYours"))
                     picboard(MoveTo).Picture = picTake.Picture
                     picboard(MoveFrom).Picture = picSELECT.Picture
                 Exit Sub
@@ -1769,7 +1799,7 @@ Else
         
         
             If Left(taken, 1) = Left(movingpiece, 1) Then
-                MsgBox ("You cannot take your own piece!!")
+                MsgBox (Loc("msg.ownPiece"))
                 picboard(MoveTo).Picture = picTake.Picture
                 picboard(MoveFrom).Picture = picSELECT.Picture
             Exit Sub
@@ -2025,7 +2055,7 @@ txtGameIn = messageGameIn
 'when opponent leaves
 
 If txtGameIn = "leftroom" Then
-    MsgBox ("Opponent has left the room!")
+    MsgBox (Loc("msg.left"))
     Exit Sub
 End If
 
@@ -2037,7 +2067,7 @@ End If
 
 'when cheat is called
 If messageGameIn = "Cheat!" Then
-    Cheater = MsgBox("Cheat has been called! Check that move, do you want to undo it?", vbYesNo)
+    Cheater = MsgBox(Loc("msg.cheatCalled"), vbYesNo)
     If Cheater = vbYes Then
         Call UndoMove
         SocketGame.SendData "Undo!"
@@ -2049,13 +2079,13 @@ End If
 
 'when check is called
 If txtGameIn = "Check!" Then
-    MsgBox ("Check has been called!")
+    MsgBox (Loc("msg.checkCalled"))
     Exit Sub
 End If
 
 'checks win
 If txtGameIn = "YouWin!" Then
-    MsgBox ("Congradulations, you took the king, you win!")
+    MsgBox (Loc("msg.youWin"))
     Call AddWin
     Exit Sub
 End If
@@ -2066,9 +2096,9 @@ End If
 If txtGameIn = "CheckMate!" And checkmatecalled = False Then
 checkmatecalled = False
 
-    endinggame = MsgBox("Check Mate has been called! Is your opponent correct in calling check mate?", vbYesNo)
+    endinggame = MsgBox(Loc("msg.mateCalled"), vbYesNo)
     If endinggame = vbYes Then
-        MsgBox ("Your opponent wins...better luck next time. ")
+        MsgBox (Loc("msg.opponentWins"))
         SocketGame.SendData "YouWin!"
         'Call Addloss
         Exit Sub
@@ -2125,7 +2155,7 @@ BoardState(MoveTo \ 8, MoveTo Mod 8) = BoardState(MoveFrom \ 8, MoveFrom Mod 8)
 ''==============FOR LAN GAMES============================
 If localOrLAN = False Then
         If Left(movingpiece, 1) <> playerturn Then
-            MsgBox ("You cannot move your oppenents pieces fool!!")
+            MsgBox (Loc("msg.notYours"))
             picboard(MoveTo).Picture = picTake.Picture
             picboard(MoveFrom).Picture = picSELECT.Picture
         Exit Sub
@@ -2141,7 +2171,7 @@ Else
 
 
     If Left(taken, 1) = Left(movingpiece, 1) Then
-        MsgBox ("You cannot take your own piece!!")
+        MsgBox (Loc("msg.ownPiece"))
         picboard(MoveTo).Picture = picTake.Picture
         picboard(MoveFrom).Picture = picSELECT.Picture
     Exit Sub
@@ -2226,10 +2256,7 @@ Close #8
 userXP = games + wins
 
 frmStats.txtstats = MyUserID & vbNewLine & _
-"User XP:" & vbTab & vbTab & userXP & vbNewLine & _
-"Wins:" & vbTab & vbTab & vbTab & wins & vbNewLine & _
-"Loses:" & vbTab & vbTab & vbTab & losses & vbNewLine & _
-"Games:" & vbTab & vbTab & games & vbNewLine
+LocF("stats.a", userXP, wins, losses, games)
 
 'Prints stats to file
 Open App.Path & "\User\User.txt" For Output As #9
@@ -2254,10 +2281,7 @@ Open App.Path & "\User\User.txt" For Input As #9
         surrenders = C
 Close #8
 frmStats.txtstats = MyUserID & vbNewLine & _
-"User Level:" & vbTab & vbTab & userlevel & vbNewLine & _
-"Wins:" & vbTab & vbTab & vbTab & wins & vbNewLine & _
-"loses:" & vbTab & vbTab & vbTab & loses & vbNewLine & _
-"Surrenders:" & vbTab & vbTab & surrenders & vbNewLine
+LocF("stats.b", userlevel, wins, loses, surrenders)
 
 'Prints stats to file
 Open App.Path & "\User\User.txt" For Output As #9
@@ -2280,10 +2304,7 @@ Public Sub AddSurrender()
 '        surrenders = C + 1
 'Close #8
 frmStats.txtstats = MyUserID & vbNewLine & _
-"User Level:" & vbTab & vbTab & userlevel & vbNewLine & _
-"Wins:" & vbTab & vbTab & vbTab & wins & vbNewLine & _
-"loses:" & vbTab & vbTab & vbTab & loses & vbNewLine & _
-"Surrenders:" & vbTab & vbTab & surrenders & vbNewLine
+LocF("stats.b", userlevel, wins, loses, surrenders)
 
 'Prints stats to file
 Open App.Path & "\User\User.txt" For Output As #9
@@ -2293,7 +2314,7 @@ Close #9
 End Sub
 
 Public Sub ReturnToBoard()
-MsgBox ("Please dont drag pieces off the board!")
+MsgBox (Loc("msg.dragOff"))
 picboard(MoveFrom).Picture = picSELECT.Picture
 End Sub
 

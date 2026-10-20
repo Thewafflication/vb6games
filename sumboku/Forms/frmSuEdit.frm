@@ -46,6 +46,9 @@ Public Property Set BLCV(aBLCV As SudokuMissPoss)
     Text1.Text = mBLCV.ToString '.StrMissingVals
   End If
 End Property
+Private Sub Form_Load()
+  If LocLanguage <> "en" Then Text1.ToolTipText = Loc("edit.tip")
+End Sub
 Private Sub Form_Unload(Cancel As Integer)
   mBLCV.Parse (Text1.Text)
 End Sub

@@ -1687,7 +1687,27 @@ End Sub
 
 
 
+Private Sub ApplyLocale()
+If LocLanguage = "en" Then Exit Sub
+cmdMyPrivateSend.Caption = Loc("chat.privateSend")
+cmdInvite.Caption = Loc("chat.invite")
+cmdMySend.Caption = Loc("chat.send")
+cmdExit.Caption = Loc("chat.exit")
+lblStats.Caption = Loc("chat.bio")
+lblUserSelect.Caption = Loc("chat.select")
+lblInvite1.Caption = Loc("chat.invite1")
+lblinvite2.Caption = Loc("chat.invite2")
+lblinvite3.Caption = Loc("chat.invite3")
+lblPrivate.Caption = Loc("chat.private")
+lblMessageHere.Caption = Loc("chat.typeHere")
+lblInvites.Caption = Loc("chat.invites")
+lblUserMessages.Caption = Loc("chat.messages")
+lblOnline.Caption = Loc("chat.online")
+mnugameboard.Caption = Loc("chat.gameBoard")
+End Sub
+
 Private Sub Form_Load()
+ApplyLocale
 frmChat.Height = 6675
 frmChat.Width = 12480
 
@@ -1738,7 +1758,7 @@ End If
 '    MyUserID = "TESTINGXX"
 'End If
 
-frmChat.Caption = MyUserID & " at " & socket1.LocalIP
+frmChat.Caption = LocF("chat.title", MyUserID, socket1.LocalIP)
 lblUser.Caption = MyUserID
 
 socket1.SendData "#" & MyUserID & vbTab & socket1.LocalIP
@@ -1759,10 +1779,7 @@ Close #18
 userXP = games + wins
 
 frmStats.txtstats = MyUserID & vbNewLine & _
-"User XP:" & vbTab & vbTab & userXP & vbNewLine & _
-"Wins:" & vbTab & vbTab & wins & vbNewLine & _
-"Loses:" & vbTab & vbTab & losses & vbNewLine & _
-"Games:" & vbTab & vbTab & games & vbNewLine
+LocF("stats.c", userXP, wins, losses, games)
 
 MyStats = frmStats.txtstats.Text
 
@@ -1818,7 +1835,7 @@ End If
 
 'if it is a reject then display this to the user
 If Mid(Arrival, 1, 15) = "reject" & MyUserID Then
-    lblReject.Caption = Mid(Arrival, 16, Len(Arrival)) & " rejected your invite."
+    lblReject.Caption = LocF("chat.rejected", Mid(Arrival, 16, Len(Arrival)))
     tmrReject.Enabled = True
     Exit Sub
 End If
@@ -1956,11 +1973,11 @@ If UserNameSelect = MyUserID Then
     txtstat = frmStats.txtstats.Text
     cmdInvite.Enabled = False
     picInviteAct.Picture = picInviteDis.Picture
-    cmdInvite.Caption = "Invite to game"
+    cmdInvite.Caption = Loc("chat.invite")
     Exit Sub
 Else
     gamesocket.SendData UserNameSelect
-    cmdInvite.Caption = "Invite " & UserNameSelect & " to game"
+    cmdInvite.Caption = LocF("chat.inviteUser", UserNameSelect)
     cmdInvite.Enabled = True
     picInviteAct.Picture = picInvite.Picture
 End If
@@ -2131,7 +2148,7 @@ errorhandler:
 If Err.Number = "10054" Then
 End If
 
-MsgBox ("Error Number: " & Err.Number & " Description: " & Err.Description)
+MsgBox (LocF("chat.error", Err.Number, Err.Description))
 
 End Sub
 Public Sub RemoveFromArray(ByVal ThisUserID As String)
@@ -2240,7 +2257,7 @@ Next i
 End Sub
 Public Sub InviteToGame()
 'when an invite is recieved a messagebox is displayed.
-MsgBox ("Invite recieved")
+MsgBox (Loc("chat.inviteReceived"))
 End Sub
 
 Private Sub tmrInvite1_Timer()

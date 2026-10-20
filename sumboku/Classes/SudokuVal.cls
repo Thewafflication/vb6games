@@ -47,15 +47,15 @@ Dim str As String
   End If
 End Function
 Public Function ToString() As String
-  If Len(mTT) = 0 Then mTT = "Nr:" & CStr(Nr) & " B:" & CStr(BlckNr) & " L:" & CStr(LineNr) & " C:" & CStr(ColmNr)
-  ToString = mTT & " PossV: " & MissPossToString
+  If Len(mTT) = 0 Then mTT = LocF("tip.cell", Nr, BlckNr, LineNr, ColmNr)
+  ToString = mTT & Loc("tip.possible") & MissPossToString
 End Function
 Public Property Get TxtBox() As TextBox
   Set TxtBox = mTxtBox
 End Property
 Public Property Set TxtBox(ByVal TBVal As TextBox)
   Set mTxtBox = TBVal
-  mTT = "Nr:" & CStr(Nr) & " B:" & CStr(BlckNr) & " L:" & CStr(LineNr) & " C:" & CStr(ColmNr)
+  mTT = LocF("tip.cell", Nr, BlckNr, LineNr, ColmNr)
 End Property
 Public Sub UpdateToolTip()
   If Not mTxtBox Is Nothing Then

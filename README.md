@@ -1,9 +1,9 @@
 # vb6games
 
-Source code of Visual Basic 6 games, kept unmodified as the compatibility
-corpus of [WFC](https://github.com/Thewafflication/wfc), a reimplementation of
-the VB6 toolchain and runtime. WFC loads these projects as submodule test cases
-and builds demonstration programs from them.
+Source code of Visual Basic 6 games, kept unmodified (on the `master` branch)
+as the compatibility corpus of [WFC](https://github.com/Thewafflication/wfc), a
+reimplementation of the VB6 toolchain and runtime. WFC loads these projects as
+submodule test cases and builds demonstration programs from them.
 
 Each project lives in its own directory with a `PROVENANCE.md` that records the
 source URL, retrieval date, archive checksum, the author's license and credit,
@@ -29,3 +29,10 @@ credit.
 
 The five newer projects come from GitHub repositories (URL and commit in each
 `PROVENANCE.md`); each repository carries its own license file.
+
+## The `localization` branch
+
+The `localization` branch changes the games: it adds English, Polish, Chinese
+and Spanish text and picks the language from the Windows display language,
+with English as the default. See [`localization/README.md`](localization/README.md).
+The other branch (`master`) is the unmodified corpus.

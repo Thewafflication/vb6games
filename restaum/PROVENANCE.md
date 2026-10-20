@@ -24,3 +24,12 @@ The program is `source/BrainVita.vbp` (one form).
 
 WFC's acceptance tests load `source/BrainVita.vbp` and capture screenshots of
 its form. The program is not modified; gaps found in it are fixed in WFC.
+
+## Localization (branch `localization`)
+
+The `localization` branch of this repository adds English, Polish, Chinese
+(Simplified) and Spanish text to this game. It changes source/frmBoard.frm and source/BrainVita.vbp, and adds
+`modLocale.bas`, which is generated from `localization/restaum.csv`. The
+translated parts are the window title and the instructions (the original instructions were Portuguese, so English is a translation too). The language comes from the Windows display
+language (English when it is none of the four; `VB6GAMES_LANG` overrides it).
+The `master` branch keeps the program as the author wrote it.

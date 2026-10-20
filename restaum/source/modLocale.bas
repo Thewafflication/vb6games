@@ -25,6 +25,7 @@ End Function
 Public Function Loc(ByVal Key As String) As String
     If mText Is Nothing Then Initialize
     On Error Resume Next
+    Err.Clear
     Loc = mText(Key)
     If Err.Number <> 0 Then Loc = Key
 End Function

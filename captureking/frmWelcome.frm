@@ -141,6 +141,12 @@ Private Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA" (By
 
 
 Private Sub Form_Load()
+If LocLanguage <> "en" Then
+    Caption = Loc("welcome.title")
+    Label2.Caption = Loc("welcome.chat")
+    lblLocalGame.Caption = Loc("welcome.local")
+    Label1.Caption = Loc("welcome.welcome")
+End If
 lblName.Top = lblName.Top + 10
 Goingout = False
 

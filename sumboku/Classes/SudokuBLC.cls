@@ -46,9 +46,9 @@ End Sub
 Public Property Let BLCTyp(LngVal As SuBLCTyp)
   mBLCTyp = LngVal
   Select Case mBLCTyp
-  Case stBlock: mStrTyp = "Block"
-  Case stLine: mStrTyp = "Row"
-  Case stColum: mStrTyp = "Column"
+  Case stBlock: mStrTyp = Loc("blc.block")
+  Case stLine: mStrTyp = Loc("blc.row")
+  Case stColum: mStrTyp = Loc("blc.column")
   End Select
 End Property
 Public Property Set Img(ImgVal As Image)
@@ -58,7 +58,7 @@ End Property
 Public Sub UpdateToolTip()
 Dim str As String
   str = MissPossToString
-  If Len(str) > 0 Then str = " MissV: " & str
+  If Len(str) > 0 Then str = Loc("tip.missing") & str
   If Not mImg Is Nothing Then mImg.ToolTipText = mStrTyp & CStr(Nr) & str
 End Sub
 
@@ -125,17 +125,17 @@ Dim i As Long, V As SudokuVal, n2 As Long, NUZV As Long, n As Long
       If C1To9.Count <> 1 Then
         If C1To9.Count = 0 Then
           'CheckErr = CheckErr & "  Wert: " & CStr(i) & " kommt garnicht vor; "
-          CheckErr = CheckErr & "  value: " & CStr(i) & " does not occur; "
+          CheckErr = CheckErr & LocF("check.absent", i)
         Else
           'CheckErr = CheckErr & "  Wert: " & CStr(i) & " kommt: " & CStr(C1To9.Count) & "-mal vor; "
-          CheckErr = CheckErr & "  value: " & CStr(i) & " exists " & CStr(C1To9.Count) & "-times; "
+          CheckErr = CheckErr & LocF("check.repeated", i, C1To9.Count)
         End If
       End If
     Next
     'If Len(CheckErr) > 0 Then CheckErr = CheckErr & vbCrLf
     If Len(CheckErr) = 0 Then CheckMe = True
   Else
-    CheckErr = CStr(n - NUZV) & ": missing values"
+    CheckErr = LocF("check.missing", n - NUZV)
   End If
 End Function
 

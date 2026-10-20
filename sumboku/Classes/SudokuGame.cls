@@ -50,7 +50,7 @@ Public Sub NewC(GameWidth As Long)
   Case 1, 2, 5 To 8, 10 To 15: mn = 2 ' 4 = 2*2
   Case 3, 9, 17 To 81: mn = 3 ' 9 = 3*3
   Case 4, 82 To 256: mn = 4 ' 16 = 4*4
-  Case Else: MsgBox "Mehr Felder als 256 werden in dieser Version nicht unterstützt."
+  Case Else: MsgBox Loc("msg.tooMany")
   End Select
   Call InitBLCs
   Set ValueCol = New_VCV2BLC 'New Collection
@@ -266,7 +266,7 @@ Dim AppHelp As String
 'nur was machen wenn noch nicht alle Felder ausgefüllt
   CurNumVal = GetAmountOfUnZeroVals
   If CurNumVal = 0 Then
-    mess = "No calculation, all cells are empty."
+    mess = Loc("msg.empty")
     MsgBox mess
   Else
 'nur was machen wenn noch nicht alle Felder ausgefüllt
@@ -278,7 +278,7 @@ Dim AppHelp As String
         End If
         GTFOV = GetTryFillOutVal
         If Len(GTFOV) > 0 Then
-          mess = "There was no change since the last solve, try to fill out one cell of the following:" & vbCrLf
+          mess = Loc("msg.noChange") & vbCrLf
           mess = mess & GTFOV
           AppHelp = App.Path & "\" & App.HelpFile '
           RetVal = MsgBox(mess, vbOKOnly Or vbMsgBoxHelpButton, , AppHelp, 0&)
@@ -438,14 +438,14 @@ Dim n4 As Long, GAOUZV As Long
   If GAOUZV = n4 Then
     If Not CheckMe Then
       'mess = mess & "Das Sudoku-Rätsel konnte leider nicht richtig gelöst werden." & vbCrLf
-      mess = mess & "Unfortunately the sudoku riddle could not be solved correctly." & vbCrLf
+      mess = mess & Loc("msg.unsolved") & vbCrLf
       'außerdem soll ausgegeben werden wo es gehakt hat:
       mess = mess & msCheckErr
       MsgBox mess
     Else
       'MsgBox "habe fertig"
       'MsgBox "Herzlichen Glückwunsch, sie haben das Sudoku richtig gelöst!", vbMsgBoxRight, "Sudoku Sudoku Sudoku"
-      MsgBox "Congratulations, you have finally solved the sudoku correctly!", vbMsgBoxRight, "Sudoku Sudoku Sudoku"
+      MsgBox Loc("msg.solved"), vbMsgBoxRight, "Sudoku Sudoku Sudoku"
     End If
 '  Else
 '    If Not CheckMe Then MsgBox msCheckErr
@@ -462,7 +462,7 @@ Dim C As SudokuBLC
     Set B = mBlockCol(i)
     If Not B.CheckMe Then
       'msCheckErr = msCheckErr & "Block " & CStr(i) & " meldet:"
-      msCheckErr = msCheckErr & "Block " & CStr(i) & " report:"
+      msCheckErr = msCheckErr & LocF("check.report.block", i)
       msCheckErr = msCheckErr & B.CheckErr & vbCrLf
       CheckMe = False
     End If
@@ -471,7 +471,7 @@ Dim C As SudokuBLC
     Set L = mLineCol(i)
     If Not L.CheckMe Then
       'msCheckErr = msCheckErr & "Line " & CStr(i) & " meldet:"
-      msCheckErr = msCheckErr & "Line " & CStr(i) & " report:"
+      msCheckErr = msCheckErr & LocF("check.report.line", i)
       msCheckErr = msCheckErr & L.CheckErr & vbCrLf
       CheckMe = False
     End If
@@ -480,7 +480,7 @@ Dim C As SudokuBLC
     Set C = mColmCol(i)
     If Not C.CheckMe Then
       'msCheckErr = msCheckErr & "Column " & CStr(i) & " meldet:"
-      msCheckErr = msCheckErr & "Column " & CStr(i) & " report:"
+      msCheckErr = msCheckErr & LocF("check.report.column", i)
       msCheckErr = msCheckErr & C.CheckErr & vbCrLf
       CheckMe = False
     End If

@@ -25,3 +25,12 @@ Nothing.
 
 WFC's acceptance tests load `pipes.vbp` and capture screenshots of its forms.
 The program's own files are not modified; gaps found in it are fixed in WFC.
+
+## Localization (branch `localization`)
+
+The `localization` branch of this repository adds English, Polish, Chinese
+(Simplified) and Spanish text to this game. It changes FORM1.FRM, LOGO.FRM and PIPES.VBP, and adds
+`modLocale.bas`, which is generated from `localization/pipes.csv`. The
+translated parts are the window titles, the Quit and OK buttons, the version label and the win and lose messages. The language comes from the Windows display
+language (English when it is none of the four; `VB6GAMES_LANG` overrides it).
+The `master` branch keeps the program as the author wrote it.

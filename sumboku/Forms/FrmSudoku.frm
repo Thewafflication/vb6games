@@ -2109,7 +2109,31 @@ End Sub
 'End Sub
 
 '#################'   I n i t   T h e   G a m e   '#################'
+Private Sub ApplyLocale()
+  If LocLanguage = "en" Then Exit Sub
+  BtnOptions.Caption = Loc("main.options")
+  BtnOptions.ToolTipText = Loc("main.options.tip")
+  BtnInfo.Caption = Loc("main.info")
+  BtnInfo.ToolTipText = Loc("main.info.tip")
+  RndExample.Caption = Loc("main.rndExample")
+  BtnSave.ToolTipText = Loc("main.save.tip")
+  BtnOpen.ToolTipText = Loc("main.open.tip")
+  BtnExit.Caption = Loc("main.exit")
+  BtnExit.ToolTipText = Loc("main.exit.tip")
+  BtnRedo.ToolTipText = Loc("main.redo.tip")
+  BtnUndo.ToolTipText = Loc("main.undo.tip")
+  BtnSolve.Caption = Loc("main.solve")
+  BtnSolve.ToolTipText = Loc("main.solve.tip")
+  BtnTestBlocks.Caption = Loc("main.blocks")
+  BtnTestColms.Caption = Loc("main.colms")
+  BtnTestLines.Caption = Loc("main.lines")
+  Frame1.Caption = Loc("main.level")
+  BtnClear.Caption = Loc("main.clear")
+  BtnClear.ToolTipText = Loc("main.clear.tip")
+End Sub
+
 Private Sub Form_Load()
+  ApplyLocale
   'App.HelpFile = App.Path & "\" & "SuMBOku.hlp"
   Set mSudoku = New SudokuGame
   Set mUndoRedo = New SGUndoRedo
@@ -2247,19 +2271,19 @@ Dim CurCtrl As Control
 Dim FL As Long, FT As Long
   Select Case Asc(Typ)
   Case 66 '"B"
-    StrCap = "Block "
+    StrCap = "edit.block"
     Set mBLCV = mSudoku.mBlockCol(Index)
   Case 67 '"C"
-    StrCap = "Column "
+    StrCap = "edit.column"
     Set mBLCV = mSudoku.mColmCol(Index)
   Case 76 '"L"
-    StrCap = "Line "
+    StrCap = "edit.line"
     Set mBLCV = mSudoku.mLineCol(Index)
   Case 86 '"V"
-    StrCap = "Cell "
+    StrCap = "edit.cell"
     Set mBLCV = mSudoku.ValueCol(Index)
   End Select
-  frmSuEdit.Caption = StrCap & CStr(Index) & ":"
+  frmSuEdit.Caption = LocF(StrCap, Index)
   Set frmSuEdit.BLCV = mBLCV
   If L = 0 And T = 0 Then
     Set CurCtrl = Me.ActiveControl
@@ -2315,7 +2339,7 @@ End Sub
 
 Private Sub BtnOpen_Click()
 Dim OFD As New OpenFileDialog
-  OFD.Filter = "SuMBOku-files [*.smbk]|*.smbk|simplesudoku [*.ss]|*.ss"
+  OFD.Filter = Loc("filter.open")
   OFD.InitialDirectory = App.Path
   If OFD.ShowDialog(Me) = VbMsgBoxResult.vbOK Then
     Call mSudoku.ReadFromFile(OFD.FileName)
@@ -2327,7 +2351,7 @@ End Sub
 Private Sub BtnSave_Click()
 Dim SFD As New SaveFileDialog
   SFD.DefaultExt = ".smbk"
-  SFD.Filter = "SuMBOku-files [*.smbk]|*.smbk"
+  SFD.Filter = Loc("filter.save")
   SFD.InitialDirectory = App.Path
   If SFD.ShowDialog(Me) = VbMsgBoxResult.vbOK Then
     Call mSudoku.WriteToFile(SFD.FileName)

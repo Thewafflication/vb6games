@@ -194,9 +194,9 @@ def load(game):
             sys.exit("%s: %s: expected 5 columns, got %d" % (game, row[0], len(row)))
         if not re.fullmatch(r"[A-Za-z0-9_.]+", row[0]):
             sys.exit("%s: bad key %r" % (game, row[0]))
-        if row[0] in seen:
-            sys.exit("%s: duplicate key %s" % (game, row[0]))
-        seen.add(row[0])
+        if row[0].lower() in seen:
+            sys.exit("%s: duplicate key %s (keys ignore case)" % (game, row[0]))
+        seen.add(row[0].lower())
         placeholders = [sorted(set(re.findall(r"\{\d+\}", cell))) for cell in row[1:]]
         for lang, found in zip(LANGS, placeholders):
             if found != placeholders[0]:

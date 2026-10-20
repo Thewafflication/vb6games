@@ -1,0 +1,59 @@
+key,en,pl,zh,es
+main.options,Options,Opcje,选项,Opciones
+main.options.tip,Solve options,Opcje rozwiązywania,求解选项,Opciones de resolución
+main.info,Info,Info,信息,Info
+main.info.tip,Information & help,Informacje i pomoc,信息和帮助,Información y ayuda
+main.rndExample,Rnd Example,Losowy przykład,随机示例,Ejemplo aleatorio
+main.save.tip,Save SudokuFile,Zapisz plik sudoku,保存数独文件,Guardar archivo de sudoku
+main.open.tip,Open SudokuFile,Otwórz plik sudoku,打开数独文件,Abrir archivo de sudoku
+main.exit,Exit,Wyjście,退出,Salir
+main.exit.tip,Quit the game,Zakończ grę,退出游戏,Salir del juego
+main.redo.tip,Redo last action,Ponów ostatnią czynność,重做上一步操作,Rehacer la última acción
+main.undo.tip,Undo last action,Cofnij ostatnią czynność,撤销上一步操作,Deshacer la última acción
+main.solve,Solve,Rozwiąż,求解,Resolver
+main.solve.tip,do the next Solve-step ,wykonaj następny krok rozwiązywania,执行下一步求解,realiza el siguiente paso de resolución
+main.blocks,Blocks,Bloki,块,Bloques
+main.colms,Colms,Kolumny,列,Columnas
+main.lines,Lines,Wiersze,行,Filas
+main.level,Level:,Poziom:,难度：,Nivel:
+main.clear,Clear,Wyczyść,清除,Borrar
+main.clear.tip,Clear the whole game,Wyczyść całą grę,清除整个游戏,Borrar todo el juego
+filter.open,SuMBOku-files [*.smbk]|*.smbk|simplesudoku [*.ss]|*.ss,Pliki SuMBOku [*.smbk]|*.smbk|simplesudoku [*.ss]|*.ss,SuMBOku 文件 [*.smbk]|*.smbk|simplesudoku [*.ss]|*.ss,Archivos SuMBOku [*.smbk]|*.smbk|simplesudoku [*.ss]|*.ss
+filter.save,SuMBOku-files [*.smbk]|*.smbk,Pliki SuMBOku [*.smbk]|*.smbk,SuMBOku 文件 [*.smbk]|*.smbk,Archivos SuMBOku [*.smbk]|*.smbk
+edit.block,Block {0}:,Blok {0}:,块 {0}：,Bloque {0}:
+edit.column,Column {0}:,Kolumna {0}:,列 {0}：,Columna {0}:
+edit.line,Line {0}:,Wiersz {0}:,行 {0}：,Fila {0}:
+edit.cell,Cell {0}:,Komórka {0}:,单元格 {0}：,Celda {0}:
+edit.tip,"1,2,3 ... (comma separated)","1,2,3 ... (oddzielone przecinkami)","1,2,3 ...（用逗号分隔）","1,2,3 ... (separados por comas)"
+opt.title,Solve Options,Opcje rozwiązywania,求解选项,Opciones de resolución
+opt.cancel,Cancel,Anuluj,取消,Cancelar
+opt.ok,OK,OK,确定,Aceptar
+opt.frame,Solve with...,Rozwiązuj za pomocą...,求解方式...,Resolver con...
+opt.4,the whole iteration,całej iteracji,完整迭代,la iteración completa
+opt.4.tip,not yet implemented,jeszcze niezaimplementowane,尚未实现,aún no implementado
+opt.3,all three steps,wszystkich trzech kroków,全部三个步骤,los tres pasos
+opt.2,the first and second step,pierwszego i drugiego kroku,第一和第二步,el primer y el segundo paso
+opt.2.tip,Second: fill in single possible values,Drugi: wpisz pojedyncze możliwe wartości,第二步：填入唯一可能的值,Segundo: rellena los valores únicos posibles
+opt.1,only the first step,tylko pierwszego kroku,仅第一步,solo el primer paso
+opt.1.tip,"No new values, only possible values in ToolTips","Bez nowych wartości, tylko możliwe wartości w podpowiedziach",不填入新值，仅在提示中显示可能的值,"Sin valores nuevos, solo los valores posibles en las sugerencias"
+about.title,Info {0},Informacje o {0},关于 {0},Información de {0}
+about.version,Version {0},Wersja {0},版本 {0},Versión {0}
+about.description,Trainprogram Nr. 33,Program treningowy nr 33,训练程序 第 33 号,Programa de entrenamiento n.º 33
+about.help,"Click Solve more times;{nl}U: Undo; R: Redo; O: Open; S: SaveAs; I: Info;{nl}The tooltips of Edits give info about next move;{nl}Nr: Number of the cell lefttop=1, rightbottom=81{nl}B: Number of quadratic block of cells lefttop=1, rightbottom=9{nl}L: Line number firsttop=1, lastbottom=9{nl}C: Column number left=1, right=9{nl}PossV: possible value(s) of this cell{nl}","Klikaj Rozwiąż kilka razy;{nl}U: cofnij; R: ponów; O: otwórz; S: zapisz jako; I: info;{nl}Podpowiedzi pól podają informacje o następnym ruchu;{nl}Nr: numer komórki, lewy górny=1, prawy dolny=81{nl}B: numer bloku komórek, lewy górny=1, prawy dolny=9{nl}W: numer wiersza, pierwszy u góry=1, ostatni na dole=9{nl}K: numer kolumny, lewa=1, prawa=9{nl}MożW: możliwe wartości tej komórki{nl}",多次点击“求解”；{nl}U：撤销；R：重做；O：打开；S：另存为；I：信息；{nl}输入框的提示会给出下一步的信息；{nl}编号：单元格编号，左上=1，右下=81{nl}块：方块编号，左上=1，右下=9{nl}行：行号，最上=1，最下=9{nl}列：列号，最左=1，最右=9{nl}可能值：该单元格的可能取值{nl},"Pulsa Resolver varias veces;{nl}U: deshacer; R: rehacer; O: abrir; S: guardar como; I: info;{nl}Las sugerencias de las casillas dan información sobre la siguiente jugada;{nl}N.º: número de la celda, arriba a la izquierda=1, abajo a la derecha=81{nl}B: número del bloque de celdas, arriba a la izquierda=1, abajo a la derecha=9{nl}F: número de fila, la primera arriba=1, la última abajo=9{nl}C: número de columna, izquierda=1, derecha=9{nl}ValPos: valores posibles de esta celda{nl}"
+tip.cell,Nr:{0} B:{1} L:{2} C:{3},Nr:{0} B:{1} W:{2} K:{3},编号:{0} 块:{1} 行:{2} 列:{3},N.º:{0} B:{1} F:{2} C:{3}
+tip.possible, PossV: , MożW: , 可能值: , ValPos: 
+tip.missing, MissV: , BrakW: , 缺少值: , ValFalt: 
+blc.block,Block,Blok,块,Bloque
+blc.row,Row,Wiersz,行,Fila
+blc.column,Column,Kolumna,列,Columna
+check.missing,{0}: missing values,{0}: brakujące wartości,{0}：缺少的值,{0}: valores que faltan
+check.absent,  value: {0} does not occur; ,  wartość: {0} nie występuje; ,  值：{0} 没有出现； ,  valor: {0} no aparece; 
+check.repeated,  value: {0} exists {1}-times; ,  wartość: {0} występuje {1} razy; ,  值：{0} 出现了 {1} 次； ,  valor: {0} aparece {1} veces; 
+check.report.block,Block {0} report:,Raport bloku {0}:,块 {0} 报告：,Informe del bloque {0}:
+check.report.line,Line {0} report:,Raport wiersza {0}:,行 {0} 报告：,Informe de la fila {0}:
+check.report.column,Column {0} report:,Raport kolumny {0}:,列 {0} 报告：,Informe de la columna {0}:
+msg.tooMany,More than 256 cells are not supported in this version.,Ta wersja nie obsługuje więcej niż 256 pól.,此版本不支持超过 256 个单元格。,Esta versión no admite más de 256 celdas.
+msg.empty,"No calculation, all cells are empty.","Brak obliczeń, wszystkie komórki są puste.",无法计算，所有单元格都是空的。,"Sin cálculo, todas las celdas están vacías."
+msg.noChange,"There was no change since the last solve, try to fill out one cell of the following:","Od ostatniego rozwiązywania nic się nie zmieniło, spróbuj wypełnić jedną z poniższych komórek:",自上次求解以来没有变化，请尝试填写下列单元格之一：,"No ha habido cambios desde la última resolución; intenta rellenar una de estas celdas:"
+msg.unsolved,Unfortunately the sudoku riddle could not be solved correctly.,Niestety nie udało się poprawnie rozwiązać zagadki sudoku.,很遗憾，这道数独题没有被正确解出。,"Por desgracia, el sudoku no se ha podido resolver correctamente."
+msg.solved,"Congratulations, you have finally solved the sudoku correctly!","Gratulacje, w końcu poprawnie rozwiązałeś sudoku!",恭喜，你终于正确解出了这道数独！,"¡Enhorabuena, por fin has resuelto el sudoku correctamente!"

@@ -27,3 +27,12 @@ copies, and WFC's tests use its `Sudoku.vbp`.
 WFC's acceptance tests load `v1.4.2/SuMBOku_V_1_4/Sudoku.vbp` and capture
 screenshots of its forms. The program is not modified; gaps found in it are
 fixed in WFC.
+
+## Localization (branch `localization`)
+
+The `localization` branch of this repository adds English, Polish, Chinese
+(Simplified) and Spanish text to this game. It changes Forms/FrmSudoku.frm, Forms/frmSudokuOptions.frm, Forms/frmSuEdit.frm, Forms/frmAbout.frm, Classes/SudokuBLC.cls, Classes/SudokuVal.cls, Classes/SudokuGame.cls and PSuMBOku.vbp, and adds
+`modLocale.bas`, which is generated from `localization/sumboku.csv`. The
+translated parts are the captions, tool tips, dialogs and solver messages (the original mixed English with German, so those parts are translated too); the older copy under `v1.4.2/` is not localized. The language comes from the Windows display
+language (English when it is none of the four; `VB6GAMES_LANG` overrides it).
+The `master` branch keeps the program as the author wrote it.

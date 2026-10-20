@@ -187,6 +187,10 @@ Attribute VB_Exposed = False
 ' *********************************************************************************************************
 
 Private Sub Form_Load()
+If LocLanguage <> "en" Then
+    txtPlayerNameOne.ToolTipText = Loc("tip.enterName")
+    txtPlayerNameTwo.ToolTipText = Loc("tip.enterName")
+End If
 ' *********************************************************************************************************
 ' FORM LOAD
 ' *********************************************************************************************************
@@ -215,8 +219,8 @@ Private Sub picNameBegin_Click()
 ' Date Modified: May 29/99
 ' *********************************************************************************************************
 
-If txtPlayerNameOne = "" Then txtPlayerNameOne = "Player 1" ' set default names if empty
-If txtPlayerNameTwo = "" Then txtPlayerNameTwo = "Player 2"
+If txtPlayerNameOne = "" Then txtPlayerNameOne = Loc("player.1") ' set default names if empty
+If txtPlayerNameTwo = "" Then txtPlayerNameTwo = Loc("player.2")
 
 Player1name = txtPlayerNameOne ' text typed in by User is now Player1name
 Player2name = txtPlayerNameTwo

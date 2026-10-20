@@ -299,6 +299,24 @@ Attribute VB_Exposed = False
 ' Date: May 29/99
 ' *********************************************************************************************************
 
+Private Sub ApplyLocale()
+    If LocLanguage = "en" Then Exit Sub
+    Caption = Loc("options.title")
+    optTimer(4).Caption = Loc("options.timerOff")
+    optTimer(0).Caption = Loc("options.time60")
+    optTimer(1).Caption = Loc("options.time45")
+    optTimer(2).Caption = Loc("options.time30")
+    optTimer(3).Caption = Loc("options.time15")
+    optHints(0).Caption = Loc("options.hint1")
+    optHints(1).Caption = Loc("options.hint2")
+    optHints(2).Caption = Loc("options.hint5")
+    optHints(3).Caption = Loc("options.cheater")
+End Sub
+
+Private Sub Form_Load()
+    ApplyLocale
+End Sub
+
 Public Sub Picture2_Click(Index As Integer)
 
 ' *********************************************************************************************************

@@ -24,3 +24,12 @@ The program is `src/Clix.vbp` (three forms and one module).
 
 WFC's acceptance tests load `src/Clix.vbp` and capture screenshots of its
 forms. The program is not modified; gaps found in it are fixed in WFC.
+
+## Localization (branch `localization`)
+
+The `localization` branch of this repository adds English, Polish, Chinese
+(Simplified) and Spanish text to this game. It changes src/frmMain.frm and src/Clix.vbp, and adds
+`modLocale.bas`, which is generated from `localization/clix.csv`. The
+translated parts are the labels, buttons, menus and message boxes (the original mixed English with Croatian, so the English text is a translation of the Croatian). The language comes from the Windows display
+language (English when it is none of the four; `VB6GAMES_LANG` overrides it).
+The `master` branch keeps the program as the author wrote it.

@@ -1,0 +1,43 @@
+key,en,pl,zh,es
+app.title,Executioner By Corey McInroy                                               ,Executioner - autor: Corey McInroy,Executioner - 作者：Corey McInroy,Executioner - de Corey McInroy
+app.titleShort,Executioner By Corey McInroy,Executioner - autor: Corey McInroy,Executioner - 作者：Corey McInroy,Executioner - de Corey McInroy
+caption.start1,Click Screen to Start Your Quest,"Kliknij ekran, aby rozpocząć wyprawę",点击屏幕开始你的冒险,Haz clic en la pantalla para comenzar tu aventura
+caption.start2,Click The Screen to Start Your Quest,"Kliknij ekran, aby rozpocząć wyprawę",点击屏幕开始你的冒险,Haz clic en la pantalla para comenzar tu aventura
+tip.solve,Type The phrase then press ENTER,Wpisz hasło i naciśnij ENTER,输入短语后按回车键,Escribe la frase y pulsa ENTER
+button.solve,Solve,Odgadnij,解答,Resolver
+button.hint,HINT,PODPOWIEDŹ,提示,PISTA
+player.1,Player 1,Gracz 1,玩家 1,Jugador 1
+player.2,Player 2,Gracz 2,玩家 2,Jugador 2
+menu.game,&Game,&Gra,游戏(&G),&Juego
+menu.newGame,Start &New Game,Rozpocznij &nową grę,开始新游戏(&N),Iniciar &nuevo juego
+menu.endQuest,End Quest,Zakończ wyprawę,结束冒险,Terminar la aventura
+menu.onePlayer,One Player,Jeden gracz,单人,Un jugador
+menu.twoPlayers,Two Players,Dwóch graczy,双人,Dos jugadores
+menu.exit,E&xit,&Wyjdź,退出(&X),&Salir
+menu.options,&Options,&Opcje,选项(&O),&Opciones
+menu.sound,&Sound,&Dźwięk,声音(&S),&Sonido
+menu.showTimer,Show Timer,Pokaż zegar,显示计时器,Mostrar temporizador
+menu.showHints,Show Hints,Pokaż podpowiedzi,显示提示,Mostrar pistas
+menu.setNames,Set Player Names,Ustaw imiona graczy,设置玩家名称,Definir nombres de los jugadores
+menu.advanced,A&dvanced Options,Opcje za&awansowane,高级选项(&D),Opciones a&vanzadas
+menu.about,&About,&Informacje,关于(&A),&Acerca de
+menu.rules,&Rulez,&Zasady,规则(&R),&Reglas
+menu.creator,About the Creator,O autorze,关于作者,Acerca del autor
+msg.gameOver,GAME OVER,KONIEC GRY,游戏结束,FIN DEL JUEGO
+msg.wins,{0} WINS!!,{0} WYGRYWA!!,{0} 获胜！！,¡¡{0} GANA!!
+msg.goesFirst,{0} Goes First,{0} zaczyna,{0} 先开始,{0} empieza
+msg.turn1,{0}'s Turn ,Kolej gracza: {0} ,轮到 {0} ,Turno de {0} 
+msg.turn2,{0}'s Turn,Kolej gracza: {0},轮到 {0},Turno de {0}
+options.title,Rulez,Zasady,规则,Reglas
+options.timerOff,Timer off,Zegar wyłączony,关闭计时器,Temporizador desactivado
+options.time60,60 sec. (Squire),60 s (Giermek),60 秒（侍从）,60 s (Escudero)
+options.time45,45 sec. (Adventurer),45 s (Poszukiwacz przygód),45 秒（冒险者）,45 s (Aventurero)
+options.time30,30 sec. (Knight),30 s (Rycerz),30 秒（骑士）,30 s (Caballero)
+options.time15,15 sec. (King),15 s (Król),15 秒（国王）,15 s (Rey)
+options.hint1,1 Hint,1 podpowiedź,1 次提示,1 pista
+options.hint2,2 Hints,2 podpowiedzi,2 次提示,2 pistas
+options.hint5,5 Hints,5 podpowiedzi,5 次提示,5 pistas
+options.cheater,Cheater,Oszust,作弊者,Tramposo
+tip.enterName,Enter Name,Wpisz imię,输入名称,Escribe el nombre
+splash.onlyAGame,This Is Only A Game,To tylko gra,这只是一个游戏,Esto es solo un juego
+rulez.title,Rulez,Zasady,规则,Reglas

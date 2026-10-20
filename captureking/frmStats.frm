@@ -28,7 +28,7 @@ Attribute VB_Exposed = False
 Dim wins, loses, surrenders As Integer
 
 Private Sub Form_Load()
-frmStats.Caption = "Stats for [" & frmChat.lblUser.Caption & "] - Capture King"
+frmStats.Caption = LocF("stats.for", frmChat.lblUser.Caption)
 frmStats.BackColor = frmGame.CommonDialog1.Color
 
 Call refreshStat

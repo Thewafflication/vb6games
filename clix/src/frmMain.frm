@@ -738,7 +738,7 @@ Public Sub inicTabla()
         'ako je ponovi 100 puta
         If PREKID_APP >= PREKID_APP_MAX Then
             '// LOST number ;) //
-            MsgBox "FATAL ERROR!" & vbCrLf & vbCrLf & "code: 4 8 15 16 23 42" & vbCrLf & vbCrLf & "SYSTEM FAILURE", vbCritical
+            MsgBox Loc("msg.fatal"), vbCritical
             Unload Me
         End If
         
@@ -1233,9 +1233,9 @@ End Sub
 
 Private Sub Command1_Click()
     On Error GoTo kraj
-    Dim X As Byte: X = InputBox("x")
-    Dim Y As Byte: Y = InputBox("y")
-    Dim b As Byte: b = InputBox("boja" + vbCrLf + "1. crvena" + vbCrLf + "2. zuta" + vbCrLf + "3. zelena" + vbCrLf + "4. plava" + vbCrLf + "5. ljubicasta")
+    Dim X As Byte: X = InputBox(Loc("cheat.x"))
+    Dim Y As Byte: Y = InputBox(Loc("cheat.y"))
+    Dim b As Byte: b = InputBox(Loc("cheat.color"))
     TABLA(X, Y) = BOJA(b)
     showTabla
 kraj:
@@ -1281,7 +1281,7 @@ Private Sub Form_Initialize()
     
     'ako je aplikacija vec pokrenuta
     If App.PrevInstance = True Then
-        MsgBox "vec pokrenut!!", vbExclamation, "TITLE"
+        MsgBox Loc("msg.alreadyRunning"), vbExclamation, "TITLE"
         End
     End If
     
@@ -1289,7 +1289,39 @@ Private Sub Form_Initialize()
 
 End Sub
 
+Private Sub ApplyLocale()
+    ' The designed captions are partly Croatian, so every language,
+    ' English included, is set from the translation table.
+    Dim i As Integer
+    Caption = Loc("app.title")
+    frmInfoBall.Caption = Loc("info.frame")
+    lblInfBall(5).Caption = Loc("info.pink")
+    lblInfBall(4).Caption = Loc("info.blue")
+    lblInfBall(3).Caption = Loc("info.green")
+    lblInfBall(2).Caption = Loc("info.yellow")
+    lblInfBall(1).Caption = Loc("info.red")
+    Command2.Caption = Loc("button.info")
+    Command1.Caption = Loc("button.cheat")
+    cmdUndo.Caption = Loc("button.undo")
+    cmdNew.Caption = Loc("button.new")
+    lblJockerHint.Caption = Loc("hint.jocker")
+    lblJocker.Caption = Loc("jocker.label")
+    mnuGameMode.Caption = Loc("menu.gameMode")
+    For i = 1 To 4
+        mnuGameModeSelect(i).Caption = "&" & i & ". " & Loc("mode." & i)
+        mnuOrientationSelect(i).Caption = Loc("menu.orient." & i)
+    Next i
+    mnuOrientation.Caption = Loc("menu.orientation")
+    mnuOptions.Caption = Loc("menu.options")
+    mnuOptionsGrid.Caption = Loc("menu.options.grid")
+    mnuOptionsJocker.Caption = Loc("menu.options.jocker")
+    mnuInfoBall.Caption = Loc("menu.options.infoBall")
+    mnuJocker.Caption = Loc("menu.jocker")
+    mnuJockerBall.Caption = Loc("menu.jockerBall")
+End Sub
+
 Private Sub Form_Load()
+    ApplyLocale
     Screen.MousePointer = 13
     
     inicBojeForme
@@ -1995,7 +2027,7 @@ End Sub
 
 Public Sub showGameOver()
     cmdUndo.Enabled = False
-    MsgBox "game over", vbInformation
+    MsgBox Loc("msg.gameOver"), vbInformation
 End Sub
 
 Public Sub inicKontrole()
@@ -2050,10 +2082,10 @@ Public Sub inicGameModeText()
     '
     'inicijalizacija game mode textova i prikazivanje
     '
-    GAME_MODE_TEXT(1) = "Standard"
-    GAME_MODE_TEXT(2) = "Continuous"
-    GAME_MODE_TEXT(3) = "Shifter"
-    GAME_MODE_TEXT(4) = "MegaShift"
+    GAME_MODE_TEXT(1) = Loc("mode.1")
+    GAME_MODE_TEXT(2) = Loc("mode.2")
+    GAME_MODE_TEXT(3) = Loc("mode.3")
+    GAME_MODE_TEXT(4) = Loc("mode.4")
     
     lblGameMode.Caption = GAME_MODE_TEXT(GAME_MODE_SELECTED)
 End Sub
@@ -2446,7 +2478,7 @@ Private Sub mnuJockerBall_Click()
     '
     
     If checkFirstMove = False Then
-        MsgBox "MORA SE ODIGRATI BAR JEDAN POTEZ!!", vbInformation
+        MsgBox Loc("msg.needMove"), vbInformation
         Exit Sub
     End If
     
@@ -2454,7 +2486,7 @@ Private Sub mnuJockerBall_Click()
     Dim pitanje
     shpKugla(KUGLA_TRENUTNA).FillColor = JOCKER_BOJA(1)
     
-    pitanje = MsgBox("SIGURNO??", vbQuestion + vbYesNo, "Jocker")
+    pitanje = MsgBox(Loc("msg.sure"), vbQuestion + vbYesNo, Loc("menu.jocker"))
     If pitanje = vbYes Then
         'yes
         TABLA(getOsaX(KUGLA_TRENUTNA), getOsaY(KUGLA_TRENUTNA)) = JOCKER_BOJA(1)
@@ -2516,28 +2548,28 @@ Public Sub inicOrientation()
         'ako je odabran PORTRAIT
         TABLA_DUZINA_X = 11
         TABLA_DUZINA_Y = 12
-        lblOrientation.Caption = "PORTRAIT"
+        lblOrientation.Caption = Loc("orient.1")
     
     ElseIf ORIENTATION_SELECTED = 2 Then
         'ako je odabran LANDSCAPE
         TABLA_DUZINA_X = 15
         TABLA_DUZINA_Y = 8
-        lblOrientation.Caption = "LANDSCAPE"
+        lblOrientation.Caption = Loc("orient.2")
     
     ElseIf ORIENTATION_SELECTED = 3 Then
         'ako je BOX
         TABLA_DUZINA_X = 14
         TABLA_DUZINA_Y = 14
-        lblOrientation.Caption = "BOX"
+        lblOrientation.Caption = Loc("orient.3")
     ElseIf ORIENTATION_SELECTED = 4 Then
         'ako je BOX
         TABLA_DUZINA_X = 11
         TABLA_DUZINA_Y = 16
-        lblOrientation.Caption = "X1"
+        lblOrientation.Caption = Loc("orient.4")
     
     Else
         'ako je error
-        MsgBox "NIJE INICIJALIZIRANA DIMENZIJA TABLE!", vbCritical
+        MsgBox Loc("msg.noBoard"), vbCritical
         Unload Me
         End
     End If
@@ -2689,12 +2721,12 @@ Public Sub inicJocker()
     
     If JOCKER = True Then
         mnuOptionsJocker.Checked = True
-        lblJocker.Caption = "JOCKER: ON"
+        lblJocker.Caption = Loc("jocker.on")
         lblJocker.ForeColor = vbBlue
         lblJockerHint.Visible = True
     Else
         mnuOptionsJocker.Checked = False
-        lblJocker.Caption = "JOCKER: OFF"
+        lblJocker.Caption = Loc("jocker.off")
         lblJocker.ForeColor = vbRed
         lblJockerHint.Visible = False
     End If

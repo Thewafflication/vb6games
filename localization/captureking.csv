@@ -1,0 +1,93 @@
+key,en,pl,zh,es
+game.clear,&Clear,&Wyczyść,清除(&C),&Borrar
+game.send,&Send,&Wyślij,发送(&S),&Enviar
+game.surrender,Surrender,Poddaj się,投降,Rendirse
+game.callCheat,Call Invalid Move,Zgłoś niedozwolony ruch,指出无效走法,Denunciar movimiento inválido
+game.callMate,Call Check Mate,Zgłoś mata,宣布将死,Anunciar jaque mate
+game.callCheck,Call Check,Zgłoś szacha,宣布将军,Anunciar jaque
+menu.file,&File,&Plik,文件(&F),&Archivo
+menu.exit,Exit,Wyjście,退出,Salir
+menu.help,Help,Pomoc,帮助,Ayuda
+menu.edit,&Edit,&Edycja,编辑(&E),&Edición
+menu.boardColour,Board Colour,Kolor planszy,棋盘颜色,Color del tablero
+menu.view,&View,&Widok,查看(&V),&Ver
+menu.chat,Chat Room,Pokój czatu,聊天室,Sala de chat
+menu.grave,Grave yard,Cmentarz,墓地,Cementerio
+menu.stats,Statistics,Statystyki,统计,Estadísticas
+menu.achievements,Achievments,Osiągnięcia,成就,Logros
+menu.game,&Game,&Gra,游戏(&G),&Juego
+menu.localGame,New Local Game,Nowa gra lokalna,新建本地游戏,Nueva partida local
+menu.lanGame,New LAN Game,Nowa gra w sieci LAN,新建局域网游戏,Nueva partida en red local
+menu.save,Save Game,Zapisz grę,保存游戏,Guardar partida
+menu.saveAs,Save Game As,Zapisz grę jako,游戏另存为,Guardar partida como
+menu.load,Load Game,Wczytaj grę,载入游戏,Cargar partida
+menu.advanced,&Advanced,&Zaawansowane,高级(&A),&Avanzado
+menu.setOpIP,Set Oppenent IP,Ustaw IP przeciwnika,设置对手 IP,Establecer IP del oponente
+menu.about,&About,&Informacje,关于(&A),&Acerca de
+chat.privateSend,Private Message,Wiadomość prywatna,私信,Mensaje privado
+chat.invite,Invite to game,Zaproś do gry,邀请加入游戏,Invitar a jugar
+chat.inviteUser,Invite {0} to game,Zaproś {0} do gry,邀请 {0} 加入游戏,Invitar a {0} a jugar
+chat.send,&Send Message,&Wyślij wiadomość,发送消息(&S),&Enviar mensaje
+chat.exit,&Exit,&Wyjście,退出(&E),&Salir
+chat.bio,User Biography,Biografia użytkownika,用户简介,Biografía del usuario
+chat.select,<< select a user to view >>,<< wybierz użytkownika >>,<< 选择要查看的用户 >>,<< selecciona un usuario >>
+chat.invite1,Invite 1:,Zaproszenie 1:,邀请 1：,Invitación 1:
+chat.invite2,Invite 2:,Zaproszenie 2:,邀请 2：,Invitación 2:
+chat.invite3,Invite 3:,Zaproszenie 3:,邀请 3：,Invitación 3:
+chat.private,Private Users:,Użytkownicy prywatni:,私聊用户：,Usuarios privados:
+chat.typeHere,Type your message here:,Wpisz wiadomość tutaj:,在此输入消息：,Escribe tu mensaje aquí:
+chat.invites,Invites:,Zaproszenia:,邀请：,Invitaciones:
+chat.messages,Messages from users:,Wiadomości od użytkowników:,用户消息：,Mensajes de los usuarios:
+chat.online,Online Users:,Użytkownicy online:,在线用户：,Usuarios en línea:
+chat.gameBoard,Game Board,Plansza,棋盘,Tablero
+chat.title,{0} at {1},{0} pod adresem {1},{0}，地址 {1},{0} en {1}
+chat.rejected,{0} rejected your invite.,{0} odrzucił(a) Twoje zaproszenie.,{0} 拒绝了你的邀请。,{0} ha rechazado tu invitación.
+chat.inviteReceived,Invite recieved,Otrzymano zaproszenie,收到邀请,Invitación recibida
+chat.error,Error Number: {0} Description: {1},Numer błędu: {0} Opis: {1},错误编号：{0} 说明：{1},Error número: {0} Descripción: {1}
+welcome.title,Welcome - Capture King,Witamy - Capture King,欢迎 - Capture King,Bienvenido - Capture King
+welcome.chat,Go to pre-game Chat,Przejdź do czatu przed grą,前往赛前聊天,Ir al chat previo a la partida
+welcome.local,Create Local Game,Utwórz grę lokalną,创建本地游戏,Crear partida local
+welcome.welcome,Welcome,Witaj,欢迎,Bienvenido
+promo.title,Pawn Promotion - Capture King,Promocja piona - Capture King,兵升变 - Capture King,Coronación de peón - Capture King
+promo.select,&Select this piece,&Wybierz tę figurę,选择此棋子(&S),&Elegir esta pieza
+promo.text,"Congradulations! Your Pawn has been promoted, please choose which piece you wihs to promote it to:","Gratulacje! Twój pion został awansowany. Wybierz figurę, na którą ma zostać zamieniony:",恭喜！你的兵已升变，请选择要升变成的棋子：,¡Enhorabuena! Tu peón ha sido coronado; elige la pieza en la que quieres convertirlo:
+stats.title,Statistics,Statystyki,统计,Estadísticas
+stats.for,Stats for [{0}] - Capture King,Statystyki [{0}] - Capture King,[{0}] 的统计 - Capture King,Estadísticas de [{0}] - Capture King
+ach.help,To unlock achievments you must perform certain actions during chess matches. To see view how to unlock achievments place your cursor over the images below.,"Aby odblokować osiągnięcia, musisz wykonać określone działania podczas partii szachów. Aby zobaczyć, jak je odblokować, najedź kursorem na obrazki poniżej.",要解锁成就，你必须在国际象棋对局中完成特定操作。将光标移到下方图片上即可查看解锁方法。,"Para desbloquear logros debes realizar ciertas acciones durante las partidas de ajedrez. Para ver cómo desbloquearlos, coloca el cursor sobre las imágenes de abajo."
+ach.1,Rewarded for winning a game of chess through the LAN network,Nagroda za wygranie partii szachów w sieci LAN,通过局域网赢得一局国际象棋的奖励,Recompensa por ganar una partida de ajedrez en la red local
+ach.2,Rewarded for winning 50 games of chess through the LAN network,Nagroda za wygranie 50 partii szachów w sieci LAN,通过局域网赢得 50 局国际象棋的奖励,Recompensa por ganar 50 partidas de ajedrez en la red local
+game.title,{0} [level {1}]     - Capture King,{0} [poziom {1}]     - Capture King,{0} [等级 {1}]     - Capture King,{0} [nivel {1}]     - Capture King
+msg.callCheat,Call an invalid move?,Zgłosić niedozwolony ruch?,指出无效走法？,¿Denunciar un movimiento inválido?
+msg.noMoves,No moves yet taken!,Nie wykonano jeszcze żadnego ruchu!,还没有走棋！,¡Aún no se ha hecho ningún movimiento!
+msg.callCheck,Call Check?,Zgłosić szacha?,宣布将军？,¿Anunciar jaque?
+msg.callMate,Call Check Mate?,Zgłosić mata?,宣布将死？,¿Anunciar jaque mate?
+msg.surrender,"There is no gain in surrender, are you sure you want to fall before you opponent?",Poddanie się nic nie daje. Czy na pewno chcesz upaść przed przeciwnikiem?,投降没有任何好处，你确定要在对手面前认输吗？,"Rendirse no sirve de nada, ¿seguro que quieres caer ante tu oponente?"
+msg.about,"Capture King © - Created, designed and coded by Christopher McKirgan 2007-2008. Designed for A2 computing coursework at Bridgwater College.{nl}{nl}Contact: kirgy9@gmail.com, www.mckirgan.com.{nl}{nl}This game is open to the public for sharing and distrubution, this game MUST NOT BE SOLD without owners prior concent.","Capture King © - Stworzony, zaprojektowany i zaprogramowany przez Christophera McKirgana w latach 2007-2008. Zaprojektowany jako praca z informatyki (A2) w Bridgwater College.{nl}{nl}Kontakt: kirgy9@gmail.com, www.mckirgan.com.{nl}{nl}Ta gra jest otwarta dla wszystkich do udostępniania i rozpowszechniania; NIE WOLNO JEJ SPRZEDAWAĆ bez uprzedniej zgody właściciela.",Capture King © - 由 Christopher McKirgan 于 2007-2008 年创建、设计和编写。作为 Bridgwater College A2 计算机课程作业而设计。{nl}{nl}联系方式：kirgy9@gmail.com，www.mckirgan.com。{nl}{nl}本游戏对公众开放，可自由分享和分发；未经所有者事先同意，不得出售本游戏。,"Capture King © - Creado, diseñado y programado por Christopher McKirgan en 2007-2008. Diseñado como trabajo de informática A2 en Bridgwater College.{nl}{nl}Contacto: kirgy9@gmail.com, www.mckirgan.com.{nl}{nl}Este juego está abierto al público para su uso compartido y distribución; NO SE PUEDE VENDER sin el consentimiento previo del propietario."
+msg.colour1,Please choose the first colour for the board,Wybierz pierwszy kolor planszy,请选择棋盘的第一种颜色,Elige el primer color del tablero
+msg.colour2,Please choose the second colour for the board,Wybierz drugi kolor planszy,请选择棋盘的第二种颜色,Elige el segundo color del tablero
+msg.exit,Are you sure you want to exit Capture King and leave the current game? Any unsaved progress will be lost.,Czy na pewno chcesz zamknąć Capture King i opuścić bieżącą grę? Niezapisany postęp zostanie utracony.,确定要退出 Capture King 并离开当前游戏吗？未保存的进度将会丢失。,¿Seguro que quieres salir de Capture King y abandonar la partida actual? Se perderá el progreso no guardado.
+filter.save,Capture King files only|*.cpt*,Tylko pliki Capture King|*.cpt*,仅 Capture King 文件|*.cpt*,Solo archivos de Capture King|*.cpt*
+msg.newLocal,Are you sure you want to start a new Local game and exit this one? All unsaved game data will be deleted.,Czy na pewno chcesz rozpocząć nową grę lokalną i zamknąć tę? Wszystkie niezapisane dane gry zostaną usunięte.,确定要开始新的本地游戏并退出当前游戏吗？所有未保存的游戏数据都将被删除。,¿Seguro que quieres iniciar una nueva partida local y salir de esta? Se eliminarán todos los datos no guardados.
+info.localSetup,A local game is being set up...,Przygotowywanie gry lokalnej...,正在设置本地游戏...,Se está preparando una partida local...
+input.player2,Please enter name of [Player 2],Wpisz imię [Gracza 2],请输入[玩家 2]的名称,Introduce el nombre del [Jugador 2]
+input.player2.title,Player 2 name needed,Wymagane imię Gracza 2,需要玩家 2 的名称,Se necesita el nombre del Jugador 2
+msg.firstMove,Will {0} be taking the first move?,Czy {0} wykona pierwszy ruch?,{0} 先走吗？,¿{0} hará el primer movimiento?
+msg.firstMoveWhite,{0} will be taking the first move as the white team,{0} wykona pierwszy ruch jako drużyna biała,{0} 将作为白方先走,{0} hará el primer movimiento como equipo blanco
+info.taking,{0} is taking their move.,{0} wykonuje swój ruch.,{0} 正在走棋。,{0} está haciendo su movimiento.
+msg.newGame,Are you sure you want to start a new game and exit this one?,Czy na pewno chcesz rozpocząć nową grę i zamknąć tę?,确定要开始新游戏并退出当前游戏吗？,¿Seguro que quieres iniciar una nueva partida y salir de esta?
+input.ip,Please enter a valid IP address,Wpisz prawidłowy adres IP,请输入有效的 IP 地址,Introduce una dirección IP válida
+color.black,Black,Czarne,黑方,Negras
+color.white,White,Białe,白方,Blancas
+msg.wait,Please wait your turn.{0} is taking their turn.,Poczekaj na swoją kolej. Ruch wykonuje: {0}.,请等待你的回合。{0} 正在走棋。,Espera tu turno. {0} está haciendo su movimiento.
+msg.notYours,You cannot move your oppenents pieces fool!!,Nie możesz ruszać figur przeciwnika!!,你不能移动对手的棋子！！,¡No puedes mover las piezas de tu oponente!
+msg.ownPiece,You cannot take your own piece!!,Nie możesz zbić własnej figury!!,你不能吃掉自己的棋子！！,¡No puedes capturar tu propia pieza!
+msg.left,Opponent has left the room!,Przeciwnik opuścił pokój!,对手已离开房间！,¡El oponente ha abandonado la sala!
+msg.cheatCalled,"Cheat has been called! Check that move, do you want to undo it?",Zgłoszono oszustwo! Sprawdź ten ruch. Czy chcesz go cofnąć?,有人指出作弊！请检查该步棋，要撤销它吗？,"¡Se ha denunciado una trampa! Revisa esa jugada, ¿quieres deshacerla?"
+msg.checkCalled,Check has been called!,Ogłoszono szacha!,对方宣布将军！,¡Se ha anunciado jaque!
+msg.youWin,"Congradulations, you took the king, you win!","Gratulacje, zbiłeś króla, wygrywasz!",恭喜，你吃掉了国王，你赢了！,"¡Enhorabuena, has capturado al rey, ganas!"
+msg.mateCalled,Check Mate has been called! Is your opponent correct in calling check mate?,Ogłoszono mata! Czy przeciwnik ma rację?,对方宣布将死！他说得对吗？,¡Se ha anunciado jaque mate! ¿Tiene razón tu oponente?
+msg.opponentWins,Your opponent wins...better luck next time. ,Przeciwnik wygrywa... powodzenia następnym razem. ,对手获胜……下次好运。 ,Tu oponente gana... mejor suerte la próxima vez. 
+msg.dragOff,Please dont drag pieces off the board!,Nie przeciągaj figur poza planszę!,请不要把棋子拖出棋盘！,¡No arrastres las piezas fuera del tablero!
+stats.a,User XP:{tab}{tab}{0}{nl}Wins:{tab}{tab}{tab}{1}{nl}Loses:{tab}{tab}{tab}{2}{nl}Games:{tab}{tab}{3}{nl},Doświadczenie:{tab}{tab}{0}{nl}Wygrane:{tab}{tab}{tab}{1}{nl}Przegrane:{tab}{tab}{tab}{2}{nl}Gry:{tab}{tab}{3}{nl},经验值：{tab}{tab}{0}{nl}胜：{tab}{tab}{tab}{1}{nl}负：{tab}{tab}{tab}{2}{nl}局数：{tab}{tab}{3}{nl},Experiencia:{tab}{tab}{0}{nl}Victorias:{tab}{tab}{tab}{1}{nl}Derrotas:{tab}{tab}{tab}{2}{nl}Partidas:{tab}{tab}{3}{nl}
+stats.b,User Level:{tab}{tab}{0}{nl}Wins:{tab}{tab}{tab}{1}{nl}loses:{tab}{tab}{tab}{2}{nl}Surrenders:{tab}{tab}{3}{nl},Poziom:{tab}{tab}{0}{nl}Wygrane:{tab}{tab}{tab}{1}{nl}przegrane:{tab}{tab}{tab}{2}{nl}Poddania:{tab}{tab}{3}{nl},等级：{tab}{tab}{0}{nl}胜：{tab}{tab}{tab}{1}{nl}负：{tab}{tab}{tab}{2}{nl}投降：{tab}{tab}{3}{nl},Nivel:{tab}{tab}{0}{nl}Victorias:{tab}{tab}{tab}{1}{nl}derrotas:{tab}{tab}{tab}{2}{nl}Rendiciones:{tab}{tab}{3}{nl}
+stats.c,User XP:{tab}{tab}{0}{nl}Wins:{tab}{tab}{1}{nl}Loses:{tab}{tab}{2}{nl}Games:{tab}{tab}{3}{nl},Doświadczenie:{tab}{tab}{0}{nl}Wygrane:{tab}{tab}{1}{nl}Przegrane:{tab}{tab}{2}{nl}Gry:{tab}{tab}{3}{nl},经验值：{tab}{tab}{0}{nl}胜：{tab}{tab}{1}{nl}负：{tab}{tab}{2}{nl}局数：{tab}{tab}{3}{nl},Experiencia:{tab}{tab}{0}{nl}Victorias:{tab}{tab}{1}{nl}Derrotas:{tab}{tab}{2}{nl}Partidas:{tab}{tab}{3}{nl}

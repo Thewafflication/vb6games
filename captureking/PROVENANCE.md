@@ -39,3 +39,12 @@ visible on the game form are hidden (the picture buttons call their handlers),
 Surrender joins the row of buttons under the board, and the status line moves
 below it, so the form looks like the screenshots in the user guide. No code
 was changed.
+
+## Localization (branch `localization`)
+
+The `localization` branch of this repository adds English, Polish, Chinese
+(Simplified) and Spanish text to this game. It changes CaptureKing.frm, frmChat.frm, frmWelcome.frm, frmPawnPromotion.frm, frmStats.frm, frmAchievments.frm and CaptureKing.vbp, and adds
+`modLocale.bas`, which is generated from `localization/captureking.csv`. The
+translated parts are the menus, buttons, labels, message boxes and the statistics text; the text that players send to each other over the network is not translated, so that players using different languages stay compatible. The language comes from the Windows display
+language (English when it is none of the four; `VB6GAMES_LANG` overrides it).
+The `master` branch keeps the program as the author wrote it.

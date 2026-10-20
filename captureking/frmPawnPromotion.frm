@@ -135,6 +135,11 @@ Unload frmPawnPromotion
 End Sub
 
 Private Sub Form_Load()
+If LocLanguage <> "en" Then
+    Caption = Loc("promo.title")
+    cmdSelect.Caption = Loc("promo.select")
+    lblTitle.Caption = Loc("promo.text")
+End If
 picboard(0).BackColor = &HFFFFFF
 picboard(1).BackColor = &H0&
 picboard(2).BackColor = &HFFFFFF

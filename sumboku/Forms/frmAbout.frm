@@ -138,16 +138,10 @@ End Sub
 
 Private Sub Form_Load()
 Dim m As String
-  Me.Caption = "Info " & App.Title
-  lblVersion.Caption = "Version " & App.Major & "." & App.Minor & "." & App.Revision
-  m = m & "Click Solve more times;" & vbCrLf
-  m = m & "U: Undo; R: Redo; O: Open; S: SaveAs; I: Info;" & vbCrLf
-  m = m & "The tooltips of Edits give info about next move;" & vbCrLf
-  m = m & "Nr: Number of the cell lefttop=1, rightbottom=81" & vbCrLf
-  m = m & "B: Number of quadratic block of cells lefttop=1, rightbottom=9" & vbCrLf
-  m = m & "L: Line number firsttop=1, lastbottom=9" & vbCrLf
-  m = m & "C: Column number left=1, right=9" & vbCrLf
-  m = m & "PossV: possible value(s) of this cell" & vbCrLf
+  Me.Caption = LocF("about.title", App.Title)
+  lblVersion.Caption = LocF("about.version", App.Major & "." & App.Minor & "." & App.Revision)
+  If LocLanguage <> "en" Then lblDescription.Caption = Loc("about.description")
+  m = Loc("about.help")
   lblDescription.Caption = lblDescription.Caption & vbCrLf & m
   tmpCount = 100
   PbMBOIngcom.MousePointer = 99

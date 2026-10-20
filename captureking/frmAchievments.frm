@@ -49,13 +49,20 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Form_Load()
+If LocLanguage <> "en" Then
+    Caption = Loc("menu.achievements")
+    lblCaption.Caption = Loc("ach.help")
+End If
+End Sub
+
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-lblCaption.Caption = "To unlock achievments you must perform certain actions during chess matches. To see view how to unlock achievments place your cursor over the images below."
+lblCaption.Caption = Loc("ach.help")
 End Sub
 
 
 Private Sub picAchievment_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
-If Index = 0 Then lblCaption.Caption = "Rewarded for winning a game of chess through the LAN network"
-If Index = 1 Then lblCaption.Caption = "Rewarded for winning 50 games of chess through the LAN network"
+If Index = 0 Then lblCaption.Caption = Loc("ach.1")
+If Index = 1 Then lblCaption.Caption = Loc("ach.2")
 End Sub
 

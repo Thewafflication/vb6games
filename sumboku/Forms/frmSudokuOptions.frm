@@ -91,7 +91,24 @@ Attribute VB_Exposed = False
 Option Explicit '28 Zeilen
 Public Sudoku As SudokuGame
 
+Private Sub ApplyLocale()
+  ' The designed Cancel caption is German, so it is set in English too.
+  BtnCancel.Caption = Loc("opt.cancel")
+  If LocLanguage = "en" Then Exit Sub
+  Caption = Loc("opt.title")
+  BtnOK.Caption = Loc("opt.ok")
+  Frame1.Caption = Loc("opt.frame")
+  Option4.Caption = Loc("opt.4")
+  Option4.ToolTipText = Loc("opt.4.tip")
+  Option3.Caption = Loc("opt.3")
+  Option2.Caption = Loc("opt.2")
+  Option2.ToolTipText = Loc("opt.2.tip")
+  Option1.Caption = Loc("opt.1")
+  Option1.ToolTipText = Loc("opt.1.tip")
+End Sub
+
 Private Sub Form_Load()
+  ApplyLocale
   Option1.Value = False
   Option2.Value = False
   Option3.Value = False

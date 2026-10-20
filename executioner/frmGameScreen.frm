@@ -1735,7 +1735,35 @@ End If
 
 End Sub
 
+Private Sub ApplyLocale()
+    If LocLanguage = "en" Then Exit Sub
+    Caption = Loc("app.title")
+    txtSolve1.ToolTipText = Loc("tip.solve")
+    cmdSolve1.Caption = Loc("button.solve")
+    cmdSolve2.Caption = Loc("button.solve")
+    cmdHint(0).Caption = Loc("button.hint")
+    cmdHint(1).Caption = Loc("button.hint")
+    lblPlayerName(0).Caption = Loc("player.1")
+    lblPlayerName(1).Caption = Loc("player.2")
+    munGame.Caption = Loc("menu.game")
+    mnuStartGame.Caption = Loc("menu.newGame")
+    mnuEndGame.Caption = Loc("menu.endQuest")
+    mnu1player.Caption = Loc("menu.onePlayer")
+    mnu2player.Caption = Loc("menu.twoPlayers")
+    mnuExit.Caption = Loc("menu.exit")
+    mnuOptions.Caption = Loc("menu.options")
+    mnuSound.Caption = Loc("menu.sound")
+    mnuShowTimer.Caption = Loc("menu.showTimer")
+    mnuHints.Caption = Loc("menu.showHints")
+    mnuGetNames.Caption = Loc("menu.setNames")
+    mnuAdvancedOptions.Caption = Loc("menu.advanced")
+    mnuAbout.Caption = Loc("menu.about")
+    mnuRulez.Caption = Loc("menu.rules")
+    mnuCreator.Caption = Loc("menu.creator")
+End Sub
+
 Private Sub Form_Load()
+    ApplyLocale
 
 ' *********************************************************************************************************
 ' FORM LOAD
@@ -1762,8 +1790,8 @@ Open "data\phrases.txt" For Input As #1
 
 Dim counter As Integer
 
-If Player1name = "" Then Player1name = "Player 1"
-If Player2name = "" Then Player2name = "Player 2"
+If Player1name = "" Then Player1name = Loc("player.1")
+If Player2name = "" Then Player2name = Loc("player.2")
 
 lblPlayerName(0).Visible = True
 lblPlayerName(1).Visible = True
@@ -1791,7 +1819,7 @@ TimeLeft = 60 ' Default TimeLeft = 60
 TimeSave = 60 ' Default Timesave = 60
 
 If bSound = True Then PlaySound "sounds\back.wav", 0, 1
-Me.Caption = "Click Screen to Start Your Quest"
+Me.Caption = Loc("caption.start1")
 Me.Refresh
 Idle
 
@@ -2288,7 +2316,7 @@ Sub Gameover()
     Timer.Enabled = False ' Turn off the countdown timer
     SoundGameOver ' Play the losing sound
     lblWinLose.Visible = True
-    lblWinLose.Caption = "GAME OVER"
+    lblWinLose.Caption = Loc("msg.gameOver")
     TimerGameOver.Enabled = True
     picGameOver.Visible = True
         
@@ -2549,7 +2577,7 @@ Public Function Idle()
 ClearGrafix
 If bSound = True Then PlaySound "sounds\back.wav", 0, 1
 Timer.Enabled = False ' Turn off the timer
-Me.Caption = "Click The Screen to Start Your Quest"
+Me.Caption = Loc("caption.start2")
 Me.Refresh
 TimerIdle.Tag = 2
 If iTimesWon = 10 Then
@@ -2777,7 +2805,7 @@ TimerGameOver.Enabled = False
 TimerIdle.Enabled = False
 
 ' all pictures in form ( used in game ) are hidden
-Me.Caption = "Executioner By Corey McInroy"
+Me.Caption = Loc("app.titleShort")
 PicWinner.Visible = False
 picGameOver.Visible = False
 PicSkeleton.Visible = False
@@ -3121,14 +3149,14 @@ Private Sub txtSolve1_KeyPress(KeyAscii As Integer)
      If PLAYERONE = True Then
      Winner
      LblWinnerbox(1).Visible = True
-     LblWinnerbox(1) = Player1name + " WINS!!"
+     LblWinnerbox(1) = LocF("msg.wins", Player1name)
      txtSolve1 = ""
      End If
   
     If PLAYERTWO = True Then
      Winner
      LblWinnerbox(1).Visible = True
-     LblWinnerbox(1) = Player2name + " WINS!!"
+     LblWinnerbox(1) = LocF("msg.wins", Player2name)
      txtSolve1 = ""
      End If
 End If
@@ -3318,7 +3346,7 @@ cmdHint(1).Visible = True
              cmdSolve1.Visible = True
              
              ' Display player one goes first
-             LblWinnerbox(0) = Player1name + " Goes First"
+             LblWinnerbox(0) = LocF("msg.goesFirst", Player1name)
              
              ' Display name for player one and hide player 2's name
              lblPlayerName(1).Visible = False
@@ -3334,7 +3362,7 @@ cmdHint(1).Visible = True
              If mnuHints.Checked = True Then cmdHint(1).Visible = True
              cmdSolve1.Visible = False
              cmdSolve2.Visible = True
-             LblWinnerbox(0) = Player2name + " Goes First"
+             LblWinnerbox(0) = LocF("msg.goesFirst", Player2name)
              lblPlayerName(0).Visible = False
              lblPlayerName(1).Visible = True
      End If
@@ -3381,8 +3409,8 @@ Public Function TwoPlayerGame()
        If O = 6 And bSound = True Then PlaySound "sounds\Trys\TRY7.wav", 0, 1
        
        ' display on screen who's turn it is
-        If PLAYERONE Then LblWinnerbox(0) = Player2name + "'s Turn "
-        If PLAYERTWO Then LblWinnerbox(0) = Player1name + "'s Turn"
+        If PLAYERONE Then LblWinnerbox(0) = LocF("msg.turn1", Player2name)
+        If PLAYERTWO Then LblWinnerbox(0) = LocF("msg.turn2", Player1name)
 
 ' If it is playerone's Turn
 If PLAYERONE = True Then

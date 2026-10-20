@@ -297,6 +297,7 @@ Dim Number As Integer ' Used as a counter to determine when to unload FrmSplash
 Dim Number2 As Integer ' Used as a random number to decide which color text will be
 
 Private Sub Form_Load()
+If LocLanguage <> "en" Then Lblonly.Caption = Loc("splash.onlyAGame")
 '*********************************************************************************************************
 ' FORM LOAD
 ' *********************************************************************************************************

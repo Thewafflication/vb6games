@@ -1,6 +1,7 @@
 Type=Exe
 Form=frmMain.frm
 Module=modGame; modGame.bas
+Module=modLocale; modLocale.bas
 Form=frmSplashScreen.frm
 Form=frmSlike.frm
 IconForm="frmMain"

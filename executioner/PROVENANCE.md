@@ -23,3 +23,12 @@ Nothing.
 
 WFC's acceptance tests load `Executioner.vbp` and capture screenshots of its
 forms. The program is not modified; gaps found in it are fixed in WFC.
+
+## Localization (branch `localization`)
+
+The `localization` branch of this repository adds English, Polish, Chinese
+(Simplified) and Spanish text to this game. It changes frmGameScreen.frm, frmOptions.frm, EnterName.frm, frmSplash.frm, frmrulez.frm and Executioner.vbp, and adds
+`modLocale.bas`, which is generated from `localization/executioner.csv`. The
+translated parts are the menus, buttons, labels, tool tips and game messages; the phrase list (`Data/Phrases.txt`) and the pictures that contain text are not translated. The language comes from the Windows display
+language (English when it is none of the four; `VB6GAMES_LANG` overrides it).
+The `master` branch keeps the program as the author wrote it.

@@ -1,0 +1,45 @@
+key,en,pl,zh,es
+app.title,Clix,Clix,Clix,Clix
+info.frame,Ball info,Info o kulach,球信息,Info de bolas
+info.pink,PINK:,RÓŻOWE:,粉色：,ROSA:
+info.blue,BLUE:,NIEBIESKIE:,蓝色：,AZUL:
+info.green,GREEN:,ZIELONE:,绿色：,VERDE:
+info.yellow,YELLOW:,ŻÓŁTE:,黄色：,AMARILLO:
+info.red,RED:,CZERWONE:,红色：,ROJO:
+button.info,info,info,信息,info
+button.cheat,cheat,cheat,作弊,trampa
+button.undo,<-- UNDO (last move),<-- COFNIJ (ostatni ruch),<-- 撤销（上一步）,<-- DESHACER (último movimiento)
+button.new,NEW,NOWA,新局,NUEVO
+hint.jocker,1) Right-click a ball to choose the Jocker ball! 2) Right-click to activate/deactivate the Jocker ball!,1) Prawy klik na kuli: wybór kuli Joker. 2) Prawy klik: włącz lub wyłącz kulę Joker.,1)右键点击球以选择小丑球！2)右键点击以启用或停用小丑球！,1) Clic derecho en una bola: elige la bola Comodín. 2) Clic derecho: activa o desactiva la bola Comodín.
+jocker.label,JOCKER,JOKER,小丑,COMODÍN
+jocker.on,JOCKER: ON,JOKER: WŁ.,小丑：开,COMODÍN: SÍ
+jocker.off,JOCKER: OFF,JOKER: WYŁ.,小丑：关,COMODÍN: NO
+menu.gameMode,Game Mode,Tryb gry,游戏模式,Modo de juego
+mode.1,Standard,Standardowy,标准,Estándar
+mode.2,Continuous,Ciągły,连续,Continuo
+mode.3,Shifter,Przesuwanie,移位,Desplazamiento
+mode.4,MegaShift,MegaPrzesuwanie,超级移位,MegaDesplazamiento
+menu.orientation,Orientation,Orientacja,方向,Orientación
+menu.orient.1,&1. Portrait        (11 x 12),&1. Pionowa (11 x 12),&1. 竖屏 (11 x 12),&1. Vertical (11 x 12)
+menu.orient.2,&2. Landscape   (15 x 8),&2. Pozioma (15 x 8),&2. 横屏 (15 x 8),&2. Horizontal (15 x 8)
+menu.orient.3,&3. Box              (14 x 14),&3. Kwadrat (14 x 14),&3. 方形 (14 x 14),&3. Cuadrado (14 x 14)
+menu.orient.4,&4. XPERIA X1 Style (16 x 11),&4. Styl XPERIA X1 (16 x 11),&4. XPERIA X1 样式 (16 x 11),&4. Estilo XPERIA X1 (16 x 11)
+orient.1,PORTRAIT,PIONOWA,竖屏,VERTICAL
+orient.2,LANDSCAPE,POZIOMA,横屏,HORIZONTAL
+orient.3,BOX,KWADRAT,方形,CUADRADO
+orient.4,X1,X1,X1,X1
+menu.options,Options,Opcje,选项,Opciones
+menu.options.grid,&1. Grid,&1. Siatka,&1. 网格,&1. Cuadrícula
+menu.options.jocker,&2. Jocker,&2. Joker,&2. 小丑,&2. Comodín
+menu.options.infoBall,&3. INFO: Ball,&3. INFO: kule,&3. 信息：球,&3. INFO: bolas
+menu.jocker,Jocker,Joker,小丑,Comodín
+menu.jockerBall,Jocker Ball,Kula Joker,小丑球,Bola Comodín
+msg.alreadyRunning,Already running!!,Już uruchomiona!!,已在运行！！,¡Ya se está ejecutando!
+msg.fatal,FATAL ERROR!{nl}{nl}code: 4 8 15 16 23 42{nl}{nl}SYSTEM FAILURE,BŁĄD KRYTYCZNY!{nl}{nl}kod: 4 8 15 16 23 42{nl}{nl}AWARIA SYSTEMU,致命错误！{nl}{nl}代码：4 8 15 16 23 42{nl}{nl}系统故障,¡ERROR FATAL!{nl}{nl}código: 4 8 15 16 23 42{nl}{nl}FALLO DEL SISTEMA
+msg.gameOver,game over,koniec gry,游戏结束,fin de la partida
+msg.needMove,AT LEAST ONE MOVE MUST BE PLAYED!!,MUSISZ WYKONAĆ CO NAJMNIEJ JEDEN RUCH!!,必须至少走一步！！,¡HAY QUE HACER AL MENOS UN MOVIMIENTO!
+msg.sure,ARE YOU SURE??,CZY NA PEWNO??,确定吗？？,¿ESTÁS SEGURO?
+msg.noBoard,BOARD SIZE NOT INITIALIZED!,NIE ZAINICJOWANO ROZMIARU PLANSZY!,棋盘尺寸未初始化！,¡TAMAÑO DEL TABLERO SIN INICIALIZAR!
+cheat.x,x,x,x,x
+cheat.y,y,y,y,y
+cheat.color,"color{nl}1. red{nl}2. yellow{nl}3. green{nl}4. blue{nl}5. purple","kolor{nl}1. czerwony{nl}2. żółty{nl}3. zielony{nl}4. niebieski{nl}5. fioletowy",颜色{nl}1. 红{nl}2. 黄{nl}3. 绿{nl}4. 蓝{nl}5. 紫,"color{nl}1. rojo{nl}2. amarillo{nl}3. verde{nl}4. azul{nl}5. morado"

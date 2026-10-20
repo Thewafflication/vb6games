@@ -98,6 +98,10 @@ Attribute VB_Exposed = False
 ' Date: May 29/99
 ' *********************************************************************************************************
 
+Private Sub Form_Load()
+If LocLanguage <> "en" Then Caption = Loc("rulez.title")
+End Sub
+
 Private Sub PicOptGo_Click()
 ' ******************************************************************
 ' When picture Clicked unload frmRulez
