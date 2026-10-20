@@ -30,6 +30,7 @@ Begin VB.Form FNewGame
       Top             =   720
       Width           =   3375
       Begin VB.CommandButton BtnSwap 
+      Style           =   1  \'Graphical
          Caption         =   "Swap"
          Height          =   375
          Left            =   2280
@@ -105,6 +106,7 @@ Begin VB.Form FNewGame
       Width           =   735
    End
    Begin VB.CommandButton BtnCancel 
+      Style           =   1  \'Graphical
       Cancel          =   -1  'True
       Caption         =   "Cancel"
       BeginProperty Font 
@@ -123,6 +125,7 @@ Begin VB.Form FNewGame
       Width           =   1575
    End
    Begin VB.CommandButton BtnOK 
+      Style           =   1  \'Graphical
       Caption         =   "OK"
       Default         =   -1  'True
       BeginProperty Font 
@@ -186,6 +189,7 @@ End Sub
 
 Private Sub Form_Load()
     ApplyLocale
+    ThemeApply Me
     fillCB CbWidth
     fillCB CbHeight
 End Sub

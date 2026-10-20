@@ -61,6 +61,7 @@ Begin VB.Form FMain
       End
    End
    Begin VB.CommandButton BtnRedo 
+      Style           =   1  \'Graphical
       Caption         =   "Redo"
       Enabled         =   0   'False
       Height          =   375
@@ -70,6 +71,7 @@ Begin VB.Form FMain
       Width           =   855
    End
    Begin VB.CommandButton BtnUndo 
+      Style           =   1  \'Graphical
       Caption         =   "Undo"
       Enabled         =   0   'False
       Height          =   375
@@ -79,6 +81,7 @@ Begin VB.Form FMain
       Width           =   855
    End
    Begin VB.CommandButton BtnNewGame 
+      Style           =   1  \'Graphical
       Caption         =   "New Game"
       Height          =   375
       Left            =   0
@@ -87,6 +90,7 @@ Begin VB.Form FMain
       Width           =   1455
    End
    Begin VB.CommandButton BtnInfo 
+      Style           =   1  \'Graphical
       Caption         =   "Info"
       Height          =   375
       Left            =   11400
@@ -138,6 +142,13 @@ End Sub
 
 Private Sub Form_Load()
     ApplyLocale
+    ThemeFullScreen Me
+    ThemeApply Me
+    PBBackBuffer.ScaleMode = vbTwips
+    Picture1.ScaleMode = vbTwips
+    LbPlayerName.ForeColor = ThBack
+    LbPlayerName.Font.Bold = True
+    Set PBBackBuffer.Picture = Nothing
     Set m_Player1 = MApp.DefaultPlayer1.Clone
     Set m_Player2 = MApp.DefaultPlayer2.Clone
     Set m_NextPlayer = m_Player1
@@ -147,20 +158,20 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub Form_Resize()
-    Dim l As Single: l = Picture1.Left
-    Dim t As Single: t = Picture1.Top
-    Dim w As Single: w = Me.ScaleWidth - 2 * l
-    Dim h As Single: h = Me.ScaleHeight - t
-    If w > 0 And h > 0 Then
-        PBBackBuffer.Move l, t, w, h
-        Picture1.Move l, t, w, h
-    End If
-    t = BtnInfo.Top
-    w = BtnInfo.Width
-    h = BtnInfo.Height
-    l = Me.ScaleWidth - w
-    If w > 0 And h > 0 Then
-        BtnInfo.Move l, t, w, h
+    ' A toolbar of buttons big enough for a finger, and the board below it.
+    Const Th As Single = 720
+    Const Gap As Single = 90
+    Dim h As Single: h = Me.ScaleHeight - Th - Gap
+    BtnNewGame.Move Gap, Gap / 2, 2100, Th
+    BtnUndo.Move 2310, Gap / 2, 1300, Th
+    BtnRedo.Move 3700, Gap / 2, 1300, Th
+    Label1.Move 5300, Gap / 2 + 220, 1500, 300
+    PBNextPlayer.Move 6850, Gap / 2, 2300, Th
+    LbPlayerName.Move 120, 180
+    If Me.ScaleWidth > 1700 Then BtnInfo.Move Me.ScaleWidth - 1500 - Gap, Gap / 2, 1500, Th
+    If Me.ScaleWidth > 0 And h > 0 Then
+        PBBackBuffer.Move 0, Th + Gap, Me.ScaleWidth, h
+        Picture1.Move 0, Th + Gap, Me.ScaleWidth, h
     End If
 End Sub
 
@@ -263,7 +274,7 @@ Sub UpdateView()
     DrawConnect4Field PBBackBuffer
     Set Picture1.Picture = PBBackBuffer.Image
     If m_NextPlayer Is Nothing Then
-        PBNextPlayer.BackColor = vbBlue
+        PBNextPlayer.BackColor = ThBoard
         LbPlayerName.Caption = "________"
     Else
         Set m_NextPlayer = IIf(m_Connect4.NextPlayer = Connect4Chip.Player1, m_Player1, m_Player2)
@@ -275,7 +286,7 @@ End Sub
 
 Public Sub DrawConnect4Field(aPB As PictureBox)
     aPB.Cls
-    aPB.BackColor = vbBlue 'White
+    aPB.BackColor = ThBoard
     Dim w As Byte: w = m_Connect4.Width
     Dim h As Byte: h = m_Connect4.Height
     'maximum chip diameter
@@ -293,16 +304,16 @@ Public Sub DrawConnect4Field(aPB As PictureBox)
     For j = 1 To h
         For i = 1 To w
             aChip = m_Connect4.Field(i, j)
-            bc = vbBlack
+            bc = ThBack
             If aChip = None Then
-                fc = vbWhite
+                fc = ThBack
             ElseIf (aChip And Player1) = Player1 Then
                 fc = m_Player1.Color ' vbYellow
             ElseIf (aChip And Player2) = Player2 Then
                 fc = m_Player2.Color ' vbRed
             End If
             If aChip And Highlighted Then
-                bc = vbGreen
+                bc = ThGood
             End If
             aPB.FillColor = fc
             aPB.Circle (l + d / 2, t - d / 2), r, bc
