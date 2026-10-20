@@ -24,6 +24,7 @@ Begin VB.Form Logo
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   192
    Begin VB.CommandButton Command1 
+      Style           =   1  'Graphical
       Appearance      =   0  'Flat
       Caption         =   "OK"
       Height          =   372
@@ -67,6 +68,25 @@ Begin VB.Form Logo
       Width           =   1095
       WordWrap        =   -1  'True
    End
+   Begin VB.Label lblTitle 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "PIPES"
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   36
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   60
+      Left            =   0
+      TabIndex        =   3
+      Top             =   70
+      Width           =   192
+   End
    Begin VB.Image Image1 
       Appearance      =   0  'Flat
       Height          =   4500
@@ -95,23 +115,28 @@ End Sub
 
 Private Sub Form_Load()
   ApplyLocale
-  Dim sw, sh As Integer
-  Dim fw, fh As Integer
-  sw = Screen.Width
-  sh = Screen.Height
-
-  fw = Image1.Width
-  fh = Image1.Height
-  Logo.Width = fw * Screen.TwipsPerPixelX
-  Logo.Height = fh * Screen.TwipsPerPixelY
-  Shape1.Width = fw
-  Shape1.Height = fh
-  Label1.left = fw / 2
-  Label1.top = fh / 10
-  Label2.top = fh * 0.7
-  Label2.left = (fw - Label2.Width) / 2
-  Command1.top = fh * 0.8
-  Command1.left = (fw - Command1.Width) / 2
+  ThemeApply Me
+  Image1.Visible = False
+  Shape1.BorderColor = ThLine
+  Shape1.Width = ScaleWidth
+  Shape1.Height = ScaleHeight
+  lblTitle.ForeColor = ThAccent
+  lblTitle.Font.Size = 36
+  lblTitle.Left = 0
+  lblTitle.Width = ScaleWidth
+  lblTitle.Top = 45
+  Label1.Alignment = 2
+  Label1.Left = 0
+  Label1.Width = ScaleWidth
+  Label1.Top = 115
+  Label2.Alignment = 2
+  Label2.Left = 0
+  Label2.Width = ScaleWidth
+  Label2.Top = 145
+  Command1.Width = 90
+  Command1.Height = 34
+  Command1.Left = (ScaleWidth - Command1.Width) / 2
+  Command1.Top = 180
   Load Form1
 End Sub
 

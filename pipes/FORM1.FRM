@@ -32,6 +32,7 @@ Begin VB.Form Form1
       Top             =   4560
    End
    Begin VB.CommandButton btnQuit 
+      Style           =   1  'Graphical
       Appearance      =   0  'Flat
       Caption         =   "&Quit"
       Height          =   372
@@ -1667,6 +1668,14 @@ End Sub
 
 Private Sub Form_Load()
   ApplyLocale
+  ThemeApply Me
+  Dim shp As Control
+  For Each shp In Controls
+    If TypeName(shp) = "Line" Then shp.BorderColor = ThLine
+  Next shp
+  boxcurrent.BorderColor = ThAccent2
+  btnQuit.Width = 110
+  btnQuit.Height = 40
   Dim i, j, k, n As Integer    'counters
   Dim t, l As Integer       'top,left
   tb = 50
@@ -1742,7 +1751,7 @@ Private Sub Form_Load()
     Water(j).left = lb
     Water(j).Height = 5
     Water(j).Width = sb
-    Water(j).FillColor = &HFFFF&
+    Water(j).FillColor = ThPanel2
     Water(j).Visible = True
   Next j
   wt = 47      ' first strip to turn on
@@ -1961,7 +1970,7 @@ End Sub
 
 Private Sub Timer1_Timer()
   If wt >= 0 Then
-    Water(wt).FillColor = &HFFFF00
+    Water(wt).FillColor = ThAccent
     wt = wt - 1
   Else
     enable = False

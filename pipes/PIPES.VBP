@@ -3,5 +3,6 @@ Form=FORM1.FRM
 Form=LOGO.FRM
 Module=Module1; MODULE1.BAS
 Module=modLocale; modLocale.bas
+Module=modTheme; modTheme.bas
 Startup="Logo"
 Name="Pipes"
