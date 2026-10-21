@@ -2,17 +2,17 @@ VERSION 5.00
 Begin VB.Form frmMain 
    BackColor       =   &H00FFFFFF&
    Caption         =   "frmNew"
-   ClientHeight    =   10815
+   ClientHeight    =   11400
    ClientLeft      =   60
    ClientTop       =   570
-   ClientWidth     =   15750
+   ClientWidth     =   16300
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10815
-   ScaleWidth      =   15750
+   ScaleHeight     =   11400
+   ScaleWidth      =   16300
    StartUpPosition =   2  'CenterScreen
-   Begin VB.Frame frmInfoBall 
-      BackColor       =   &H00FFFFFF&
-      Caption         =   "info kugla"
+   Begin VB.Label lblBojaCounter 
+      BackStyle       =   0  'Transparent
+      Caption         =   "-"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   12
@@ -22,216 +22,206 @@ Begin VB.Form frmMain
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   2295
-      Left            =   12360
-      TabIndex        =   12
+      ForeColor       =   &H00C000C0&
+      Height          =   435
+      Index           =   5
+      Left            =   1680
+      TabIndex        =   22
+      Top             =   1800
+      Width           =   600
+   End
+   Begin VB.Label lblBojaCounter 
+      BackStyle       =   0  'Transparent
+      Caption         =   "-"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   238
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FF0000&
+      Height          =   435
+      Index           =   4
+      Left            =   1680
+      TabIndex        =   21
+      Top             =   1440
+      Width           =   600
+   End
+   Begin VB.Label lblBojaCounter 
+      BackStyle       =   0  'Transparent
+      Caption         =   "-"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   238
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H0000FF00&
+      Height          =   435
+      Index           =   3
+      Left            =   1680
+      TabIndex        =   20
+      Top             =   1080
+      Width           =   600
+   End
+   Begin VB.Label lblBojaCounter 
+      BackStyle       =   0  'Transparent
+      Caption         =   "-"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   238
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H0000C0C0&
+      Height          =   435
+      Index           =   2
+      Left            =   1680
+      TabIndex        =   19
+      Top             =   720
+      Width           =   600
+   End
+   Begin VB.Label lblBojaCounter 
+      BackStyle       =   0  'Transparent
+      Caption         =   "-"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   238
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000FF&
+      Height          =   435
+      Index           =   1
+      Left            =   1680
+      TabIndex        =   18
       Top             =   360
+      Width           =   600
+   End
+   Begin VB.Label lblInfBall 
+      Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
+      Caption         =   "PINK:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   238
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C000C0&
+      Height          =   360
+      Index           =   5
+      Left            =   240
+      TabIndex        =   17
+      Top             =   1800
+      Width           =   1335
+   End
+   Begin VB.Label lblInfBall 
+      Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
+      Caption         =   "PLAVA:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   238
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FF0000&
+      Height          =   360
+      Index           =   4
+      Left            =   240
+      TabIndex        =   16
+      Top             =   1440
+      Width           =   1335
+   End
+   Begin VB.Label lblInfBall 
+      Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
+      Caption         =   "ZELENA:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   238
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H0000FF00&
+      Height          =   360
+      Index           =   3
+      Left            =   240
+      TabIndex        =   15
+      Top             =   1080
+      Width           =   1335
+   End
+   Begin VB.Label lblInfBall 
+      Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
+      Caption         =   "ŽUTA:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   238
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H0000C0C0&
+      Height          =   360
+      Index           =   2
+      Left            =   240
+      TabIndex        =   14
+      Top             =   720
+      Width           =   1335
+   End
+   Begin VB.Label lblInfBall 
+      Alignment       =   1  'Right Justify
+      BackStyle       =   0  'Transparent
+      Caption         =   "CRVENA:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   238
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000FF&
+      Height          =   360
+      Index           =   1
+      Left            =   240
+      TabIndex        =   13
+      Top             =   360
+      Width           =   1335
+   End
+   Begin VB.Label frmInfoBall
+      Caption         =   "info"
+      Height          =   300
+      Left            =   0
+      TabIndex        =   12
+      Top             =   0
       Width           =   2535
-      Begin VB.Label lblBojaCounter 
-         BackStyle       =   0  'Transparent
-         Caption         =   "-"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00C000C0&
-         Height          =   435
-         Index           =   5
-         Left            =   1680
-         TabIndex        =   22
-         Top             =   1800
-         Width           =   600
-      End
-      Begin VB.Label lblBojaCounter 
-         BackStyle       =   0  'Transparent
-         Caption         =   "-"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FF0000&
-         Height          =   435
-         Index           =   4
-         Left            =   1680
-         TabIndex        =   21
-         Top             =   1440
-         Width           =   600
-      End
-      Begin VB.Label lblBojaCounter 
-         BackStyle       =   0  'Transparent
-         Caption         =   "-"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H0000FF00&
-         Height          =   435
-         Index           =   3
-         Left            =   1680
-         TabIndex        =   20
-         Top             =   1080
-         Width           =   600
-      End
-      Begin VB.Label lblBojaCounter 
-         BackStyle       =   0  'Transparent
-         Caption         =   "-"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H0000C0C0&
-         Height          =   435
-         Index           =   2
-         Left            =   1680
-         TabIndex        =   19
-         Top             =   720
-         Width           =   600
-      End
-      Begin VB.Label lblBojaCounter 
-         BackStyle       =   0  'Transparent
-         Caption         =   "-"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H000000FF&
-         Height          =   435
-         Index           =   1
-         Left            =   1680
-         TabIndex        =   18
-         Top             =   360
-         Width           =   600
-      End
-      Begin VB.Label lblInfBall 
-         Alignment       =   1  'Right Justify
-         BackStyle       =   0  'Transparent
-         Caption         =   "PINK:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00C000C0&
-         Height          =   360
-         Index           =   5
-         Left            =   240
-         TabIndex        =   17
-         Top             =   1800
-         Width           =   1335
-      End
-      Begin VB.Label lblInfBall 
-         Alignment       =   1  'Right Justify
-         BackStyle       =   0  'Transparent
-         Caption         =   "PLAVA:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FF0000&
-         Height          =   360
-         Index           =   4
-         Left            =   240
-         TabIndex        =   16
-         Top             =   1440
-         Width           =   1335
-      End
-      Begin VB.Label lblInfBall 
-         Alignment       =   1  'Right Justify
-         BackStyle       =   0  'Transparent
-         Caption         =   "ZELENA:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H0000FF00&
-         Height          =   360
-         Index           =   3
-         Left            =   240
-         TabIndex        =   15
-         Top             =   1080
-         Width           =   1335
-      End
-      Begin VB.Label lblInfBall 
-         Alignment       =   1  'Right Justify
-         BackStyle       =   0  'Transparent
-         Caption         =   "ŽUTA:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H0000C0C0&
-         Height          =   360
-         Index           =   2
-         Left            =   240
-         TabIndex        =   14
-         Top             =   720
-         Width           =   1335
-      End
-      Begin VB.Label lblInfBall 
-         Alignment       =   1  'Right Justify
-         BackStyle       =   0  'Transparent
-         Caption         =   "CRVENA:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   12
-            Charset         =   238
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H000000FF&
-         Height          =   360
-         Index           =   1
-         Left            =   240
-         TabIndex        =   13
-         Top             =   360
-         Width           =   1335
-      End
    End
    Begin VB.CommandButton Command2 
       Style           =   1  'Graphical
@@ -390,7 +380,7 @@ Begin VB.Form frmMain
       Width           =   1335
    End
    Begin VB.Line lineGrid 
-      BorderColor     =   &H00000000&
+      BorderColor     =   &H005C3C35&
       BorderWidth     =   2
       Index           =   0
       Visible         =   0   'False
@@ -619,6 +609,60 @@ Begin VB.Form frmMain
          Caption         =   "Jocker Ball"
       End
    End
+   Begin VB.Shape shpBoard 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBoardS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBoardS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpLeft 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpLeftS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpLeftS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpRight 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpRightS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpRightS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "frmMain"
 Attribute VB_GlobalNameSpace = False
@@ -676,7 +720,7 @@ Dim BOJA(BOJA_MAX) As Long
 Dim BOJA_COUNTER(BOJA_MAX) As Integer
 
 'boja odabranih kugli
-Const BOJA_SELECTED As Long = vbBlack
+Const BOJA_SELECTED As Long = &H5C6A1F
 
 'deklaracija jocker boja
 Dim JOCKER_BOJA(1) As Long
@@ -869,6 +913,8 @@ Public Sub showTabla()
             'ako je inicijalizirana => SHOW
                 shpKugla(getKuglaIndex(i, j)).Visible = True
                 shpKugla(getKuglaIndex(i, j)).FillColor = TABLA(i, j)
+                shpKugla(getKuglaIndex(i, j)).BorderColor = ThPanel
+                shpKugla(getKuglaIndex(i, j)).BorderWidth = 8
                 
                 lblKugla(getKuglaIndex(i, j)).BackStyle = 0
                 lblKugla(getKuglaIndex(i, j)).Visible = True
@@ -1094,14 +1140,14 @@ End Function
 Public Sub inicBojeKugla()
     'inicijaliziranje boja kugla
     '''''''''''''''''''''''''''''''''''''''
-    BOJA(1) = &HC0&      'crvena
-    BOJA(2) = &HC0C0&    'zuta
-    BOJA(3) = &HC000&    'zelena
-    BOJA(4) = &HC00000   'plava
-    BOJA(5) = &H800080   'pink
+    BOJA(1) = &H4D48E5   'crvena
+    BOJA(2) = &H42C5F5   'zuta
+    BOJA(3) = &H6CA430   'zelena
+    BOJA(4) = &HDD633E   'plava
+    BOJA(5) = &HC64E8E   'pink
     
-    JOCKER_BOJA(0) = &H404040      'boja za JOCKER kuglu (NE aktivnu)
-    JOCKER_BOJA(1) = &H80FF&       'boja za JOCKER kuglu (aktivnu)
+    JOCKER_BOJA(0) = &H6B5A52      'boja za JOCKER kuglu (NE aktivnu)
+    JOCKER_BOJA(1) = &HF5EBE8      'boja za JOCKER kuglu (aktivnu)
     
     'brojac kugla iste boje
     'PRAVILO:   min. broj kugla iste boje je "istih_kugla_min",
@@ -1429,6 +1475,7 @@ Private Sub Form_Load()
     mnuOrientation.Visible = False
     mnuOptions.Visible = False
     mnuJocker.Visible = False
+    ModernLayout
     UpdateTouchButtons
     Screen.MousePointer = 13
     
@@ -1454,6 +1501,59 @@ Private Sub Form_Load()
 End Sub
 
 
+
+' Side panels: the state of the game on the left, the controls on the right.
+Private Sub ModernLayout()
+    Const rx As Single = 13440
+    Dim c As Control, i As Integer
+    For Each c In Controls
+        If TypeName(c) = "Line" Then c.BorderColor = ThLine
+    Next c
+    ThemeCard shpLeft, shpLeftS1, shpLeftS2, 150, 640, 1330, 3800, 15
+    lblOrientation.Move 150, 800, 1330, 300
+    lblOrientation.Alignment = 2
+    lblOrientation.Font.Bold = True
+    lblGameMode.Move 150, 1150, 1330, 320
+    lblGameMode.Alignment = 2
+    lblGameMode.ForeColor = ThAccent
+    lblJocker.Move 150, 1550, 1330, 300
+    lblJocker.Alignment = 2
+    lblJocker.ForeColor = ThAccent2
+    txtBodovi.AutoSize = False
+    txtBodovi.Alignment = 2
+    txtBodovi.Font.Size = 20
+    txtBodovi.Font.Bold = True
+    txtBodovi.ForeColor = ThAccent2
+    txtBodovi.BackColor = ThPanel
+    txtBodovi.BackStyle = 1
+    txtBodovi.Move 150, 1950, 1330, 520
+    lblJockerHint.Move 240, 2600, 1150, 1700
+    lblJockerHint.ForeColor = ThMuted
+    lblJockerHint.BackColor = ThPanel
+    lblOrientation.BackColor = ThPanel
+    lblGameMode.BackColor = ThPanel
+    lblJocker.BackColor = ThPanel
+    lblJockerHint.BackStyle = 1
+    ThemeCard shpRight, shpRightS1, shpRightS2, rx - 140, 640, 2840, 9960, 15
+    frmInfoBall.Move rx, 760, 2560, 320
+    frmInfoBall.BackColor = ThPanel
+    frmInfoBall.ForeColor = ThMuted
+    frmInfoBall.Font.Bold = True
+    For i = 1 To 5
+        lblInfBall(i).Move rx, 1150 + (i - 1) * 380, 1500, 340
+        lblBojaCounter(i).Move rx + 1620, 1150 + (i - 1) * 380, 700, 340
+    Next i
+    cmdMode.Move rx, 3260, 2560, 660
+    cmdOrient.Move rx, 4020, 2560, 660
+    cmdGrid.Move rx, 4780, 2560, 660
+    cmdJockerOpt.Move rx, 5540, 2560, 660
+    cmdInfoBall.Move rx, 6300, 2560, 660
+    cmdJockerBall.Move rx, 7060, 2560, 660
+    cmdNew.Move rx, 8800, 2560, 760
+    cmdNew.BackColor = ThAccent2
+    Command1.Move rx, 9700, 1230, 660
+    Command2.Move rx + 1330, 9700, 1230, 660
+End Sub
 
 Private Sub Form_Terminate()
     End
@@ -2463,8 +2563,8 @@ Public Sub inicLokacijaKugla()
         lblKugla(i).Visible = False
     Next i
     
-    Const kugla_top As Integer = 360
-    Const kugla_left As Integer = 1560
+    Const kugla_top As Integer = 760
+    Const kugla_left As Integer = 2300
     Const kugla_height As Integer = 715 '855
     Const kugla_width As Integer = 715 '735
     
@@ -2517,6 +2617,10 @@ Public Sub inicLokacijaKugla()
         Next j
     Next i
     
+    ' the card behind the board, and the undo bar above it
+    ThemeCard shpBoard, shpBoardS1, shpBoardS2, kugla_left - 120, kugla_top - 120, CLng(TABLA_DUZINA_X) * kugla_width + 240, CLng(TABLA_DUZINA_Y) * kugla_height + 240, 15
+    cmdUndo.Move kugla_left - 120, 150, CLng(TABLA_DUZINA_X) * kugla_width + 240, 460
+
     'vidljivost kugla
     For i = 1 To getDuzinaTable
         lblKugla(i).Visible = True
@@ -2565,6 +2669,15 @@ Private Sub mnuGameModeSelect_Click(Index As Integer)
     GAME_MODE_SELECTED_NEW = Index
 End Sub
 
+Private Sub ShowInfoPanel(ByVal v As Boolean)
+    Dim i As Integer
+    frmInfoBall.Visible = v
+    For i = 1 To 5
+        lblInfBall(i).Visible = v
+        lblBojaCounter(i).Visible = v
+    Next i
+End Sub
+
 Private Sub mnuInfoBall_Click()
     '
     'setovanje Info Ball-a
@@ -2573,10 +2686,10 @@ Private Sub mnuInfoBall_Click()
     
     If mnuInfoBall.Checked = True Then
         mnuInfoBall.Checked = False
-        frmInfoBall.Visible = False
+        ShowInfoPanel False
     Else
         mnuInfoBall.Checked = True
-        frmInfoBall.Visible = True
+        ShowInfoPanel True
     End If
 
 End Sub
@@ -3009,6 +3122,10 @@ Public Sub showBojeCounter()
     
     For i = 1 To 5
         lblBojaCounter(i).Caption = BOJA_COUNTER(i)
+        lblBojaCounter(i).ForeColor = BOJA(i)
+        lblInfBall(i).ForeColor = BOJA(i)
+        lblBojaCounter(i).BackColor = ThPanel
+        lblInfBall(i).BackColor = ThPanel
         lblBojaCounter(i).FontBold = False
         lblBojaCounter(i).FontSize = 12
         lblInfBall(i).FontSize = 12
