@@ -1550,6 +1550,15 @@ Private Sub ModernLayout()
     cmdInfoBall.Move rx, 6300, 2560, 660
     cmdJockerBall.Move rx, 7060, 2560, 660
     cmdNew.Move rx, 8800, 2560, 760
+    cmdMode.Font.Size = 9
+    cmdOrient.Font.Size = 9
+    cmdGrid.Font.Size = 9
+    cmdJockerOpt.Font.Size = 9
+    cmdInfoBall.Font.Size = 9
+    cmdJockerBall.Font.Size = 9
+    lblJocker.Font.Size = 8
+    lblJockerHint.Font.Size = 7
+    lblGameMode.Font.Size = 8
     cmdNew.BackColor = ThAccent2
     Command1.Move rx, 9700, 1230, 660
     Command2.Move rx + 1330, 9700, 1230, 660

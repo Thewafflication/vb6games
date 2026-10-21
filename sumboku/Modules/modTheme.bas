@@ -111,3 +111,37 @@ Public Function ThShade(ByVal c As Long, ByVal pct As Long) As Long
     If b > 255 Then b = 255
     ThShade = RGB(r, g, b)
 End Function
+
+' Moves every control of a form by dx, dy (to center a small layout on a
+' screen-sized form). Timers, menus and the like have no position.
+Public Sub ThemeShift(frm As Form, ByVal dx As Single, ByVal dy As Single)
+    Dim c As Control
+    On Error Resume Next
+    For Each c In frm.Controls
+        c.Left = c.Left + dx
+        c.Top = c.Top + dy
+    Next c
+End Sub
+
+' Shows a picture centered in the upper part of a screen-sized form, on a
+' card with a shadow (ratio is its width over its height, u the size of a
+' pixel in the form's units). Returns the bottom edge of the card.
+Public Function ThemeShowArt(frm As Form, img As Object, card As Object, shadowA As Object, shadowB As Object, ByVal ratio As Single, ByVal u As Single) As Single
+    Dim sw As Single, sh As Single, ah As Single, aw As Single
+    sw = frm.ScaleWidth
+    sh = frm.ScaleHeight
+    ah = sh * 0.6
+    aw = ah * ratio
+    If aw > sw * 0.8 Then
+        aw = sw * 0.8
+        ah = aw / ratio
+    End If
+    img.Stretch = True
+    img.Left = (sw - aw) / 2
+    img.Top = sh * 0.07
+    img.Width = aw
+    img.Height = ah
+    img.Visible = True
+    ThemeCard card, shadowA, shadowB, img.Left - 4 * u, img.Top - 4 * u, aw + 8 * u, ah + 8 * u, u
+    ThemeShowArt = img.Top + ah + 4 * u
+End Function

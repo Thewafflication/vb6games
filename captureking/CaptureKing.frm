@@ -1394,6 +1394,8 @@ cmdSend.Move 1050, 4400, 850, 560
 cmdClearSend.Visible = True
 cmdSend.Visible = True
 cmdSend.BackColor = ThAccent2
+cmdSend.Font.Size = 9
+cmdClearSend.Font.Size = 9
 cmdCallCheck.Move 10320, 160, 3260, 450
 cmdCallCheckMate.Move 10320, 660, 3260, 450
 cmdCallCheat.Move 10320, 1160, 3260, 450
