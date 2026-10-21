@@ -31,6 +31,16 @@ Begin VB.Form Form1
       Left            =   120
       Top             =   4560
    End
+   Begin VB.Label lblTitle 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "PIPES"
+      Height          =   300
+      Left            =   750
+      TabIndex        =   9
+      Top             =   200
+      Width           =   3000
+   End
    Begin VB.CommandButton btnQuit 
       Style           =   1  'Graphical
       Appearance      =   0  'Flat
@@ -1451,6 +1461,42 @@ Begin VB.Form Form1
       Top             =   4200
       Width           =   2304
    End
+   Begin VB.Shape shpBoard 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBoardS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBoardS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpPal 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpPalS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpPalS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -1764,7 +1810,28 @@ Private Sub Form_Load()
   ' place quit button
 
   btnQuit.top = 0.85 * Form1.ScaleHeight
-  btnQuit.left = Board(1).left
+  btnQuit.left = lb + (sb - btnQuit.Width) / 2
+
+  ' title, and cards behind the board and the piece palette
+  lblTitle.Font.Size = 26
+  lblTitle.Font.Bold = True
+  lblTitle.ForeColor = ThAccent
+  lblTitle.BackStyle = 1
+  lblTitle.BackColor = ThBack
+  lblTitle.Alignment = 2
+  lblTitle.Left = lb
+  lblTitle.Width = sb
+  lblTitle.Top = 4
+  lblTitle.Height = 36
+  ThemeCard shpBoard, shpBoardS1, shpBoardS2, lb - 6, tb - 6, sb + 12, sb + 12, 1
+  Dim pb As Single
+  pb = blank.top
+  For i = 0 To 27
+    If piece(i).Visible And piece(i).left = blank.left Then
+      If piece(i).top + piece(i).Height > pb Then pb = piece(i).top + piece(i).Height
+    End If
+  Next i
+  ThemeCard shpPal, shpPalS1, shpPalS2, blank.left - 6, blank.top - 6, blank.Width + 12, pb - blank.top + 12, 1
 
   ' place in and out pipes
 

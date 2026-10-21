@@ -19,6 +19,9 @@ Public Const ThBad As Long = &H816BFF
 Public Const ThP1 As Long = &H4DD3FF       ' player one: yellow
 Public Const ThP2 As Long = &H7A5CFF       ' player two: coral
 Public Const ThBoard As Long = &H8F3E2D    ' game board blue
+Public Const ThShadow1 As Long = &H0F0A08  ' near shadow
+Public Const ThShadow2 As Long = &H17100D  ' far shadow
+Public Const ThEdge As Long = &H6B4A40     ' light edge of a raised panel
 Public Const ThFontSize As Single = 11      ' text size in points
 
 ' Colors a form and its controls. A control whose Tag is "keep" is left alone
@@ -67,4 +70,32 @@ Public Sub ThemeFullScreen(frm As Form)
     If Screen.Width > frm.Width Or Screen.Height > frm.Height Then
         frm.Move 0, 0, Screen.Width, Screen.Height
     End If
+End Sub
+
+' A raised panel with a thin border and a two-step shadow. The three shapes
+' sit at the back of the form (shadows last); u is the size of one pixel in
+' the form's own units (1 for pixel forms, 15 for twips).
+Public Sub ThemeCard(card As Object, shadowA As Object, shadowB As Object, ByVal L As Single, ByVal T As Single, ByVal W As Single, ByVal H As Single, ByVal u As Single)
+    shadowB.Left = L + 7 * u
+    shadowB.Top = T + 9 * u
+    shadowB.Width = W
+    shadowB.Height = H
+    shadowB.FillStyle = 0
+    shadowB.FillColor = ThShadow2
+    shadowB.BorderStyle = 0
+    shadowA.Left = L + 3 * u
+    shadowA.Top = T + 4 * u
+    shadowA.Width = W
+    shadowA.Height = H
+    shadowA.FillStyle = 0
+    shadowA.FillColor = ThShadow1
+    shadowA.BorderStyle = 0
+    card.Left = L
+    card.Top = T
+    card.Width = W
+    card.Height = H
+    card.FillStyle = 0
+    card.FillColor = ThPanel
+    card.BorderColor = ThEdge
+    card.BorderWidth = 1
 End Sub
