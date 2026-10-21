@@ -2,7 +2,7 @@ VERSION 5.00
 Begin VB.Form FrmSudoku 
    BorderStyle     =   3  'Fester Dialog
    Caption         =   "SuMBOku 1.2"
-   ClientHeight    =   6015
+   ClientHeight    =   7100
    ClientLeft      =   45
    ClientTop       =   435
    ClientWidth     =   4815
@@ -10,7 +10,7 @@ Begin VB.Form FrmSudoku
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   401
+   ScaleHeight     =   473
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   321
    StartUpPosition =   3  'Windows-Standard
@@ -130,43 +130,43 @@ Begin VB.Form FrmSudoku
       Top             =   5520
       Width           =   615
    End
-   Begin VB.Frame Frame1 
-      Caption         =   "Level:"
-      Height          =   615
+   Begin VB.Image ImGL4 
+      Height          =   375
+      Left            =   1200
+      Top             =   195
+      Width           =   375
+   End
+   Begin VB.Image ImGL3 
+      Height          =   375
+      Left            =   840
+      Top             =   195
+      Width           =   375
+   End
+   Begin VB.Image ImGL2 
+      Height          =   375
+      Left            =   480
+      Top             =   195
+      Width           =   375
+   End
+   Begin VB.Image ImGL1 
+      Height          =   375
+      Left            =   120
+      Top             =   195
+      Width           =   375
+   End
+   Begin VB.Image ImGL0 
+      Height          =   495
       Left            =   0
-      TabIndex        =   83
+      Top             =   120
+      Width           =   135
+   End
+   Begin VB.Label Frame1
+      Caption         =   "Level:"
+      Height          =   300
+      Left            =   0
+      TabIndex        =   89
       Top             =   0
-      Width           =   1695
-      Begin VB.Image ImGL4 
-         Height          =   375
-         Left            =   1200
-         Top             =   195
-         Width           =   375
-      End
-      Begin VB.Image ImGL3 
-         Height          =   375
-         Left            =   840
-         Top             =   195
-         Width           =   375
-      End
-      Begin VB.Image ImGL2 
-         Height          =   375
-         Left            =   480
-         Top             =   195
-         Width           =   375
-      End
-      Begin VB.Image ImGL1 
-         Height          =   375
-         Left            =   120
-         Top             =   195
-         Width           =   375
-      End
-      Begin VB.Image ImGL0 
-         Height          =   495
-         Left            =   0
-         Top             =   120
-         Width           =   135
-      End
+      Width           =   800
    End
    Begin VB.CommandButton BtnClear 
       Style           =   1  'Graphical
@@ -2050,6 +2050,168 @@ Begin VB.Form FrmSudoku
       Top             =   480
       Width           =   615
    End
+   Begin VB.Shape shpLvl 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   1
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpLvl 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   2
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpLvl 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   3
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpLvl 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   4
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBlock 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   0
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBlock 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   1
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBlock 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   2
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBlock 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   3
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBlock 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   4
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBlock 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   5
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBlock 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   6
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBlock 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   7
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBlock 
+      FillStyle       =   0  'Solid
+      Height          =   300
+      Index           =   8
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpTop 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpTopS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpTopS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpGrid 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpGridS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpGridS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBot 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBotS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBotS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "FrmSudoku"
 Attribute VB_GlobalNameSpace = False
@@ -2149,6 +2311,7 @@ Private Sub Form_Load()
   ApplyLocale
   ThemeApply Me
   'App.HelpFile = App.Path & "\" & "SuMBOku.hlp"
+  ModernLayout
   Set mSudoku = New SudokuGame
   Set mUndoRedo = New SGUndoRedo
   mn = 3
@@ -2160,16 +2323,72 @@ Private Sub Form_Load()
   'Set ImL4.Picture = LoadResPicture(202, vbResBitmap)
   PrepareImgs
 End Sub
+' Twips to this form's pixel units.
+Private Function Tw(ByVal v As Single) As Single
+  Tw = v / 15
+End Function
+
+' A card behind each group of controls, the grid moved down below the top
+' card, and the bottom row of buttons sized for a finger.
+Private Sub ModernLayout()
+Dim c As Control
+Dim dy As Single
+Dim i As Long
+  dy = Tw(640)
+  For Each c In Controls
+    If c.Name = "TxtSudoku" Then
+      c.Top = c.Top + dy
+      c.FontBold = True
+    End If
+  Next c
+  ThemeCard shpTop, shpTopS1, shpTopS2, Tw(80), Tw(90), Tw(4655), Tw(1110), 1
+  ThemeCard shpGrid, shpGridS1, shpGridS2, Tw(80), Tw(1360), Tw(4655), Tw(4760), 1
+  ThemeCard shpBot, shpBotS1, shpBotS2, Tw(80), Tw(6290), Tw(4655), Tw(680), 1
+  For i = 0 To 8
+    shpBlock(i).Left = Tw(120 + (i Mod 3) * 1560 - 45)
+    shpBlock(i).Top = Tw(840 + 640 + (i \ 3) * 1560 - 45)
+    shpBlock(i).Width = Tw(1545)
+    shpBlock(i).Height = Tw(1545)
+    shpBlock(i).FillColor = ThPanel2
+    shpBlock(i).BorderColor = ThLine
+    shpBlock(i).BorderWidth = 1
+  Next i
+  Frame1.Move Tw(240), Tw(190), Tw(800), Tw(320)
+  Frame1.BackColor = ThPanel
+  Frame1.Font.Bold = True
+  ImGL0.Visible = False
+  BtnTestLines.Visible = False
+  BtnTestBlocks.Visible = False
+  BtnTestColms.Visible = False
+  For i = 1 To 4
+    Me.Controls("ImGL" & CStr(i)).Move Tw(1080 + (i - 1) * 430), Tw(150), Tw(375), Tw(375)
+    shpLvl(i).Move Tw(1100 + (i - 1) * 430), Tw(190), Tw(300), Tw(300)
+    shpLvl(i).BorderWidth = 2
+  Next i
+  LblSudoku.BackColor = ThPanel
+  LblSudoku.Move Tw(3300), Tw(190), Tw(1300), Tw(320)
+  RndExample.Move Tw(240), Tw(650), Tw(1750), Tw(450)
+  BtnInfo.Move Tw(2050), Tw(650), Tw(1000), Tw(450)
+  BtnOptions.Move Tw(3110), Tw(650), Tw(1450), Tw(450)
+  BtnClear.Move Tw(160), Tw(6380), Tw(650), Tw(520)
+  BtnUndo.Move Tw(880), Tw(6380), Tw(400), Tw(520)
+  BtnRedo.Move Tw(1350), Tw(6380), Tw(400), Tw(520)
+  BtnSolve.Move Tw(1820), Tw(6380), Tw(1200), Tw(520)
+  BtnOpen.Move Tw(3090), Tw(6380), Tw(400), Tw(520)
+  BtnSave.Move Tw(3560), Tw(6380), Tw(400), Tw(520)
+  BtnExit.Move Tw(4030), Tw(6380), Tw(650), Tw(520)
+End Sub
+
 Private Sub PrepareImgs()
 Dim Img As Image
 Dim i As Long
   For i = 1 To mn * mn
     Set Img = Me.Controls("ImB" & CStr(i))
-    Set Img.Picture = LoadResPicture(201, vbResBitmap)
+    Img.Visible = False
     Set Img = Me.Controls("ImL" & CStr(i))
-    Set Img.Picture = LoadResPicture(202, vbResBitmap)
+    Img.Visible = False
     Set Img = Me.Controls("ImC" & CStr(i))
-    Set Img.Picture = LoadResPicture(203, vbResBitmap)
+    Img.Visible = False
   Next
 End Sub
 Public Sub SetupGame()
@@ -2228,14 +2447,14 @@ Dim i As Long, n As Long
 Dim Im As Image
   mSudoku.GameLevel = Index
   n = 4
+  ' Lamps in place of the sun pictures: lit up to the level in use.
   For i = 1 To Index
-    Set Im = Me.Controls("ImGL" & CStr(i))
-    Set Im.Picture = LoadResPicture(12, vbResBitmap)
-    'im.Picture.hPal =
+    shpLvl(i).FillColor = ThAccent2
+    shpLvl(i).BorderColor = ThAccent2
   Next
   For i = Index + 1 To n
-    Set Im = Me.Controls("ImGL" & CStr(i))
-    Set Im.Picture = LoadResPicture(11, vbResBitmap)
+    shpLvl(i).FillColor = ThPanel2
+    shpLvl(i).BorderColor = ThLine
   Next
 End Sub
 
