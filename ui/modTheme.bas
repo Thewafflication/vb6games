@@ -99,3 +99,15 @@ Public Sub ThemeCard(card As Object, shadowA As Object, shadowB As Object, ByVal
     card.BorderColor = ThEdge
     card.BorderWidth = 1
 End Sub
+
+' A color made lighter (pct > 100) or darker (pct < 100).
+Public Function ThShade(ByVal c As Long, ByVal pct As Long) As Long
+    Dim r As Long, g As Long, b As Long
+    r = (c And &HFF&) * pct \ 100
+    g = ((c \ &H100&) And &HFF&) * pct \ 100
+    b = ((c \ &H10000) And &HFF&) * pct \ 100
+    If r > 255 Then r = 255
+    If g > 255 Then g = 255
+    If b > 255 Then b = 255
+    ThShade = RGB(r, g, b)
+End Function

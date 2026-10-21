@@ -107,6 +107,24 @@ Begin VB.Form FMain
       Top             =   60
       Width           =   945
    End
+   Begin VB.Shape shpHead 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpHeadS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpHeadS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "FMain"
 Attribute VB_GlobalNameSpace = False
@@ -149,6 +167,12 @@ Private Sub Form_Load()
     Picture1.ScaleMode = vbTwips
     LbPlayerName.ForeColor = ThBack
     LbPlayerName.Font.Bold = True
+    Picture1.BorderStyle = 0
+    PBBackBuffer.BorderStyle = 0
+    PBNextPlayer.BorderStyle = 0
+    Label1.BackColor = ThPanel
+    LbPlayerName.AutoSize = False
+    LbPlayerName.Alignment = 2
     Set PBBackBuffer.Picture = Nothing
     Set m_Player1 = MApp.DefaultPlayer1.Clone
     Set m_Player2 = MApp.DefaultPlayer2.Clone
@@ -159,20 +183,34 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub Form_Resize()
-    ' A toolbar of buttons big enough for a finger, and the board below it.
+    ' A header card with buttons big enough for a finger, and the board below.
+    Const M As Single = 240
     Const Th As Single = 720
-    Const Gap As Single = 90
-    Dim h As Single: h = Me.ScaleHeight - Th - Gap
-    BtnNewGame.Move Gap, Gap / 2, 2100, Th
-    BtnUndo.Move 2310, Gap / 2, 1300, Th
-    BtnRedo.Move 3700, Gap / 2, 1300, Th
-    Label1.Move 5300, Gap / 2 + 220, 1500, 300
-    PBNextPlayer.Move 6850, Gap / 2, 2300, Th
-    LbPlayerName.Move 120, 180
-    If Me.ScaleWidth > 1700 Then BtnInfo.Move Me.ScaleWidth - 1500 - Gap, Gap / 2, 1500, Th
+    Const Pad As Single = 150
+    Dim hw As Single: hw = Me.ScaleWidth - 2 * M
+    Dim hh As Single: hh = Th + 2 * Pad
+    Dim y As Single: y = M + Pad
+    Dim x As Single: x = M + Pad
+    Dim bw As Single: bw = (hw - 2 * Pad - 6140) / 3.3
+    If bw > 1800 Then bw = 1800
+    If bw < 700 Then bw = 700
+    ThemeCard shpHead, shpHeadS1, shpHeadS2, M, M, hw, hh, 15
+    BtnNewGame.Move x, y, bw * 1.3, Th
+    x = x + bw * 1.3 + 120
+    BtnUndo.Move x, y, bw, Th
+    x = x + bw + 120
+    BtnRedo.Move x, y, bw, Th
+    x = x + bw + 360
+    Label1.Move x, y + 200, 1500, 320
+    x = x + 1500
+    PBNextPlayer.Move x, y, 2300, Th
+    LbPlayerName.Move 0, 200, 2300, 320
+    BtnInfo.Move Me.ScaleWidth - M - Pad - 1500, y, 1500, Th
+    Dim ty As Single: ty = M + hh + M
+    Dim h As Single: h = Me.ScaleHeight - ty - M
     If Me.ScaleWidth > 0 And h > 0 Then
-        PBBackBuffer.Move 0, Th + Gap, Me.ScaleWidth, h
-        Picture1.Move 0, Th + Gap, Me.ScaleWidth, h
+        PBBackBuffer.Move M, ty, hw, h
+        Picture1.Move M, ty, hw, h
     End If
 End Sub
 
@@ -287,37 +325,64 @@ End Sub
 
 Public Sub DrawConnect4Field(aPB As PictureBox)
     aPB.Cls
-    aPB.BackColor = ThBoard
+    aPB.BackColor = ThBack
     Dim w As Byte: w = m_Connect4.Width
     Dim h As Byte: h = m_Connect4.Height
     'maximum chip diameter
     Dim d As Double: d = GetChipDiameter(aPB, w, h)
-    Dim r As Double: r = d / 2# - d / 20
-    'Linkester Punkt
+    Dim r As Double: r = d / 2# - d / 14
+    'left most point and the top of the board
     Dim l0 As Double: l0 = aPB.ScaleWidth / 2# - d * w / 2#
+    Dim t0 As Double: t0 = aPB.ScaleHeight / 2# + d * h / 2#
+    Dim pad As Double: pad = d / 5
+    Dim bl As Double, bt As Double, bw As Double, bh As Double
+    bl = l0 - pad: bt = t0 - d * h - pad: bw = d * w + 2 * pad: bh = d * h + 2 * pad
+    ' a soft shadow, the board with a lighter edge, and its inner bevel
+    aPB.Line (bl + d / 5, bt + d / 4)-(bl + bw + d / 5, bt + bh + d / 4), ThShadow2, BF
+    aPB.Line (bl + d / 9, bt + d / 8)-(bl + bw + d / 9, bt + bh + d / 8), ThShadow1, BF
+    aPB.Line (bl, bt)-(bl + bw, bt + bh), ThShade(ThBoard, 60), BF
+    aPB.Line (bl + d / 40, bt + d / 40)-(bl + bw - d / 40, bt + bh - d / 40), ThShade(ThBoard, 130), BF
+    aPB.Line (bl + d / 20, bt + d / 20)-(bl + bw - d / 20, bt + bh - d / 20), ThBoard, BF
     Dim l  As Double:  l = l0
-    Dim t0 As Double: t0 = aPB.ScaleHeight
     Dim t  As Double: t = t0
-    Dim i As Long, j As Long, fc As Long, bc As Long ': bc = vbgray
+    Dim i As Long, j As Long, fc As Long
     Dim aChip As Connect4Chip
+    Dim cx As Double, cy As Double
     aPB.FillStyle = vbFSSolid
-    aPB.DrawWidth = Max(d / 200, 1)
+    aPB.DrawWidth = Max(d / 300, 1)
     For j = 1 To h
         For i = 1 To w
             aChip = m_Connect4.Field(i, j)
-            bc = ThBack
-            If aChip = None Then
-                fc = ThBack
-            ElseIf (aChip And Player1) = Player1 Then
-                fc = m_Player1.Color ' vbYellow
-            ElseIf (aChip And Player2) = Player2 Then
-                fc = m_Player2.Color ' vbRed
+            cx = l + d / 2
+            cy = t - d / 2
+            ' the hole, shaded on its upper edge
+            aPB.FillColor = ThShade(ThBoard, 55)
+            aPB.Circle (cx, cy), r + d / 40, ThShade(ThBoard, 55)
+            aPB.FillColor = ThBack
+            aPB.Circle (cx + d / 50, cy + d / 50), r - d / 50, ThBack
+            If aChip <> None Then
+                If (aChip And Player1) = Player1 Then
+                    fc = m_Player1.Color
+                Else
+                    fc = m_Player2.Color
+                End If
+                aPB.FillColor = ThShade(fc, 70)
+                aPB.Circle (cx, cy), r - d / 40, ThShade(fc, 70)
+                aPB.FillColor = fc
+                aPB.Circle (cx, cy), r - d / 18, fc
+                aPB.FillStyle = vbFSTransparent
+                aPB.Circle (cx, cy), r * 0.62, ThShade(fc, 82)
+                aPB.FillStyle = vbFSSolid
+                aPB.FillColor = ThShade(fc, 130)
+                aPB.Circle (cx - r * 0.38, cy - r * 0.38), r * 0.13, ThShade(fc, 130)
+                If aChip And Highlighted Then
+                    aPB.FillStyle = vbFSTransparent
+                    aPB.DrawWidth = Max(d / 160, 2)
+                    aPB.Circle (cx, cy), r + d / 40, ThGood
+                    aPB.DrawWidth = Max(d / 300, 1)
+                    aPB.FillStyle = vbFSSolid
+                End If
             End If
-            If aChip And Highlighted Then
-                bc = ThGood
-            End If
-            aPB.FillColor = fc
-            aPB.Circle (l + d / 2, t - d / 2), r, bc
             l = l + d
         Next
         l = l0
@@ -326,7 +391,9 @@ Public Sub DrawConnect4Field(aPB As PictureBox)
 End Sub
 
 Function GetChipDiameter(aPB As PictureBox, ByVal w As Byte, ByVal h As Byte) As Double
-    GetChipDiameter = Min(aPB.ScaleWidth / w, aPB.ScaleHeight / h)
+    ' leave room around the board for its frame and shadow
+    Dim m As Double: m = Min(aPB.ScaleWidth, aPB.ScaleHeight) * 0.06
+    GetChipDiameter = Min((aPB.ScaleWidth - 2 * m) / w, (aPB.ScaleHeight - 2 * m) / h)
 End Function
 
 Public Function CalcColumnIndex(aPB As PictureBox, ByVal X As Single) As Byte
