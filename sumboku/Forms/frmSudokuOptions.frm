@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmSudokuOptions 
-   BorderStyle     =   4  'Festes Werkzeugfenster
+   BorderStyle     =   0  'None
    Caption         =   "Solve Options"
    ClientHeight    =   2160
    ClientLeft      =   45
@@ -14,6 +14,15 @@ Begin VB.Form frmSudokuOptions
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows-Standard
    Begin VB.CommandButton BtnCancel 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Abbrechen"
       Height          =   375
@@ -23,6 +32,15 @@ Begin VB.Form frmSudokuOptions
       Width           =   1095
    End
    Begin VB.CommandButton BtnOK 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "OK"
       Height          =   375
@@ -32,6 +50,15 @@ Begin VB.Form frmSudokuOptions
       Width           =   1095
    End
    Begin VB.Frame Frame1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Caption         =   "Solve with..."
       Height          =   1455
       Left            =   120
@@ -48,6 +75,15 @@ Begin VB.Form frmSudokuOptions
          Top             =   240
          Width           =   2655
          Begin VB.OptionButton Option4 
+            BeginProperty Font 
+               Name            =   "Segoe UI"
+               Size            =   11
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
             Caption         =   "the whole iteration"
             Height          =   255
             Left            =   0
@@ -57,6 +93,15 @@ Begin VB.Form frmSudokuOptions
             Width           =   2535
          End
          Begin VB.OptionButton Option3 
+            BeginProperty Font 
+               Name            =   "Segoe UI"
+               Size            =   11
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
             Caption         =   "all three steps"
             Height          =   255
             Left            =   0
@@ -65,6 +110,15 @@ Begin VB.Form frmSudokuOptions
             Width           =   2535
          End
          Begin VB.OptionButton Option2 
+            BeginProperty Font 
+               Name            =   "Segoe UI"
+               Size            =   11
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
             Caption         =   "the first and second step"
             Height          =   255
             Left            =   0
@@ -74,6 +128,15 @@ Begin VB.Form frmSudokuOptions
             Width           =   2535
          End
          Begin VB.OptionButton Option1 
+            BeginProperty Font 
+               Name            =   "Segoe UI"
+               Size            =   11
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
             Caption         =   "only the first step"
             Height          =   255
             Left            =   0

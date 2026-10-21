@@ -157,6 +157,8 @@ Private Sub AddEnglish2()
     s = s & vbCrLf
     s = s & "5. purple"
     P "cheat.color", s
+    P "button.exit", "Exit"
+    P "button.done", "OK"
 End Sub
 
 Private Sub AddEnglish()
@@ -232,6 +234,8 @@ Private Sub AddPolish2()
     s = s & vbCrLf
     s = s & "5. fioletowy"
     P "cheat.color", s
+    P "button.exit", U("00570079006A015B006300690065")
+    P "button.done", "OK"
 End Sub
 
 Private Sub AddPolish()
@@ -307,6 +311,8 @@ Private Sub AddChinese2()
     s = s & vbCrLf
     s = s & U("0035002E00207D2B")
     P "cheat.color", s
+    P "button.exit", U("900051FA")
+    P "button.done", U("786E5B9A")
 End Sub
 
 Private Sub AddChinese()
@@ -382,6 +388,8 @@ Private Sub AddSpanish2()
     s = s & vbCrLf
     s = s & "5. morado"
     P "cheat.color", s
+    P "button.exit", "Salir"
+    P "button.done", "Aceptar"
 End Sub
 
 Private Sub AddSpanish()

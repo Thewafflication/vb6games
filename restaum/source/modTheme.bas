@@ -23,6 +23,7 @@ Public Const ThShadow1 As Long = &H0F0A08  ' near shadow
 Public Const ThShadow2 As Long = &H17100D  ' far shadow
 Public Const ThEdge As Long = &H6B4A40     ' light edge of a raised panel
 Public Const ThFontSize As Single = 11      ' text size in points
+Public Const ThFontName As String = "Segoe UI"  ' scalable, unlike MS Sans Serif
 
 ' Colors a form and its controls. A control whose Tag is "keep" is left alone
 ' (game boards, pictures); one whose Tag is "accent" is a highlighted button.
@@ -38,7 +39,14 @@ Public Sub ThemeApply(frm As Form)
                 c.ForeColor = ThText
                 c.BackColor = ThBack
                 c.BackStyle = 1
+                c.Font.Name = ThFontName
                 c.Font.Size = ThFontSize
+                ' an auto-sized label grows to its new font
+                If c.AutoSize Then
+                    c.AutoSize = False
+                    c.AutoSize = True
+                    c.Caption = c.Caption
+                End If
             Case "CommandButton"
                 ' A VB6 push button has no ForeColor, so its text stays dark
                 ' and the buttons are light (teal; amber when tagged accent).
@@ -47,16 +55,19 @@ Public Sub ThemeApply(frm As Form)
                 Else
                     c.BackColor = ThAccent
                 End If
+                c.Font.Name = ThFontName
                 c.Font.Size = ThFontSize
                 c.Font.Bold = True
             Case "TextBox", "ComboBox", "ListBox"
                 c.ForeColor = ThText
                 c.BackColor = ThPanel2
+                c.Font.Name = ThFontName
                 c.Font.Size = ThFontSize
             Case "Frame", "CheckBox", "OptionButton"
                 c.ForeColor = ThText
                 c.BackColor = ThBack
                 c.BackStyle = 1
+                c.Font.Name = ThFontName
                 c.Font.Size = ThFontSize
             End Select
         End If
@@ -145,3 +156,107 @@ Public Function ThemeShowArt(frm As Form, img As Object, card As Object, shadowA
     ThemeCard card, shadowA, shadowB, img.Left - 4 * u, img.Top - 4 * u, aw + 8 * u, ah + 8 * u, u
     ThemeShowArt = img.Top + ah + 4 * u
 End Function
+
+' True when a control sits directly on the form (not inside a frame).
+Private Function OnForm(frm As Form, c As Object) As Boolean
+    On Error Resume Next
+    OnForm = True
+    OnForm = (c.Container Is frm)
+End Function
+
+' Makes a form fill the screen and shows its controls as one dialog: the
+' group is centered on a card with a shadow (the card shapes are the form's
+' own, named shpDlg, shpDlgS1 and shpDlgS2). u is one pixel in the form's units.
+Public Sub ThemeDialog(frm As Form, card As Object, shadowA As Object, shadowB As Object, ByVal u As Single, ByVal pad As Single)
+    Dim c As Control
+    Dim x0 As Single, y0 As Single, x1 As Single, y1 As Single
+    Dim l As Single, t As Single, w As Single, h As Single
+    Dim dx As Single, dy As Single
+    x0 = 1E+30: y0 = 1E+30: x1 = -1E+30: y1 = -1E+30
+    frm.BackColor = ThBack
+    ThemeFullScreen frm
+    On Error Resume Next
+    For Each c In frm.Controls
+        If Left(c.Name, 6) <> "shpDlg" And OnForm(frm, c) Then
+            w = 0: h = 0
+            l = c.Left: t = c.Top: w = c.Width: h = c.Height
+            If w > 0 And h > 0 And c.Visible Then
+                If l < x0 Then x0 = l
+                If t < y0 Then y0 = t
+                If l + w > x1 Then x1 = l + w
+                If t + h > y1 Then y1 = t + h
+            End If
+        End If
+    Next c
+    If x1 < x0 Then Exit Sub
+    dx = (frm.ScaleWidth - (x1 - x0)) / 2 - x0
+    dy = (frm.ScaleHeight - (y1 - y0)) / 2 - y0
+    For Each c In frm.Controls
+        If Left(c.Name, 6) <> "shpDlg" And OnForm(frm, c) Then
+            c.Left = c.Left + dx
+            c.Top = c.Top + dy
+        End If
+    Next c
+    ThemeCard card, shadowA, shadowB, x0 + dx - pad, y0 + dy - pad, (x1 - x0) + 2 * pad, (y1 - y0) + 2 * pad, u
+    ' what sits on the card takes the card's color
+    For Each c In frm.Controls
+        Select Case TypeName(c)
+        Case "Label", "OptionButton", "CheckBox", "Frame"
+            If c.Tag <> "keep" Then c.BackColor = ThPanel
+        End Select
+    Next c
+End Sub
+
+' Shrinks a control's font until its caption fits (no clipping in any
+' language or at any size). Uses the form's own text measuring.
+Public Sub ThemeFitText(frm As Form, c As Object)
+    Dim t As String, sz As Single, w As Single, th As Single
+    Dim avail As Single, wrap As Boolean, lines As Single, ok As Boolean, au As Boolean
+    Dim words() As String, k As Long
+    On Error Resume Next
+    t = c.Caption
+    If Len(t) = 0 Then Exit Sub
+    If InStr(t, vbLf) > 0 Or InStr(t, vbCr) > 0 Then Exit Sub
+    wrap = False
+    wrap = c.WordWrap
+    au = False
+    au = c.AutoSize
+    If au Then Exit Sub
+    sz = c.Font.Size
+    words = Split(t, " ")
+    frm.Font.Name = c.Font.Name
+    frm.Font.Bold = c.Font.Bold
+    avail = c.Width * 0.88
+    If TypeName(c) = "OptionButton" Or TypeName(c) = "CheckBox" Then avail = c.Width - 24 * (c.Width / 100)
+    Do
+        frm.Font.Size = sz
+        w = frm.TextWidth(t)
+        th = frm.TextHeight("Ag")
+        If wrap Then
+            lines = Int(w / (avail * 0.85)) + 1
+            ok = (lines * th * 1.15 <= c.Height)
+            ' a single long word must fit on a line too
+            For k = 0 To UBound(words)
+                If frm.TextWidth(words(k)) > avail Then ok = False
+            Next k
+        Else
+            ok = (w <= avail And th * 1.1 <= c.Height)
+        End If
+        If ok Or sz <= 6 Then Exit Do
+        sz = sz - 0.5
+    Loop
+    c.Font.Size = sz
+End Sub
+
+' Fits the text of every label, button and option of a form (call after
+' the layout and the captions are final).
+Public Sub ThemeFitAll(frm As Form)
+    Dim c As Control
+    On Error Resume Next
+    For Each c In frm.Controls
+        Select Case TypeName(c)
+        Case "Label", "CommandButton", "OptionButton", "CheckBox"
+            ThemeFitText frm, c
+        End Select
+    Next c
+End Sub

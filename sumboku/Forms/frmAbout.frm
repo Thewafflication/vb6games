@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmAbout 
-   BorderStyle     =   4  'Festes Werkzeugfenster
+   BorderStyle     =   0  'None
    Caption         =   "Info"
    ClientHeight    =   3660
    ClientLeft      =   2340
@@ -45,6 +45,15 @@ Begin VB.Form frmAbout
       End
    End
    Begin VB.CommandButton cmdOK 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Cancel          =   -1  'True
       Caption         =   "OK"
@@ -108,6 +117,15 @@ Begin VB.Form frmAbout
       End
    End
    Begin VB.Label lblDescription 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Caption         =   "Trainprogram Nr. 33"
       ForeColor       =   &H00000000&
       Height          =   1890
@@ -117,6 +135,15 @@ Begin VB.Form frmAbout
       Width           =   4605
    End
    Begin VB.Label lblVersion 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Caption         =   "Version"
       Height          =   225
       Left            =   120

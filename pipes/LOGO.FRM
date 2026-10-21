@@ -24,6 +24,15 @@ Begin VB.Form Logo
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   192
    Begin VB.CommandButton Command1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Appearance      =   0  'Flat
       Caption         =   "OK"
@@ -34,6 +43,15 @@ Begin VB.Form Logo
       Width           =   852
    End
    Begin VB.Label Label2 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       AutoSize        =   -1  'True
       BackColor       =   &H80000005&
@@ -47,6 +65,15 @@ Begin VB.Form Logo
       Width           =   2208
    End
    Begin VB.Label Label1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       AutoSize        =   -1  'True
       BackColor       =   &H80000005&

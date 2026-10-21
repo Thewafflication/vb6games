@@ -2,7 +2,7 @@ VERSION 5.00
 Begin VB.Form frmGamescreen 
    AutoRedraw      =   -1  'True
    BackColor       =   &H00000000&
-   BorderStyle     =   1  'Fixed Single
+   BorderStyle     =   0  'None
    Caption         =   "Executioner By Corey McInroy                                               "
    ClientHeight    =   9200
    ClientLeft      =   7860

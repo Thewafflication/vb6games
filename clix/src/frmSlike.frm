@@ -1,5 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmSlike 
+   BorderStyle     =   0  'None
    Caption         =   "Form1"
    ClientHeight    =   6570
    ClientLeft      =   60

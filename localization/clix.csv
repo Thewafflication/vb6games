@@ -43,3 +43,5 @@ msg.noBoard,BOARD SIZE NOT INITIALIZED!,NIE ZAINICJOWANO ROZMIARU PLANSZY!,棋�
 cheat.x,x,x,x,x
 cheat.y,y,y,y,y
 cheat.color,"color{nl}1. red{nl}2. yellow{nl}3. green{nl}4. blue{nl}5. purple","kolor{nl}1. czerwony{nl}2. żółty{nl}3. zielony{nl}4. niebieski{nl}5. fioletowy",颜色{nl}1. 红{nl}2. 黄{nl}3. 绿{nl}4. 蓝{nl}5. 紫,"color{nl}1. rojo{nl}2. amarillo{nl}3. verde{nl}4. azul{nl}5. morado"
+button.exit,Exit,Wyjście,退出,Salir
+button.done,OK,OK,确定,Aceptar

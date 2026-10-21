@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00E0E0E0&
-   BorderStyle     =   1  'Fixed Single
+   BorderStyle     =   0  'None
    Caption         =   "Resta 1"
    ClientHeight    =   5500
    ClientLeft      =   45
@@ -42,6 +42,15 @@ Begin VB.Form Form1
       Width           =   4815
    End
    Begin VB.Label lblCount
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Alignment       =   2  'Center
       Caption         =   "0"
       Height          =   420

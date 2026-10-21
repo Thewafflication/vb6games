@@ -1,5 +1,6 @@
 VERSION 5.00
 Begin VB.Form Form1 
+   BorderStyle     =   0  'None
    Appearance      =   0  'Flat
    BackColor       =   &H00FFFFFF&
    Caption         =   "Pipes version 1.0"
@@ -32,6 +33,15 @@ Begin VB.Form Form1
       Top             =   4560
    End
    Begin VB.Label lblTitle 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
       Caption         =   "PIPES"
@@ -42,6 +52,15 @@ Begin VB.Form Form1
       Width           =   3000
    End
    Begin VB.CommandButton btnQuit 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Appearance      =   0  'Flat
       Caption         =   "&Quit"

@@ -2,6 +2,7 @@ VERSION 5.00
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
 Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "mswinsck.ocx"
 Begin VB.Form frmGame 
+   BorderStyle     =   0  'None
    AutoRedraw      =   -1  'True
    BackColor       =   &H80000003&
    Caption         =   "Form1"
@@ -170,6 +171,15 @@ Begin VB.Form frmGame
       Visible         =   0   'False
    End
    Begin VB.TextBox txtMessageOut 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BorderStyle     =   0  'None
       Height          =   1470
       Left            =   90
@@ -291,6 +301,15 @@ Begin VB.Form frmGame
       Width           =   120
    End
    Begin VB.TextBox txtMessageIn 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BorderStyle     =   0  'None
       Height          =   2895
       Left            =   90
@@ -440,6 +459,15 @@ Begin VB.Form frmGame
       LocalPort       =   5
    End
    Begin VB.TextBox txtGameOut 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Enabled         =   0   'False
       Height          =   375
       Left            =   10965
@@ -451,6 +479,15 @@ Begin VB.Form frmGame
       Width           =   1935
    End
    Begin VB.TextBox txtGameIn 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Enabled         =   0   'False
       Height          =   375
       Left            =   10965
@@ -473,6 +510,15 @@ Begin VB.Form frmGame
       LocalPort       =   10
    End
    Begin VB.TextBox txtIP 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   375
       Left            =   10950
       TabIndex        =   47
@@ -482,6 +528,15 @@ Begin VB.Form frmGame
       Width           =   855
    End
    Begin VB.CommandButton cmdClearSend 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "&Clear"
       Height          =   495
@@ -492,6 +547,15 @@ Begin VB.Form frmGame
       Visible         =   0   'False
    End
    Begin VB.CommandButton cmdSend 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "&Send"
       Height          =   495
@@ -513,6 +577,15 @@ Begin VB.Form frmGame
       Width           =   615
    End
    Begin VB.CommandButton cmdTNew 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdTNew"
       Height          =   615
@@ -522,6 +595,15 @@ Begin VB.Form frmGame
       Width           =   975
    End
    Begin VB.CommandButton cmdTChat 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdTChat"
       Height          =   615
@@ -531,6 +613,15 @@ Begin VB.Form frmGame
       Width           =   975
    End
    Begin VB.CommandButton cmdTStats 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdTStats"
       Height          =   615
@@ -540,6 +631,15 @@ Begin VB.Form frmGame
       Width           =   975
    End
    Begin VB.CommandButton cmdTSave 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdTSave"
       Height          =   615
@@ -549,6 +649,15 @@ Begin VB.Form frmGame
       Width           =   975
    End
    Begin VB.CommandButton cmdTExit 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdTExit"
       Height          =   615
@@ -558,6 +667,15 @@ Begin VB.Form frmGame
       Width           =   975
    End
    Begin VB.CommandButton cmdSurrender 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Surrender"
       Height          =   615
@@ -567,6 +685,15 @@ Begin VB.Form frmGame
       Width           =   1800
    End
    Begin VB.CommandButton cmdCallCheat 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Call Invalid Move"
       Height          =   495
@@ -577,6 +704,15 @@ Begin VB.Form frmGame
       Visible         =   0   'False
    End
    Begin VB.CommandButton cmdCallCheckMate 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Call Check Mate"
       Height          =   495
@@ -587,6 +723,15 @@ Begin VB.Form frmGame
       Visible         =   0   'False
    End
    Begin VB.CommandButton cmdCallCheck 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Call Check"
       Height          =   495
@@ -991,6 +1136,15 @@ Begin VB.Form frmGame
       Width           =   615
    End
    Begin VB.TextBox txtTest 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   1095
       Left            =   7215
       MultiLine       =   -1  'True
@@ -1088,6 +1242,15 @@ Begin VB.Form frmGame
       Width           =   5055
    End
    Begin VB.Label lblColor 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackStyle       =   0  'Transparent
       Caption         =   "white"
       Height          =   255
@@ -1112,6 +1275,15 @@ Begin VB.Form frmGame
       Y2              =   120
    End
    Begin VB.Label lblInfo 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackStyle       =   0  'Transparent
       Height          =   255
       Left            =   120

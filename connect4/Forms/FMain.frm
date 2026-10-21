@@ -1,5 +1,6 @@
 VERSION 5.00
 Begin VB.Form FMain 
+   BorderStyle     =   0  'None
    Caption         =   "Connect4"
    ClientHeight    =   9435
    ClientLeft      =   120
@@ -50,6 +51,15 @@ Begin VB.Form FMain
       Top             =   0
       Width           =   855
       Begin VB.Label LbPlayerName 
+         BeginProperty Font 
+            Name            =   "Segoe UI"
+            Size            =   11
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
          Caption         =   "______"
@@ -61,6 +71,15 @@ Begin VB.Form FMain
       End
    End
    Begin VB.CommandButton BtnRedo 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  \'Graphical
       Caption         =   "Redo"
       Enabled         =   0   'False
@@ -71,6 +90,15 @@ Begin VB.Form FMain
       Width           =   855
    End
    Begin VB.CommandButton BtnUndo 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  \'Graphical
       Caption         =   "Undo"
       Enabled         =   0   'False
@@ -81,6 +109,15 @@ Begin VB.Form FMain
       Width           =   855
    End
    Begin VB.CommandButton BtnNewGame 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  \'Graphical
       Caption         =   "New Game"
       Height          =   375
@@ -89,7 +126,34 @@ Begin VB.Form FMain
       Top             =   0
       Width           =   1455
    End
+   Begin VB.CommandButton BtnExit 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "Exit"
+      Height          =   375
+      Left            =   10400
+      TabIndex        =   20
+      Top             =   0
+      Width           =   855
+   End
    Begin VB.CommandButton BtnInfo 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  \'Graphical
       Caption         =   "Info"
       Height          =   375
@@ -99,6 +163,15 @@ Begin VB.Form FMain
       Width           =   855
    End
    Begin VB.Label Label1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       AutoSize        =   -1  'True
       Caption         =   "Next Player:"
       Height          =   225
@@ -156,6 +229,7 @@ Private Sub ApplyLocale()
     BtnUndo.Caption = Loc("main.undo")
     BtnRedo.Caption = Loc("main.redo")
     BtnInfo.Caption = Loc("main.info")
+    BtnExit.Caption = Loc("main.exit")
 End Sub
 
 Private Sub Form_Load()
@@ -191,7 +265,7 @@ Private Sub Form_Resize()
     Dim hh As Single: hh = Th + 2 * Pad
     Dim y As Single: y = M + Pad
     Dim x As Single: x = M + Pad
-    Dim bw As Single: bw = (hw - 2 * Pad - 6140) / 3.3
+    Dim bw As Single: bw = (hw - 2 * Pad - 7760) / 3.3
     If bw > 1800 Then bw = 1800
     If bw < 700 Then bw = 700
     ThemeCard shpHead, shpHeadS1, shpHeadS2, M, M, hw, hh, 15
@@ -205,13 +279,19 @@ Private Sub Form_Resize()
     x = x + 1500
     PBNextPlayer.Move x, y, 2300, Th
     LbPlayerName.Move 0, 200, 2300, 320
-    BtnInfo.Move Me.ScaleWidth - M - Pad - 1500, y, 1500, Th
+    BtnExit.Move Me.ScaleWidth - M - Pad - 1500, y, 1500, Th
+    BtnInfo.Move Me.ScaleWidth - M - Pad - 3120, y, 1500, Th
     Dim ty As Single: ty = M + hh + M
     Dim h As Single: h = Me.ScaleHeight - ty - M
     If Me.ScaleWidth > 0 And h > 0 Then
         PBBackBuffer.Move M, ty, hw, h
         Picture1.Move M, ty, hw, h
     End If
+    ThemeFitAll Me
+End Sub
+
+Private Sub BtnExit_Click()
+    Unload Me
 End Sub
 
 Private Sub BtnNewGame_Click()

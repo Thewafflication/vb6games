@@ -114,6 +114,7 @@ Private Sub AddEnglish1()
     P "new.height", "Height:"
     P "new.ok", "OK"
     P "new.cancel", "Cancel"
+    P "main.exit", "Exit"
 End Sub
 
 Private Sub AddEnglish()
@@ -145,6 +146,7 @@ Private Sub AddPolish1()
     P "new.height", "Wys.:"
     P "new.ok", "OK"
     P "new.cancel", "Anuluj"
+    P "main.exit", U("00570079006A015B006300690065")
 End Sub
 
 Private Sub AddPolish()
@@ -176,6 +178,7 @@ Private Sub AddChinese1()
     P "new.height", U("9AD85EA6FF1A")
     P "new.ok", U("786E5B9A")
     P "new.cancel", U("53D66D88")
+    P "main.exit", U("900051FA")
 End Sub
 
 Private Sub AddChinese()
@@ -207,6 +210,7 @@ Private Sub AddSpanish1()
     P "new.height", "Alto:"
     P "new.ok", "Aceptar"
     P "new.cancel", "Cancelar"
+    P "main.exit", "Salir"
 End Sub
 
 Private Sub AddSpanish()

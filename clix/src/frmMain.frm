@@ -1,5 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmMain 
+   BorderStyle     =   0  'None
    BackColor       =   &H00FFFFFF&
    Caption         =   "frmNew"
    ClientHeight    =   11400
@@ -10,6 +11,24 @@ Begin VB.Form frmMain
    ScaleHeight     =   11400
    ScaleWidth      =   16300
    StartUpPosition =   2  'CenterScreen
+   Begin VB.Shape shpFloat 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpFloatS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpFloatS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
    Begin VB.Label lblBojaCounter 
       BackStyle       =   0  'Transparent
       Caption         =   "-"
@@ -216,6 +235,15 @@ Begin VB.Form frmMain
       Width           =   1335
    End
    Begin VB.Label frmInfoBall
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Caption         =   "info"
       Height          =   300
       Left            =   0
@@ -224,6 +252,15 @@ Begin VB.Form frmMain
       Width           =   2535
    End
    Begin VB.CommandButton Command2 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "info"
       Height          =   495
@@ -239,6 +276,15 @@ Begin VB.Form frmMain
       Top             =   3360
    End
    Begin VB.CommandButton Command1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cheat"
       Height          =   735
@@ -248,7 +294,279 @@ Begin VB.Form frmMain
       Top             =   8040
       Width           =   615
    End
+   Begin VB.CommandButton cmdExit 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdExit"
+      Height          =   700
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "main"
+      Top             =   6900
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdM1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdM1"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "pg"
+      Top             =   3650
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdM2 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdM2"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "pg"
+      Top             =   4250
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdM3 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdM3"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "pg"
+      Top             =   4850
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdM4 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdM4"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "pg"
+      Top             =   5450
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdO1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdO1"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "pg"
+      Top             =   6450
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdO2 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdO2"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "pg"
+      Top             =   7050
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdO3 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdO3"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "pg"
+      Top             =   7650
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdO4 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdO4"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "pg"
+      Top             =   8250
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdPgDone 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdPgDone"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "pg"
+      Top             =   8900
+      Width           =   2560
+   End
+   Begin VB.CommandButton cmdPoDone 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdPoDone"
+      Height          =   520
+      Left            =   13440
+      TabIndex        =   100
+      Tag             =   "po"
+      Top             =   6150
+      Width           =   2560
+   End
+   Begin VB.Label lblPgMode 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Caption         =   "lblPgMode"
+      Height          =   300
+      Left            =   13440
+      TabIndex        =   101
+      Tag             =   "pg"
+      Top             =   3300
+      Width           =   2560
+   End
+   Begin VB.Label lblPgOri 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Caption         =   "lblPgOri"
+      Height          =   300
+      Left            =   13440
+      TabIndex        =   101
+      Tag             =   "pg"
+      Top             =   6100
+      Width           =   2560
+   End
+   Begin VB.Label lblPoTitle 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Caption         =   "lblPoTitle"
+      Height          =   300
+      Left            =   13440
+      TabIndex        =   101
+      Tag             =   "po"
+      Top             =   3300
+      Width           =   2560
+   End
    Begin VB.CommandButton cmdMode 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdMode"
       Height          =   735
@@ -258,6 +576,15 @@ Begin VB.Form frmMain
       Width           =   2535
    End
    Begin VB.CommandButton cmdOrient 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdOrient"
       Height          =   735
@@ -267,6 +594,15 @@ Begin VB.Form frmMain
       Width           =   2535
    End
    Begin VB.CommandButton cmdGrid 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdGrid"
       Height          =   735
@@ -276,6 +612,15 @@ Begin VB.Form frmMain
       Width           =   2535
    End
    Begin VB.CommandButton cmdJockerOpt 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdJockerOpt"
       Height          =   735
@@ -285,6 +630,15 @@ Begin VB.Form frmMain
       Width           =   2535
    End
    Begin VB.CommandButton cmdInfoBall 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdInfoBall"
       Height          =   735
@@ -294,6 +648,15 @@ Begin VB.Form frmMain
       Width           =   2535
    End
    Begin VB.CommandButton cmdJockerBall 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "cmdJockerBall"
       Height          =   735
@@ -401,12 +764,34 @@ Begin VB.Form frmMain
       Visible         =   0   'False
       Width           =   495
    End
+   Begin VB.Shape shpGloss 
+      BorderStyle     =   0  'Transparent
+      FillStyle       =   0  'Solid
+      Height          =   200
+      Index           =   0
+      Left            =   120
+      Shape           =   3  'Circle
+      Top             =   4440
+      Visible         =   0   'False
+      Width           =   200
+   End
    Begin VB.Shape shpKugla 
       BackColor       =   &H00FFFFFF&
       BackStyle       =   1  'Opaque
       BorderColor     =   &H00404040&
       BorderStyle     =   0  'Transparent
       FillColor       =   &H000000FF&
+      FillStyle       =   0  'Solid
+      Height          =   855
+      Index           =   0
+      Left            =   120
+      Shape           =   3  'Circle
+      Top             =   4440
+      Visible         =   0   'False
+      Width           =   735
+   End
+   Begin VB.Shape shpShadow 
+      BorderStyle     =   0  'Transparent
       FillStyle       =   0  'Solid
       Height          =   855
       Index           =   0
@@ -512,6 +897,15 @@ Begin VB.Form frmMain
       Width           =   1680
    End
    Begin VB.Label Label2 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   735
       Left            =   240
       TabIndex        =   1
@@ -678,6 +1072,10 @@ Attribute VB_Exposed = False
 
 
 Option Explicit
+
+'which floating panel is open: "", "pg" or "po"
+Dim PANEL As String
+Dim FontsPushed As Boolean
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''
 'sirina table po X osi
@@ -908,6 +1306,8 @@ Public Sub showTabla()
             If TABLA(i, j) = Empty Then
             'ako kugla nije inicijalizirana => HIDE
                 shpKugla(getKuglaIndex(i, j)).Visible = False
+                shpShadow(getKuglaIndex(i, j)).Visible = False
+                shpGloss(getKuglaIndex(i, j)).Visible = False
                 lblKugla(getKuglaIndex(i, j)).Visible = False
             Else
             'ako je inicijalizirana => SHOW
@@ -915,6 +1315,9 @@ Public Sub showTabla()
                 shpKugla(getKuglaIndex(i, j)).FillColor = TABLA(i, j)
                 shpKugla(getKuglaIndex(i, j)).BorderColor = ThPanel
                 shpKugla(getKuglaIndex(i, j)).BorderWidth = 8
+                shpShadow(getKuglaIndex(i, j)).Visible = True
+                shpGloss(getKuglaIndex(i, j)).Visible = True
+                shpGloss(getKuglaIndex(i, j)).FillColor = ThShade(TABLA(i, j), 150)
                 
                 lblKugla(getKuglaIndex(i, j)).BackStyle = 0
                 lblKugla(getKuglaIndex(i, j)).Visible = True
@@ -1427,24 +1830,69 @@ End Sub
 
 ' Touch replacements for the menu bar: each button does what its menu item does.
 Private Sub UpdateTouchButtons()
-    cmdMode.Caption = Loc("menu.gameMode") & ": " & Loc("mode." & GAME_MODE_SELECTED_NEW)
-    cmdOrient.Caption = Loc("menu.orientation") & ": " & Loc("orient." & ORIENTATION)
+    Dim i As Integer
+    cmdMode.Caption = Replace(Loc("menu.gameMode"), "&", "") & ": " & Loc("mode." & GAME_MODE_SELECTED_NEW)
+    cmdOrient.Caption = Replace(Loc("menu.options"), "&", "")
     cmdGrid.Caption = Replace(Loc("menu.options.grid"), "&1. ", "")
     cmdJockerOpt.Caption = Replace(Loc("menu.options.jocker"), "&2. ", "")
     cmdInfoBall.Caption = Replace(Loc("menu.options.infoBall"), "&3. ", "")
     cmdJockerBall.Caption = Loc("menu.jockerBall")
-    cmdJockerBall.Visible = mnuJocker.Visible
+    cmdExit.Caption = Loc("button.exit")
+    cmdPgDone.Caption = Loc("button.done")
+    cmdPoDone.Caption = Loc("button.done")
+    lblPgMode.Caption = Replace(Loc("menu.gameMode"), "&", "")
+    lblPgOri.Caption = Replace(Loc("menu.orientation"), "&", "")
+    lblPoTitle.Caption = Replace(Loc("menu.options"), "&", "")
+    cmdM1.Caption = Loc("mode.1")
+    cmdM2.Caption = Loc("mode.2")
+    cmdM3.Caption = Loc("mode.3")
+    cmdM4.Caption = Loc("mode.4")
+    cmdO1.Caption = Loc("orient.1")
+    cmdO2.Caption = Loc("orient.2")
+    cmdO3.Caption = Loc("orient.3")
+    cmdO4.Caption = Loc("orient.4")
+    ' the choice in use is lit
+    cmdM1.BackColor = IIf(GAME_MODE_SELECTED_NEW = 1, ThAccent2, ThAccent)
+    cmdM2.BackColor = IIf(GAME_MODE_SELECTED_NEW = 2, ThAccent2, ThAccent)
+    cmdM3.BackColor = IIf(GAME_MODE_SELECTED_NEW = 3, ThAccent2, ThAccent)
+    cmdM4.BackColor = IIf(GAME_MODE_SELECTED_NEW = 4, ThAccent2, ThAccent)
+    cmdO1.BackColor = IIf(ORIENTATION = 1, ThAccent2, ThAccent)
+    cmdO2.BackColor = IIf(ORIENTATION = 2, ThAccent2, ThAccent)
+    cmdO3.BackColor = IIf(ORIENTATION = 3, ThAccent2, ThAccent)
+    cmdO4.BackColor = IIf(ORIENTATION = 4, ThAccent2, ThAccent)
+    cmdJockerBall.Visible = (PANEL = "po" And mnuJocker.Visible)
+    ThemeFitAll Me
 End Sub
 
 Private Sub cmdMode_Click()
-    mnuGameModeSelect_Click (GAME_MODE_SELECTED_NEW Mod 4) + 1
-    UpdateTouchButtons
+    ShowPanel "pg"
 End Sub
 
 Private Sub cmdOrient_Click()
-    mnuOrientationSelect_Click (ORIENTATION Mod 4) + 1
-    UpdateTouchButtons
+    ShowPanel "po"
 End Sub
+
+Private Sub cmdPgDone_Click()
+    ShowPanel ""
+End Sub
+
+Private Sub cmdPoDone_Click()
+    ShowPanel ""
+End Sub
+
+Private Sub cmdExit_Click()
+    Unload Me
+    End
+End Sub
+
+Private Sub cmdM1_Click(): mnuGameModeSelect_Click 1: UpdateTouchButtons: End Sub
+Private Sub cmdM2_Click(): mnuGameModeSelect_Click 2: UpdateTouchButtons: End Sub
+Private Sub cmdM3_Click(): mnuGameModeSelect_Click 3: UpdateTouchButtons: End Sub
+Private Sub cmdM4_Click(): mnuGameModeSelect_Click 4: UpdateTouchButtons: End Sub
+Private Sub cmdO1_Click(): mnuOrientationSelect_Click 1: UpdateTouchButtons: End Sub
+Private Sub cmdO2_Click(): mnuOrientationSelect_Click 2: UpdateTouchButtons: End Sub
+Private Sub cmdO3_Click(): mnuOrientationSelect_Click 3: UpdateTouchButtons: End Sub
+Private Sub cmdO4_Click(): mnuOrientationSelect_Click 4: UpdateTouchButtons: End Sub
 
 Private Sub cmdGrid_Click()
     mnuOptionsGrid_Click
@@ -1509,14 +1957,14 @@ Private Sub ModernLayout()
     For Each c In Controls
         If TypeName(c) = "Line" Then c.BorderColor = ThLine
     Next c
-    ThemeCard shpLeft, shpLeftS1, shpLeftS2, 150, 640, 1330, 3800, 15
-    lblOrientation.Move 150, 800, 1330, 300
+    ThemeCard shpLeft, shpLeftS1, shpLeftS2, 110, 640, 1900, 3500, 15
+    lblOrientation.Move 110, 800, 1900, 300
     lblOrientation.Alignment = 2
     lblOrientation.Font.Bold = True
-    lblGameMode.Move 150, 1150, 1330, 320
+    lblGameMode.Move 110, 1150, 1900, 320
     lblGameMode.Alignment = 2
     lblGameMode.ForeColor = ThAccent
-    lblJocker.Move 150, 1550, 1330, 300
+    lblJocker.Move 110, 1550, 1900, 300
     lblJocker.Alignment = 2
     lblJocker.ForeColor = ThAccent2
     txtBodovi.AutoSize = False
@@ -1526,15 +1974,15 @@ Private Sub ModernLayout()
     txtBodovi.ForeColor = ThAccent2
     txtBodovi.BackColor = ThPanel
     txtBodovi.BackStyle = 1
-    txtBodovi.Move 150, 1950, 1330, 520
-    lblJockerHint.Move 240, 2600, 1150, 1700
+    txtBodovi.Move 110, 1950, 1900, 520
+    lblJockerHint.Move 230, 2600, 1720, 1500
     lblJockerHint.ForeColor = ThMuted
     lblJockerHint.BackColor = ThPanel
     lblOrientation.BackColor = ThPanel
     lblGameMode.BackColor = ThPanel
     lblJocker.BackColor = ThPanel
     lblJockerHint.BackStyle = 1
-    ThemeCard shpRight, shpRightS1, shpRightS2, rx - 140, 640, 2840, 9960, 15
+    ThemeCard shpRight, shpRightS1, shpRightS2, rx - 140, 640, 2840, 7160, 15
     frmInfoBall.Move rx, 760, 2560, 320
     frmInfoBall.BackColor = ThPanel
     frmInfoBall.ForeColor = ThMuted
@@ -1543,25 +1991,96 @@ Private Sub ModernLayout()
         lblInfBall(i).Move rx, 1150 + (i - 1) * 380, 1500, 340
         lblBojaCounter(i).Move rx + 1620, 1150 + (i - 1) * 380, 700, 340
     Next i
+    ' the always-visible buttons
     cmdMode.Move rx, 3260, 2560, 660
-    cmdOrient.Move rx, 4020, 2560, 660
-    cmdGrid.Move rx, 4780, 2560, 660
-    cmdJockerOpt.Move rx, 5540, 2560, 660
-    cmdInfoBall.Move rx, 6300, 2560, 660
-    cmdJockerBall.Move rx, 7060, 2560, 660
-    cmdNew.Move rx, 8800, 2560, 760
-    cmdMode.Font.Size = 9
-    cmdOrient.Font.Size = 9
-    cmdGrid.Font.Size = 9
-    cmdJockerOpt.Font.Size = 9
-    cmdInfoBall.Font.Size = 9
-    cmdJockerBall.Font.Size = 9
+    cmdOrient.Move rx, 4060, 2560, 660
+    cmdNew.Move rx, 5100, 2560, 760
+    cmdNew.BackColor = ThAccent2
+    Command1.Move rx, 6000, 1230, 660
+    Command2.Move rx + 1330, 6000, 1230, 660
+    cmdExit.Move rx, 6900, 2560, 700
+    cmdExit.BackColor = ThBad
+    cmdMode.Tag = "main"
+    cmdOrient.Tag = "main"
+    cmdNew.Tag = "main"
+    Command1.Tag = "main"
+    Command2.Tag = "main"
+    ' the floating panels: game and options
+    cmdGrid.Move rx, 3650, 2560, 520
+    cmdJockerOpt.Move rx, 4250, 2560, 520
+    cmdInfoBall.Move rx, 4850, 2560, 520
+    cmdJockerBall.Move rx, 5450, 2560, 520
+    cmdGrid.Tag = "po"
+    cmdJockerOpt.Tag = "po"
+    cmdInfoBall.Tag = "po"
+    cmdJockerBall.Tag = "po"
     lblJocker.Font.Size = 8
     lblJockerHint.Font.Size = 7
     lblGameMode.Font.Size = 8
-    cmdNew.BackColor = ThAccent2
-    Command1.Move rx, 9700, 1230, 660
-    Command2.Move rx + 1330, 9700, 1230, 660
+    For Each c In Controls
+        If c.Tag = "pg" Or c.Tag = "po" Then
+            If TypeName(c) = "Label" Then
+                c.BackColor = ThPanel
+                c.ForeColor = ThAccent
+                c.Font.Bold = True
+                c.Font.Size = 11
+            End If
+        End If
+    Next c
+    cmdPgDone.BackColor = ThAccent2
+    cmdPoDone.BackColor = ThAccent2
+    PANEL = ""
+    ShowPanel ""
+End Sub
+
+' Floating panels of controls (tags "pg" and "po") appear over the buttons;
+' ShowPanel "" brings the buttons back.
+Private Sub ShowPanel(ByVal which As String)
+    Dim c As Control
+    PANEL = which
+    For Each c In Controls
+        Select Case c.Tag
+        Case "main"
+            c.Visible = (which = "")
+        Case "pg"
+            c.Visible = (which = "pg")
+        Case "po"
+            c.Visible = (which = "po")
+        End Select
+    Next c
+    cmdJockerBall.Visible = (which = "po" And mnuJocker.Visible)
+    ' a control first shown now needs its font pushed again
+    For Each c In Controls
+        If c.Tag = "pg" Or c.Tag = "po" Then
+            If c.Visible Then
+                c.Font.Size = c.Font.Size + 1
+                c.Font.Size = c.Font.Size - 1
+            End If
+        End If
+    Next c
+    shpFloat.Visible = (which <> "")
+    shpFloatS1.Visible = (which <> "")
+    shpFloatS2.Visible = (which <> "")
+    If which = "pg" Then
+        ThemeCard shpFloat, shpFloatS1, shpFloatS2, 13240, 3150, 2980, 6370, 15
+    ElseIf which = "po" Then
+        ThemeCard shpFloat, shpFloatS1, shpFloatS2, 13240, 3150, 2980, 3640, 15
+    End If
+    UpdateTouchButtons
+End Sub
+
+Private Sub Form_Activate()
+    ' the windows exist now: push the fonts once more
+    Dim c As Control
+    If FontsPushed Then Exit Sub
+    FontsPushed = True
+    For Each c In Controls
+        Select Case TypeName(c)
+        Case "CommandButton", "Label"
+            c.Font.Size = c.Font.Size + 1
+            c.Font.Size = c.Font.Size - 1
+        End Select
+    Next c
 End Sub
 
 Private Sub Form_Terminate()
@@ -2630,6 +3149,13 @@ Public Sub inicLokacijaKugla()
     ThemeCard shpBoard, shpBoardS1, shpBoardS2, kugla_left - 120, kugla_top - 120, CLng(TABLA_DUZINA_X) * kugla_width + 240, CLng(TABLA_DUZINA_Y) * kugla_height + 240, 15
     cmdUndo.Move kugla_left - 120, 150, CLng(TABLA_DUZINA_X) * kugla_width + 240, 460
 
+    ' a shadow under, and a gloss over, each ball
+    For i = 1 To getDuzinaTable
+        shpShadow(i).Move shpKugla(i).Left + 45, shpKugla(i).Top + 70, kugla_width, kugla_height
+        shpGloss(i).Move shpKugla(i).Left + kugla_width * 0.2, shpKugla(i).Top + kugla_height * 0.13, kugla_width * 0.3, kugla_height * 0.22
+        shpShadow(i).FillColor = ThShadow1
+    Next i
+
     'vidljivost kugla
     For i = 1 To getDuzinaTable
         lblKugla(i).Visible = True
@@ -2816,6 +3342,8 @@ Public Sub inicDynVar()
     ReDim NIZ_KUGLA(TABLA_DUZINA_X * TABLA_DUZINA_Y) As Integer
     
     GenerateControlArray shpKugla, (getDuzinaTable)
+    GenerateControlArray shpShadow, (getDuzinaTable)
+    GenerateControlArray shpGloss, (getDuzinaTable)
     GenerateControlArray lblKugla, (getDuzinaTable)
     
     'ako je game mode 2 ili 4 da kreira bonus shapeove

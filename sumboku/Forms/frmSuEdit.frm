@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmSuEdit 
-   BorderStyle     =   4  'Festes Werkzeugfenster
+   BorderStyle     =   0  'None
    Caption         =   "Line 1:"
    ClientHeight    =   285
    ClientLeft      =   45

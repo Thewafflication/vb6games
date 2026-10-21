@@ -1,5 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmStats 
+   BorderStyle     =   0  'None
    Caption         =   "Statistics"
    ClientHeight    =   6165
    ClientLeft      =   60
@@ -10,6 +11,15 @@ Begin VB.Form frmStats
    ScaleWidth      =   8820
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox txtstats 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BorderStyle     =   0  'None
       Enabled         =   0   'False
       Height          =   5895

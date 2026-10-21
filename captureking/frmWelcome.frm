@@ -1,5 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmWelcome 
+   BorderStyle     =   0  'None
    BackColor       =   &H8000000E&
    Caption         =   "Welcome - Capture King"
    ClientHeight    =   3330
@@ -46,6 +47,15 @@ Begin VB.Form frmWelcome
       Width           =   1530
    End
    Begin VB.CommandButton cmdChat 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Appearance      =   0  'Flat
       BackColor       =   &H8000000E&

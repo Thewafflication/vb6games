@@ -3,7 +3,7 @@ Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "mswinsck.ocx"
 Begin VB.Form frmChat 
    Appearance      =   0  'Flat
    BackColor       =   &H8000000D&
-   BorderStyle     =   1  'Fixed Single
+   BorderStyle     =   0  'None
    Caption         =   "v"
    ClientHeight    =   7485
    ClientLeft      =   4545
@@ -180,6 +180,15 @@ Begin VB.Form frmChat
       Width           =   135
    End
    Begin VB.TextBox txtstat 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BorderStyle     =   0  'None
       Height          =   2160
       Left            =   8010
@@ -641,6 +650,15 @@ Begin VB.Form frmChat
       Width           =   135
    End
    Begin VB.TextBox txtMySend 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BorderStyle     =   0  'None
       Height          =   1395
       Left            =   210
@@ -779,6 +797,15 @@ Begin VB.Form frmChat
       Width           =   4230
    End
    Begin VB.TextBox txtMyArrival 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BorderStyle     =   0  'None
       Height          =   3495
       Left            =   210
@@ -931,6 +958,15 @@ Begin VB.Form frmChat
       Width           =   315
    End
    Begin VB.TextBox txtIP 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
@@ -942,6 +978,15 @@ Begin VB.Form frmChat
       Width           =   2160
    End
    Begin VB.TextBox txtInvite 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   225
@@ -953,6 +998,15 @@ Begin VB.Form frmChat
       Width           =   2145
    End
    Begin VB.TextBox txtIP 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
@@ -964,6 +1018,15 @@ Begin VB.Form frmChat
       Width           =   2160
    End
    Begin VB.TextBox txtIP 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
@@ -975,6 +1038,15 @@ Begin VB.Form frmChat
       Width           =   2160
    End
    Begin VB.TextBox txtInvite 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   225
@@ -1038,6 +1110,15 @@ Begin VB.Form frmChat
       Width           =   2400
    End
    Begin VB.TextBox txtInvite 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   225
@@ -1119,6 +1200,15 @@ Begin VB.Form frmChat
       Top             =   3975
    End
    Begin VB.CommandButton cmdDecline3 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "X"
       Height          =   255
@@ -1128,6 +1218,15 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdAccept3 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "/"
       Height          =   255
@@ -1137,6 +1236,15 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdDecline2 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "X"
       Height          =   255
@@ -1146,6 +1254,15 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdAccept2 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "/"
       Height          =   255
@@ -1155,6 +1272,15 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdAccept1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "/"
       Height          =   255
@@ -1164,6 +1290,15 @@ Begin VB.Form frmChat
       Width           =   255
    End
    Begin VB.CommandButton cmdDecline1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "X"
       Height          =   255
@@ -1187,6 +1322,15 @@ Begin VB.Form frmChat
       Protocol        =   1
    End
    Begin VB.CommandButton cmdMyPrivateSend 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Private Message"
       Height          =   495
@@ -1197,6 +1341,15 @@ Begin VB.Form frmChat
       Width           =   855
    End
    Begin VB.CommandButton cmdInvite 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Invite to game"
       Enabled         =   0   'False
@@ -1227,6 +1380,15 @@ Begin VB.Form frmChat
       Protocol        =   1
    End
    Begin VB.ListBox lstUsers 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       Height          =   3345
       Left            =   5730
@@ -1235,6 +1397,15 @@ Begin VB.Form frmChat
       Width           =   1935
    End
    Begin VB.CommandButton cmdMySend 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "&Send Message"
       Height          =   615
@@ -1245,6 +1416,15 @@ Begin VB.Form frmChat
       Width           =   855
    End
    Begin VB.CommandButton cmdExit 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "&Exit"
       Height          =   375
@@ -1278,6 +1458,15 @@ Begin VB.Form frmChat
       Width           =   2400
    End
    Begin VB.ListBox lstPrivateUsers 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Appearance      =   0  'Flat
       Height          =   1395
       Left            =   5745
@@ -1286,6 +1475,15 @@ Begin VB.Form frmChat
       Width           =   1920
    End
    Begin VB.Label lblStats 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackStyle       =   0  'Transparent
       Caption         =   "User Biography"
       ForeColor       =   &H8000000E&
@@ -1296,6 +1494,15 @@ Begin VB.Form frmChat
       Width           =   1185
    End
    Begin VB.Label lblUserSelect 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackStyle       =   0  'Transparent
       Caption         =   "<< select a user to view >>"
       ForeColor       =   &H8000000E&
@@ -1306,6 +1513,15 @@ Begin VB.Form frmChat
       Width           =   3495
    End
    Begin VB.Label lblinvite3 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackStyle       =   0  'Transparent
       Caption         =   "Invite 3:"
       ForeColor       =   &H8000000E&
@@ -1316,6 +1532,15 @@ Begin VB.Form frmChat
       Width           =   645
    End
    Begin VB.Label lblinvite2 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackStyle       =   0  'Transparent
       Caption         =   "Invite 2:"
       ForeColor       =   &H8000000E&
@@ -1326,6 +1551,15 @@ Begin VB.Form frmChat
       Width           =   645
    End
    Begin VB.Label lblInvite1 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackStyle       =   0  'Transparent
       Caption         =   "Invite 1:"
       ForeColor       =   &H8000000E&
@@ -1336,6 +1570,15 @@ Begin VB.Form frmChat
       Width           =   645
    End
    Begin VB.Label lblPrivate 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackStyle       =   0  'Transparent
       Caption         =   "Private Users:"
       ForeColor       =   &H8000000E&
@@ -1346,6 +1589,15 @@ Begin VB.Form frmChat
       Width           =   1935
    End
    Begin VB.Label lblMessageHere 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackColor       =   &H00886D1E&
       BackStyle       =   0  'Transparent
       Caption         =   "Type your message here:"
@@ -1357,6 +1609,15 @@ Begin VB.Form frmChat
       Width           =   2535
    End
    Begin VB.Label lblInvite 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackColor       =   &H8000000B&
       Height          =   255
       Index           =   0
@@ -1366,6 +1627,15 @@ Begin VB.Form frmChat
       Width           =   2175
    End
    Begin VB.Label lblIP 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackColor       =   &H8000000A&
       Height          =   255
       Index           =   0
@@ -1375,6 +1645,15 @@ Begin VB.Form frmChat
       Width           =   1935
    End
    Begin VB.Label lblReject 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H000000FF&
       Height          =   375
       Left            =   11250
@@ -1383,6 +1662,15 @@ Begin VB.Form frmChat
       Width           =   1335
    End
    Begin VB.Label lblIP 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackColor       =   &H8000000A&
       Height          =   255
       Index           =   2
@@ -1392,6 +1680,15 @@ Begin VB.Form frmChat
       Width           =   1935
    End
    Begin VB.Label lblIP 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackColor       =   &H8000000A&
       Height          =   255
       Index           =   1
@@ -1401,6 +1698,15 @@ Begin VB.Form frmChat
       Width           =   1935
    End
    Begin VB.Label lblInvite 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackColor       =   &H8000000A&
       Height          =   255
       Index           =   2
@@ -1410,6 +1716,15 @@ Begin VB.Form frmChat
       Width           =   2175
    End
    Begin VB.Label lblInvite 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackColor       =   &H8000000A&
       Height          =   255
       Index           =   1
@@ -1438,6 +1753,15 @@ Begin VB.Form frmChat
       Width           =   1935
    End
    Begin VB.Label lblUserMessages 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackColor       =   &H00886D1E&
       BackStyle       =   0  'Transparent
       Caption         =   "Messages from users:"
@@ -1449,6 +1773,15 @@ Begin VB.Form frmChat
       Width           =   4935
    End
    Begin VB.Label lblUser 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   375
       Left            =   8040
       TabIndex        =   10
@@ -1457,6 +1790,15 @@ Begin VB.Form frmChat
       Width           =   1455
    End
    Begin VB.Label lblOnline 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       BackStyle       =   0  'Transparent
       Caption         =   "Online Users:"
       ForeColor       =   &H8000000E&

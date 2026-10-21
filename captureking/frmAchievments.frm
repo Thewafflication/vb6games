@@ -1,5 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmAchievments 
+   BorderStyle     =   0  'None
    Caption         =   "Form1"
    ClientHeight    =   5745
    ClientLeft      =   60
@@ -36,6 +37,15 @@ Begin VB.Form frmAchievments
       Width           =   1030
    End
    Begin VB.Label lblCaption 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Caption         =   $"frmAchievments.frx":1A63
       Height          =   495
       Left            =   360

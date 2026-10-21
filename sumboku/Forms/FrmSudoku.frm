@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form FrmSudoku 
-   BorderStyle     =   3  'Fester Dialog
+   BorderStyle     =   0  'None
    Caption         =   "SuMBOku 1.2"
    ClientHeight    =   7100
    ClientLeft      =   45
@@ -15,6 +15,15 @@ Begin VB.Form FrmSudoku
    ScaleWidth      =   321
    StartUpPosition =   3  'Windows-Standard
    Begin VB.CommandButton BtnOptions 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Options"
       Height          =   375
@@ -25,6 +34,15 @@ Begin VB.Form FrmSudoku
       Width           =   855
    End
    Begin VB.CommandButton BtnInfo 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Info"
       Height          =   375
@@ -35,6 +53,15 @@ Begin VB.Form FrmSudoku
       Width           =   495
    End
    Begin VB.CommandButton RndExample 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Rnd Example"
       Height          =   375
@@ -44,6 +71,15 @@ Begin VB.Form FrmSudoku
       Width           =   1095
    End
    Begin VB.CommandButton BtnSave 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "S"
       Height          =   375
@@ -54,6 +90,15 @@ Begin VB.Form FrmSudoku
       Width           =   375
    End
    Begin VB.CommandButton BtnOpen 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "O"
       Height          =   375
@@ -64,6 +109,15 @@ Begin VB.Form FrmSudoku
       Width           =   375
    End
    Begin VB.CommandButton BtnExit 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Exit"
       Height          =   375
@@ -74,6 +128,15 @@ Begin VB.Form FrmSudoku
       Width           =   615
    End
    Begin VB.CommandButton BtnRedo 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "R"
       Height          =   375
@@ -84,6 +147,15 @@ Begin VB.Form FrmSudoku
       Width           =   375
    End
    Begin VB.CommandButton BtnUndo 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "U"
       Height          =   375
@@ -94,6 +166,15 @@ Begin VB.Form FrmSudoku
       Width           =   375
    End
    Begin VB.CommandButton BtnSolve 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Solve"
       Height          =   375
@@ -104,6 +185,15 @@ Begin VB.Form FrmSudoku
       Width           =   1455
    End
    Begin VB.CommandButton BtnTestBlocks 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Blocks"
       Height          =   375
@@ -113,6 +203,15 @@ Begin VB.Form FrmSudoku
       Width           =   615
    End
    Begin VB.CommandButton BtnTestColms 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Colms"
       Height          =   375
@@ -122,6 +221,15 @@ Begin VB.Form FrmSudoku
       Width           =   615
    End
    Begin VB.CommandButton BtnTestLines 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Lines"
       Height          =   375
@@ -161,6 +269,15 @@ Begin VB.Form FrmSudoku
       Width           =   135
    End
    Begin VB.Label Frame1
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Caption         =   "Level:"
       Height          =   300
       Left            =   0
@@ -169,6 +286,15 @@ Begin VB.Form FrmSudoku
       Width           =   800
    End
    Begin VB.CommandButton BtnClear 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "Clear"
       Height          =   375
@@ -2042,6 +2168,15 @@ Begin VB.Form FrmSudoku
       Width           =   135
    End
    Begin VB.Label LblSudoku 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Alignment       =   1  'Rechts
       Caption         =   "0 / 81"
       Height          =   255

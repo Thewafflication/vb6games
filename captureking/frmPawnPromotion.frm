@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmPawnPromotion 
-   BorderStyle     =   4  'Fixed ToolWindow
+   BorderStyle     =   0  'None
    Caption         =   "Pawn Promotion - Capture King"
    ClientHeight    =   2625
    ClientLeft      =   45
@@ -24,6 +24,15 @@ Begin VB.Form frmPawnPromotion
       Width           =   135
    End
    Begin VB.CommandButton cmdSelect 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Style           =   1  'Graphical
       Caption         =   "&Select this piece"
       Height          =   375
@@ -33,6 +42,15 @@ Begin VB.Form frmPawnPromotion
       Width           =   2175
    End
    Begin VB.OptionButton optSelect 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Index           =   3
       Left            =   3000
@@ -41,6 +59,15 @@ Begin VB.Form frmPawnPromotion
       Width           =   255
    End
    Begin VB.OptionButton optSelect 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Index           =   2
       Left            =   2280
@@ -49,6 +76,15 @@ Begin VB.Form frmPawnPromotion
       Width           =   255
    End
    Begin VB.OptionButton optSelect 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Index           =   1
       Left            =   1560
@@ -57,6 +93,15 @@ Begin VB.Form frmPawnPromotion
       Width           =   255
    End
    Begin VB.OptionButton optSelect 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   255
       Index           =   0
       Left            =   840
@@ -105,6 +150,15 @@ Begin VB.Form frmPawnPromotion
       Width           =   615
    End
    Begin VB.Label lblTitle 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
       Caption         =   "Congradulations! Your Pawn has been promoted, please  choose which piece you wihs to promote it to:"
