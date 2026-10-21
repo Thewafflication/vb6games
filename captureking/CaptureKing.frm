@@ -5,13 +5,13 @@ Begin VB.Form frmGame
    AutoRedraw      =   -1  'True
    BackColor       =   &H80000003&
    Caption         =   "Form1"
-   ClientHeight    =   6300
+   ClientHeight    =   5700
    ClientLeft      =   60
    ClientTop       =   570
    ClientWidth     =   13770
    Icon            =   "CaptureKing.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6300
+   ScaleHeight     =   5700
    ScaleWidth      =   13770
    StartUpPosition =   2  'CenterScreen
    Tag             =   "lline"
@@ -1185,6 +1185,78 @@ Begin VB.Form frmGame
          Caption         =   "&About"
       End
    End
+   Begin VB.Shape shpChat 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpChatS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpChatS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBoardCard 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBoardCardS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBoardCardS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpGrave 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpGraveS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpGraveS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpActions 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpActionsS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpActionsS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "frmGame"
 Attribute VB_GlobalNameSpace = False
@@ -1290,6 +1362,56 @@ End Sub
 
 
 ' Touch replacements for the menu bar.
+Private Sub ModernLayout()
+Dim c As Control
+Dim n As String
+Dim x0 As Single, y0 As Single, x1 As Single, y1 As Single
+x0 = 99999: y0 = 99999: x1 = 0: y1 = 0
+For Each c In Controls
+  n = c.Name
+  If n = "picSendMess" Or n = "picCmdCheckOVER" Or n = "picCheckMate" Or n = "picInvalidMove" Or n = "picBack" Or n = "picBack2" Or n = "picBack4" Or n = "picback3" Or n = "Line2" Or n = "Line5" Then
+    c.Visible = False
+  ElseIf Left(n, 7) = "Picture" Then
+    If Val(Mid(n, 8)) <> 0 Then c.Visible = False
+  End If
+  If n = "picTAKEN" Then
+    c.BackColor = ThPanel2
+    If c.Left < x0 Then x0 = c.Left
+    If c.Top < y0 Then y0 = c.Top
+    If c.Left + c.Width > x1 Then x1 = c.Left + c.Width
+    If c.Top + c.Height > y1 Then y1 = c.Top + c.Height
+  End If
+Next c
+' cards: chat, board, captured pieces, buttons
+ThemeCard shpChat, shpChatS1, shpChatS2, 20, 45, 2000, 5070, 15
+ThemeCard shpBoardCard, shpBoardCardS1, shpBoardCardS2, 2100, 45, 5070, 5070, 15
+ThemeCard shpGrave, shpGraveS1, shpGraveS2, x0 - 90, 45, (x1 - x0) + 180, 5070, 15
+ThemeCard shpActions, shpActionsS1, shpActionsS2, 10200, 45, 3500, 5070, 15
+txtMessageIn.Move 140, 160, 1760, 2760
+txtMessageOut.Move 140, 3020, 1760, 1250
+cmdClearSend.Move 140, 4400, 850, 560
+cmdSend.Move 1050, 4400, 850, 560
+cmdClearSend.Visible = True
+cmdSend.Visible = True
+cmdSend.BackColor = ThAccent2
+cmdCallCheck.Move 10320, 160, 3260, 450
+cmdCallCheckMate.Move 10320, 660, 3260, 450
+cmdCallCheat.Move 10320, 1160, 3260, 450
+cmdSurrender.Move 10320, 1660, 3260, 450
+cmdCallCheck.Visible = True
+cmdCallCheckMate.Visible = True
+cmdCallCheat.Visible = True
+cmdSurrender.BackColor = ThBad
+cmdTNew.Move 10320, 2400, 3260, 450
+cmdTChat.Move 10320, 2900, 3260, 450
+cmdTStats.Move 10320, 3400, 3260, 450
+cmdTSave.Move 10320, 3900, 3260, 450
+cmdTExit.Move 10320, 4400, 3260, 450
+lblInfo.Move 2100, 5260, 5070, 300
+lblInfo.Alignment = 2
+lblInfo.ForeColor = ThMuted
+End Sub
+
 Private Sub TouchButtons()
 cmdTNew.Caption = Replace(Loc("menu.localGame"), "&", "")
 cmdTChat.Caption = Replace(Loc("menu.chat"), "&", "")
@@ -1363,6 +1485,7 @@ mnuView.Visible = False
 mnuGame.Visible = False
 mnuHelp.Visible = False
 mnuabout.Visible = False
+ModernLayout
 Dim C As Long
 Dim sBuffer As String
 Dim lSize As Long

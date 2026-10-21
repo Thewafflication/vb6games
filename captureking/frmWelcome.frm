@@ -130,6 +130,24 @@ Begin VB.Form frmWelcome
       Top             =   240
       Width           =   1815
    End
+   Begin VB.Shape shpWel 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpWelS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpWelS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "frmWelcome"
 Attribute VB_GlobalNameSpace = False
@@ -143,6 +161,18 @@ Private Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA" (By
 
 Private Sub Form_Load()
 ThemeApply Me
+ThemeFullScreen Me
+BackColor = ThBack
+Dim dx As Single, dy As Single
+dx = (ScaleWidth - 4515) / 2
+dy = (ScaleHeight - 3330) / 2
+ThemeShift Me, dx, dy
+ThemeCard shpWel, shpWelS1, shpWelS2, dx + 120, dy + 100, 4275, 3150, 15
+Label1.BackColor = ThPanel
+Label2.BackColor = ThPanel
+lblLocalGame.BackColor = ThPanel
+lblName.BackColor = ThPanel
+lblName.ForeColor = ThAccent
 If LocLanguage <> "en" Then
     Caption = Loc("welcome.title")
     Label2.Caption = Loc("welcome.chat")

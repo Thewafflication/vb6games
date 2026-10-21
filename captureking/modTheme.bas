@@ -19,6 +19,9 @@ Public Const ThBad As Long = &H816BFF
 Public Const ThP1 As Long = &H4DD3FF       ' player one: yellow
 Public Const ThP2 As Long = &H7A5CFF       ' player two: coral
 Public Const ThBoard As Long = &H8F3E2D    ' game board blue
+Public Const ThShadow1 As Long = &H0F0A08  ' near shadow
+Public Const ThShadow2 As Long = &H17100D  ' far shadow
+Public Const ThEdge As Long = &H6B4A40     ' light edge of a raised panel
 Public Const ThFontSize As Single = 11      ' text size in points
 
 ' Colors a form and its controls. A control whose Tag is "keep" is left alone
@@ -68,3 +71,77 @@ Public Sub ThemeFullScreen(frm As Form)
         frm.Move 0, 0, Screen.Width, Screen.Height
     End If
 End Sub
+
+' A raised panel with a thin border and a two-step shadow. The three shapes
+' sit at the back of the form (shadows last); u is the size of one pixel in
+' the form's own units (1 for pixel forms, 15 for twips).
+Public Sub ThemeCard(card As Object, shadowA As Object, shadowB As Object, ByVal L As Single, ByVal T As Single, ByVal W As Single, ByVal H As Single, ByVal u As Single)
+    shadowB.Left = L + 7 * u
+    shadowB.Top = T + 9 * u
+    shadowB.Width = W
+    shadowB.Height = H
+    shadowB.FillStyle = 0
+    shadowB.FillColor = ThShadow2
+    shadowB.BorderStyle = 0
+    shadowA.Left = L + 3 * u
+    shadowA.Top = T + 4 * u
+    shadowA.Width = W
+    shadowA.Height = H
+    shadowA.FillStyle = 0
+    shadowA.FillColor = ThShadow1
+    shadowA.BorderStyle = 0
+    card.Left = L
+    card.Top = T
+    card.Width = W
+    card.Height = H
+    card.FillStyle = 0
+    card.FillColor = ThPanel
+    card.BorderColor = ThEdge
+    card.BorderWidth = 1
+End Sub
+
+' A color made lighter (pct > 100) or darker (pct < 100).
+Public Function ThShade(ByVal c As Long, ByVal pct As Long) As Long
+    Dim r As Long, g As Long, b As Long
+    r = (c And &HFF&) * pct \ 100
+    g = ((c \ &H100&) And &HFF&) * pct \ 100
+    b = ((c \ &H10000) And &HFF&) * pct \ 100
+    If r > 255 Then r = 255
+    If g > 255 Then g = 255
+    If b > 255 Then b = 255
+    ThShade = RGB(r, g, b)
+End Function
+
+' Moves every control of a form by dx, dy (to center a small layout on a
+' screen-sized form). Timers, menus and the like have no position.
+Public Sub ThemeShift(frm As Form, ByVal dx As Single, ByVal dy As Single)
+    Dim c As Control
+    On Error Resume Next
+    For Each c In frm.Controls
+        c.Left = c.Left + dx
+        c.Top = c.Top + dy
+    Next c
+End Sub
+
+' Shows a picture centered in the upper part of a screen-sized form, on a
+' card with a shadow (ratio is its width over its height, u the size of a
+' pixel in the form's units). Returns the bottom edge of the card.
+Public Function ThemeShowArt(frm As Form, img As Object, card As Object, shadowA As Object, shadowB As Object, ByVal ratio As Single, ByVal u As Single) As Single
+    Dim sw As Single, sh As Single, ah As Single, aw As Single
+    sw = frm.ScaleWidth
+    sh = frm.ScaleHeight
+    ah = sh * 0.6
+    aw = ah * ratio
+    If aw > sw * 0.8 Then
+        aw = sw * 0.8
+        ah = aw / ratio
+    End If
+    img.Stretch = True
+    img.Left = (sw - aw) / 2
+    img.Top = sh * 0.07
+    img.Width = aw
+    img.Height = ah
+    img.Visible = True
+    ThemeCard card, shadowA, shadowB, img.Left - 4 * u, img.Top - 4 * u, aw + 8 * u, ah + 8 * u, u
+    ThemeShowArt = img.Top + ah + 4 * u
+End Function

@@ -1727,6 +1727,11 @@ socket1.RemotePort = 72
 socket1.LocalPort = 72
 frmChat.BackColor = ThBack
 ThemeApply Me
+mnuView.Visible = False
+' the other states of the Invite button are only picture sources
+picInvite.Visible = False
+picInviteDis.Visible = False
+picInviteOver.Visible = False
 Dim pc As Control
 For Each pc In Controls
     If TypeName(pc) = "PictureBox" Then

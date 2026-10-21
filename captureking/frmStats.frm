@@ -30,6 +30,10 @@ Dim wins, loses, surrenders As Integer
 Private Sub Form_Load()
 frmStats.Caption = LocF("stats.for", frmChat.lblUser.Caption)
 ThemeApply Me
+txtstats.Enabled = True
+txtstats.Locked = True
+txtstats.ForeColor = ThText
+txtstats.Font.Size = 16
 
 Call refreshStat
 End Sub
