@@ -1,3 +1,4 @@
 key,en,pl,zh,es
 app.title,Resta 1,Samotnik (Resta 1),单人跳棋 (Resta 1),Solitario (Resta 1)
 help.text,Select a ball and move it by jumping over the adjacent ball into the empty spot. The goal is to finish with as few balls as possible.,"Wybierz kulkę i przesuń ją, przeskakując przez sąsiednią kulkę na puste miejsce. Celem jest zostawienie jak najmniejszej liczby kulek.",选择一个球，跳过相邻的球移到空位上。目标是让剩下的球尽可能少。,Selecciona una bola y muévela saltando sobre la bola contigua hasta la casilla vacía. El objetivo es quedarse con el menor número de bolas posible.
+count.text,Balls left: {0},Pozostało kulek: {0},剩余球数：{0},Bolas restantes: {0}

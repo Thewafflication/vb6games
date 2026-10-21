@@ -3,7 +3,7 @@ Begin VB.Form Form1
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Resta 1"
-   ClientHeight    =   4935
+   ClientHeight    =   5500
    ClientLeft      =   45
    ClientTop       =   330
    ClientWidth     =   5205
@@ -20,7 +20,7 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   4935
+   ScaleHeight     =   5500
    ScaleWidth      =   5205
    StartUpPosition =   2  'CenterScreen
    Begin VB.Label Label1 
@@ -40,6 +40,15 @@ Begin VB.Form Form1
       TabIndex        =   0
       Top             =   3930
       Width           =   4815
+   End
+   Begin VB.Label lblCount
+      Alignment       =   2  'Center
+      Caption         =   "0"
+      Height          =   420
+      Left            =   240
+      TabIndex        =   40
+      Top             =   4050
+      Width           =   4725
    End
    Begin VB.Image imgGoti 
       Appearance      =   0  'Flat
@@ -443,6 +452,321 @@ Begin VB.Form Form1
       Top             =   5100
       Width           =   480
    End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   0
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   1
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   2
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   3
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   4
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   5
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   6
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   7
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   8
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   9
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   10
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   11
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   12
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   13
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   14
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   15
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   16
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   17
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   18
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   19
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   20
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   21
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   22
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   23
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   24
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   25
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   26
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   27
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   28
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   29
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   30
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   31
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpHole 
+      FillStyle       =   0  'Solid
+      Height          =   400
+      Index           =   32
+      Left            =   0
+      Shape           =   3  'Circle
+      Top             =   0
+      Width           =   400
+   End
+   Begin VB.Shape shpBoard 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBoardS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBoardS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -455,8 +779,38 @@ Private Sub Form_Load()
     Caption = Loc("app.title")
     Label1.Caption = Loc("help.text")
     ThemeApply Me
-    Label1.Font.Size = ThFontSize
-    Label1.Move 240, 4000, 4725, 900
+    Dim c As Control, n As Long
+    For Each c In Controls
+        If c.Name = "imgGoti" Then
+            c.BorderStyle = 0
+            ' a round socket behind every place on the board
+            shpHole(n).Move c.Left + 55, c.Top + 55, 400, 400
+            shpHole(n).FillColor = ThShade(ThBack, 80)
+            shpHole(n).BorderColor = ThLine
+            shpHole(n).BorderWidth = 1
+            n = n + 1
+        End If
+    Next c
+    imgGotipic.Visible = False
+    ThemeCard shpBoard, shpBoardS1, shpBoardS2, 780, 240, 3630, 3630, 15
+    Label1.Font.Size = 10
+    Label1.ForeColor = ThMuted
+    Label1.Alignment = 2
+    Label1.Move 240, 4650, 4725, 800
+    lblCount.Font.Size = 16
+    lblCount.Font.Bold = True
+    lblCount.ForeColor = ThAccent
+    UpdateCount
+End Sub
+
+Private Sub UpdateCount()
+    Dim c As Control, n As Long
+    For Each c In Controls
+        If c.Name = "imgGoti" Then
+            If c.Picture <> 0 Then n = n + 1
+        End If
+    Next c
+    lblCount.Caption = LocF("count.text", n)
 End Sub
 
 Private Sub imgGoti_DragDrop(Index As Integer, Source As Control, X As Single, Y As Single)
@@ -474,6 +828,7 @@ Private Sub imgGoti_DragDrop(Index As Integer, Source As Control, X As Single, Y
     Source.Picture = LoadPicture
     imgGoti(Source.Index - ((Source.Index - Index) / 2)).Picture = LoadPicture
     imgGoti(Index).Picture = imgGotipic.Picture
+    UpdateCount
 
 End Sub
 
