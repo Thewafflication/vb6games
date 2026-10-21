@@ -2,6 +2,7 @@ Type=Exe
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\..\..\..\..\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Module=Module1; Module1.bas
 Module=modLocale; modLocale.bas
+Module=modTheme; modTheme.bas
 Form=frmrulez.frm
 Form=frmOptions.frm
 Form=EnterName.frm

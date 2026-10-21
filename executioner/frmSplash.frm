@@ -13,6 +13,30 @@ Begin VB.Form frmSplash
    ScaleWidth      =   8535
    ShowInTaskbar   =   0   'False
    StartUpPosition =   1  'CenterOwner
+   Begin VB.PictureBox picMaskL 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00000000&
+      BorderStyle     =   0  'None
+      Height          =   3600
+      Left            =   -500
+      ScaleHeight     =   3600
+      ScaleWidth      =   500
+      TabIndex        =   40
+      Top             =   -400
+      Width           =   500
+   End
+   Begin VB.PictureBox picMaskR 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00000000&
+      BorderStyle     =   0  'None
+      Height          =   3600
+      Left            =   8535
+      ScaleHeight     =   3600
+      ScaleWidth      =   500
+      TabIndex        =   40
+      Top             =   -400
+      Width           =   500
+   End
    Begin VB.Timer Time2go 
       Interval        =   100
       Left            =   1440
@@ -298,6 +322,10 @@ Dim Number2 As Integer ' Used as a random number to decide which color text will
 
 Private Sub Form_Load()
 If LocLanguage <> "en" Then Lblonly.Caption = Loc("splash.onlyAGame")
+' Full screen: the banner stays centered on black, like its artwork.
+ThemeFullScreen Me
+BackColor = 0
+ThemeShift Me, (ScaleWidth - 8535) / 2, (ScaleHeight - 2655) / 2
 '*********************************************************************************************************
 ' FORM LOAD
 ' *********************************************************************************************************

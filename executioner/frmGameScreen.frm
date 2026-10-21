@@ -4,7 +4,7 @@ Begin VB.Form frmGamescreen
    BackColor       =   &H00000000&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Executioner By Corey McInroy                                               "
-   ClientHeight    =   8310
+   ClientHeight    =   9200
    ClientLeft      =   7860
    ClientTop       =   2280
    ClientWidth     =   11880
@@ -29,7 +29,7 @@ Begin VB.Form frmGamescreen
    MousePointer    =   2  'Cross
    Moveable        =   0   'False
    NegotiateMenus  =   0   'False
-   ScaleHeight     =   8310
+   ScaleHeight     =   9200
    ScaleWidth      =   11880
    StartUpPosition =   1  'CenterOwner
    Begin VB.PictureBox PicWinnertext 
@@ -134,6 +134,51 @@ Begin VB.Form frmGamescreen
       Interval        =   5
       Left            =   1800
       Top             =   840
+   End
+   Begin VB.CommandButton cmdBarNew 
+      Style           =   1  'Graphical
+      Caption         =   "cmdBarNew"
+      Height          =   560
+      Left            =   1390
+      TabIndex        =   70
+      Top             =   8450
+      Width           =   1900
+   End
+   Begin VB.CommandButton cmdBarGame 
+      Style           =   1  'Graphical
+      Caption         =   "cmdBarGame"
+      Height          =   560
+      Left            =   3440
+      TabIndex        =   71
+      Top             =   8450
+      Width           =   1900
+   End
+   Begin VB.CommandButton cmdBarOptions 
+      Style           =   1  'Graphical
+      Caption         =   "cmdBarOptions"
+      Height          =   560
+      Left            =   5490
+      TabIndex        =   72
+      Top             =   8450
+      Width           =   1900
+   End
+   Begin VB.CommandButton cmdBarAbout 
+      Style           =   1  'Graphical
+      Caption         =   "cmdBarAbout"
+      Height          =   560
+      Left            =   7540
+      TabIndex        =   73
+      Top             =   8450
+      Width           =   1900
+   End
+   Begin VB.CommandButton cmdBarExit 
+      Style           =   1  'Graphical
+      Caption         =   "cmdBarExit"
+      Height          =   560
+      Left            =   9590
+      TabIndex        =   74
+      Top             =   8450
+      Width           =   1900
    End
    Begin VB.CommandButton cmdSolve2 
       Caption         =   "Solve"
@@ -1762,8 +1807,52 @@ Private Sub ApplyLocale()
     mnuCreator.Caption = Loc("menu.creator")
 End Sub
 
+' Touch replacements for the menu bar: each button does what its menu does
+' (the menus themselves stay, as pop-ups).
+Private Sub BarButtons()
+    Dim c As Control
+    cmdBarNew.Caption = Replace(Loc("menu.newGame"), "&", "")
+    cmdBarGame.Caption = Replace(Loc("menu.game"), "&", "") & " ..."
+    cmdBarOptions.Caption = Replace(Loc("menu.options"), "&", "") & " ..."
+    cmdBarAbout.Caption = Replace(Loc("menu.about"), "&", "") & " ..."
+    cmdBarExit.Caption = Replace(Loc("menu.exit"), "&", "")
+    For Each c In Controls
+        If Left(c.Name, 6) = "cmdBar" Then
+            c.BackColor = ThAccent2
+            c.Font.Size = 14
+            c.Font.Bold = True
+            c.MousePointer = 0
+        End If
+    Next c
+    cmdBarExit.BackColor = ThBad
+    munGame.Visible = False
+    mnuOptions.Visible = False
+    mnuAbout.Visible = False
+End Sub
+
+Private Sub cmdBarNew_Click()
+    mnuStartGame_Click
+End Sub
+
+Private Sub cmdBarGame_Click()
+    PopupMenu munGame
+End Sub
+
+Private Sub cmdBarOptions_Click()
+    PopupMenu mnuOptions
+End Sub
+
+Private Sub cmdBarAbout_Click()
+    PopupMenu mnuAbout
+End Sub
+
+Private Sub cmdBarExit_Click()
+    mnuExit_Click
+End Sub
+
 Private Sub Form_Load()
     ApplyLocale
+    BarButtons
 
 ' *********************************************************************************************************
 ' FORM LOAD
