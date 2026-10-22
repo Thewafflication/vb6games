@@ -1819,7 +1819,8 @@ Private Sub BarButtons()
     For Each c In Controls
         If Left(c.Name, 6) = "cmdBar" Then
             c.BackColor = ThAccent2
-            c.Font.Size = 14
+            c.Font.Size = 16
+            c.Height = 640
             c.Font.Bold = True
             c.MousePointer = 0
         End If

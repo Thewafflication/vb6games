@@ -57,3 +57,7 @@ msg.empty,"No calculation, all cells are empty.","Brak obliczeń, wszystkie kom�
 msg.noChange,"There was no change since the last solve, try to fill out one cell of the following:","Od ostatniego rozwiązywania nic się nie zmieniło, spróbuj wypełnić jedną z poniższych komórek:",自上次求解以来没有变化，请尝试填写下列单元格之一：,"No ha habido cambios desde la última resolución; intenta rellenar una de estas celdas:"
 msg.unsolved,Unfortunately the sudoku riddle could not be solved correctly.,Niestety nie udało się poprawnie rozwiązać zagadki sudoku.,很遗憾，这道数独题没有被正确解出。,"Por desgracia, el sudoku no se ha podido resolver correctamente."
 msg.solved,"Congratulations, you have finally solved the sudoku correctly!","Gratulacje, w końcu poprawnie rozwiązałeś sudoku!",恭喜，你终于正确解出了这道数独！,"¡Enhorabuena, por fin has resuelto el sudoku correctamente!"
+main.undo,Undo,Cofnij,撤销,Deshacer
+main.redo,Redo,Ponów,重做,Rehacer
+main.open,Open,Otwórz,打开,Abrir
+main.save,Save,Zapisz,保存,Guardar

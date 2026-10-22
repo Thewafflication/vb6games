@@ -2,7 +2,7 @@ VERSION 5.00
 Begin VB.Form FrmSudoku 
    BorderStyle     =   0  'None
    Caption         =   "SuMBOku 1.2"
-   ClientHeight    =   7100
+   ClientHeight    =   7700
    ClientLeft      =   45
    ClientTop       =   435
    ClientWidth     =   4815
@@ -10,7 +10,7 @@ Begin VB.Form FrmSudoku
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   473
+   ScaleHeight     =   513
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   321
    StartUpPosition =   3  'Windows-Standard
@@ -2478,7 +2478,7 @@ Dim i As Long
   Next c
   ThemeCard shpTop, shpTopS1, shpTopS2, Tw(80), Tw(90), Tw(4655), Tw(1110), 1
   ThemeCard shpGrid, shpGridS1, shpGridS2, Tw(80), Tw(1360), Tw(4655), Tw(4760), 1
-  ThemeCard shpBot, shpBotS1, shpBotS2, Tw(80), Tw(6290), Tw(4655), Tw(680), 1
+  ThemeCard shpBot, shpBotS1, shpBotS2, Tw(80), Tw(6290), Tw(4655), Tw(1300), 1
   For i = 0 To 8
     shpBlock(i).Left = Tw(120 + (i Mod 3) * 1560 - 45)
     shpBlock(i).Top = Tw(840 + 640 + (i \ 3) * 1560 - 45)
@@ -2502,16 +2502,20 @@ Dim i As Long
   Next i
   LblSudoku.BackColor = ThPanel
   LblSudoku.Move Tw(3300), Tw(190), Tw(1300), Tw(320)
-  RndExample.Move Tw(240), Tw(650), Tw(1750), Tw(450)
-  BtnInfo.Move Tw(2050), Tw(650), Tw(1000), Tw(450)
-  BtnOptions.Move Tw(3110), Tw(650), Tw(1450), Tw(450)
-  BtnClear.Move Tw(160), Tw(6380), Tw(650), Tw(520)
-  BtnUndo.Move Tw(880), Tw(6380), Tw(400), Tw(520)
-  BtnRedo.Move Tw(1350), Tw(6380), Tw(400), Tw(520)
-  BtnSolve.Move Tw(1820), Tw(6380), Tw(1200), Tw(520)
-  BtnOpen.Move Tw(3090), Tw(6380), Tw(400), Tw(520)
-  BtnSave.Move Tw(3560), Tw(6380), Tw(400), Tw(520)
-  BtnExit.Move Tw(4030), Tw(6380), Tw(650), Tw(520)
+  RndExample.Move Tw(240), Tw(650), Tw(2000), Tw(450)
+  BtnInfo.Move Tw(2300), Tw(650), Tw(800), Tw(450)
+  BtnOptions.Move Tw(3160), Tw(650), Tw(1400), Tw(450)
+  BtnClear.Move Tw(160), Tw(6380), Tw(1450), Tw(520)
+  BtnSolve.Move Tw(1670), Tw(6380), Tw(1550), Tw(520)
+  BtnExit.Move Tw(3280), Tw(6380), Tw(1400), Tw(520)
+  BtnUndo.Move Tw(160), Tw(7020), Tw(1050), Tw(520)
+  BtnRedo.Move Tw(1270), Tw(7020), Tw(1050), Tw(520)
+  BtnOpen.Move Tw(2380), Tw(7020), Tw(1050), Tw(520)
+  BtnSave.Move Tw(3490), Tw(7020), Tw(1050), Tw(520)
+  BtnUndo.Caption = Loc("main.undo")
+  BtnRedo.Caption = Loc("main.redo")
+  BtnOpen.Caption = Loc("main.open")
+  BtnSave.Caption = Loc("main.save")
   ThemeFitAll Me
 End Sub
 

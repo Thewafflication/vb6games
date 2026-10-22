@@ -212,7 +212,7 @@ End Sub
 Public Sub ThemeFitText(frm As Form, c As Object)
     Dim t As String, sz As Single, w As Single, th As Single
     Dim avail As Single, wrap As Boolean, lines As Single, ok As Boolean, au As Boolean
-    Dim words() As String, k As Long
+    Dim words() As String, k As Long, pad As Single
     On Error Resume Next
     t = c.Caption
     If Len(t) = 0 Then Exit Sub
@@ -225,8 +225,12 @@ Public Sub ThemeFitText(frm As Form, c As Object)
     words = Split(t, " ")
     frm.Font.Name = c.Font.Name
     frm.Font.Bold = c.Font.Bold
-    avail = c.Width * 0.88
-    If TypeName(c) = "OptionButton" Or TypeName(c) = "CheckBox" Then avail = c.Width - 24 * (c.Width / 100)
+    ' room for the control's own margins, in real pixels (a push button
+    ' keeps about 7 pixels at each side, a check or option 22 in all)
+    pad = 3
+    If TypeName(c) = "CommandButton" Then pad = 16
+    If TypeName(c) = "OptionButton" Or TypeName(c) = "CheckBox" Then pad = 26
+    avail = c.Width - frm.ScaleX(pad * Screen.TwipsPerPixelX, 1, frm.ScaleMode)
     Do
         frm.Font.Size = sz
         w = frm.TextWidth(t)
@@ -241,7 +245,7 @@ Public Sub ThemeFitText(frm As Form, c As Object)
         Else
             ok = (w <= avail And th * 1.1 <= c.Height)
         End If
-        If ok Or sz <= 6 Then Exit Do
+        If ok Or sz <= 5 Then Exit Do
         sz = sz - 0.5
     Loop
     c.Font.Size = sz

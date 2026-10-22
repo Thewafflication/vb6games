@@ -1988,8 +1988,8 @@ Private Sub ModernLayout()
     frmInfoBall.ForeColor = ThMuted
     frmInfoBall.Font.Bold = True
     For i = 1 To 5
-        lblInfBall(i).Move rx, 1150 + (i - 1) * 380, 1500, 340
-        lblBojaCounter(i).Move rx + 1620, 1150 + (i - 1) * 380, 700, 340
+        lblInfBall(i).Move rx, 1150 + (i - 1) * 380, 1750, 340
+        lblBojaCounter(i).Move rx + 1800, 1150 + (i - 1) * 380, 700, 340
     Next i
     ' the always-visible buttons
     cmdMode.Move rx, 3260, 2560, 660
@@ -3664,8 +3664,8 @@ Public Sub showBojeCounter()
         lblBojaCounter(i).BackColor = ThPanel
         lblInfBall(i).BackColor = ThPanel
         lblBojaCounter(i).FontBold = False
-        lblBojaCounter(i).FontSize = 12
-        lblInfBall(i).FontSize = 12
+        lblBojaCounter(i).FontSize = 10
+        lblInfBall(i).FontSize = 10
         lblInfBall(i).FontBold = False
       
         
@@ -3676,9 +3676,9 @@ Public Sub showBojeCounter()
     Next i
         
     lblBojaCounter(t_i).FontBold = True
-    lblBojaCounter(t_i).FontSize = 14
+    lblBojaCounter(t_i).FontSize = 12
     
-    lblInfBall(t_i).FontSize = 14
+    lblInfBall(t_i).FontSize = 12
     lblInfBall(t_i).FontBold = True
     
         

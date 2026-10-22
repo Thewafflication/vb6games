@@ -3,7 +3,7 @@ Begin VB.Form Form1
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   0  'None
    Caption         =   "Resta 1"
-   ClientHeight    =   5950
+   ClientHeight    =   6200
    ClientLeft      =   45
    ClientTop       =   330
    ClientWidth     =   5205
@@ -20,7 +20,7 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   5950
+   ScaleHeight     =   6200
    ScaleWidth      =   5205
    StartUpPosition =   2  'CenterScreen
    Begin VB.Label Label1 
@@ -56,7 +56,7 @@ Begin VB.Form Form1
       Height          =   520
       Left            =   1800
       TabIndex        =   50
-      Top             =   5250
+      Top             =   5500
       Width           =   1600
    End
    Begin VB.Label lblCount
@@ -865,7 +865,7 @@ Private Sub Form_Load()
     Label1.Font.Size = 10
     Label1.ForeColor = ThMuted
     Label1.Alignment = 2
-    Label1.Move 240, 4480, 4725, 700
+    Label1.Move 240, 4450, 4725, 900
     cmdExit.BackColor = ThBad
     lblCount.Move 240, 3980, 4725, 420
     lblCount.Font.Size = 16
