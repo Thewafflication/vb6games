@@ -74,6 +74,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   1
+      Stretch         =   -1  'True
       Left            =   240
       Picture         =   "Form1.frx":030A
       Top             =   2400
@@ -83,6 +84,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   0
+      Stretch         =   -1  'True
       Left            =   0
       Picture         =   "Form1.frx":0614
       Top             =   2400
@@ -92,6 +94,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   0
+      Stretch         =   -1  'True
       Left            =   3000
       Picture         =   "Form1.frx":091E
       Top             =   600
@@ -101,6 +104,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   1
+      Stretch         =   -1  'True
       Left            =   3360
       Picture         =   "Form1.frx":0C28
       Top             =   600
@@ -110,6 +114,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   34
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":0F32
       Top             =   4560
@@ -127,6 +132,7 @@ Begin VB.Form Form1
    Begin VB.Image current 
       Appearance      =   0  'Flat
       Height          =   480
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":123C
       Top             =   240
@@ -137,6 +143,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   27
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":1546
       Top             =   4440
@@ -148,6 +155,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   26
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":1850
       Top             =   4440
@@ -159,6 +167,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   25
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":1B5A
       Top             =   4440
@@ -170,6 +179,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   24
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":1E64
       Top             =   4440
@@ -180,6 +190,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   23
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":216E
       Top             =   3840
@@ -191,6 +202,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   22
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":2478
       Top             =   3840
@@ -202,6 +214,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   21
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":2782
       Top             =   3840
@@ -213,6 +226,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   20
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":2A8C
       Top             =   3840
@@ -223,6 +237,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   19
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":2D96
       Top             =   3240
@@ -234,6 +249,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   18
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":30A0
       Top             =   3240
@@ -245,6 +261,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   17
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":33AA
       Top             =   3240
@@ -256,6 +273,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   16
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":36B4
       Top             =   3240
@@ -266,6 +284,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   15
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":39BE
       Top             =   2640
@@ -277,6 +296,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   14
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":3CC8
       Top             =   2640
@@ -288,6 +308,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   13
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":3FD2
       Top             =   2640
@@ -299,6 +320,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   12
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":42DC
       Top             =   2640
@@ -309,6 +331,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   11
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":45E6
       Top             =   2040
@@ -320,6 +343,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   10
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":48F0
       Top             =   2040
@@ -331,6 +355,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   9
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":4BFA
       Top             =   2040
@@ -342,6 +367,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   8
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":4F04
       Top             =   2040
@@ -352,6 +378,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   7
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":520E
       Top             =   1440
@@ -363,6 +390,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   6
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":5518
       Top             =   1440
@@ -374,6 +402,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   5
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":5822
       Top             =   1440
@@ -385,6 +414,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   4
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":5B2C
       Top             =   1440
@@ -395,6 +425,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   3
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":5E36
       Top             =   840
@@ -406,6 +437,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   2
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":6140
       Top             =   840
@@ -417,6 +449,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   1
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":644A
       Top             =   840
@@ -428,6 +461,7 @@ Begin VB.Form Form1
       BorderStyle     =   1  'Fixed Single
       Height          =   510
       Index           =   0
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":6754
       Top             =   840
@@ -437,6 +471,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       BorderStyle     =   1  'Fixed Single
       Height          =   510
+      Stretch         =   -1  'True
       Left            =   5640
       Picture         =   "Form1.frx":6A5E
       Top             =   240
@@ -558,6 +593,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   35
+      Stretch         =   -1  'True
       Left            =   600
       Picture         =   "Form1.frx":6D68
       Top             =   600
@@ -568,6 +604,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   33
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":7072
       Top             =   4560
@@ -578,6 +615,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   32
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":737C
       Top             =   4560
@@ -588,6 +626,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   31
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":7686
       Top             =   4560
@@ -598,6 +637,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   30
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":7990
       Top             =   4560
@@ -608,6 +648,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   29
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":7C9A
       Top             =   4560
@@ -618,6 +659,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   28
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":7FA4
       Top             =   4560
@@ -628,6 +670,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   27
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":82AE
       Top             =   4560
@@ -638,6 +681,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   26
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":85B8
       Top             =   4560
@@ -648,6 +692,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   25
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":88C2
       Top             =   4560
@@ -658,6 +703,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   24
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":8BCC
       Top             =   4560
@@ -668,6 +714,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   23
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":8ED6
       Top             =   4560
@@ -678,6 +725,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   22
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":91E0
       Top             =   4560
@@ -688,6 +736,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   21
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":94EA
       Top             =   4560
@@ -698,6 +747,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   20
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":97F4
       Top             =   4560
@@ -708,6 +758,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   19
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":9AFE
       Top             =   4560
@@ -718,6 +769,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   18
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":9E08
       Top             =   4560
@@ -728,6 +780,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   17
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":A112
       Top             =   4560
@@ -738,6 +791,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   16
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":A41C
       Top             =   4560
@@ -748,6 +802,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   15
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":A726
       Top             =   4560
@@ -758,6 +813,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   14
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":AA30
       Top             =   4560
@@ -768,6 +824,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   13
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":AD3A
       Top             =   4560
@@ -778,6 +835,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   12
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":B044
       Top             =   4560
@@ -788,6 +846,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   11
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":B34E
       Top             =   4560
@@ -798,6 +857,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   10
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":B658
       Top             =   4560
@@ -808,6 +868,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   9
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":B962
       Top             =   4560
@@ -818,6 +879,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   8
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":BC6C
       Top             =   4560
@@ -828,6 +890,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   7
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":BF76
       Top             =   4560
@@ -838,6 +901,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   6
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":C280
       Top             =   4560
@@ -848,6 +912,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   5
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":C58A
       Top             =   4560
@@ -858,6 +923,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   4
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":C894
       Top             =   4560
@@ -868,6 +934,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   3
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":CB9E
       Top             =   4560
@@ -878,6 +945,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   2
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":CEA8
       Top             =   4560
@@ -888,6 +956,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   1
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":D1B2
       Top             =   4560
@@ -898,6 +967,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       Height          =   480
       Index           =   0
+      Stretch         =   -1  'True
       Left            =   720
       Picture         =   "Form1.frx":D4BC
       Top             =   4560
@@ -1535,6 +1605,13 @@ Attribute VB_Exposed = False
   Dim piecearray(27) As pieceinfo 'info on each piece
   Dim pipearray(35) As Integer 'is there a pipe there?
 
+Private Const PageY As Long = &H4AE2FF      ' sunny yellow
+Private Const PipeDark As Long = &H69450E    ' deep blue
+Private Const WaterC As Long = &HFFE500      ' cyan water
+Private Const CellC As Long = &HFDF8E9
+Private Const CellLine As Long = &HE8D296
+Private Const EdgeC As Long = &HB28E2F
+
 Private Sub blank_MouseDown(button As Integer, Shift As Integer, x As Single, y As Single)
    np = -1
    current.Picture = blank.Picture
@@ -1731,14 +1808,34 @@ Private Sub ApplyLocale()
   btnQuit.Caption = Loc("button.quit")
 End Sub
 
+' The pictures come in sets of several sizes: the one for this screen.
+Private Sub LoadSprites()
+  Dim i As Integer
+  For i = 0 To 27
+    piece(i).BorderStyle = 0
+    piece(i).Picture = LoadPicture(ThSprite("piece" & i))
+  Next i
+  blank.BorderStyle = 0
+  blank.Picture = LoadPicture(ThSprite("blank"))
+  current.Picture = blank.Picture
+  out(1).Picture = LoadPicture(ThSprite("stub"))
+  out(0).Picture = LoadPicture(ThSprite("arrow"))
+  inx(0).Picture = LoadPicture(ThSprite("stub"))
+  inx(1).Picture = LoadPicture(ThSprite("arrow"))
+End Sub
+
 Private Sub Form_Load()
   ApplyLocale
   ThemeApply Me
+  BackColor = PageY
+  lblTitle.BackColor = PageY
+  btnQuit.BackColor = WaterC
+  LoadSprites
   Dim shp As Control
   For Each shp In Controls
-    If TypeName(shp) = "Line" Then shp.BorderColor = ThLine
+    If TypeName(shp) = "Line" Then shp.BorderColor = CellLine
   Next shp
-  boxcurrent.BorderColor = ThAccent2
+  boxcurrent.BorderColor = &H78FF&
   btnQuit.Width = 110
   btnQuit.Height = 40
   Dim i, j, k, n As Integer    'counters
@@ -1816,7 +1913,7 @@ Private Sub Form_Load()
     Water(j).left = lb
     Water(j).Height = 5
     Water(j).Width = sb
-    Water(j).FillColor = ThPanel2
+    Water(j).FillColor = CellC
     Water(j).Visible = True
   Next j
   wt = 47      ' first strip to turn on
@@ -1834,15 +1931,15 @@ Private Sub Form_Load()
   ' title, and cards behind the board and the piece palette
   lblTitle.Font.Size = 26
   lblTitle.Font.Bold = True
-  lblTitle.ForeColor = ThAccent
+  lblTitle.ForeColor = PipeDark
   lblTitle.BackStyle = 1
-  lblTitle.BackColor = ThBack
+  lblTitle.BackColor = PageY
   lblTitle.Alignment = 2
   lblTitle.Left = lb
   lblTitle.Width = sb
-  lblTitle.Top = 4
-  lblTitle.Height = 36
-  ThemeCard shpBoard, shpBoardS1, shpBoardS2, lb - 6, tb - 6, sb + 12, sb + 12, 1
+  lblTitle.Top = 0
+  lblTitle.Height = 46
+  ThemeCardEx shpBoard, shpBoardS1, shpBoardS2, lb - 6, tb - 6, sb + 12, sb + 12, 1, CellC, EdgeC, &H28AAD6, &H38C6E8
   Dim pb As Single
   pb = blank.top
   For i = 0 To 27
@@ -1850,7 +1947,7 @@ Private Sub Form_Load()
       If piece(i).top + piece(i).Height > pb Then pb = piece(i).top + piece(i).Height
     End If
   Next i
-  ThemeCard shpPal, shpPalS1, shpPalS2, blank.left - 6, blank.top - 6, blank.Width + 12, pb - blank.top + 12, 1
+  ThemeCardEx shpPal, shpPalS1, shpPalS2, blank.left - 6, blank.top - 6, blank.Width + 12, pb - blank.top + 12, 1, &HD6FAFF, EdgeC, &H28AAD6, &H38C6E8
 
   ' place in and out pipes
 
@@ -2056,7 +2153,7 @@ End Sub
 
 Private Sub Timer1_Timer()
   If wt >= 0 Then
-    Water(wt).FillColor = ThAccent
+    Water(wt).FillColor = WaterC
     wt = wt - 1
   Else
     enable = False

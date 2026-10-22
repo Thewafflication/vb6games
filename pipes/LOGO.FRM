@@ -135,6 +135,12 @@ Private Sub Form_Load()
   ApplyLocale
   ThemeApply Me
   ThemeFullScreen Me
+  BackColor = &H4AE2FF
+  Label1.BackColor = &H4AE2FF
+  Label2.BackColor = &H4AE2FF
+  Label1.ForeColor = &H69450E
+  Label2.ForeColor = &H69450E
+  Command1.BackColor = &HFFE500
   Dim sw As Single, sh As Single, ah As Single, aw As Single
   Dim al As Single, at As Single
   sw = ScaleWidth
@@ -154,7 +160,7 @@ Private Sub Form_Load()
   Image1.Width = aw
   Image1.Height = ah
   Image1.Visible = True
-  ThemeCard shpArt, shpArtS1, shpArtS2, al - 4, at - 4, aw + 8, ah + 8, 1
+  ThemeCardEx shpArt, shpArtS1, shpArtS2, al - 4, at - 4, aw + 8, ah + 8, 1, &HFFFFFF, &H69450E, &H28AAD6, &H38C6E8
   Label1.Alignment = 2
   Label1.Left = 0
   Label1.Width = sw
@@ -166,7 +172,7 @@ Private Sub Form_Load()
   Label2.Width = sw
   Label2.Top = at + ah + 38
   Label2.Height = 20
-  Label2.ForeColor = ThMuted
+  Label2.ForeColor = &H69450E
   Command1.Width = 100
   Command1.Height = 36
   Command1.Left = (sw - Command1.Width) / 2

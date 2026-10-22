@@ -260,3 +260,38 @@ Public Sub ThemeFitAll(frm As Form)
         End Select
     Next c
 End Sub
+
+' A card in any colors (fill, edge, near and far shadow).
+Public Sub ThemeCardEx(card As Object, shadowA As Object, shadowB As Object, ByVal L As Single, ByVal T As Single, ByVal W As Single, ByVal H As Single, ByVal u As Single, ByVal fill As Long, ByVal edge As Long, ByVal near As Long, ByVal far As Long)
+    ThemeCard card, shadowA, shadowB, L, T, W, H, u
+    shadowB.FillColor = far
+    shadowA.FillColor = near
+    card.FillColor = fill
+    card.BorderColor = edge
+End Sub
+
+' The width of the screen in real pixels (Screen reports the program's own
+' scaled units in WFC's full-screen mode).
+Public Function ThScreenPixels() As Long
+    ThScreenPixels = CLng(Screen.Width / Screen.TwipsPerPixelX)
+End Function
+
+' The size of the sprite set that suits the screen: 64, 128, 192 or 256.
+Public Function ThSpriteSize() As Long
+    Dim px As Long
+    px = ThScreenPixels()
+    If px <= 900 Then
+        ThSpriteSize = 64
+    ElseIf px <= 1700 Then
+        ThSpriteSize = 128
+    ElseIf px <= 2800 Then
+        ThSpriteSize = 192
+    Else
+        ThSpriteSize = 256
+    End If
+End Function
+
+' The file of a sprite (a GIF in sprites\<size>) in the set for this screen.
+Public Function ThSprite(ByVal name As String) As String
+    ThSprite = App.Path & "\sprites\" & CStr(ThSpriteSize()) & "\" & name & ".gif"
+End Function
