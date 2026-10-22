@@ -313,3 +313,37 @@ Public Function ThSpriteIcon(ByVal name As String, ByVal boxTwips As Single) As 
     If sz > 160 Then sz = 160
     ThSpriteIcon = App.Path & "\sprites\" & CStr(sz) & "\" & name & ".ico"
 End Function
+
+' Makes a form fill the screen with one color and centers its controls on it
+' (for art-driven dialogs that bring their own frames).
+Public Sub ThemeCenter(frm As Form, ByVal back As Long)
+    Dim c As Control
+    Dim x0 As Single, y0 As Single, x1 As Single, y1 As Single
+    Dim l As Single, t As Single, w As Single, h As Single
+    Dim dx As Single, dy As Single
+    x0 = 1E+30: y0 = 1E+30: x1 = -1E+30: y1 = -1E+30
+    frm.BackColor = back
+    ThemeFullScreen frm
+    On Error Resume Next
+    For Each c In frm.Controls
+        If OnForm(frm, c) Then
+            w = 0: h = 0
+            l = c.Left: t = c.Top: w = c.Width: h = c.Height
+            If w > 0 And h > 0 And c.Visible Then
+                If l < x0 Then x0 = l
+                If t < y0 Then y0 = t
+                If l + w > x1 Then x1 = l + w
+                If t + h > y1 Then y1 = t + h
+            End If
+        End If
+    Next c
+    If x1 < x0 Then Exit Sub
+    dx = (frm.ScaleWidth - (x1 - x0)) / 2 - x0
+    dy = (frm.ScaleHeight - (y1 - y0)) / 2 - y0
+    For Each c In frm.Controls
+        If OnForm(frm, c) Then
+            c.Left = c.Left + dx
+            c.Top = c.Top + dy
+        End If
+    Next c
+End Sub

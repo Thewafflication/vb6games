@@ -151,6 +151,24 @@ Begin VB.Form frmAbout
       Top             =   3240
       Width           =   1965
    End
+   Begin VB.Shape shpDlg 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpDlgS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpDlgS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "frmAbout"
 Attribute VB_GlobalNameSpace = False
@@ -175,6 +193,9 @@ Dim m As String
   tmpCount = 100
   PbMBOIngcom.MousePointer = 99
   PbMBOIngcom.MouseIcon = LoadResPicture(1, vbResCursor)
+  cmdOK.BackColor = ThAccent2
+  ThemeDialog Me, shpDlg, shpDlgS1, shpDlgS2, 15, 300
+  ThemeFitAll Me
 End Sub
 
 Private Sub LblMBOINGCOM_Click()

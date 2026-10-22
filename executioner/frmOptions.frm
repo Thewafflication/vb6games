@@ -13,6 +13,24 @@ Begin VB.Form frmOptions
    ScaleWidth      =   8130
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton cmdOk 
+      Style           =   1  'Graphical
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   14
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Caption         =   "OK"
+      Height          =   600
+      Left            =   3000
+      TabIndex        =   40
+      Top             =   4900
+      Width           =   2400
+   End
    Begin VB.OptionButton optTimer 
       BackColor       =   &H00000000&
       Caption         =   "Timer off"
@@ -313,8 +331,25 @@ Private Sub ApplyLocale()
     optHints(3).Caption = Loc("options.cheater")
 End Sub
 
+Private Sub cmdOk_Click()
+    Picture2_Click 0
+End Sub
+
 Private Sub Form_Load()
     ApplyLocale
+    cmdOk.Caption = Loc("button.done")
+    cmdOk.BackColor = &H54B4FF
+    Picture2(0).Visible = False
+    FrameTimeSettings.BorderStyle = 0
+    FrameHintSettings.BorderStyle = 0
+    Dim i As Integer
+    For i = 0 To 4
+        optTimer(i).ForeColor = &H54B4FF
+    Next i
+    For i = 0 To 3
+        optHints(i).ForeColor = &H54B4FF
+    Next i
+    ThemeCenter Me, 0
 End Sub
 
 Public Sub Picture2_Click(Index As Integer)

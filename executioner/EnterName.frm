@@ -187,6 +187,7 @@ Attribute VB_Exposed = False
 ' *********************************************************************************************************
 
 Private Sub Form_Load()
+    ThemeCenter Me, 0
 If LocLanguage <> "en" Then
     txtPlayerNameOne.ToolTipText = Loc("tip.enterName")
     txtPlayerNameTwo.ToolTipText = Loc("tip.enterName")

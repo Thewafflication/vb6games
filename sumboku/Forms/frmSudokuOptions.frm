@@ -49,7 +49,88 @@ Begin VB.Form frmSudokuOptions
       Top             =   1680
       Width           =   1095
    End
-   Begin VB.Frame Frame1 
+   Begin VB.PictureBox Picture1 
+      BorderStyle     =   0  'Kein
+      Height          =   1095
+      Left            =   240
+      ScaleHeight     =   1095
+      ScaleWidth      =   2655
+      TabIndex        =   1
+      Top             =   360
+      Width           =   2655
+      Begin VB.OptionButton Option4 
+         BeginProperty Font 
+            Name            =   "Segoe UI"
+            Size            =   11
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Caption         =   "the whole iteration"
+         Height          =   255
+         Left            =   0
+         TabIndex        =   7
+         ToolTipText     =   "not yet implemented"
+         Top             =   720
+         Width           =   2535
+      End
+      Begin VB.OptionButton Option3 
+         BeginProperty Font 
+            Name            =   "Segoe UI"
+            Size            =   11
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Caption         =   "all three steps"
+         Height          =   255
+         Left            =   0
+         TabIndex        =   4
+         Top             =   480
+         Width           =   2535
+      End
+      Begin VB.OptionButton Option2 
+         BeginProperty Font 
+            Name            =   "Segoe UI"
+            Size            =   11
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Caption         =   "the first and second step"
+         Height          =   255
+         Left            =   0
+         TabIndex        =   3
+         ToolTipText     =   "Second: fill in single possible values"
+         Top             =   240
+         Width           =   2535
+      End
+      Begin VB.OptionButton Option1 
+         BeginProperty Font 
+            Name            =   "Segoe UI"
+            Size            =   11
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Caption         =   "only the first step"
+         Height          =   255
+         Left            =   0
+         TabIndex        =   2
+         ToolTipText     =   "No new values only possible values in ToolTips"
+         Top             =   0
+         Width           =   1935
+      End
+   End
+   Begin VB.Label Frame1 
       BeginProperty Font 
          Name            =   "Segoe UI"
          Size            =   11
@@ -60,92 +141,28 @@ Begin VB.Form frmSudokuOptions
          Strikethrough   =   0   'False
       EndProperty
       Caption         =   "Solve with..."
-      Height          =   1455
+      Height          =   300
       Left            =   120
-      TabIndex        =   0
       Top             =   120
       Width           =   2895
-      Begin VB.PictureBox Picture1 
-         BorderStyle     =   0  'Kein
-         Height          =   1095
-         Left            =   120
-         ScaleHeight     =   1095
-         ScaleWidth      =   2655
-         TabIndex        =   1
-         Top             =   240
-         Width           =   2655
-         Begin VB.OptionButton Option4 
-            BeginProperty Font 
-               Name            =   "Segoe UI"
-               Size            =   11
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Caption         =   "the whole iteration"
-            Height          =   255
-            Left            =   0
-            TabIndex        =   7
-            ToolTipText     =   "not yet implemented"
-            Top             =   720
-            Width           =   2535
-         End
-         Begin VB.OptionButton Option3 
-            BeginProperty Font 
-               Name            =   "Segoe UI"
-               Size            =   11
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Caption         =   "all three steps"
-            Height          =   255
-            Left            =   0
-            TabIndex        =   4
-            Top             =   480
-            Width           =   2535
-         End
-         Begin VB.OptionButton Option2 
-            BeginProperty Font 
-               Name            =   "Segoe UI"
-               Size            =   11
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Caption         =   "the first and second step"
-            Height          =   255
-            Left            =   0
-            TabIndex        =   3
-            ToolTipText     =   "Second: fill in single possible values"
-            Top             =   240
-            Width           =   2535
-         End
-         Begin VB.OptionButton Option1 
-            BeginProperty Font 
-               Name            =   "Segoe UI"
-               Size            =   11
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Caption         =   "only the first step"
-            Height          =   255
-            Left            =   0
-            TabIndex        =   2
-            ToolTipText     =   "No new values only possible values in ToolTips"
-            Top             =   0
-            Width           =   1935
-         End
-      End
+   End
+   Begin VB.Shape shpDlg 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpDlgS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpDlgS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
    End
 End
 Attribute VB_Name = "frmSudokuOptions"
@@ -178,6 +195,17 @@ Private Sub Form_Load()
   Option1.Value = False
   Option2.Value = False
   Option3.Value = False
+  Picture1.BackColor = ThPanel
+  Option1.BackColor = ThPanel
+  Option2.BackColor = ThPanel
+  Option3.BackColor = ThPanel
+  Option4.BackColor = ThPanel
+  Frame1.ForeColor = ThAccent
+  BtnOK.BackColor = ThAccent2
+  BtnOK.Move 400, 1750, 1250, 500
+  BtnCancel.Move 1750, 1750, 1250, 500
+  ThemeDialog Me, shpDlg, shpDlgS1, shpDlgS2, 15, 300
+  ThemeFitAll Me
 End Sub
 Private Sub Form_Activate()
   Select Case Sudoku.OptionSolve

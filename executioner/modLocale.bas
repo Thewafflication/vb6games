@@ -137,6 +137,7 @@ Private Sub AddEnglish2()
     Dim s As String
     P "splash.onlyAGame", "This Is Only A Game"
     P "rulez.title", "Rulez"
+    P "button.done", "OK"
 End Sub
 
 Private Sub AddEnglish()
@@ -192,6 +193,7 @@ Private Sub AddPolish2()
     Dim s As String
     P "splash.onlyAGame", "To tylko gra"
     P "rulez.title", "Zasady"
+    P "button.done", "OK"
 End Sub
 
 Private Sub AddPolish()
@@ -247,6 +249,7 @@ Private Sub AddChinese2()
     Dim s As String
     P "splash.onlyAGame", U("8FD953EA662F4E004E2A6E38620F")
     P "rulez.title", U("89C45219")
+    P "button.done", U("786E5B9A")
 End Sub
 
 Private Sub AddChinese()
@@ -302,6 +305,7 @@ Private Sub AddSpanish2()
     Dim s As String
     P "splash.onlyAGame", "Esto es solo un juego"
     P "rulez.title", "Reglas"
+    P "button.done", "Aceptar"
 End Sub
 
 Private Sub AddSpanish()

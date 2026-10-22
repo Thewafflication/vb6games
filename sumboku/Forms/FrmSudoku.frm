@@ -2512,6 +2512,7 @@ Dim i As Long
   BtnOpen.Move Tw(3090), Tw(6380), Tw(400), Tw(520)
   BtnSave.Move Tw(3560), Tw(6380), Tw(400), Tw(520)
   BtnExit.Move Tw(4030), Tw(6380), Tw(650), Tw(520)
+  ThemeFitAll Me
 End Sub
 
 Private Sub PrepareImgs()

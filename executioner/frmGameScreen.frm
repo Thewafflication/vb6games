@@ -1835,15 +1835,15 @@ Private Sub cmdBarNew_Click()
 End Sub
 
 Private Sub cmdBarGame_Click()
-    PopupMenu munGame
+    frmPanel.OpenPanel "game"
 End Sub
 
 Private Sub cmdBarOptions_Click()
-    PopupMenu mnuOptions
+    frmPanel.OpenPanel "options"
 End Sub
 
 Private Sub cmdBarAbout_Click()
-    PopupMenu mnuAbout
+    frmPanel.OpenPanel "about"
 End Sub
 
 Private Sub cmdBarExit_Click()
@@ -1949,7 +1949,7 @@ If mnu2player.Checked = True Then Set2PlayerGame
 End If
 End Sub
 
-Private Sub mnu1player_Click()
+Public Sub mnu1player_Click()
 
 ' *********************************************************************************************************
 ' mnu1player (on click)
@@ -1968,7 +1968,7 @@ Private Sub mnu1player_Click()
 
 End Sub
 
-Private Sub mnu2player_Click()
+Public Sub mnu2player_Click()
 
 ' *********************************************************************************************************
 ' mnu2player (on click)
@@ -1987,7 +1987,7 @@ Private Sub mnu2player_Click()
 
 End Sub
 
-Private Sub mnuAdvancedOptions_Click()
+Public Sub mnuAdvancedOptions_Click()
 
 ' *********************************************************************************************************
 ' mnuAdvancedOptions (on click)
@@ -2005,7 +2005,7 @@ Private Sub mnuAdvancedOptions_Click()
 
 End Sub
 
-Private Sub mnuCreator_Click()
+Public Sub mnuCreator_Click()
 
 ' *********************************************************************************************************
 ' mnuCreator (on click)
@@ -2023,7 +2023,7 @@ Private Sub mnuCreator_Click()
 
 End Sub
 
-Private Sub mnuEndGame_Click()
+Public Sub mnuEndGame_Click()
 
 ' *********************************************************************************************************
 ' mnuEndGame (on click)
@@ -2044,7 +2044,7 @@ Idle ' Put game in Idle state
 
 End Sub
 
-Private Sub mnuExit_Click()
+Public Sub mnuExit_Click()
 ' *********************************************************************************************************
 ' mnuExit (on click)
 ' *********************************************************************************************************
@@ -2066,7 +2066,7 @@ End ' *********  THE ONLY WAY OUT!!!!!!!! ( &F4 ) ********
 
 End Sub
 
-Private Sub mnuGetNames_Click()
+Public Sub mnuGetNames_Click()
 
 ' *********************************************************************************************************
 ' mnuGetNames ( on click )
@@ -2084,7 +2084,7 @@ Private Sub mnuGetNames_Click()
    
 End Sub
 
-Private Sub mnuHints_Click()
+Public Sub mnuHints_Click()
 ' *********************************************************************************************************
 ' mnuHints ( on click )
 ' *********************************************************************************************************
@@ -2110,7 +2110,7 @@ End If
 
 End Sub
 
-Private Sub mnuRulez_Click()
+Public Sub mnuRulez_Click()
 
 ' *********************************************************************************************************
 ' mnuRulez ( on click )
@@ -2128,7 +2128,7 @@ Private Sub mnuRulez_Click()
     
 End Sub
 
-Private Sub mnuShowTimer_Click()
+Public Sub mnuShowTimer_Click()
 
 Dim TimeBox As Boolean
 
@@ -2158,7 +2158,7 @@ If TimeBox <> True Then  ' If unchecked in Menu make the timer visible
 
 End Sub
 
-Private Sub mnuSound_Click()
+Public Sub mnuSound_Click()
 If mnuSound.Checked = True Then
     mnuSound.Checked = False
     bSound = False
@@ -2173,7 +2173,7 @@ End If
 
 End Sub
 
-Private Sub mnuStartGame_Click()
+Public Sub mnuStartGame_Click()
 
 ' *********************************************************************************************************
 ' mnuStartGame ( on click )

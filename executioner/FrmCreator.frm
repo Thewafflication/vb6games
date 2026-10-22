@@ -119,6 +119,7 @@ Private Declare Function PlaySound Lib "winmm.dll" Alias "PlaySoundA" _
 (ByVal lpszName As String, ByVal hModule As Long, ByVal dwFlags As Long) As Long
 
 Private Sub Form_Load()
+    ThemeCenter Me, 0
 
 ' *********************************************************************************************************
 ' FORM LOAD

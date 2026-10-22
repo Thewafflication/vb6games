@@ -7,6 +7,7 @@ Form=frmrulez.frm
 Form=frmOptions.frm
 Form=EnterName.frm
 Form=frmGameScreen.frm
+Form=frmPanel.frm
 Form=frmSplash.frm
 Form=FrmCreator.frm
 IconForm="frmGamescreen"
