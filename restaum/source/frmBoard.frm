@@ -3,7 +3,7 @@ Begin VB.Form Form1
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   0  'None
    Caption         =   "Resta 1"
-   ClientHeight    =   5500
+   ClientHeight    =   5950
    ClientLeft      =   45
    ClientTop       =   330
    ClientWidth     =   5205
@@ -20,7 +20,7 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   5500
+   ScaleHeight     =   5950
    ScaleWidth      =   5205
    StartUpPosition =   2  'CenterScreen
    Begin VB.Label Label1 
@@ -40,6 +40,24 @@ Begin VB.Form Form1
       TabIndex        =   0
       Top             =   3930
       Width           =   4815
+   End
+   Begin VB.CommandButton cmdExit 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "Exit"
+      Height          =   520
+      Left            =   1800
+      TabIndex        =   50
+      Top             =   5250
+      Width           =   1600
    End
    Begin VB.Label lblCount
       BeginProperty Font 
@@ -66,6 +84,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   64
+      Stretch         =   -1  'True
       Left            =   2820
       Picture         =   "frmBoard.frx":0884
       Top             =   3240
@@ -78,6 +97,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   63
+      Stretch         =   -1  'True
       Left            =   2340
       Picture         =   "frmBoard.frx":1108
       Top             =   3240
@@ -90,6 +110,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   62
+      Stretch         =   -1  'True
       Left            =   1860
       Picture         =   "frmBoard.frx":198C
       Top             =   3240
@@ -102,6 +123,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   54
+      Stretch         =   -1  'True
       Left            =   2820
       Picture         =   "frmBoard.frx":2210
       Top             =   2760
@@ -114,6 +136,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   53
+      Stretch         =   -1  'True
       Left            =   2340
       Picture         =   "frmBoard.frx":2A94
       Top             =   2760
@@ -126,6 +149,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   52
+      Stretch         =   -1  'True
       Left            =   1860
       Picture         =   "frmBoard.frx":3318
       Top             =   2760
@@ -138,6 +162,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   46
+      Stretch         =   -1  'True
       Left            =   3780
       Picture         =   "frmBoard.frx":3B9C
       Top             =   2280
@@ -150,6 +175,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   45
+      Stretch         =   -1  'True
       Left            =   3300
       Picture         =   "frmBoard.frx":4420
       Top             =   2280
@@ -162,6 +188,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   44
+      Stretch         =   -1  'True
       Left            =   2820
       Picture         =   "frmBoard.frx":4CA4
       Top             =   2280
@@ -174,6 +201,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   43
+      Stretch         =   -1  'True
       Left            =   2340
       Picture         =   "frmBoard.frx":5528
       Top             =   2280
@@ -186,6 +214,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   42
+      Stretch         =   -1  'True
       Left            =   1860
       Picture         =   "frmBoard.frx":5DAC
       Top             =   2280
@@ -198,6 +227,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   41
+      Stretch         =   -1  'True
       Left            =   1380
       Picture         =   "frmBoard.frx":6630
       Top             =   2280
@@ -210,6 +240,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   40
+      Stretch         =   -1  'True
       Left            =   900
       Picture         =   "frmBoard.frx":6EB4
       Top             =   2280
@@ -222,6 +253,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   36
+      Stretch         =   -1  'True
       Left            =   3780
       Picture         =   "frmBoard.frx":7738
       Top             =   1800
@@ -234,6 +266,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   35
+      Stretch         =   -1  'True
       Left            =   3300
       Picture         =   "frmBoard.frx":7FBC
       Top             =   1800
@@ -246,6 +279,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   34
+      Stretch         =   -1  'True
       Left            =   2820
       Picture         =   "frmBoard.frx":8840
       Top             =   1800
@@ -258,6 +292,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   33
+      Stretch         =   -1  'True
       Left            =   2340
       Top             =   1800
       Width           =   510
@@ -269,6 +304,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   32
+      Stretch         =   -1  'True
       Left            =   1860
       Picture         =   "frmBoard.frx":9506
       Top             =   1800
@@ -281,6 +317,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   31
+      Stretch         =   -1  'True
       Left            =   1380
       Picture         =   "frmBoard.frx":9D8A
       Top             =   1800
@@ -293,6 +330,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   30
+      Stretch         =   -1  'True
       Left            =   900
       Picture         =   "frmBoard.frx":A60E
       Top             =   1800
@@ -305,6 +343,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   26
+      Stretch         =   -1  'True
       Left            =   3780
       Picture         =   "frmBoard.frx":AE92
       Top             =   1320
@@ -317,6 +356,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   25
+      Stretch         =   -1  'True
       Left            =   3300
       Picture         =   "frmBoard.frx":B716
       Top             =   1320
@@ -329,6 +369,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   24
+      Stretch         =   -1  'True
       Left            =   2820
       Picture         =   "frmBoard.frx":BF9A
       Top             =   1320
@@ -341,6 +382,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   23
+      Stretch         =   -1  'True
       Left            =   2340
       Picture         =   "frmBoard.frx":C81E
       Top             =   1320
@@ -353,6 +395,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   22
+      Stretch         =   -1  'True
       Left            =   1860
       Picture         =   "frmBoard.frx":D0A2
       Top             =   1320
@@ -365,6 +408,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   21
+      Stretch         =   -1  'True
       Left            =   1380
       Picture         =   "frmBoard.frx":D926
       Top             =   1320
@@ -377,6 +421,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   20
+      Stretch         =   -1  'True
       Left            =   900
       Picture         =   "frmBoard.frx":E1AA
       Top             =   1320
@@ -389,6 +434,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   14
+      Stretch         =   -1  'True
       Left            =   2820
       Picture         =   "frmBoard.frx":EA2E
       Top             =   840
@@ -401,6 +447,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   13
+      Stretch         =   -1  'True
       Left            =   2340
       Picture         =   "frmBoard.frx":F2B2
       Top             =   840
@@ -413,6 +460,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   12
+      Stretch         =   -1  'True
       Left            =   1860
       Picture         =   "frmBoard.frx":FB36
       Top             =   840
@@ -425,6 +473,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   4
+      Stretch         =   -1  'True
       Left            =   2820
       Picture         =   "frmBoard.frx":103BA
       Top             =   360
@@ -437,6 +486,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   3
+      Stretch         =   -1  'True
       Left            =   2340
       Picture         =   "frmBoard.frx":10C3E
       Top             =   360
@@ -449,6 +499,7 @@ Begin VB.Form Form1
       DragMode        =   1  'Automatic
       Height          =   510
       Index           =   2
+      Stretch         =   -1  'True
       Left            =   1860
       Picture         =   "frmBoard.frx":114C2
       Top             =   360
@@ -456,6 +507,7 @@ Begin VB.Form Form1
    End
    Begin VB.Image imgGotipic 
       Height          =   480
+      Stretch         =   -1  'True
       Left            =   60
       Picture         =   "frmBoard.frx":11904
       Top             =   5100
@@ -786,6 +838,7 @@ Private Sub Form_Load()
     ' The label's designed text is Portuguese; every language, English
     ' included, is set from the translation table.
     Caption = Loc("app.title")
+    cmdExit.Caption = Loc("button.exit")
     Label1.Caption = Loc("help.text")
     ThemeApply Me
     Dim c As Control, n As Long
@@ -800,16 +853,30 @@ Private Sub Form_Load()
             n = n + 1
         End If
     Next c
+    ' the ball picture suits the screen (the sprite set is chosen by size)
+    imgGotipic.Picture = LoadPicture(ThSprite("ball", 510))
+    For Each c In Controls
+        If c.Name = "imgGoti" Then
+            If c.Picture <> 0 Then c.Picture = imgGotipic.Picture
+        End If
+    Next c
     imgGotipic.Visible = False
     ThemeCard shpBoard, shpBoardS1, shpBoardS2, 780, 240, 3630, 3630, 15
     Label1.Font.Size = 10
     Label1.ForeColor = ThMuted
     Label1.Alignment = 2
-    Label1.Move 240, 4650, 4725, 800
+    Label1.Move 240, 4480, 4725, 700
+    cmdExit.BackColor = ThBad
+    lblCount.Move 240, 3980, 4725, 420
     lblCount.Font.Size = 16
     lblCount.Font.Bold = True
     lblCount.ForeColor = ThAccent
     UpdateCount
+    ThemeFitAll Me
+End Sub
+
+Private Sub cmdExit_Click()
+    Unload Me
 End Sub
 
 Private Sub UpdateCount()

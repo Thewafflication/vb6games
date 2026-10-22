@@ -1,23 +1,24 @@
 #!/usr/bin/env python3
 """Generates the sprite sets of the games (needs Pillow).
 
-Each game that has bitmap sprites carries them at four sizes
-(sprites/64, 128, 192, 256: GIF files), and picks the set that suits the
+Each game that has bitmap sprites carries them at several sizes
+(sprites/32 ... 192), and picks the set that suits the
 screen at run time (ThSprite in ui/modTheme.bas). Run from the repository
 root:   python ui/make_sprites.py
 
 * restaum: a socket with a glossy ball and its shadow, drawn at any size;
 * pipes:   the original pipe pictures, redrawn smooth in the new colors;
-* captureking: the original chess pieces, smoothed.
+* captureking: chess pieces drawn as shaded shapes (ui/chess_pieces.py).
 """
 import io
 import os
 import re
+import struct
 import sys
 from PIL import Image, ImageDraw, ImageFilter, ImageChops
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SIZES = (64, 128, 192, 256)
+SIZES = (32, 48, 64, 96, 128, 160, 192)
 
 # ------------------------------------------------------------------ colors
 CARD = (27, 32, 51)            # ThPanel
@@ -30,8 +31,9 @@ PIPE_MID = (111, 181, 214)
 PIPE_BODY = (255, 255, 255)
 
 
-def save_gif(im, path, transparent=None):
+def save_gif(im, path, transparent=None, design=None):
     os.makedirs(os.path.dirname(path), exist_ok=True)
+    comment = ('wfc:size=%dx%d' % (design, design)).encode() if design else b''
     rgb = im.convert('RGB')
     pal = rgb.quantize(colors=255 if transparent else 256, method=Image.MEDIANCUT, dither=Image.NONE)
     if transparent is not None:
@@ -46,9 +48,9 @@ def save_gif(im, path, transparent=None):
             for x in range(pal.width):
                 if mp[x, y] < 128:
                     px[x, y] = 255
-        pal.save(path, transparency=255, optimize=True)
+        pal.save(path, transparency=255, optimize=True, comment=comment)
     else:
-        pal.save(path, optimize=True)
+        pal.save(path, optimize=True, comment=comment)
 
 
 # ------------------------------------------------------------------ restaum
@@ -101,7 +103,7 @@ def restaum_ball(size):
 
 def make_restaum():
     for size in SIZES:
-        save_gif(restaum_ball(size), os.path.join(ROOT, 'restaum', 'source', 'sprites', str(size), 'ball.gif'))
+        save_gif(restaum_ball(size), os.path.join(ROOT, 'restaum', 'source', 'sprites', str(size), 'ball.gif'), design=34)
 
 
 # -------------------------------------------------------------------- pipes
@@ -167,13 +169,13 @@ def make_pipes():
         base = os.path.join(ROOT, 'pipes', 'sprites', str(size))
         # the empty cell is fully transparent (the water shows through)
         blank = Image.new('RGB', (size, size), PIPE_OUT)
-        save_gif(blank, os.path.join(base, 'blank.gif'), transparent=Image.new('L', (size, size), 0))
+        save_gif(blank, os.path.join(base, 'blank.gif'), transparent=Image.new('L', (size, size), 0), design=34)
         for i in range(28):
             key = 'piece%d' % i
             if key not in pics:
                 continue
             p = smooth_up(recolor(pics[key]), size)
-            save_gif(p, os.path.join(base, 'piece%d.gif' % i), transparent=p.getchannel('A'))
+            save_gif(p, os.path.join(base, 'piece%d.gif' % i), transparent=p.getchannel('A'), design=34)
         # the pipe stub and the arrow beside the board
         for key, name in (('out1', 'stub'), ('out0', 'arrow')):
             if key in pics:
@@ -184,23 +186,39 @@ def make_pipes():
                     p = smooth_up(ar, size)
                 else:
                     p = smooth_up(recolor(pics[key]), size)
-                save_gif(p, os.path.join(base, name + '.gif'), transparent=p.getchannel('A'))
+                save_gif(p, os.path.join(base, name + '.gif'), transparent=p.getchannel('A'), design=34)
 
 
 # -------------------------------------------------------------- captureking
+def bleed(im):
+    """Spreads the colors of the opaque pixels into the transparent ones, so
+    that enlarging does not draw a halo."""
+    im = im.convert('RGBA')
+    w, h = im.size
+    px = im.load()
+    for _ in range(6):
+        grow = []
+        for y in range(h):
+            for x in range(w):
+                if px[x, y][3] == 0:
+                    near = [px[x + dx, y + dy] for dx in (-1, 0, 1) for dy in (-1, 0, 1)
+                            if 0 <= x + dx < w and 0 <= y + dy < h and px[x + dx, y + dy][3] > 0]
+                    if near:
+                        grow.append((x, y, tuple(sum(c[i] for c in near) // len(near) for i in range(3))))
+        for x, y, c in grow:
+            px[x, y] = c + (1,)
+    return im
+
+
 def make_captureking():
-    src = os.path.join(ROOT, 'captureking', 'Img')
-    for size in SIZES:
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from chess_pieces import piece_image
+    for size in SIZES[:-1]:
         base = os.path.join(ROOT, 'captureking', 'sprites', str(size))
-        for n in [c + str(i) for c in 'bw' for i in range(1, 7)]:
-            im = Image.open(os.path.join(src, n + '.ico')).convert('RGBA')
-            k = 4
-            big = im.resize((size * k, size * k), Image.BICUBIC)
-            a = big.getchannel('A').filter(ImageFilter.GaussianBlur(size * k / 80)).point(lambda v: 255 if v > 110 else 0)
-            rgb = big.convert('RGB').filter(ImageFilter.UnsharpMask(radius=size * k / 40, percent=60, threshold=2))
-            out = rgb.resize((size, size), Image.LANCZOS)
-            mask = a.resize((size, size), Image.LANCZOS)
-            save_gif(out, os.path.join(base, n + '.gif'), transparent=mask)
+        for white, c in ((False, 'b'), (True, 'w')):
+            for kind in range(1, 7):
+                im = piece_image(kind, white, size)
+                save_gif(im, os.path.join(base, '%s%d.gif' % (c, kind)), transparent=im.getchannel('A'), design=46)
 
 
 if __name__ == '__main__':

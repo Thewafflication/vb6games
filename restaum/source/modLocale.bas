@@ -96,6 +96,7 @@ Private Sub AddEnglish1()
     s = s & " as possible."
     P "help.text", s
     P "count.text", "Balls left: {0}"
+    P "button.exit", "Exit"
 End Sub
 
 Private Sub AddEnglish()
@@ -109,6 +110,7 @@ Private Sub AddPolish1()
     s = s & " liczby kulek."
     P "help.text", s
     P "count.text", U("0050006F007A006F0073007400610142006F0020006B0075006C0065006B003A0020007B0030007D")
+    P "button.exit", U("00570079006A015B006300690065")
 End Sub
 
 Private Sub AddPolish()
@@ -120,6 +122,7 @@ Private Sub AddChinese1()
     P "app.title", U("53554EBA8DF368CB0020002800520065007300740061002000310029")
     P "help.text", U("900962E94E004E2A7403FF0C8DF38FC776F890BB7684740379FB52307A7A4F4D4E0A300276EE6807662F8BA952694E0B768474035C3D53EF80FD5C113002")
     P "count.text", U("52694F5974036570FF1A007B0030007D")
+    P "button.exit", U("900051FA")
 End Sub
 
 Private Sub AddChinese()
@@ -133,6 +136,7 @@ Private Sub AddSpanish1()
     s = s & U("006F00720020006E00FA006D00650072006F00200064006500200062006F006C0061007300200070006F007300690062006C0065002E")
     P "help.text", s
     P "count.text", "Bolas restantes: {0}"
+    P "button.exit", "Salir"
 End Sub
 
 Private Sub AddSpanish()

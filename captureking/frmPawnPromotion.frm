@@ -168,6 +168,24 @@ Begin VB.Form frmPawnPromotion
       Top             =   120
       Width           =   4455
    End
+   Begin VB.Shape shpDlg 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpDlgS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpDlgS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "frmPawnPromotion"
 Attribute VB_GlobalNameSpace = False
@@ -206,18 +224,29 @@ For i = 0 To 3
 Next i
 
 optSelect(3).Value = True
+Dim k As Integer
+For k = 0 To 3
+    picboard(k).Move 500 + k * 1100, 1000, 700, 700
+    optSelect(k).Move 500 + k * 1100 + 220, 1850, 260, 260
+Next k
+lblTitle.Move 0, 200, 5000, 500
+lblTitle.Alignment = 2
+cmdSelect.Move 1100, 2450, 2800, 600
+cmdSelect.BackColor = ThAccent2
 
 If frmGame.lblColor.Caption = "white" Then
-    picboard(0) = LoadPicture(App.Path & "\img\w2.ico")
-    picboard(1) = LoadPicture(App.Path & "\img\w3.ico")
-    picboard(2) = LoadPicture(App.Path & "\img\w4.ico")
-    picboard(3) = LoadPicture(App.Path & "\img\w5.ico")
+    picboard(0) = LoadPicture(ThSprite("w2", 700))
+    picboard(1) = LoadPicture(ThSprite("w3", 700))
+    picboard(2) = LoadPicture(ThSprite("w4", 700))
+    picboard(3) = LoadPicture(ThSprite("w5", 700))
 Else
-    picboard(0) = LoadPicture(App.Path & "\img\b2.ico")
-    picboard(1) = LoadPicture(App.Path & "\img\b3.ico")
-    picboard(2) = LoadPicture(App.Path & "\img\b4.ico")
-    picboard(3) = LoadPicture(App.Path & "\img\b5.ico")
+    picboard(0) = LoadPicture(ThSprite("b2", 700))
+    picboard(1) = LoadPicture(ThSprite("b3", 700))
+    picboard(2) = LoadPicture(ThSprite("b4", 700))
+    picboard(3) = LoadPicture(ThSprite("b5", 700))
 End If
 
+ThemeDialog Me, shpDlg, shpDlgS1, shpDlgS2, 15, 300
+ThemeFitAll Me
 End Sub
 

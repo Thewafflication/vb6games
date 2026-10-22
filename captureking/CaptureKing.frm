@@ -6,16 +6,34 @@ Begin VB.Form frmGame
    AutoRedraw      =   -1  'True
    BackColor       =   &H80000003&
    Caption         =   "Form1"
-   ClientHeight    =   5700
+   ClientHeight    =   6000
    ClientLeft      =   60
    ClientTop       =   570
-   ClientWidth     =   13770
+   ClientWidth     =   14100
    Icon            =   "CaptureKing.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5700
-   ScaleWidth      =   13770
+   ScaleHeight     =   6000
+   ScaleWidth      =   14100
    StartUpPosition =   2  'CenterScreen
    Tag             =   "lline"
+   Begin VB.Shape shpFloat 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpFloatS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpFloatS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
    Begin VB.PictureBox picInvalidMoveOver 
       BorderStyle     =   0  'None
       Height          =   705
@@ -665,6 +683,82 @@ Begin VB.Form frmGame
       TabIndex        =   94
       Top             =   5340
       Width           =   975
+   End
+   Begin VB.CommandButton cmdBarGame 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdBarGame"
+      Height          =   600
+      Left            =   11160
+      TabIndex        =   120
+      Tag             =   "main"
+      Top             =   300
+      Width           =   2800
+   End
+   Begin VB.CommandButton cmdBarCall 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdBarCall"
+      Height          =   600
+      Left            =   11160
+      TabIndex        =   120
+      Tag             =   "main"
+      Top             =   1100
+      Width           =   2800
+   End
+   Begin VB.CommandButton cmdPgDone 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdPgDone"
+      Height          =   600
+      Left            =   11160
+      TabIndex        =   120
+      Tag             =   "pg"
+      Top             =   3300
+      Width           =   2800
+   End
+   Begin VB.CommandButton cmdPcDone 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "cmdPcDone"
+      Height          =   600
+      Left            =   11160
+      TabIndex        =   120
+      Tag             =   "pc"
+      Top             =   3300
+      Width           =   2800
    End
    Begin VB.CommandButton cmdSurrender 
       BeginProperty Font 
@@ -1537,8 +1631,12 @@ End Sub
 Private Sub ModernLayout()
 Dim c As Control
 Dim n As String
-Dim x0 As Single, y0 As Single, x1 As Single, y1 As Single
-x0 = 99999: y0 = 99999: x1 = 0: y1 = 0
+Dim i As Long
+Const S As Single = 700      ' one square of the board
+Const BX As Single = 2150
+Const BY As Single = 150
+Const GX As Single = 8050
+Const AX As Single = 11060
 For Each c In Controls
   n = c.Name
   If n = "picSendMess" Or n = "picCmdCheckOVER" Or n = "picCheckMate" Or n = "picInvalidMove" Or n = "picBack" Or n = "picBack2" Or n = "picBack4" Or n = "picback3" Or n = "Line2" Or n = "Line5" Then
@@ -1546,44 +1644,102 @@ For Each c In Controls
   ElseIf Left(n, 7) = "Picture" Then
     If Val(Mid(n, 8)) <> 0 Then c.Visible = False
   End If
-  If n = "picTAKEN" Then
+Next c
+' the board, the most prominent thing on the screen
+picboard(0).Move BX, BY, S, S   ' BoardLoad lays out the other squares from this one
+For Each c In Controls
+  If c.Name = "picTAKEN" Then
     c.BackColor = ThPanel2
-    If c.Left < x0 Then x0 = c.Left
-    If c.Top < y0 Then y0 = c.Top
-    If c.Left + c.Width > x1 Then x1 = c.Left + c.Width
-    If c.Top + c.Height > y1 Then y1 = c.Top + c.Height
+    c.Move GX + (c.Index Mod 4) * S, BY + (c.Index \ 4) * S, S, S
   End If
 Next c
 ' cards: chat, board, captured pieces, buttons
-ThemeCard shpChat, shpChatS1, shpChatS2, 20, 45, 2000, 5070, 15
-ThemeCard shpBoardCard, shpBoardCardS1, shpBoardCardS2, 2100, 45, 5070, 5070, 15
-ThemeCard shpGrave, shpGraveS1, shpGraveS2, x0 - 90, 45, (x1 - x0) + 180, 5070, 15
-ThemeCard shpActions, shpActionsS1, shpActionsS2, 10200, 45, 3500, 5070, 15
-txtMessageIn.Move 140, 160, 1760, 2760
-txtMessageOut.Move 140, 3020, 1760, 1250
-cmdClearSend.Move 140, 4400, 850, 560
-cmdSend.Move 1050, 4400, 850, 560
+ThemeCard shpChat, shpChatS1, shpChatS2, 20, 45, 2030, 5900, 15
+ThemeCard shpBoardCard, shpBoardCardS1, shpBoardCardS2, BX - 80, 45, 8 * S + 160, 8 * S + 210, 15
+ThemeCard shpGrave, shpGraveS1, shpGraveS2, GX - 90, 45, 4 * S + 180, 8 * S + 210, 15
+ThemeCard shpActions, shpActionsS1, shpActionsS2, AX - 100, 45, 3100, 5900, 15
+txtMessageIn.Move 140, 160, 1810, 3000
+txtMessageOut.Move 140, 3260, 1810, 1700
+cmdClearSend.Move 140, 5150, 850, 560
+cmdSend.Move 1100, 5150, 850, 560
 cmdClearSend.Visible = True
 cmdSend.Visible = True
 cmdSend.BackColor = ThAccent2
-cmdSend.Font.Size = 9
-cmdClearSend.Font.Size = 9
-cmdCallCheck.Move 10320, 160, 3260, 450
-cmdCallCheckMate.Move 10320, 660, 3260, 450
-cmdCallCheat.Move 10320, 1160, 3260, 450
-cmdSurrender.Move 10320, 1660, 3260, 450
+' the always-visible buttons, and the floating panels (tags pg and pc)
+cmdBarGame.Move AX, 300, 2900, 650
+cmdBarCall.Move AX, 1150, 2900, 650
+cmdTExit.Move AX, 2000, 2900, 650
+cmdTExit.BackColor = ThBad
+cmdBarGame.Tag = "main"
+cmdBarCall.Tag = "main"
+cmdTExit.Tag = "main"
+cmdTNew.Move AX, 700, 2900, 600
+cmdTChat.Move AX, 1400, 2900, 600
+cmdTStats.Move AX, 2100, 2900, 600
+cmdTSave.Move AX, 2800, 2900, 600
+cmdTNew.Tag = "pg"
+cmdTChat.Tag = "pg"
+cmdTStats.Tag = "pg"
+cmdTSave.Tag = "pg"
+cmdPgDone.Move AX, 3600, 2900, 600
+cmdCallCheck.Move AX, 700, 2900, 600
+cmdCallCheckMate.Move AX, 1400, 2900, 600
+cmdCallCheat.Move AX, 2100, 2900, 600
+cmdSurrender.Move AX, 2800, 2900, 600
+cmdSurrender.BackColor = ThBad
+cmdCallCheck.Tag = "pc"
+cmdCallCheckMate.Tag = "pc"
+cmdCallCheat.Tag = "pc"
+cmdSurrender.Tag = "pc"
+cmdPcDone.Move AX, 3600, 2900, 600
+cmdPgDone.BackColor = ThAccent2
+cmdPcDone.BackColor = ThAccent2
 cmdCallCheck.Visible = True
 cmdCallCheckMate.Visible = True
 cmdCallCheat.Visible = True
-cmdSurrender.BackColor = ThBad
-cmdTNew.Move 10320, 2400, 3260, 450
-cmdTChat.Move 10320, 2900, 3260, 450
-cmdTStats.Move 10320, 3400, 3260, 450
-cmdTSave.Move 10320, 3900, 3260, 450
-cmdTExit.Move 10320, 4400, 3260, 450
-lblInfo.Move 2100, 5260, 5070, 300
+lblInfo.Move AX, 4700, 2900, 1000
 lblInfo.Alignment = 2
 lblInfo.ForeColor = ThMuted
+lblInfo.BackColor = ThPanel
+lblInfo.Font.Size = 10
+ShowPanel ""
+ThemeFitAll Me
+End Sub
+
+' The two floating panels sit over the buttons: "pg" (the game) and "pc"
+' (calls). ShowPanel "" brings the buttons back.
+Private Sub ShowPanel(ByVal which As String)
+Dim c As Control
+For Each c In Controls
+  Select Case c.Tag
+  Case "main"
+    c.Visible = (which = "")
+  Case "pg"
+    c.Visible = (which = "pg")
+  Case "pc"
+    c.Visible = (which = "pc")
+  End Select
+Next c
+shpFloat.Visible = (which <> "")
+shpFloatS1.Visible = (which <> "")
+shpFloatS2.Visible = (which <> "")
+If which <> "" Then ThemeCard shpFloat, shpFloatS1, shpFloatS2, 10960, 450, 3100, 4000, 15
+End Sub
+
+Private Sub cmdBarGame_Click()
+ShowPanel "pg"
+End Sub
+
+Private Sub cmdBarCall_Click()
+ShowPanel "pc"
+End Sub
+
+Private Sub cmdPgDone_Click()
+ShowPanel ""
+End Sub
+
+Private Sub cmdPcDone_Click()
+ShowPanel ""
 End Sub
 
 Private Sub TouchButtons()
@@ -1592,6 +1748,10 @@ cmdTChat.Caption = Replace(Loc("menu.chat"), "&", "")
 cmdTStats.Caption = Replace(Loc("menu.stats"), "&", "")
 cmdTSave.Caption = Replace(Loc("menu.save"), "&", "")
 cmdTExit.Caption = Replace(Loc("menu.exit"), "&", "")
+cmdBarGame.Caption = Loc("bar.game") & " ..."
+cmdBarCall.Caption = Loc("bar.call") & " ..."
+cmdPgDone.Caption = Loc("button.done")
+cmdPcDone.Caption = Loc("button.done")
 End Sub
 
 Private Sub cmdTNew_Click()
@@ -1910,19 +2070,19 @@ Close #3
 '--------load images into array of squares------
 'Loads PAWNS
 For i = 8 To 15
-    picboard(i) = LoadPicture(App.Path & "\img\b1.ico")
-    picboard(i + 40) = LoadPicture(App.Path & "\img\w1.ico")
+    picboard(i) = LoadPicture(ThSprite("b1", 700))
+    picboard(i + 40) = LoadPicture(ThSprite("w1", 700))
 Next i
 
 'Loads BLACK - PAWNS
-picboard(0) = LoadPicture(App.Path & "\img\b2.ico")
-picboard(1) = LoadPicture(App.Path & "\img\b3.ico")
-picboard(2) = LoadPicture(App.Path & "\img\b4.ico")
-picboard(3) = LoadPicture(App.Path & "\img\b5.ico")
-picboard(4) = LoadPicture(App.Path & "\img\b6.ico")
-picboard(5) = LoadPicture(App.Path & "\img\b4.ico")
-picboard(6) = LoadPicture(App.Path & "\img\b3.ico")
-picboard(7) = LoadPicture(App.Path & "\img\b2.ico")
+picboard(0) = LoadPicture(ThSprite("b2", 700))
+picboard(1) = LoadPicture(ThSprite("b3", 700))
+picboard(2) = LoadPicture(ThSprite("b4", 700))
+picboard(3) = LoadPicture(ThSprite("b5", 700))
+picboard(4) = LoadPicture(ThSprite("b6", 700))
+picboard(5) = LoadPicture(ThSprite("b4", 700))
+picboard(6) = LoadPicture(ThSprite("b3", 700))
+picboard(7) = LoadPicture(ThSprite("b2", 700))
 
 'Loads blanks
 For i = 16 To 47
@@ -1930,14 +2090,14 @@ For i = 16 To 47
 Next i
 
 'Loads WHITE - PAWNS
-picboard(56) = LoadPicture(App.Path & "\img\w2.ico")
-picboard(57) = LoadPicture(App.Path & "\img\w3.ico")
-picboard(58) = LoadPicture(App.Path & "\img\w4.ico")
-picboard(59) = LoadPicture(App.Path & "\img\w6.ico")
-picboard(60) = LoadPicture(App.Path & "\img\w5.ico")
-picboard(61) = LoadPicture(App.Path & "\img\w4.ico")
-picboard(62) = LoadPicture(App.Path & "\img\w3.ico")
-picboard(63) = LoadPicture(App.Path & "\img\w2.ico")
+picboard(56) = LoadPicture(ThSprite("w2", 700))
+picboard(57) = LoadPicture(ThSprite("w3", 700))
+picboard(58) = LoadPicture(ThSprite("w4", 700))
+picboard(59) = LoadPicture(ThSprite("w6", 700))
+picboard(60) = LoadPicture(ThSprite("w5", 700))
+picboard(61) = LoadPicture(ThSprite("w4", 700))
+picboard(62) = LoadPicture(ThSprite("w3", 700))
+picboard(63) = LoadPicture(ThSprite("w2", 700))
 
 
 lblInfo.Caption = Loc("info.localSetup")
@@ -1982,19 +2142,19 @@ If df = vbYes Then
 '--------load images into array of squares------
 'Loads PAWNS
 For i = 8 To 15
-    picboard(i) = LoadPicture(App.Path & "\img\b1.ico")
-    picboard(i + 40) = LoadPicture(App.Path & "\img\w1.ico")
+    picboard(i) = LoadPicture(ThSprite("b1", 700))
+    picboard(i + 40) = LoadPicture(ThSprite("w1", 700))
 Next i
 
 'Loads BLACK - PAWNS
-picboard(0) = LoadPicture(App.Path & "\img\b2.ico")
-picboard(1) = LoadPicture(App.Path & "\img\b3.ico")
-picboard(2) = LoadPicture(App.Path & "\img\b4.ico")
-picboard(3) = LoadPicture(App.Path & "\img\b5.ico")
-picboard(4) = LoadPicture(App.Path & "\img\b6.ico")
-picboard(5) = LoadPicture(App.Path & "\img\b4.ico")
-picboard(6) = LoadPicture(App.Path & "\img\b3.ico")
-picboard(7) = LoadPicture(App.Path & "\img\b2.ico")
+picboard(0) = LoadPicture(ThSprite("b2", 700))
+picboard(1) = LoadPicture(ThSprite("b3", 700))
+picboard(2) = LoadPicture(ThSprite("b4", 700))
+picboard(3) = LoadPicture(ThSprite("b5", 700))
+picboard(4) = LoadPicture(ThSprite("b6", 700))
+picboard(5) = LoadPicture(ThSprite("b4", 700))
+picboard(6) = LoadPicture(ThSprite("b3", 700))
+picboard(7) = LoadPicture(ThSprite("b2", 700))
 
 'Loads blanks
 For i = 16 To 47
@@ -2002,14 +2162,14 @@ For i = 16 To 47
 Next i
 
 'Loads WHITE - PAWNS
-picboard(56) = LoadPicture(App.Path & "\img\w2.ico")
-picboard(57) = LoadPicture(App.Path & "\img\w3.ico")
-picboard(58) = LoadPicture(App.Path & "\img\w4.ico")
-picboard(59) = LoadPicture(App.Path & "\img\w6.ico")
-picboard(60) = LoadPicture(App.Path & "\img\w5.ico")
-picboard(61) = LoadPicture(App.Path & "\img\w4.ico")
-picboard(62) = LoadPicture(App.Path & "\img\w3.ico")
-picboard(63) = LoadPicture(App.Path & "\img\w2.ico")
+picboard(56) = LoadPicture(ThSprite("w2", 700))
+picboard(57) = LoadPicture(ThSprite("w3", 700))
+picboard(58) = LoadPicture(ThSprite("w4", 700))
+picboard(59) = LoadPicture(ThSprite("w6", 700))
+picboard(60) = LoadPicture(ThSprite("w5", 700))
+picboard(61) = LoadPicture(ThSprite("w4", 700))
+picboard(62) = LoadPicture(ThSprite("w3", 700))
+picboard(63) = LoadPicture(ThSprite("w2", 700))
 
 Else
     Exit Sub
@@ -2245,6 +2405,8 @@ Private Sub BoardLoad()
 For i = 1 To 63
         Load picboard(i)
         picboard(i).Visible = True
+        picboard(i).Width = picboard(0).Width
+        picboard(i).Height = picboard(0).Height
 
     If i Mod 8 = 0 Then
         picboard(i).Left = picboard(0).Left
@@ -2270,29 +2432,29 @@ Next i
 '--------load images into array of squares------
 'Loads PAWNS
 For i = 8 To 15
-    picboard(i) = LoadPicture(App.Path & "\img\b1.ico")
-    picboard(i + 40) = LoadPicture(App.Path & "\img\w1.ico")
+    picboard(i) = LoadPicture(ThSprite("b1", 700))
+    picboard(i + 40) = LoadPicture(ThSprite("w1", 700))
 Next i
 
 'Loads BLACK - PAWNS
-picboard(0) = LoadPicture(App.Path & "\img\b2.ico")
-picboard(1) = LoadPicture(App.Path & "\img\b3.ico")
-picboard(2) = LoadPicture(App.Path & "\img\b4.ico")
-picboard(3) = LoadPicture(App.Path & "\img\b5.ico")
-picboard(4) = LoadPicture(App.Path & "\img\b6.ico")
-picboard(5) = LoadPicture(App.Path & "\img\b4.ico")
-picboard(6) = LoadPicture(App.Path & "\img\b3.ico")
-picboard(7) = LoadPicture(App.Path & "\img\b2.ico")
+picboard(0) = LoadPicture(ThSprite("b2", 700))
+picboard(1) = LoadPicture(ThSprite("b3", 700))
+picboard(2) = LoadPicture(ThSprite("b4", 700))
+picboard(3) = LoadPicture(ThSprite("b5", 700))
+picboard(4) = LoadPicture(ThSprite("b6", 700))
+picboard(5) = LoadPicture(ThSprite("b4", 700))
+picboard(6) = LoadPicture(ThSprite("b3", 700))
+picboard(7) = LoadPicture(ThSprite("b2", 700))
 
 'Loads WHITE - PAWNS
-picboard(56) = LoadPicture(App.Path & "\img\w2.ico")
-picboard(57) = LoadPicture(App.Path & "\img\w3.ico")
-picboard(58) = LoadPicture(App.Path & "\img\w4.ico")
-picboard(59) = LoadPicture(App.Path & "\img\w6.ico")
-picboard(60) = LoadPicture(App.Path & "\img\w5.ico")
-picboard(61) = LoadPicture(App.Path & "\img\w4.ico")
-picboard(62) = LoadPicture(App.Path & "\img\w3.ico")
-picboard(63) = LoadPicture(App.Path & "\img\w2.ico")
+picboard(56) = LoadPicture(ThSprite("w2", 700))
+picboard(57) = LoadPicture(ThSprite("w3", 700))
+picboard(58) = LoadPicture(ThSprite("w4", 700))
+picboard(59) = LoadPicture(ThSprite("w6", 700))
+picboard(60) = LoadPicture(ThSprite("w5", 700))
+picboard(61) = LoadPicture(ThSprite("w4", 700))
+picboard(62) = LoadPicture(ThSprite("w3", 700))
+picboard(63) = LoadPicture(ThSprite("w2", 700))
 
 'Loads lines around board
 
@@ -2745,46 +2907,46 @@ For R = 0 To 7
     For C = 0 To 7
         'WHITE PAWN
         If Mid((BoardState(R, C)), 1, 2) = "WP" Then
-            picboard(i) = LoadPicture(App.Path & "\img\w1.ico")
+            picboard(i) = LoadPicture(ThSprite("w1", 700))
         End If
         'BLACK PAWN
         If Mid((BoardState(R, C)), 1, 2) = "BP" Then
-            picboard(i) = LoadPicture(App.Path & "\img\b1.ico")
+            picboard(i) = LoadPicture(ThSprite("b1", 700))
         End If
         'WHITE ROOK
         If Mid((BoardState(R, C)), 1, 2) = "WR" Then
-            picboard(i) = LoadPicture(App.Path & "\img\w2.ico")
+            picboard(i) = LoadPicture(ThSprite("w2", 700))
         End If
         'BLACK ROOK
         If Mid((BoardState(R, C)), 1, 2) = "BR" Then
-            picboard(i) = LoadPicture(App.Path & "\img\b2.ico")
+            picboard(i) = LoadPicture(ThSprite("b2", 700))
         End If
         'WHITE KING
         If Mid((BoardState(R, C)), 1, 2) = "W+" Then
-            picboard(i) = LoadPicture(App.Path & "\img\b2.ico")
+            picboard(i) = LoadPicture(ThSprite("b2", 700))
         End If
         'BLACK KING
         If Mid((BoardState(R, C)), 1, 2) = "B+" Then
-            picboard(i) = LoadPicture(App.Path & "\img\b2.ico")
+            picboard(i) = LoadPicture(ThSprite("b2", 700))
         End If
         
         If BoardState(R, C) = "WP1" Then
-            picboard(i) = LoadPicture(App.Path & "\img\w1.ico")
+            picboard(i) = LoadPicture(ThSprite("w1", 700))
         End If
         If BoardState(R, C) = "WP1" Then
-            picboard(i) = LoadPicture(App.Path & "\img\w1.ico")
+            picboard(i) = LoadPicture(ThSprite("w1", 700))
         End If
         If BoardState(R, C) = "WP1" Then
-            picboard(i) = LoadPicture(App.Path & "\img\w1.ico")
+            picboard(i) = LoadPicture(ThSprite("w1", 700))
         End If
         If BoardState(R, C) = "WP1" Then
-            picboard(i) = LoadPicture(App.Path & "\img\w1.ico")
+            picboard(i) = LoadPicture(ThSprite("w1", 700))
         End If
         If BoardState(R, C) = "WP1" Then
-            picboard(i) = LoadPicture(App.Path & "\img\w1.ico")
+            picboard(i) = LoadPicture(ThSprite("w1", 700))
         End If
         If BoardState(R, C) = "WP1" Then
-            picboard(i) = LoadPicture(App.Path & "\img\w1.ico")
+            picboard(i) = LoadPicture(ThSprite("w1", 700))
         End If
         
         

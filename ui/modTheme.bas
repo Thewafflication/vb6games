@@ -217,8 +217,7 @@ Public Sub ThemeFitText(frm As Form, c As Object)
     t = c.Caption
     If Len(t) = 0 Then Exit Sub
     If InStr(t, vbLf) > 0 Or InStr(t, vbCr) > 0 Then Exit Sub
-    wrap = False
-    wrap = c.WordWrap
+    wrap = (TypeName(c) = "Label")  ' a label wraps in its box
     au = False
     au = c.AutoSize
     If au Then Exit Sub
@@ -276,22 +275,41 @@ Public Function ThScreenPixels() As Long
     ThScreenPixels = CLng(Screen.Width / Screen.TwipsPerPixelX)
 End Function
 
-' The size of the sprite set that suits the screen: 64, 128, 192 or 256.
-Public Function ThSpriteSize() As Long
-    Dim px As Long
-    px = ThScreenPixels()
-    If px <= 900 Then
+' The size of the sprite set that suits a picture box of boxTwips on this
+' screen: the sprites come in several sizes (32 to 192 pixels) and the one
+' nearest the box's size in real pixels is used, so that nothing is enlarged
+' or squeezed much.
+Public Function ThSpriteSize(ByVal boxTwips As Single) As Long
+    Dim want As Single
+    want = boxTwips / Screen.TwipsPerPixelX
+    If want <= 40 Then
+        ThSpriteSize = 32
+    ElseIf want <= 56 Then
+        ThSpriteSize = 48
+    ElseIf want <= 80 Then
         ThSpriteSize = 64
-    ElseIf px <= 1700 Then
+    ElseIf want <= 112 Then
+        ThSpriteSize = 96
+    ElseIf want <= 144 Then
         ThSpriteSize = 128
-    ElseIf px <= 2800 Then
-        ThSpriteSize = 192
+    ElseIf want <= 176 Then
+        ThSpriteSize = 160
     Else
-        ThSpriteSize = 256
+        ThSpriteSize = 192
     End If
 End Function
 
-' The file of a sprite (a GIF in sprites\<size>) in the set for this screen.
-Public Function ThSprite(ByVal name As String) As String
-    ThSprite = App.Path & "\sprites\" & CStr(ThSpriteSize()) & "\" & name & ".gif"
+' The file of a sprite (a GIF in sprites\<size>) in the set for a box of
+' boxTwips.
+Public Function ThSprite(ByVal name As String, ByVal boxTwips As Single) As String
+    ThSprite = App.Path & "\sprites\" & CStr(ThSpriteSize(boxTwips)) & "\" & name & ".gif"
+End Function
+
+' The same for a sprite kept as an icon (its directory size is the size the
+' program lays it out at; the image has more pixels). Sets stop at 160.
+Public Function ThSpriteIcon(ByVal name As String, ByVal boxTwips As Single) As String
+    Dim sz As Long
+    sz = ThSpriteSize(boxTwips)
+    If sz > 160 Then sz = 160
+    ThSpriteIcon = App.Path & "\sprites\" & CStr(sz) & "\" & name & ".ico"
 End Function

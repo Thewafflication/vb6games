@@ -5,16 +5,16 @@ Begin VB.Form frmChat
    BackColor       =   &H8000000D&
    BorderStyle     =   0  'None
    Caption         =   "v"
-   ClientHeight    =   7485
+   ClientHeight    =   7200
    ClientLeft      =   4545
    ClientTop       =   2145
-   ClientWidth     =   15645
+   ClientWidth     =   13000
    Icon            =   "frmChat.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   7485
-   ScaleWidth      =   15645
+   ScaleHeight     =   7200
+   ScaleWidth      =   13000
    Begin VB.PictureBox Picture54 
       Appearance      =   0  'Flat
       BackColor       =   &H80000005&
@@ -1814,6 +1814,60 @@ Begin VB.Form frmChat
          Caption         =   "Game Board"
       End
    End
+   Begin VB.Shape shpA 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpAS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpAS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpB 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpBS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpC 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpCS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpCS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "frmChat"
 Attribute VB_GlobalNameSpace = False
@@ -2058,10 +2112,91 @@ lblOnline.Caption = Loc("chat.online")
 mnugameboard.Caption = Loc("chat.gameBoard")
 End Sub
 
+' A clean full-screen layout: messages, the people, and the invitations.
+' The art around the boxes and the pictured buttons are hidden; the real
+' buttons stand in for them.
+Private Sub ChatLayout()
+Dim c As Control
+Dim n As String
+Dim i As Long
+Dim y As Single
+For Each c In Controls
+  n = c.Name
+  If Left(n, 7) = "Picture" Or Left(n, 4) = "picC" Or Left(n, 4) = "picS" Or Left(n, 4) = "picI" Or Left(n, 4) = "picT" Or n = "txtIP" Or n = "lblIP" Or n = "lblInvite" Or n = "lblUser" Then
+    c.Visible = False
+  End If
+Next c
+ThemeFullScreen Me
+BackColor = ThBack
+ThemeCard shpA, shpAS1, shpAS2, 60, 60, 5100, 7080, 15
+ThemeCard shpB, shpBS1, shpBS2, 5300, 60, 2300, 7080, 15
+ThemeCard shpC, shpCS1, shpCS2, 7740, 60, 5200, 7080, 15
+lblUserMessages.Move 160, 130, 4900, 300
+txtMyArrival.Move 160, 470, 4900, 3600
+lblMessageHere.Move 160, 4200, 4900, 300
+txtMySend.Move 160, 4540, 4900, 1500
+cmdMySend.Move 160, 6200, 2400, 650
+cmdMyPrivateSend.Move 2660, 6200, 2400, 650
+cmdMySend.Visible = True
+cmdMyPrivateSend.Visible = True
+cmdMyPrivateSend.Caption = Loc("chat.sendPrivate")
+cmdMySend.BackColor = ThAccent2
+lblOnline.Move 5400, 130, 2100, 300
+lstUsers.Move 5400, 470, 2100, 3000
+lblPrivate.Move 5400, 3600, 2100, 300
+lstPrivateUsers.Move 5400, 3940, 2100, 2900
+lblStats.Move 7840, 130, 2400, 300
+lblUserSelect.Move 7840, 450, 4900, 300
+txtstat.Move 7840, 800, 4900, 1900
+lblInvites.Move 7840, 2850, 4900, 300
+y = 3250
+For i = 0 To 2
+  txtInvite(i).Move 8800, y, 2500, 420
+  y = y + 600
+Next i
+lblInvite1.Move 7840, 3300, 900, 300
+lblinvite2.Move 7840, 3900, 900, 300
+lblinvite3.Move 7840, 4500, 900, 300
+cmdAccept1.Move 11400, 3250, 600, 420
+cmdDecline1.Move 12100, 3250, 600, 420
+cmdAccept2.Move 11400, 3850, 600, 420
+cmdDecline2.Move 12100, 3850, 600, 420
+cmdAccept3.Move 11400, 4450, 600, 420
+cmdDecline3.Move 12100, 4450, 600, 420
+cmdAccept1.Caption = ChrW(10003)
+cmdAccept2.Caption = ChrW(10003)
+cmdAccept3.Caption = ChrW(10003)
+cmdDecline1.Caption = ChrW(10005)
+cmdDecline2.Caption = ChrW(10005)
+cmdDecline3.Caption = ChrW(10005)
+cmdInvite.Move 7840, 5350, 4900, 650
+cmdInvite.Visible = True
+cmdExit.Move 7840, 6200, 2400, 650
+cmdExit.BackColor = ThBad
+lblReject.Move 10400, 6250, 2400, 550
+lblStats.BackColor = ThPanel
+lblUserSelect.BackColor = ThPanel
+lblInvites.BackColor = ThPanel
+lblInvite1.BackColor = ThPanel
+lblinvite2.BackColor = ThPanel
+lblinvite3.BackColor = ThPanel
+lblOnline.BackColor = ThPanel
+lblPrivate.BackColor = ThPanel
+lblMessageHere.BackColor = ThPanel
+lblUserMessages.BackColor = ThPanel
+lblReject.BackColor = ThPanel
+lblStats.ForeColor = ThAccent
+lblOnline.ForeColor = ThAccent
+lblPrivate.ForeColor = ThAccent
+lblInvites.ForeColor = ThAccent
+lblUserMessages.ForeColor = ThAccent
+lblMessageHere.ForeColor = ThAccent
+ThemeShift Me, (ScaleWidth - 13000) / 2, (ScaleHeight - 7200) / 2
+ThemeFitAll Me
+End Sub
+
 Private Sub Form_Load()
 ApplyLocale
-frmChat.Height = 6675
-frmChat.Width = 12480
 
 'sets ports
 socket1.RemoteHost = "255.255.255.255"
@@ -2070,6 +2205,7 @@ socket1.LocalPort = 72
 frmChat.BackColor = ThBack
 ThemeApply Me
 mnuView.Visible = False
+ChatLayout
 ' the other states of the Invite button are only picture sources
 picInvite.Visible = False
 picInviteDis.Visible = False
@@ -2087,8 +2223,8 @@ gamesocket.SendData ""
 'sets user name to blank
 UserNameSelect = ""
 
-lblMessageHere.BackColor = frmChat.BackColor
-lblUserMessages.BackColor = frmChat.BackColor
+lblMessageHere.BackColor = ThPanel
+lblUserMessages.BackColor = ThPanel
 
 gamesocket.RemoteHost = "255.255.255.255"
 

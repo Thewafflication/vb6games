@@ -10,6 +10,24 @@ Begin VB.Form frmStats
    ScaleHeight     =   6165
    ScaleWidth      =   8820
    StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton cmdClose 
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Style           =   1  'Graphical
+      Caption         =   "OK"
+      Height          =   600
+      Left            =   3000
+      TabIndex        =   30
+      Top             =   6300
+      Width           =   2400
+   End
    Begin VB.TextBox txtstats 
       BeginProperty Font 
          Name            =   "Segoe UI"
@@ -29,6 +47,24 @@ Begin VB.Form frmStats
       Top             =   120
       Width           =   8535
    End
+   Begin VB.Shape shpDlg 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpDlgS1 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
+   Begin VB.Shape shpDlgS2 
+      Height          =   300
+      Left            =   0
+      Top             =   0
+      Width           =   300
+   End
 End
 Attribute VB_Name = "frmStats"
 Attribute VB_GlobalNameSpace = False
@@ -44,8 +80,15 @@ txtstats.Enabled = True
 txtstats.Locked = True
 txtstats.ForeColor = ThText
 txtstats.Font.Size = 16
+cmdClose.Caption = Loc("button.done")
+cmdClose.BackColor = ThAccent2
+ThemeDialog Me, shpDlg, shpDlgS1, shpDlgS2, 15, 300
 
 Call refreshStat
+End Sub
+
+Private Sub cmdClose_Click()
+Unload Me
 End Sub
 
 Public Sub refreshStat()

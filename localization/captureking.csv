@@ -91,3 +91,7 @@ msg.dragOff,Please dont drag pieces off the board!,Nie przeciągaj figur poza pl
 stats.a,User XP:{tab}{tab}{0}{nl}Wins:{tab}{tab}{tab}{1}{nl}Loses:{tab}{tab}{tab}{2}{nl}Games:{tab}{tab}{3}{nl},Doświadczenie:{tab}{tab}{0}{nl}Wygrane:{tab}{tab}{tab}{1}{nl}Przegrane:{tab}{tab}{tab}{2}{nl}Gry:{tab}{tab}{3}{nl},经验值：{tab}{tab}{0}{nl}胜：{tab}{tab}{tab}{1}{nl}负：{tab}{tab}{tab}{2}{nl}局数：{tab}{tab}{3}{nl},Experiencia:{tab}{tab}{0}{nl}Victorias:{tab}{tab}{tab}{1}{nl}Derrotas:{tab}{tab}{tab}{2}{nl}Partidas:{tab}{tab}{3}{nl}
 stats.b,User Level:{tab}{tab}{0}{nl}Wins:{tab}{tab}{tab}{1}{nl}loses:{tab}{tab}{tab}{2}{nl}Surrenders:{tab}{tab}{3}{nl},Poziom:{tab}{tab}{0}{nl}Wygrane:{tab}{tab}{tab}{1}{nl}przegrane:{tab}{tab}{tab}{2}{nl}Poddania:{tab}{tab}{3}{nl},等级：{tab}{tab}{0}{nl}胜：{tab}{tab}{tab}{1}{nl}负：{tab}{tab}{tab}{2}{nl}投降：{tab}{tab}{3}{nl},Nivel:{tab}{tab}{0}{nl}Victorias:{tab}{tab}{tab}{1}{nl}derrotas:{tab}{tab}{tab}{2}{nl}Rendiciones:{tab}{tab}{3}{nl}
 stats.c,User XP:{tab}{tab}{0}{nl}Wins:{tab}{tab}{1}{nl}Loses:{tab}{tab}{2}{nl}Games:{tab}{tab}{3}{nl},Doświadczenie:{tab}{tab}{0}{nl}Wygrane:{tab}{tab}{1}{nl}Przegrane:{tab}{tab}{2}{nl}Gry:{tab}{tab}{3}{nl},经验值：{tab}{tab}{0}{nl}胜：{tab}{tab}{1}{nl}负：{tab}{tab}{2}{nl}局数：{tab}{tab}{3}{nl},Experiencia:{tab}{tab}{0}{nl}Victorias:{tab}{tab}{1}{nl}Derrotas:{tab}{tab}{2}{nl}Partidas:{tab}{tab}{3}{nl}
+button.done,OK,OK,确定,Aceptar
+bar.game,Game,Gra,游戏,Partida
+bar.call,Call,Zgłoś,判定,Reclamar
+chat.sendPrivate,Private Message,Wiadomość prywatna,私信,Mensaje privado

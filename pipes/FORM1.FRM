@@ -1813,15 +1813,15 @@ Private Sub LoadSprites()
   Dim i As Integer
   For i = 0 To 27
     piece(i).BorderStyle = 0
-    piece(i).Picture = LoadPicture(ThSprite("piece" & i))
+    piece(i).Picture = LoadPicture(ThSprite("piece" & i, 510))
   Next i
   blank.BorderStyle = 0
-  blank.Picture = LoadPicture(ThSprite("blank"))
+  blank.Picture = LoadPicture(ThSprite("blank", 510))
   current.Picture = blank.Picture
-  out(1).Picture = LoadPicture(ThSprite("stub"))
-  out(0).Picture = LoadPicture(ThSprite("arrow"))
-  inx(0).Picture = LoadPicture(ThSprite("stub"))
-  inx(1).Picture = LoadPicture(ThSprite("arrow"))
+  out(1).Picture = LoadPicture(ThSprite("stub", 510))
+  out(0).Picture = LoadPicture(ThSprite("arrow", 510))
+  inx(0).Picture = LoadPicture(ThSprite("stub", 510))
+  inx(1).Picture = LoadPicture(ThSprite("arrow", 510))
 End Sub
 
 Private Sub Form_Load()

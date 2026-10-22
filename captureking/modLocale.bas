@@ -265,6 +265,10 @@ Private Sub AddEnglish3()
     s = s & "{3}"
     s = s & vbCrLf
     P "stats.c", s
+    P "button.done", "OK"
+    P "bar.game", "Game"
+    P "bar.call", "Call"
+    P "chat.sendPrivate", "Private Message"
 End Sub
 
 Private Sub AddEnglish()
@@ -450,6 +454,10 @@ Private Sub AddPolish3()
     s = s & "{3}"
     s = s & vbCrLf
     P "stats.c", s
+    P "button.done", "OK"
+    P "bar.game", "Gra"
+    P "bar.call", U("005A00670142006F015B")
+    P "chat.sendPrivate", U("0057006900610064006F006D006F015B01070020007000720079007700610074006E0061")
 End Sub
 
 Private Sub AddPolish()
@@ -631,6 +639,10 @@ Private Sub AddChinese3()
     s = s & "{3}"
     s = s & vbCrLf
     P "stats.c", s
+    P "button.done", U("786E5B9A")
+    P "bar.game", U("6E38620F")
+    P "bar.call", U("52245B9A")
+    P "chat.sendPrivate", U("79C14FE1")
 End Sub
 
 Private Sub AddChinese()
@@ -816,6 +828,10 @@ Private Sub AddSpanish3()
     s = s & "{3}"
     s = s & vbCrLf
     P "stats.c", s
+    P "button.done", "Aceptar"
+    P "bar.game", "Partida"
+    P "bar.call", "Reclamar"
+    P "chat.sendPrivate", "Mensaje privado"
 End Sub
 
 Private Sub AddSpanish()
