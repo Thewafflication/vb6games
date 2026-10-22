@@ -54,5 +54,16 @@ the program's forms and turns mouse and touch input into the events the
 programs expect. WFC release 0.8.0 with its full-screen commits is the
 reference; the games also run in ordinary windows.
 
+Menus are replaced by buttons that open floating panels of controls. No game
+has a window border or a menu bar; every form fills the screen exactly. Text
+is fitted to its control at run time (`ThemeFitText`), so no language or
+resolution clips it.
+
+Bitmap sprites come in several sizes (`sprites/32` ... `192`, made by
+`python ui/make_sprites.py`, which needs Pillow) and the set nearest the
+on-screen size is chosen at run time (`ThSprite` in `ui/modTheme.bas`). A GIF
+carries the size the program lays it out at in a comment (`wfc:size=WxH`),
+which WFC honors, so a sprite with more pixels is only resampled.
+
 Some art is the original authors' (the Pipes splash picture, the pieces of
 Capture King and Executioner, the sprites of Pipes and Resta Um) and is kept.
