@@ -1,0 +1,71 @@
+name: Games
+
+# Builds WFC with this repository as its tests/vb6games and runs every game
+# test: the screenshots of each form, the scripted play sessions, the Capture
+# King games over sockets and the packaged programs (interpreted, compiled and
+# dynamically linked).
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      wfc_ref:
+        description: The WFC branch, tag or commit to test with
+        required: false
+        default: master
+
+permissions:
+  contents: read
+
+jobs:
+  games:
+    name: Game tests (x64)
+    runs-on: windows-2022
+    timeout-minutes: 90
+    steps:
+      - name: Check out the games
+        uses: actions/checkout@v4
+        with:
+          path: games
+
+      - name: Check out WFC
+        uses: actions/checkout@v4
+        with:
+          repository: Thewafflication/wfc
+          ref: ${{ inputs.wfc_ref || 'master' }}
+          path: wfc
+          submodules: true
+
+      - name: Use these games as tests/vb6games
+        shell: pwsh
+        run: |
+          Remove-Item -LiteralPath wfc/tests/vb6games -Recurse -Force
+          Move-Item -LiteralPath games -Destination wfc/tests/vb6games
+
+      - name: Configure WFC with every game test
+        shell: pwsh
+        working-directory: wfc
+        run: cmake --preset windows-x64-debug -DWFC_VB6GAMES_FULL=ON
+
+      - name: Build WFC
+        shell: pwsh
+        working-directory: wfc
+        run: cmake --build --preset windows-x64-debug
+
+      - name: Test the games
+        shell: pwsh
+        working-directory: wfc
+        run: |
+          $pattern = 'vb6games|(package|dynamic-package|native-package)-(clix|connect4|executioner|pipes|restaum|sumboku|icon|standalone)'
+          ctest --test-dir out/build/windows-x64-debug -C Debug -R $pattern --output-on-failure
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Keep the screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: wfc/out/build/windows-x64-debug/screenshots
+          if-no-files-found: ignore

@@ -67,3 +67,21 @@ which WFC honors, so a sprite with more pixels is only resampled.
 
 Some art is the original authors' (the Pipes splash picture, the pieces of
 Capture King and Executioner, the sprites of Pipes and Resta Um) and is kept.
+
+## Tests
+
+`tests/` holds the tests of the games: the scripts that play each game (`*.ui`
+with the text they must produce, `*.expected`), the helpers that run them and
+`CMakeLists.txt`, which registers them. They run with
+[WFC](https://github.com/Thewafflication/wfc) (`wfc` plays the games), so the
+tests are part of a WFC build: this repository is mounted there as
+`tests/vb6games`, and `tests/CMakeLists.txt` is added to the WFC build.
+
+- WFC's own commit gate runs a smoke pair (Connect 4 played through a script,
+  interpreted and compiled).
+- The `Games` workflow (`.github/workflows/games.yml`) builds WFC with this
+  repository as `tests/vb6games` and `-DWFC_VB6GAMES_FULL=ON` and runs every
+  test: the screenshots of each form, the scripted sessions, the Capture King
+  games over sockets and the packaged programs.
+- To run them yourself, configure WFC with `-DWFC_VB6GAMES_FULL=ON` and run
+  `ctest -R vb6games`.
