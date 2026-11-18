@@ -187,10 +187,17 @@ function Build-GamesPackage([string]$Link, [string[]]$Depends) {
 
     New-Item -ItemType Directory -Force -Path (Join-Path $staging '.wpm') |
         Out-Null
-    foreach ($script in 'install.cmd', 'remove.cmd') {
-        Set-Content (Join-Path $staging ".wpm/$script") -Encoding ascii `
-            -Value @('@echo off', 'exit /b 0')
-    }
+    # WPM runs install.cmd and remove.cmd from the unpacked package: they hand
+    # over to Install-WfcGames.ps1, which copies the games to Program Files
+    # (or the user's Programs folder) and adds the Start menu shortcuts.
+    Copy-Item (Join-Path $PSScriptRoot 'Install-WfcGames.ps1') $staging
+    $script = '"%~dp0..\Install-WfcGames.ps1"'
+    $run = "powershell -NoProfile -ExecutionPolicy Bypass -File $script " +
+        "-Source `"%~dp0..`" -Link $Link"
+    Set-Content (Join-Path $staging '.wpm/install.cmd') -Encoding ascii `
+        -Value @('@echo off', "$run || exit /b 1", 'exit /b 0')
+    Set-Content (Join-Path $staging '.wpm/remove.cmd') -Encoding ascii `
+        -Value @('@echo off', "$run -Uninstall || exit /b 1", 'exit /b 0')
     $how = if ($Link -eq 'static') {
         'statically linked, they need nothing else'
     } else {
