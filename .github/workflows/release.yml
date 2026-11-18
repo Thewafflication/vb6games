@@ -2,10 +2,12 @@ name: Release
 
 # A version tag builds every game for x86, x64 and arm64 with the WFC release
 # named in WFC_VERSION (its wfc-<arch> packages, checked against the
-# release's SHA256SUMS), packs and signs wfc-games-any-<tag>.zip with the WFC
-# release key, and a clean runner verifies the checksums, the index and the
-# signature. Publishing the release from the artifact is a separate step.
-# A manual run with dry_run builds an unsigned package to try the jobs.
+# release's SHA256SUMS), packs and signs wfc-games-static-any-<tag>.zip and
+# wfc-games-dynamic-any-<tag>.zip (which depends on wfc and the libraries
+# the games use) with the WFC release key, and a clean runner verifies the
+# checksums, the index and the signatures. Publishing the release from the
+# artifact is a separate step. A manual run with dry_run builds unsigned
+# packages to try the jobs.
 
 on:
   push:
@@ -75,11 +77,10 @@ jobs:
           retention-days: 14
 
   package:
-    name: Signed WPM package
+    name: Signed WPM packages
     needs: build
     runs-on: windows-2022
     timeout-minutes: 20
-    environment: ${{ inputs.dry_run && 'dry-run' || 'release' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -107,11 +108,21 @@ jobs:
             Move-Item "out/download/games-$arch" "out/package-input/$arch"
           }
 
+      - name: Download the WFC release index
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $version = (Get-Content WFC_VERSION -TotalCount 1).Trim()
+          gh release download $version --repo Thewafflication/wfc `
+            --pattern index.json --dir out/wfc-index
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Install WPM
         shell: pwsh
         run: ./wfc/scripts/Install-Wpm.ps1
 
-      - name: Build the package
+      - name: Build the packages
         shell: pwsh
         env:
           WPM_PRIVATE_KEY: ${{ secrets.WPM_RELEASE_PRIVATE_KEY }}
@@ -124,7 +135,7 @@ jobs:
           $keyPath = Join-Path $env:RUNNER_TEMP 'wfc-release.private'
           if ($env:DRY_RUN -ne 'true') {
             if ([string]::IsNullOrWhiteSpace($env:WPM_PRIVATE_KEY)) {
-              throw 'The release environment must define the release key.'
+              throw 'The repository must define WPM_RELEASE_PRIVATE_KEY.'
             }
             [IO.File]::WriteAllText($keyPath, $env:WPM_PRIVATE_KEY)
             $sign = @{ SigningKey = $keyPath }
@@ -132,12 +143,15 @@ jobs:
           $wfcVersion = (Get-Content WFC_VERSION -TotalCount 1).Trim()
           try {
             ./scripts/Build-GamesPackage.ps1 -Version $env:VERSION `
-              -WfcLicense wfc/LICENSE -WfcVersion $wfcVersion @sign
+              -WfcLicense wfc/LICENSE -WfcVersion $wfcVersion `
+              -WfcIndex out/wfc-index/index.json @sign
           } finally {
             Remove-Item $keyPath -Force -ErrorAction SilentlyContinue
           }
+          # The index also lists WFC and its libraries, so it resolves the
+          # dependencies of wfc-games-dynamic.
           ./wfc/scripts/New-WpmReleaseIndex.ps1 -Directory out/packages `
-            -Tag $env:VERSION
+            -Tag $env:VERSION -Include out/wfc-index/index.json
 
       - uses: actions/upload-artifact@v4
         with:
@@ -147,7 +161,7 @@ jobs:
           retention-days: 30
 
   verify:
-    name: Verify the signed package
+    name: Verify the signed packages
     if: ${{ !inputs.dry_run }}
     needs: package
     runs-on: windows-2022
@@ -175,5 +189,5 @@ jobs:
       - name: Verify the checksums, the index and the signature
         shell: pwsh
         run: >
-          ./wfc/scripts/Test-WpmRelease.ps1 -Directory out/packages -Count 1
+          ./wfc/scripts/Test-WpmRelease.ps1 -Directory out/packages -Count 2
           -PublicKey wfc/release_keys/wfc-release.public
