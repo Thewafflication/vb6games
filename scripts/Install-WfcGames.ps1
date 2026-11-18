@@ -21,13 +21,16 @@ Removes the games and their shortcuts.
 #>
 [CmdletBinding()]
 param(
-    [string]$Source = (Split-Path -Parent $PSCommandPath),
+    [string]$Source = '',
     [Parameter(Mandatory)][ValidateSet('static', 'dynamic')][string]$Link,
     [switch]$Uninstall
 )
 
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
+# Windows PowerShell 5.1 leaves $PSCommandPath empty in parameter defaults, so
+# the folder of this script is taken here.
+if (-not $Source) { $Source = $PSScriptRoot }
 
 $names = [ordered]@{
     captureking = 'Capture King'
