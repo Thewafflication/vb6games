@@ -1,0 +1,179 @@
+name: Release
+
+# A version tag builds every game for x86, x64 and arm64 with the WFC release
+# named in WFC_VERSION (its wfc-<arch> packages, checked against the
+# release's SHA256SUMS), packs and signs wfc-games-any-<tag>.zip with the WFC
+# release key, and a clean runner verifies the checksums, the index and the
+# signature. Publishing the release from the artifact is a separate step.
+# A manual run with dry_run builds an unsigned package to try the jobs.
+
+on:
+  push:
+    tags: ["*"]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Build an unsigned package without the release key
+        type: boolean
+        default: true
+      version:
+        description: Package version for a manual run
+        required: false
+        default: 0.0.0
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Games ${{ matrix.arch }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - { arch: x86, runner: windows-2022 }
+          - { arch: x64, runner: windows-2022 }
+          - { arch: arm64, runner: windows-11-arm }
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download WFC
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $version = (Get-Content WFC_VERSION -TotalCount 1).Trim()
+          $package = "wfc-${{ matrix.arch }}-$version.zip"
+          $folder = Join-Path $env:RUNNER_TEMP 'wfc-release'
+          gh release download $version --repo Thewafflication/wfc `
+            --pattern $package --pattern SHA256SUMS --dir $folder
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $line = Get-Content (Join-Path $folder SHA256SUMS) |
+            Where-Object { $_ -match "  $([regex]::Escape($package))$" }
+          if (-not $line) { throw "SHA256SUMS does not list $package." }
+          $expected = ($line -split '  ')[0]
+          $actual = (Get-FileHash (Join-Path $folder $package) `
+              -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actual -ne $expected) { throw "Checksum mismatch: $package" }
+          $wfc = Join-Path $env:RUNNER_TEMP 'wfc'
+          Expand-Archive (Join-Path $folder $package) -DestinationPath $wfc
+          "WFC=$wfc\${{ matrix.arch }}\wfc.exe" >> $env:GITHUB_ENV
+
+      - name: Build the games
+        shell: pwsh
+        run: >
+          ./scripts/Build-GamesPackage.ps1 -Collect
+          -Architecture ${{ matrix.arch }} -Wfc $env:WFC
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: games-${{ matrix.arch }}
+          path: out/package-input/${{ matrix.arch }}
+          if-no-files-found: error
+          retention-days: 14
+
+  package:
+    name: Signed WPM package
+    needs: build
+    runs-on: windows-2022
+    timeout-minutes: 20
+    environment: ${{ inputs.dry_run && 'dry-run' || 'release' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out the WFC scripts
+        uses: actions/checkout@v4
+        with:
+          repository: Thewafflication/wfc
+          path: wfc
+          sparse-checkout: |
+            scripts
+            release_keys
+            LICENSE
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: games-*
+          path: out/download
+
+      - name: Arrange the programs
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force out/package-input | Out-Null
+          foreach ($arch in 'x86', 'x64', 'arm64') {
+            Move-Item "out/download/games-$arch" "out/package-input/$arch"
+          }
+
+      - name: Install WPM
+        shell: pwsh
+        run: ./wfc/scripts/Install-Wpm.ps1
+
+      - name: Build the package
+        shell: pwsh
+        env:
+          WPM_PRIVATE_KEY: ${{ secrets.WPM_RELEASE_PRIVATE_KEY }}
+          DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+          VERSION: >-
+            ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name ||
+            inputs.version }}
+        run: |
+          $sign = @{}
+          $keyPath = Join-Path $env:RUNNER_TEMP 'wfc-release.private'
+          if ($env:DRY_RUN -ne 'true') {
+            if ([string]::IsNullOrWhiteSpace($env:WPM_PRIVATE_KEY)) {
+              throw 'The release environment must define the release key.'
+            }
+            [IO.File]::WriteAllText($keyPath, $env:WPM_PRIVATE_KEY)
+            $sign = @{ SigningKey = $keyPath }
+          }
+          $wfcVersion = (Get-Content WFC_VERSION -TotalCount 1).Trim()
+          try {
+            ./scripts/Build-GamesPackage.ps1 -Version $env:VERSION `
+              -WfcLicense wfc/LICENSE -WfcVersion $wfcVersion @sign
+          } finally {
+            Remove-Item $keyPath -Force -ErrorAction SilentlyContinue
+          }
+          ./wfc/scripts/New-WpmReleaseIndex.ps1 -Directory out/packages `
+            -Tag $env:VERSION
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wfc-games-wpm-packages-${{ github.sha }}
+          path: out/packages/*
+          if-no-files-found: error
+          retention-days: 30
+
+  verify:
+    name: Verify the signed package
+    if: ${{ !inputs.dry_run }}
+    needs: package
+    runs-on: windows-2022
+    timeout-minutes: 15
+    steps:
+      - name: Check out the WFC scripts
+        uses: actions/checkout@v4
+        with:
+          repository: Thewafflication/wfc
+          path: wfc
+          sparse-checkout: |
+            scripts
+            release_keys
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: wfc-games-wpm-packages-${{ github.sha }}
+          path: out/packages
+
+      - name: Install WPM
+        shell: pwsh
+        run: ./wfc/scripts/Install-Wpm.ps1
+
+      - name: Verify the checksums, the index and the signature
+        shell: pwsh
+        run: >
+          ./wfc/scripts/Test-WpmRelease.ps1 -Directory out/packages -Count 1
+          -PublicKey wfc/release_keys/wfc-release.public
