@@ -112,6 +112,7 @@ foreach ($game in $names.Keys) {
         (Join-Path $menu "$($names[$game])$label.lnk"))
     $shortcut.TargetPath = $program
     $shortcut.WorkingDirectory = $folder
+    $shortcut.IconLocation = "$program,0"
     $shortcut.Description = "$($names[$game]), a VB6 game built with WFC"
     $shortcut.Save()
 }

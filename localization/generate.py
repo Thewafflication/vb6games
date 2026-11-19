@@ -117,7 +117,7 @@ Private Function U(ByVal Hex4 As String) As String
     Dim i As Long
     Dim s As String
     For i = 1 To Len(Hex4) Step 4
-        s = s & ChrW(CLng("&H" & Mid$(Hex4, i, 4) & "&"))
+        s = s & ChrW(CLng("&H" & Mid$(Hex4, i, 4)))
     Next i
     U = s
 End Function

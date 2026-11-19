@@ -278,7 +278,7 @@ Private Sub Form_Resize()
     Label1.Move x, y + 200, 1500, 320
     x = x + 1500
     PBNextPlayer.Move x, y, 2300, Th
-    LbPlayerName.Move 0, 200, 2300, 320
+    LbPlayerName.Move 0, 180, 2300, 360
     BtnExit.Move Me.ScaleWidth - M - Pad - 1500, y, 1500, Th
     BtnInfo.Move Me.ScaleWidth - M - Pad - 3120, y, 1500, Th
     Dim ty As Single: ty = M + hh + M
