@@ -82,7 +82,7 @@ $games = @(
     @{ Name = 'executioner'; Project = 'executioner/Executioner.vbp' }
     @{ Name = 'pipes'; Project = 'pipes/pipes.vbp' }
     @{ Name = 'restaum'; Project = 'restaum/source/BrainVita.vbp' }
-    @{ Name = 'sumboku'; Project = 'sumboku/v1.4.2/SuMBOku_V_1_4/Sudoku.vbp' }
+    @{ Name = 'sumboku'; Project = 'sumboku/PSuMBOku.vbp' }
 )
 $architectures = 'x86', 'x64', 'arm64'
 # The library package of each control a project names (Object= lines).

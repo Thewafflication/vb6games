@@ -171,6 +171,7 @@ GAMES = {
     "pipes/pipes": pipes,
     "restaum/source/BrainVita": restaum,
     "sumboku/v1.4.2/SuMBOku_V_1_4/Sudoku": sumboku,
+    "sumboku/PSuMBOku": sumboku,
 }
 
 
