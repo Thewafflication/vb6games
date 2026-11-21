@@ -171,12 +171,6 @@ function Build-GamesPackage([string]$Link, [string[]]$Depends) {
             $path = Join-Path $gameRoot $license
             if (Test-Path $path) { Copy-Item $path $folder }
         }
-        # Data the game reads from beside its program (Pipes loads its
-        # sprites from App.Path\sprites).
-        $sprites = Join-Path $gameRoot 'sprites'
-        if (Test-Path $sprites) {
-            Copy-Item $sprites $folder -Recurse
-        }
         foreach ($architecture in $architectures) {
             $file = "$($game.Name)-$architecture$suffix.exe"
             $built = Join-Path $InputRoot "$architecture/$($game.Name)/$file"
