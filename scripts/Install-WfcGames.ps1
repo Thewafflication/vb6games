@@ -5,9 +5,9 @@ Installs or removes the games of a wfc-games package.
 .DESCRIPTION
 Run by the package's .wpm/install.cmd and remove.cmd. As an administrator the
 games go to Program Files\WFC Games\<Static|Dynamic> for every user, with
-Start menu shortcuts under "WFC Games"; without administrator rights they go
-to %LOCALAPPDATA%\Programs\WFC Games\<Static|Dynamic> with shortcuts for the
-current user. Each shortcut starts the game built for this machine's
+Start menu shortcuts in the Programs list; without administrator rights
+they go to %LOCALAPPDATA%\Programs\WFC Games\<Static|Dynamic> with shortcuts
+for the current user. Each shortcut starts the game built for this machine's
 architecture (the x86 program on a machine that has no other).
 
 .PARAMETER Source
@@ -56,21 +56,26 @@ if ($administrator) {
 $kind = if ($Link -eq 'static') { 'Static' } else { 'Dynamic' }
 $games = Join-Path $programs 'WFC Games'
 $target = Join-Path $games $kind
-$menu = Join-Path $start 'WFC Games'
+# The shortcuts sit directly in the Programs list; older packages put them in
+# a "WFC Games" folder, which is cleaned up here.
+$menu = $start
+$oldMenu = Join-Path $start 'WFC Games'
 $label = if ($Link -eq 'static') { '' } else { ' (dynamic)' }
 $suffix = if ($Link -eq 'static') { '' } else { '-dynamic' }
 
 function Remove-InstalledGame {
-    foreach ($game in $names.Keys) {
-        $shortcut = Join-Path $menu "$($names[$game])$label.lnk"
-        if (Test-Path -LiteralPath $shortcut) {
-            Remove-Item -LiteralPath $shortcut -Force
+    foreach ($folder in $menu, $oldMenu) {
+        foreach ($game in $names.Keys) {
+            $shortcut = Join-Path $folder "$($names[$game])$label.lnk"
+            if (Test-Path -LiteralPath $shortcut) {
+                Remove-Item -LiteralPath $shortcut -Force
+            }
         }
     }
     if (Test-Path -LiteralPath $target) {
         Remove-Item -LiteralPath $target -Recurse -Force
     }
-    foreach ($folder in $menu, $games) {
+    foreach ($folder in $oldMenu, $games) {
         if ((Test-Path -LiteralPath $folder) -and
             -not (Get-ChildItem -LiteralPath $folder -Force)) {
             Remove-Item -LiteralPath $folder -Force
@@ -85,7 +90,7 @@ if ($Uninstall) {
 }
 
 Remove-InstalledGame
-New-Item -ItemType Directory -Force -Path $target, $menu | Out-Null
+New-Item -ItemType Directory -Force -Path $target | Out-Null
 foreach ($name in @($names.Keys) + 'SHA256SUMS', 'WFC-LICENSE',
     'README.md') {
     $path = Join-Path $Source $name
