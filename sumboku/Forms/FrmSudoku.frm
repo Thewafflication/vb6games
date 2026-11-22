@@ -108,6 +108,27 @@ Begin VB.Form FrmSudoku
       Top             =   5520
       Width           =   375
    End
+   Begin VB.CommandButton BtnPad
+      BeginProperty Font
+         Name            =   "Segoe UI"
+         Size            =   11
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Caption         =   "1"
+      Height          =   375
+      Index           =   0
+      Left            =   0
+      Style           =   1  'Graphical
+      TabIndex        =   200
+      TabStop         =   0   'False
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   375
+   End
    Begin VB.CommandButton BtnExit 
       BeginProperty Font 
          Name            =   "Segoe UI"
@@ -2357,6 +2378,7 @@ Option Explicit '733 Zeilen 'halt nur 397 Zeilen, jetzt in Res mehr
 Private mSudoku As SudokuGame
 Private mUndoRedo As SGUndoRedo
 Private mn As Long
+Private mLast As Long   'the cell last entered, for the number pad
 Private mRandomGames As New RandomGames
 
 Private Sub BtnInfo_Click()
@@ -2447,6 +2469,7 @@ Private Sub Form_Load()
   ThemeApply Me
   'App.HelpFile = App.Path & "\" & "SuMBOku.hlp"
   ModernLayout
+  ScaleToScreen
   Set mSudoku = New SudokuGame
   Set mUndoRedo = New SGUndoRedo
   mn = 3
@@ -2478,7 +2501,7 @@ Dim i As Long
   Next c
   ThemeCard shpTop, shpTopS1, shpTopS2, Tw(80), Tw(90), Tw(4655), Tw(1110), 1
   ThemeCard shpGrid, shpGridS1, shpGridS2, Tw(80), Tw(1360), Tw(4655), Tw(4760), 1
-  ThemeCard shpBot, shpBotS1, shpBotS2, Tw(80), Tw(6290), Tw(4655), Tw(1300), 1
+  ThemeCard shpBot, shpBotS1, shpBotS2, Tw(80), Tw(6290), Tw(4655), Tw(2000), 1
   For i = 0 To 8
     shpBlock(i).Left = Tw(120 + (i Mod 3) * 1560 - 45)
     shpBlock(i).Top = Tw(840 + 640 + (i \ 3) * 1560 - 45)
@@ -2505,13 +2528,23 @@ Dim i As Long
   RndExample.Move Tw(240), Tw(650), Tw(2000), Tw(450)
   BtnInfo.Move Tw(2300), Tw(650), Tw(800), Tw(450)
   BtnOptions.Move Tw(3160), Tw(650), Tw(1400), Tw(450)
-  BtnClear.Move Tw(160), Tw(6380), Tw(1450), Tw(520)
-  BtnSolve.Move Tw(1670), Tw(6380), Tw(1550), Tw(520)
-  BtnExit.Move Tw(3280), Tw(6380), Tw(1400), Tw(520)
-  BtnUndo.Move Tw(160), Tw(7020), Tw(1050), Tw(520)
-  BtnRedo.Move Tw(1270), Tw(7020), Tw(1050), Tw(520)
-  BtnOpen.Move Tw(2380), Tw(7020), Tw(1050), Tw(520)
-  BtnSave.Move Tw(3490), Tw(7020), Tw(1050), Tw(520)
+  ' a number pad for fingers: 1 to 9 and a key that clears the cell
+  For i = 0 To 9
+    If i > 0 Then Load BtnPad(i)
+    BtnPad(i).Move Tw(160 + ((i + 9) Mod 10) * 454), Tw(6380), Tw(434), Tw(520)
+    BtnPad(i).Caption = IIf(i = 0, "<", CStr(i))
+    BtnPad(i).BackColor = ThAccent
+    BtnPad(i).Font.Name = ThFontName
+    BtnPad(i).Font.Size = ThFontSize
+    BtnPad(i).Font.Bold = True
+    BtnPad(i).Visible = True
+  Next i
+  BtnClear.Move Tw(160), Tw(7020), Tw(1450), Tw(520)
+  BtnSolve.Move Tw(1695), Tw(7020), Tw(1450), Tw(520)
+  BtnUndo.Move Tw(3230), Tw(7020), Tw(1450), Tw(520)
+  BtnRedo.Move Tw(160), Tw(7660), Tw(1450), Tw(520)
+  BtnOpen.Move Tw(1695), Tw(7660), Tw(1450), Tw(520)
+  BtnSave.Move Tw(3230), Tw(7660), Tw(1450), Tw(520)
   BtnUndo.Caption = Loc("main.undo")
   BtnRedo.Caption = Loc("main.redo")
   BtnOpen.Caption = Loc("main.open")
@@ -3212,3 +3245,77 @@ End Sub
 '  Call SetLevel(4)
 '  UpdateLabelSudoku
 'End Sub
+
+' Remembers the cell the player is in, for the number pad.
+Private Sub TxtSudoku_GotFocus(Index As Integer)
+  mLast = Index
+End Sub
+
+' A pad key enters its digit in the last cell, or clears it.
+Private Sub BtnPad_Click(Index As Integer)
+Dim c As Integer
+  c = mLast
+  If c < 1 Then c = 1
+  If Index = 0 Then
+    TxtSudoku(c).Text = ""
+  Else
+    TxtSudoku(c).Text = CStr(Index)
+  End If
+  TxtSudoku_KeyUp c, 0, 0
+  TxtSudoku(c).SetFocus
+End Sub
+
+' Makes the form fill the screen and the game grow to fit it: every control
+' and its text is scaled and centered. The way out is an X in the upper right
+' corner, big enough for a finger.
+Private Sub ScaleToScreen()
+Dim c As Control, f As Single
+Dim x0 As Single, y0 As Single, x1 As Single, y1 As Single
+Dim l As Single, t As Single, w As Single, h As Single
+Dim dx As Single, dy As Single, side As Single
+  x0 = 1E+30: y0 = 1E+30: x1 = -1E+30: y1 = -1E+30
+  On Error Resume Next
+  BtnExit.Visible = False
+  For Each c In Controls
+    w = 0: h = 0
+    l = c.Left: t = c.Top: w = c.Width: h = c.Height
+    If w > 0 And h > 0 And c.Visible Then
+      If l < x0 Then x0 = l
+      If t < y0 Then y0 = t
+      If l + w > x1 Then x1 = l + w
+      If t + h > y1 Then y1 = t + h
+    End If
+  Next c
+  BtnExit.Visible = True
+  If x1 < x0 Then Exit Sub
+  ThemeFullScreen Me
+  f = ScaleWidth * 0.94 / (x1 - x0)
+  If ScaleHeight * 0.94 / (y1 - y0) < f Then f = ScaleHeight * 0.94 / (y1 - y0)
+  dx = (ScaleWidth - (x1 - x0) * f) / 2 - x0 * f
+  dy = (ScaleHeight - (y1 - y0) * f) / 2 - y0 * f
+  For Each c In Controls
+    If TypeName(c) = "Image" Then c.Stretch = True
+    w = 0: h = 0
+    l = c.Left: t = c.Top: w = c.Width: h = c.Height
+    If w > 0 And h > 0 Then
+      c.Width = w * f
+      c.Height = h * f
+      c.Left = l * f + dx
+      c.Top = t * f + dy
+    End If
+    Select Case TypeName(c)
+    Case "Label", "CommandButton", "TextBox"
+      c.Font.Size = c.Font.Size * f
+    End Select
+  Next c
+  ThemeFitAll Me
+  side = ScaleHeight * 0.07
+  BtnExit.Caption = "X"
+  BtnExit.BackColor = ThBad
+  BtnExit.Width = side
+  BtnExit.Height = side
+  BtnExit.Left = ScaleWidth - side - side / 4
+  BtnExit.Top = side / 4
+  BtnExit.Font.Size = side * 0.35
+  BtnExit.Font.Bold = True
+End Sub
