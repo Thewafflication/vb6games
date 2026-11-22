@@ -161,22 +161,27 @@ Private Sub Form_Load()
   Image1.Height = ah
   Image1.Visible = True
   ThemeCardEx shpArt, shpArtS1, shpArtS2, al - 4, at - 4, aw + 8, ah + 8, 1, &HFFFFFF, &H69450E, &H28AAD6, &H38C6E8
+  ' The text grows with the screen: u is one 640th of its height.
+  Dim u As Single
+  u = sh / 640
+  Label1.Font.Size = 16 * u
+  Label2.Font.Size = 11 * u
+  Command1.Font.Size = 11 * u
   Label1.Alignment = 2
   Label1.Left = 0
   Label1.Width = sw
-  Label1.Top = at + ah + 14
-  Label1.Height = 20
-  Label1.Font.Size = 16
+  Label1.Top = at + ah + 8 * u
+  Label1.Height = 40 * u
   Label2.Alignment = 2
   Label2.Left = 0
   Label2.Width = sw
-  Label2.Top = at + ah + 38
-  Label2.Height = 20
+  Label2.Top = Label1.Top + Label1.Height
+  Label2.Height = 28 * u
   Label2.ForeColor = &H69450E
-  Command1.Width = 100
-  Command1.Height = 36
+  Command1.Width = 120 * u
+  Command1.Height = 40 * u
   Command1.Left = (sw - Command1.Width) / 2
-  Command1.Top = at + ah + 70
+  Command1.Top = Label2.Top + Label2.Height + 12 * u
   Load Form1
 End Sub
 

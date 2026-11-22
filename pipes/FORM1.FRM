@@ -1592,11 +1592,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-  Dim tb, lb As Integer   'board top left coords
+  Dim tb As Single, lb As Single   'board top left coords
+  Dim dragging As Boolean  'a piece is being dragged from the palette
   Dim yy As Integer
   Dim irow, orow As Integer 'in and out rows
-  Dim si As Integer       'icon size
-  Dim sb As Integer       'size of board
+  Dim si As Single        'icon size
+  Dim sb As Single        'size of board
   Dim wt As Integer       'top layer of water
   Dim np As Integer       'no of selected piece
   Dim nb As Integer       'no of board square
@@ -1627,6 +1628,7 @@ End Sub
 
 Private Sub Board_MouseDown(index As Integer, button As Integer, Shift As Integer, x As Single, y As Single)
   Dim i, a, t, b, l, r As Integer
+  dragging = False
   a = 0
   If button = 1 And brdarray(index).available Then
     If np = -1 Then
@@ -1739,9 +1741,10 @@ Private Sub Board_MouseDown(index As Integer, button As Integer, Shift As Intege
       yy = True 'we have just connected to out so record it incase there are still loose ends to connect
       End If
       If yy = True And xx = False Then 'is source connected to drain and no loose ends?
-      Form1.Hide
+      Timer1.Enabled = False
       MsgBox Loc("msg.win")
-      End
+      NewGame
+      Exit Sub
       End If
      End If
     End If
@@ -1750,43 +1753,42 @@ Private Sub Board_MouseDown(index As Integer, button As Integer, Shift As Intege
   End If
 End Sub
 
-Private Sub Board_MouseMove(index As Integer, button As Integer, Shift As Integer, x As Single, y As Single)
+' True when the selected piece fits the board square: its open sides meet the
+' pipes already there.
+Private Function Fits(ByVal index As Integer) As Boolean
   Dim a As Integer
-  nb = index
-     If brdarray(index).side(1).pipe <> 0 Then
-      If brdarray(index).side(1).pipe = piecearray(np).top Then
-       a = a + 1
-      End If
-     Else
-      a = a + 1
-     End If
-     If brdarray(index).side(2).pipe <> 0 Then
-      If brdarray(index).side(2).pipe = piecearray(np).right Then
-       a = a + 1
-      End If
-     Else
-      a = a + 1
-     End If
-     If brdarray(index).side(3).pipe <> 0 Then
-      If brdarray(index).side(3).pipe = piecearray(np).bottom Then
-       a = a + 1
-      End If
-     Else
-      a = a + 1
-     End If
-     If brdarray(index).side(4).pipe <> 0 Then
-      If brdarray(index).side(4).pipe = piecearray(np).left Then
-       a = a + 1
-      End If
-     Else
-      a = a + 1
-     End If
+  Fits = False
+  If np < 0 Then Exit Function
+  If Not brdarray(index).available Then Exit Function
+  a = 0
+  If brdarray(index).side(1).pipe <> 0 Then
+    If brdarray(index).side(1).pipe = piecearray(np).top Then a = a + 1
+  Else
+    a = a + 1
+  End If
+  If brdarray(index).side(2).pipe <> 0 Then
+    If brdarray(index).side(2).pipe = piecearray(np).right Then a = a + 1
+  Else
+    a = a + 1
+  End If
+  If brdarray(index).side(3).pipe <> 0 Then
+    If brdarray(index).side(3).pipe = piecearray(np).bottom Then a = a + 1
+  Else
+    a = a + 1
+  End If
+  If brdarray(index).side(4).pipe <> 0 Then
+    If brdarray(index).side(4).pipe = piecearray(np).left Then a = a + 1
+  Else
+    a = a + 1
+  End If
+  Fits = (a = 4)
+End Function
 
-  current.Visible = (brdarray(index).available) And (a = 4)
+Private Sub Board_MouseMove(index As Integer, button As Integer, Shift As Integer, x As Single, y As Single)
+  nb = index
+  current.Visible = Fits(index)
   current.left = Board(index).left
   current.top = Board(index).top
-  
-  
 End Sub
 
 Private Sub btnQuit_Click()
@@ -1809,19 +1811,19 @@ Private Sub ApplyLocale()
 End Sub
 
 ' The pictures come in sets of several sizes: the one for this screen.
-Private Sub LoadSprites()
+Private Sub LoadSprites(ByVal box As Single)
   Dim i As Integer
   For i = 0 To 27
     piece(i).BorderStyle = 0
-    piece(i).Picture = LoadPicture(ThSprite("piece" & i, 510))
+    piece(i).Picture = LoadPicture(ThSprite("piece" & i, box))
   Next i
   blank.BorderStyle = 0
-  blank.Picture = LoadPicture(ThSprite("blank", 510))
+  blank.Picture = LoadPicture(ThSprite("blank", box))
   current.Picture = blank.Picture
-  out(1).Picture = LoadPicture(ThSprite("stub", 510))
-  out(0).Picture = LoadPicture(ThSprite("arrow", 510))
-  inx(0).Picture = LoadPicture(ThSprite("stub", 510))
-  inx(1).Picture = LoadPicture(ThSprite("arrow", 510))
+  out(1).Picture = LoadPicture(ThSprite("stub", box))
+  out(0).Picture = LoadPicture(ThSprite("arrow", box))
+  inx(0).Picture = LoadPicture(ThSprite("stub", box))
+  inx(1).Picture = LoadPicture(ThSprite("arrow", box))
 End Sub
 
 Private Sub Form_Load()
@@ -1830,7 +1832,7 @@ Private Sub Form_Load()
   BackColor = PageY
   lblTitle.BackColor = PageY
   btnQuit.BackColor = WaterC
-  LoadSprites
+  LoadSprites 510
   Dim shp As Control
   For Each shp In Controls
     If TypeName(shp) = "Line" Then shp.BorderColor = CellLine
@@ -1963,6 +1965,7 @@ Private Sub Form_Load()
   inx(1).left = lb + si * 7
   inx(0).top = inx(1).top
   inx(0).left = inx(1).left - si
+  ScaleToScreen
 
   ' update info for adjacent squares
 
@@ -2128,6 +2131,7 @@ Private Sub piece_MouseDown(index As Integer, button As Integer, Shift As Intege
     
   nb = -1          ' not on board
   current.Visible = False
+  dragging = (button = 1)
   If button > 0 Then
     np = index
     current.Picture = piece(index).Picture
@@ -2156,10 +2160,135 @@ Private Sub Timer1_Timer()
     Water(wt).FillColor = WaterC
     wt = wt - 1
   Else
-    enable = False
-    Form1.Hide
+    Timer1.Enabled = False
     MsgBox Loc("msg.lose")
-    End
+    NewGame
   End If
 End Sub
 
+' While a piece is dragged over the palette it is over no square.
+Private Sub piece_MouseMove(index As Integer, button As Integer, Shift As Integer, x As Single, y As Single)
+  nb = -1
+  current.Visible = False
+End Sub
+
+' Releasing a dragged piece over a square it fits puts it there; the square
+' under the pointer is the one the last MouseMove over the board named.
+Private Sub piece_MouseUp(index As Integer, button As Integer, Shift As Integer, x As Single, y As Single)
+  If dragging And button = 1 Then
+    dragging = False
+    If nb >= 0 Then
+      If Fits(nb) Then Board_MouseDown nb, 1, 0, 0, 0
+    End If
+  End If
+End Sub
+
+' Makes the form fill the screen and the game grow to fit it: every control
+' is scaled and centered, the sprites are those of the new size, and the
+' board's own measures follow.
+Private Sub ScaleToScreen()
+  Dim c As Control, f As Single, n As Integer
+  Dim x0 As Single, y0 As Single, x1 As Single, y1 As Single
+  Dim l As Single, t As Single, w As Single, h As Single
+  Dim dx As Single, dy As Single
+  x0 = 1E+30: y0 = 1E+30: x1 = -1E+30: y1 = -1E+30
+  On Error Resume Next
+  For Each c In Controls
+    w = 0: h = 0
+    l = c.Left: t = c.Top: w = c.Width: h = c.Height
+    If w > 0 And h > 0 And c.Visible Then
+      If l < x0 Then x0 = l
+      If t < y0 Then y0 = t
+      If l + w > x1 Then x1 = l + w
+      If t + h > y1 Then y1 = t + h
+    End If
+  Next c
+  If x1 < x0 Then Exit Sub
+  ThemeFullScreen Me
+  f = ScaleWidth * 0.94 / (x1 - x0)
+  If ScaleHeight * 0.94 / (y1 - y0) < f Then f = ScaleHeight * 0.94 / (y1 - y0)
+  dx = (ScaleWidth - (x1 - x0) * f) / 2 - x0 * f
+  dy = (ScaleHeight - (y1 - y0) * f) / 2 - y0 * f
+  For Each c In Controls
+    If TypeName(c) = "Line" Then
+      c.X1 = c.X1 * f + dx
+      c.Y1 = c.Y1 * f + dy
+      c.X2 = c.X2 * f + dx
+      c.Y2 = c.Y2 * f + dy
+    Else
+      If TypeName(c) = "Image" Then c.Stretch = True
+      w = 0: h = 0
+      l = c.Left: t = c.Top: w = c.Width: h = c.Height
+      If w > 0 And h > 0 Then
+        c.Width = w * f
+        c.Height = h * f
+        c.Left = l * f + dx
+        c.Top = t * f + dy
+      End If
+    End If
+  Next c
+  lblTitle.Font.Size = 26 * f
+  btnQuit.Font.Size = 11 * f
+  tb = Board(0).Top
+  lb = Board(0).Left
+  si = Board(0).Width
+  sb = si * 6
+  LoadSprites 510 * f
+  For n = 0 To 35
+    Board(n).Picture = blank.Picture
+  Next n
+End Sub
+
+' Starts another game after a win or a loss: an empty board, the water back
+' at the top, and the inlet and outlet at new rows.
+Private Sub NewGame()
+  Dim i As Integer, k As Integer, n As Integer
+  For n = 0 To 35
+    Board(n).Picture = blank.Picture
+    Board(n).Visible = True
+    brdarray(n).pieceno = -1
+    For k = 1 To 4
+      brdarray(n).side(k).edge = False
+      brdarray(n).side(k).empty = True
+      brdarray(n).side(k).pipe = 0
+    Next k
+    brdarray(n).available = False
+    pipearray(n) = False
+  Next n
+  For i = 0 To 5
+    brdarray(i).side(1).edge = True
+    brdarray(i).side(1).pipe = -1
+    brdarray(i * 6 + 5).side(2).edge = True
+    brdarray(i * 6 + 5).side(2).pipe = -1
+    brdarray(i + 30).side(3).edge = True
+    brdarray(i + 30).side(3).pipe = -1
+    brdarray(i * 6).side(4).edge = True
+    brdarray(i * 6).side(4).pipe = -1
+  Next i
+  orow = Int(Rnd * 6)
+  irow = Int(Rnd * 6)
+  out(1).top = tb + orow * si
+  out(1).left = lb - si
+  out(0).top = out(1).top
+  out(0).left = out(1).left - si / 2
+  inx(1).top = tb + irow * si
+  inx(1).left = lb + si * 7
+  inx(0).top = inx(1).top
+  inx(0).left = inx(1).left - si
+  i = orow * 6
+  brdarray(i).side(4).pipe = 1
+  brdarray(i).side(4).edge = False
+  i = irow * 6 + 5
+  brdarray(i).available = True
+  brdarray(i).side(2).pipe = 1
+  brdarray(i).side(2).edge = False
+  For i = 0 To 47
+    Water(i).FillColor = CellC
+  Next i
+  wt = 47
+  yy = 0
+  nb = -1
+  dragging = False
+  current.Visible = False
+  Timer1.Enabled = True
+End Sub
