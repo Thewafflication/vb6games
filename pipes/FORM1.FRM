@@ -1594,6 +1594,8 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
   Dim tb As Single, lb As Single   'board top left coords
   Dim dragging As Boolean  'a piece is being dragged from the palette
+  Dim wasSel As Boolean    'the pressed piece was already the selected one
+  Dim downX As Single, downY As Single  'where the press was on the piece
   Dim yy As Integer
   Dim irow, orow As Integer 'in and out rows
   Dim si As Single        'icon size
@@ -1807,7 +1809,6 @@ End Sub
 Private Sub ApplyLocale()
   If LocLanguage = "en" Then Exit Sub
   Caption = Loc("app.title")
-  btnQuit.Caption = Loc("button.quit")
 End Sub
 
 ' The pictures come in sets of several sizes: the one for this screen.
@@ -2132,6 +2133,9 @@ Private Sub piece_MouseDown(index As Integer, button As Integer, Shift As Intege
   nb = -1          ' not on board
   current.Visible = False
   dragging = (button = 1)
+  wasSel = (button = 1 And np = index And boxcurrent.top = piece(index).top And boxcurrent.left = piece(index).left)
+  downX = x
+  downY = y
   If button > 0 Then
     np = index
     current.Picture = piece(index).Picture
@@ -2172,13 +2176,37 @@ Private Sub piece_MouseMove(index As Integer, button As Integer, Shift As Intege
   current.Visible = False
 End Sub
 
-' Releasing a dragged piece over a square it fits puts it there; the square
-' under the pointer is the one the last MouseMove over the board named.
+' The board square nearest a point that the selected piece fits, or -1 when
+' none is within three quarters of a square (a finger covers what it points at).
+Private Function CellNear(ByVal fx As Single, ByVal fy As Single) As Integer
+  Dim i As Integer, d As Single, best As Single, dx As Single, dy As Single
+  CellNear = -1
+  best = si * 0.75
+  For i = 0 To 35
+    If Fits(i) Then
+      dx = Abs(fx - (Board(i).left + Board(i).Width / 2))
+      dy = Abs(fy - (Board(i).top + Board(i).Height / 2))
+      d = dx
+      If dy > d Then d = dy
+      If d < best Then
+        best = d
+        CellNear = i
+      End If
+    End If
+  Next i
+End Function
+
+' Releasing a dragged piece puts it on the square it fits nearest the point of
+' release. A tap on the piece that is already selected turns it.
 Private Sub piece_MouseUp(index As Integer, button As Integer, Shift As Integer, x As Single, y As Single)
+  Dim c As Integer
   If dragging And button = 1 Then
     dragging = False
-    If nb >= 0 Then
-      If Fits(nb) Then Board_MouseDown nb, 1, 0, 0, 0
+    c = CellNear(piece(index).left + x, piece(index).top + y)
+    If c >= 0 Then
+      Board_MouseDown c, 1, 0, 0, 0
+    ElseIf wasSel And Abs(x - downX) < si / 4 And Abs(y - downY) < si / 4 Then
+      rotatepiece
     End If
   End If
 End Sub
@@ -2193,6 +2221,7 @@ Private Sub ScaleToScreen()
   Dim dx As Single, dy As Single
   x0 = 1E+30: y0 = 1E+30: x1 = -1E+30: y1 = -1E+30
   On Error Resume Next
+  btnQuit.Visible = False
   For Each c In Controls
     w = 0: h = 0
     l = c.Left: t = c.Top: w = c.Width: h = c.Height
@@ -2203,6 +2232,7 @@ Private Sub ScaleToScreen()
       If t + h > y1 Then y1 = t + h
     End If
   Next c
+  btnQuit.Visible = True
   If x1 < x0 Then Exit Sub
   ThemeFullScreen Me
   f = ScaleWidth * 0.94 / (x1 - x0)
@@ -2228,7 +2258,17 @@ Private Sub ScaleToScreen()
     End If
   Next c
   lblTitle.Font.Size = 26 * f
-  btnQuit.Font.Size = 11 * f
+  ' the way out is an X in the upper right corner, big enough for a finger
+  Dim side As Single
+  side = ScaleHeight * 0.07
+  btnQuit.Caption = "X"
+  btnQuit.BackColor = &H7A7AF0
+  btnQuit.Width = side
+  btnQuit.Height = side
+  btnQuit.Left = ScaleWidth - side - side / 4
+  btnQuit.Top = side / 4
+  btnQuit.Font.Size = side * 0.35
+  btnQuit.Font.Bold = True
   tb = Board(0).Top
   lb = Board(0).Left
   si = Board(0).Width
